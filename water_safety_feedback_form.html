@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Feedback Form | Swim &amp; Water Safety Teaching Suite</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy:   #003554;
+    --ocean:  #006494;
+    --sky:    #0582CA;
+    --foam:   #00A6FB;
+    --teal:   #00695c;
+    --sage:   #2e7d32;
+    --amber:  #b45309;
+    --alert:  #c62828;
+    --gold:   #f4c842;
+    --bg:     #f0f7ff;
+    --card:   #ffffff;
+    --border: #c0d8ee;
+    --text:   #002b40;
+    --muted:  #3a6a8a;
+    --ease:   cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  body {
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── SKIP NAV ── */
+  .skip-nav {
+    position: absolute; top: -100px; left: 8px;
+    background: var(--navy); color: #fff;
+    padding: 8px 18px; border-radius: 0 0 8px 8px;
+    font-size: 0.9rem; font-weight: 700; text-decoration: none;
+    z-index: 9999; transition: top 0.2s;
+  }
+  .skip-nav:focus { top: 0; outline: 3px solid var(--gold); }
+  :focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; border-radius: 3px; }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #002030 0%, #003554 50%, #006494 100%);
+    color: #fff;
+    padding: 36px 44px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(5,130,202,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0; height: 40px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40'%3E%3Cpath fill='%23f0f7ff' d='M0,20 Q360,40 720,20 Q1080,0 1440,20 L1440,40 L0,40Z'/%3E%3C/svg%3E") bottom/cover no-repeat;
+  }
+  .h-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 4px; padding: 4px 14px; display: inline-block; margin-bottom: 12px;
+  }
+  .header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 800; line-height: 1.1; margin-bottom: 6px;
+  }
+  .header p { font-size: 0.92rem; opacity: 0.82; max-width: 580px; }
+
+  /* ── MAIN ── */
+  .main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 36px 22px 60px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 36px 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--ocean);
+  }
+  .section-header:first-of-type { margin-top: 0; }
+  .sec-num {
+    background: var(--navy);
+    color: #fff;
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800; font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--navy);
+  }
+
+  /* ── INTRO BOX ── */
+  .intro-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--ocean);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .intro-box strong { color: var(--navy); }
+
+  /* ── FORM ELEMENTS ── */
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .field .hint {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 6px;
+    display: block;
+  }
+  .opt-label {
+    font-size: 0.78rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    width: 100%;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 13px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: #fafcff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--sky);
+    box-shadow: 0 0 0 3px rgba(5,130,202,0.12);
+    background: #fff;
+  }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233a6a8a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+  textarea { resize: vertical; min-height: 90px; }
+
+  /* ── TWO COL GRID ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  /* ── RADIO / CHECKBOX GROUPS ── */
+  .radio-group, .check-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .radio-group.inline, .check-group.inline {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+  }
+  .radio-opt, .check-opt {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+  .radio-opt input[type="radio"],
+  .check-opt input[type="checkbox"] {
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    flex-shrink: 0;
+    accent-color: var(--ocean);
+    cursor: pointer;
+  }
+  .radio-opt input[type="radio"] { border-radius: 50%; }
+
+  /* ── LIKERT SCALE ── */
+  .likert-block { margin-bottom: 20px; }
+  .likert-item { margin-bottom: 14px; }
+  .likert-item .likert-q {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 7px;
+  }
+  .likert-scale {
+    display: flex;
+    gap: 6px;
+    align-items: stretch;
+  }
+  .likert-anchor {
+    font-size: 0.72rem;
+    color: var(--muted);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    max-width: 90px;
+    line-height: 1.2;
+  }
+  .likert-anchor.right { text-align: right; }
+  .likert-btns {
+    display: flex;
+    gap: 6px;
+    flex: 1;
+    justify-content: center;
+  }
+  .likert-btn {
+    flex: 1;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    background: #fafcff;
+    cursor: pointer;
+    padding: 8px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    transition: all 0.15s;
+    min-width: 44px;
+  }
+  .likert-btn:hover { border-color: var(--sky); background: #e8f4ff; }
+  .likert-btn.selected {
+    background: var(--ocean);
+    border-color: var(--ocean);
+    color: #fff;
+  }
+  .likert-btn .l-num {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+  }
+  .likert-btn.selected .l-num { color: #fff; }
+  .likert-btn .l-label {
+    font-size: 0.6rem;
+    text-align: center;
+    line-height: 1.2;
+    color: var(--muted);
+  }
+  .likert-btn.selected .l-label { color: rgba(255,255,255,0.8); }
+  .likert-na {
+    font-size: 0.75rem;
+    color: var(--muted);
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+  .likert-na:hover { border-color: var(--muted); }
+  .likert-na.selected { background: var(--muted); color: #fff; border-color: var(--muted); }
+  .likert-comment {
+    margin-top: 6px;
+  }
+  .likert-comment textarea {
+    min-height: 52px;
+    font-size: 0.84rem;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,50,100,0.04);
+  }
+  .card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--ocean);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ── RESOURCE TABS ── */
+  .resource-type-tabs {
+    display: flex;
+    gap: 4px;
+    background: #d0e8f5;
+    border-radius: 10px;
+    padding: 4px;
+    margin-bottom: 18px;
+  }
+  .rt-tab {
+    flex: 1;
+    padding: 9px;
+    border: none;
+    border-radius: 7px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.84rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    color: var(--muted);
+    transition: all 0.15s;
+    text-align: center;
+  }
+  .rt-tab.active {
+    background: var(--card);
+    color: var(--ocean);
+    box-shadow: 0 2px 6px rgba(0,100,148,0.1);
+  }
+  .rt-pane { display: none; }
+  .rt-pane.active { display: block; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+
+  /* ── SUBMIT ── */
+  .submit-area {
+    background: linear-gradient(135deg, var(--navy), var(--ocean));
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-top: 32px;
+    text-align: center;
+  }
+  .submit-area p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 16px;
+  }
+  .submit-area p strong { color: #fff; }
+  .submit-btn {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    border-radius: 40px;
+    padding: 14px 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 4px 18px rgba(244,200,66,0.35);
+  }
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(244,200,66,0.5);
+    background: #ffe066;
+  }
+  .submit-btn:active { transform: translateY(0); }
+
+  /* ── SUCCESS BANNER ── */
+  .success-banner {
+    display: none;
+    background: #e8f5e9;
+    border: 2px solid #66bb6a;
+    border-radius: 12px;
+    padding: 20px 24px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .success-banner h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: var(--sage);
+    margin-bottom: 6px;
+  }
+  .success-banner p { font-size: 0.88rem; color: #1a3a22; }
+
+  /* ── PROGRESS BAR ── */
+  .progress-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .progress-track {
+    flex: 1;
+    height: 6px;
+    background: #d0e8f5;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--ocean), var(--foam));
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.4s var(--ease);
+  }
+  .progress-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* ── REQUIRED INDICATOR ── */
+  .req { color: var(--alert); margin-left: 2px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    padding: 16px 44px;
+    font-size: 0.76rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  footer a { color: rgba(255,255,255,0.6); }
+
+  @media (max-width: 600px) {
+    .header { padding: 26px 18px 42px; }
+    .main { padding: 24px 14px 48px; }
+    .two-col { grid-template-columns: 1fr; }
+    .likert-scale { flex-wrap: wrap; }
+    .resource-type-tabs { flex-direction: column; }
+    .likert-anchor { display: none; }
+  }
+
+  @media print {
+    .progress-wrap, .submit-area, footer { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="h-tag">Resource Evaluation Form</div>
+  <h1>💧 Swim &amp; Water Safety<br>Teaching Resource — Feedback Form</h1>
+  <p>Your feedback helps improve this resource suite for teachers and students across Victoria. All responses are welcomed — the form can be submitted at any stage regardless of how many questions you complete.</p>
+</header>
+
+<!-- PROGRESS BAR -->
+<div class="progress-wrap" role="complementary" aria-label="Form completion progress">
+  <div class="progress-track">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+  <span class="progress-label" id="progress-label">0% complete</span>
+</div>
+
+<div id="main-content" tabindex="-1" style="outline:none;"></div>
+
+<main class="main">
+
+  <div class="intro-box">
+    <strong>About this form:</strong> This feedback form is for teachers, pre-service teachers, students, parents, and other users of the Swim &amp; Water Safety teaching resource suite. Responses are sent directly to the resource author. All fields are optional — please share as much or as little as you feel comfortable providing. Your feedback genuinely shapes future improvements.
+  </div>
+
+  <form id="feedback-form" novalidate>
+
+    <!-- ══ SECTION 1: ABOUT YOU ══ -->
+    <div class="section-header">
+      <div class="sec-num">1</div>
+      <h2>About You</h2>
+    </div>
+
+    <div class="card">
+      <div class="two-col">
+        <div class="field">
+          <label for="f-name">Your name <span class="hint" style="display:inline;">(optional)</span></label>
+          <input type="text" id="f-name" name="submitter_name" placeholder="First and last name" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="f-role">Your role <span class="req" aria-label="recommended">*</span></label>
+          <select id="f-role" name="submitter_role">
+            <option value="">— Select your role —</option>
+            <option>Classroom teacher</option>
+            <option>Pre-service teacher</option>
+            <option>Head of Department / Curriculum leader</option>
+            <option>School administrator / Principal</option>
+            <option>Student</option>
+            <option>Parent / Carer</option>
+            <option>Sports coach / Trainer</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-email">Email address <span class="hint" style="display:inline;">(optional)</span></label>
+          <input type="email" id="f-email" name="submitter_email" placeholder="your@email.com" autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone number <span class="hint" style="display:inline;">(optional)</span></label>
+          <input type="tel" id="f-phone" name="submitter_phone" placeholder="e.g. 0400 000 000" autocomplete="tel">
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="two-col">
+        <div class="field">
+          <label for="f-school-type">School / institution type</label>
+          <select id="f-school-type" name="school_type">
+            <option value="">— Select —</option>
+            <option>Government / State school</option>
+            <option>Catholic school</option>
+            <option>Independent school</option>
+            <option>TAFE / Vocational education</option>
+            <option>University / Higher education</option>
+            <option>Not applicable</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-location">School location <span class="hint" style="display:inline;">(optional)</span></label>
+          <input type="text" id="f-location" name="school_location" placeholder="e.g. Melbourne CBD, Ballarat, Regional Vic">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-year-levels">Year level(s) you used the resource with</label>
+        <select id="f-year-levels" name="year_levels">
+          <option value="">— Select —</option>
+          <option>Year 7</option>
+          <option>Year 7–8</option>
+          <option>Year 8</option>
+          <option>Year 9</option>
+          <option>Year 9–10</option>
+          <option>Year 10</option>
+          <option>Mixed year levels</option>
+          <option>Used for planning / review only — not used with students yet</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ══ SECTION 2: RESOURCE USED ══ -->
+    <div class="section-header">
+      <div class="sec-num">2</div>
+      <h2>Resource(s) Used</h2>
+    </div>
+
+    <div class="card">
+      <div class="field">
+        <label for="f-resource-name">Which resource(s) are you providing feedback on?</label>
+        <span class="hint">Select a specific resource, or choose "General feedback — whole suite" to comment on the package overall. You can name a specific file or describe which resource you used.</span>
+        <select id="f-resource-name" name="resource_name">
+          <option value="">— Select a resource —</option>
+          <optgroup label="Year 7–8 — Core Resources">
+            <option>Student Workbook (swim_safety_student_workbook.html / .pdf)</option>
+            <option>Teacher Workbook &amp; Resource Guide (swim_safety_teacher_workbook.html / .pdf)</option>
+            <option>Simplified / Scaffolded Student Workbook (swim_safety_workbook_simplified.html / .pdf)</option>
+            <option>Extension / Enrichment Student Workbook (swim_safety_workbook_extension.html / .pdf)</option>
+            <option>Lesson Outline — Year 7 (swim_safety_lesson_outline_year7.html)</option>
+            <option>Print-Optimised Student Workbook (swim_safety_student_workbook_PRINT.html)</option>
+          </optgroup>
+          <optgroup label="Year 7–8 — Classroom Materials">
+            <option>Poster Pack — 4 A3 Posters (swim_safety_poster_pack.html)</option>
+            <option>Scenario Activity Cards (water_safety_scenario_cards.html)</option>
+            <option>Quiz Question Bank — Kahoot / Quizlet (water_safety_quiz_question_bank.html)</option>
+          </optgroup>
+          <optgroup label="Year 7–8 — Teacher Tools">
+            <option>Assessment Gradebook (water_safety_assessment_gradebook.html)</option>
+            <option>Resource Directory (water_safety_resource_directory.html)</option>
+            <option>Relief / Substitute Teacher Pack (water_safety_relief_teacher_pack.html)</option>
+            <option>Swimming Carnival Safety Briefing (swimming_carnival_safety_briefing.html)</option>
+            <option>Excursion Risk Management Template (water_safety_excursion_risk_management.html)</option>
+          </optgroup>
+          <optgroup label="Year 9–10 — Advanced Unit">
+            <option>Year 9–10 Advanced Student Workbook (advanced_water_safety_year910_workbook.html)</option>
+            <option>Year 9–10 Teacher Resource Guide (advanced_water_safety_year910_teacher.html / .pdf)</option>
+          </optgroup>
+          <optgroup label="Practical &amp; Digital">
+            <option>Pool-Based Practical Companion Unit (pool_practical_companion_unit.html)</option>
+            <option>Student Digital Portfolio (student_digital_portfolio.html)</option>
+          </optgroup>
+          <optgroup label="Community &amp; Family">
+            <option>Parent / Family Information Sheet — Multilingual (water_safety_parent_info_multilingual.html)</option>
+          </optgroup>
+          <optgroup label="General">
+            <option>General feedback — whole suite / multiple resources</option>
+            <option>Other (describe below)</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="f-resource-other">If 'Other' or not listed, please describe the resource here:</label>
+        <input type="text" id="f-resource-other" name="resource_other" placeholder="e.g. 'the rip current diagram in Section 2'">
+      </div>
+
+      <div class="field">
+        <label>How did you use this resource?</label>
+        <div class="check-group inline" role="group" aria-label="How the resource was used">
+          <label class="check-opt"><input type="checkbox" name="usage[]" value="Full lesson"> <span>Full lesson</span></label>
+          <label class="check-opt"><input type="checkbox" name="usage[]" value="Part of a lesson"> <span>Part of a lesson</span></label>
+          <label class="check-opt"><input type="checkbox" name="usage[]" value="Assessment task"> <span>Assessment task</span></label>
+          <label class="check-opt"><input type="checkbox" name="usage[]" value="Homework / independent study"> <span>Homework / independent study</span></label>
+          <label class="check-opt"><input type="checkbox" name="usage[]" value="Planning and review only"> <span>Planning / review only (not yet used with students)</span></label>
+          <label class="check-opt"><input type="checkbox" name="usage[]" value="Parent communication"> <span>Parent communication</span></label>
+          <label class="check-opt"><input type="checkbox" name="usage[]" value="Professional learning"> <span>Professional learning / staff PD</span></label>
+          <label class="check-opt"><input type="checkbox" name="usage[]" value="Other"> <span>Other</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SECTION 3: CURRICULUM ALIGNMENT ══ -->
+    <div class="section-header">
+      <div class="sec-num">3</div>
+      <h2>Curriculum Alignment</h2>
+    </div>
+
+    <div class="card">
+      <div class="field">
+        <label>Does this resource align with your curriculum?</label>
+        <div class="radio-group inline" role="group" aria-label="Curriculum alignment">
+          <label class="radio-opt"><input type="radio" name="curriculum_align" value="Yes"> <span>Yes</span></label>
+          <label class="radio-opt"><input type="radio" name="curriculum_align" value="Partially"> <span>Partially</span></label>
+          <label class="radio-opt"><input type="radio" name="curriculum_align" value="No"> <span>No</span></label>
+          <label class="radio-opt"><input type="radio" name="curriculum_align" value="Unsure"> <span>Unsure</span></label>
+          <label class="radio-opt"><input type="radio" name="curriculum_align" value="Not applicable"> <span>Not applicable</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-curriculum-name">If Yes or Partially — which curriculum or framework does it align to?</label>
+        <input type="text" id="f-curriculum-name" name="curriculum_name" placeholder="e.g. Victorian Curriculum 2.0, ACARA, NSW Syllabus, IB…">
+      </div>
+
+      <div class="field">
+        <label for="f-curriculum-comments">Comments on curriculum alignment or gaps:</label>
+        <span class="hint">For example, which content descriptions it addresses, or where you found mismatches.</span>
+        <textarea id="f-curriculum-comments" name="curriculum_comments" placeholder="Share your thoughts on how well the content matches your curriculum requirements…"></textarea>
+      </div>
+    </div>
+
+    <!-- ══ SECTION 4: CONTENT & QUALITY RATINGS ══ -->
+    <div class="section-header">
+      <div class="sec-num">4</div>
+      <h2>Content Quality — Ratings</h2>
+    </div>
+
+    <div class="card">
+      <h3>⭐ Rate each area from 1 (Poor) to 5 (Excellent). Select N/A if not applicable.</h3>
+
+      <div class="likert-block" id="quality-likerts">
+        <!-- JS generates likert rows here -->
+      </div>
+    </div>
+
+    <!-- ══ SECTION 5: RESOURCE-TYPE SPECIFIC ══ -->
+    <div class="section-header">
+      <div class="sec-num">5</div>
+      <h2>Resource-Specific Ratings</h2>
+    </div>
+
+    <div class="card">
+      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:14px;">Select the type of resource you used, then rate the relevant criteria.</p>
+      <div class="resource-type-tabs" role="tablist" aria-label="Resource type">
+        <button type="button" class="rt-tab active" role="tab" aria-selected="true"  aria-controls="rt-online"  onclick="switchRT('online')" >🌐 Online / Digital</button>
+        <button type="button" class="rt-tab"        role="tab" aria-selected="false" aria-controls="rt-print"   onclick="switchRT('print')"  >🖨 Print</button>
+        <button type="button" class="rt-tab"        role="tab" aria-selected="false" aria-controls="rt-both"    onclick="switchRT('both')"   >📋 Both</button>
+      </div>
+
+      <!-- ONLINE -->
+      <div class="rt-pane active" id="rt-online" role="tabpanel">
+        <div class="likert-block" id="online-likerts"></div>
+      </div>
+
+      <!-- PRINT -->
+      <div class="rt-pane" id="rt-print" role="tabpanel">
+        <div class="likert-block" id="print-likerts"></div>
+      </div>
+
+      <!-- BOTH -->
+      <div class="rt-pane" id="rt-both" role="tabpanel">
+        <p style="font-size:0.88rem;color:var(--muted);margin-bottom:14px;">Please complete both sections below.</p>
+        <h3 style="font-family:'Poppins',sans-serif;font-size:0.88rem;color:var(--ocean);margin-bottom:10px;">🌐 Online / Digital</h3>
+        <div class="likert-block" id="both-online-likerts"></div>
+        <h3 style="font-family:'Poppins',sans-serif;font-size:0.88rem;color:var(--ocean);margin:14px 0 10px;">🖨 Print</h3>
+        <div class="likert-block" id="both-print-likerts"></div>
+      </div>
+    </div>
+
+    <!-- ══ SECTION 6: ACCESSIBILITY & INCLUSION ══ -->
+    <div class="section-header">
+      <div class="sec-num">6</div>
+      <h2>Accessibility &amp; Inclusion</h2>
+    </div>
+
+    <div class="card">
+      <div class="field">
+        <label>Are the resource(s) accessible for diverse learners?</label>
+        <div class="radio-group inline" role="group" aria-label="Accessibility for diverse learners">
+          <label class="radio-opt"><input type="radio" name="accessible_general" value="Yes"> <span>Yes</span></label>
+          <label class="radio-opt"><input type="radio" name="accessible_general" value="Somewhat"> <span>Somewhat</span></label>
+          <label class="radio-opt"><input type="radio" name="accessible_general" value="No"> <span>No</span></label>
+          <label class="radio-opt"><input type="radio" name="accessible_general" value="Unsure"> <span>Unsure / Not applicable</span></label>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="field">
+        <label>Do the resources adequately consider the following groups? <span class="hint" style="display:inline;">(tick all that apply)</span></label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin-top:8px;">
+          <div>
+            <span class="opt-label">EAL/D students</span>
+            <div class="radio-group inline" role="group" aria-label="EAL/D consideration">
+              <label class="radio-opt"><input type="radio" name="eal_consider" value="Yes"> <span>Yes</span></label>
+              <label class="radio-opt"><input type="radio" name="eal_consider" value="Somewhat"> <span>Somewhat</span></label>
+              <label class="radio-opt"><input type="radio" name="eal_consider" value="No"> <span>No</span></label>
+            </div>
+          </div>
+          <div>
+            <span class="opt-label">Students with disabilities</span>
+            <div class="radio-group inline" role="group" aria-label="Students with disabilities consideration">
+              <label class="radio-opt"><input type="radio" name="disability_consider" value="Yes"> <span>Yes</span></label>
+              <label class="radio-opt"><input type="radio" name="disability_consider" value="Somewhat"> <span>Somewhat</span></label>
+              <label class="radio-opt"><input type="radio" name="disability_consider" value="No"> <span>No</span></label>
+            </div>
+          </div>
+          <div>
+            <span class="opt-label">Extension opportunities for advanced students</span>
+            <div class="radio-group inline" role="group" aria-label="Extension for advanced students">
+              <label class="radio-opt"><input type="radio" name="extension_consider" value="Yes"> <span>Yes</span></label>
+              <label class="radio-opt"><input type="radio" name="extension_consider" value="Somewhat"> <span>Somewhat</span></label>
+              <label class="radio-opt"><input type="radio" name="extension_consider" value="No"> <span>No</span></label>
+            </div>
+          </div>
+          <div>
+            <span class="opt-label">Students from CALD backgrounds</span>
+            <div class="radio-group inline" role="group" aria-label="CALD students consideration">
+              <label class="radio-opt"><input type="radio" name="cald_consider" value="Yes"> <span>Yes</span></label>
+              <label class="radio-opt"><input type="radio" name="cald_consider" value="Somewhat"> <span>Somewhat</span></label>
+              <label class="radio-opt"><input type="radio" name="cald_consider" value="No"> <span>No</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field" style="margin-top:14px;">
+        <label for="f-access-comments">Comments on accessibility and inclusion:</label>
+        <textarea id="f-access-comments" name="accessibility_comments" placeholder="e.g. What worked well for diverse learners, or what you would suggest to improve accessibility or inclusion…"></textarea>
+      </div>
+    </div>
+
+    <!-- ══ SECTION 7: STUDENT IMPACT ══ -->
+    <div class="section-header">
+      <div class="sec-num">7</div>
+      <h2>Student Impact</h2>
+    </div>
+
+    <div class="card">
+      <h3>📊 Rate each area from 1 (Low) to 5 (High). Select N/A if not applicable.</h3>
+      <div class="likert-block" id="impact-likerts"></div>
+    </div>
+
+    <!-- ══ SECTION 8: TEACHER EXPERIENCE ══ -->
+    <div class="section-header">
+      <div class="sec-num">8</div>
+      <h2>Teacher Experience</h2>
+    </div>
+
+    <div class="card">
+      <h3>🍏 Rate each area from 1 (Difficult/Low) to 5 (Easy/High).</h3>
+      <div class="likert-block" id="teacher-likerts"></div>
+    </div>
+
+    <!-- ══ SECTION 9: GENERAL FEEDBACK ══ -->
+    <div class="section-header">
+      <div class="sec-num">9</div>
+      <h2>General Feedback &amp; Suggestions</h2>
+    </div>
+
+    <div class="card">
+      <div class="field">
+        <label for="f-what-worked">What worked particularly well?</label>
+        <textarea id="f-what-worked" name="what_worked" placeholder="Share what you and your students found most useful, engaging, or effective…"></textarea>
+      </div>
+      <div class="field">
+        <label for="f-improvements">Suggestions for improvement:</label>
+        <textarea id="f-improvements" name="improvements" placeholder="What would you change, add, or remove? Any specific activities, sections or formats that could be improved?"></textarea>
+      </div>
+      <div class="field">
+        <label for="f-additional-topics">Requests for additional topics or resources:</label>
+        <textarea id="f-additional-topics" name="additional_topics" placeholder="e.g. 'A resource on open-water swimming for Year 11', 'A quiz activity for the beach flags section'…"></textarea>
+      </div>
+      <div class="field">
+        <label for="f-anecdote">Observations, anecdotes or examples of student impact:</label>
+        <span class="hint">These stories are valuable — feel free to share a moment where the resource made a difference.</span>
+        <textarea id="f-anecdote" name="anecdote" style="min-height:120px;" placeholder="e.g. 'After the rip current activity, one student told me they'd seen a rip at the beach during the holidays and knew what to do…'"></textarea>
+      </div>
+      <div class="field">
+        <label for="f-other">Any other comments:</label>
+        <textarea id="f-other" name="other_comments" placeholder="Anything else you'd like to share with the resource author…"></textarea>
+      </div>
+    </div>
+
+    <!-- ══ SUBMIT ══ -->
+    <div class="submit-area">
+      <p>Your feedback is sent directly to the resource author at <strong>swimwater.safety@gmail.com</strong>.<br>
+      All fields are optional — please submit whatever you have completed.</p>
+      <button type="submit" class="submit-btn" aria-label="Submit feedback form">
+        <span>📨</span> Submit Feedback
+      </button>
+    </div>
+
+    <div class="success-banner" id="success-banner" role="alert" aria-live="polite">
+      <h3>✅ Thank you for your feedback!</h3>
+      <p>Your response has been submitted to swimwater.safety@gmail.com. Your input will help improve this resource suite for teachers and students across Australia.</p>
+    </div>
+
+  </form>
+
+</main>
+
+<footer>
+  <div>Swim &amp; Water Safety Teaching Resource Suite · Feedback Form · Created by Emilie Harrison</div>
+  <div style="font-family:'DM Mono',monospace;font-size:0.7rem;">swimwater.safety@gmail.com</div>
+</footer>
+
+<script>
+// ── LIKERT SCALE DATA ──────────────────────────────────────────────────────
+const LABELS = ['Poor', 'Fair', 'Good', 'Very Good', 'Excellent'];
+
+const QUALITY_ITEMS = [
+  { id: 'q_accuracy',     q: 'Accuracy of content',                           low: 'Inaccurate', high: 'Highly accurate' },
+  { id: 'q_clarity',      q: 'Clarity of instructions',                       low: 'Confusing', high: 'Very clear' },
+  { id: 'q_appropriate',  q: 'Appropriateness for the year level(s)',          low: 'Too easy/hard', high: 'Well matched' },
+  { id: 'q_engagement',   q: 'Engagement level for students',                 low: 'Low engagement', high: 'Highly engaging' },
+  { id: 'q_diff',         q: 'Differentiation (support for mixed abilities)', low: 'Limited', high: 'Excellent' },
+];
+
+const ONLINE_ITEMS = [
+  { id: 'o_nav',     q: 'Ease of navigation',              low: 'Difficult', high: 'Very easy' },
+  { id: 'o_load',    q: 'Loading speed and accessibility', low: 'Slow/inaccessible', high: 'Fast and accessible' },
+  { id: 'o_compat',  q: 'Compatibility (devices/browsers)', low: 'Many issues', high: 'Works everywhere' },
+];
+
+const PRINT_ITEMS = [
+  { id: 'p_layout',  q: 'Layout clarity',                               low: 'Cluttered/confusing', high: 'Clear and logical' },
+  { id: 'p_read',    q: 'Readability (font size, spacing, colours)',     low: 'Hard to read', high: 'Very readable' },
+  { id: 'p_print',   q: 'Print-friendliness (ink usage, formatting)',   low: 'Wastes ink/paper', high: 'Economical and clean' },
+];
+
+const IMPACT_ITEMS = [
+  { id: 'i_engage',   q: 'Student engagement level',                           low: 'Very low', high: 'Very high' },
+  { id: 'i_learning', q: 'Evidence of learning (observed or assessed)',         low: 'Little evidence', high: 'Strong evidence' },
+  { id: 'i_manage',   q: 'Ease of classroom management when using the resource', low: 'Difficult to manage', high: 'Easy to manage' },
+];
+
+const TEACHER_ITEMS = [
+  { id: 't_prep',    q: 'Ease of preparation for the teacher',                 low: 'Time-consuming', high: 'Quick and easy' },
+  { id: 't_use',     q: 'Ease of use during the lesson',                       low: 'Difficult', high: 'Very straightforward' },
+  { id: 't_student', q: 'Ease of use for students independently',              low: 'Students needed a lot of help', high: 'Students used it independently' },
+  { id: 't_overall', q: 'Overall satisfaction with the resource',              low: 'Very dissatisfied', high: 'Very satisfied' },
+];
+
+// ── BUILD LIKERT ROWS ──────────────────────────────────────────────────────
+function buildLikert(containerId, items, prefix) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  items.forEach(item => {
+    const id = prefix ? `${prefix}_${item.id}` : item.id;
+    const div = document.createElement('div');
+    div.className = 'likert-item';
+    div.innerHTML = `
+      <div class="likert-q">${item.q}</div>
+      <div class="likert-scale">
+        <div class="likert-anchor">${item.low}</div>
+        <div class="likert-btns" role="group" aria-label="${item.q}">
+          ${[1,2,3,4,5].map(n => `
+            <button type="button" class="likert-btn" data-field="${id}" data-val="${n}"
+                    aria-label="${n} — ${LABELS[n-1]}" onclick="selectLikert(this)">
+              <span class="l-num">${n}</span>
+              <span class="l-label">${LABELS[n-1]}</span>
+            </button>`).join('')}
+        </div>
+        <div class="likert-anchor right">${item.high}</div>
+        <button type="button" class="likert-na" data-field="${id}" data-val="N/A"
+                aria-label="Not applicable" onclick="selectLikert(this)">N/A</button>
+      </div>
+      <div class="likert-comment">
+        <textarea name="${id}_comment" placeholder="Optional comment…" rows="2"
+                  aria-label="Comment on ${item.q}"></textarea>
+      </div>`;
+    container.appendChild(div);
+  });
+}
+
+function selectLikert(btn) {
+  const field = btn.dataset.field;
+  // Deselect all in the same field
+  document.querySelectorAll(`[data-field="${field}"]`).forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  updateProgress();
+}
+
+// ── TAB SWITCHING ──────────────────────────────────────────────────────────
+function switchRT(type) {
+  document.querySelectorAll('.rt-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.rt-tab').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
+  document.getElementById('rt-' + type).classList.add('active');
+  event.target.classList.add('active');
+  event.target.setAttribute('aria-selected', 'true');
+}
+
+// ── PROGRESS ───────────────────────────────────────────────────────────────
+function updateProgress() {
+  const allInputs = document.querySelectorAll(
+    'input[type="text"], input[type="email"], input[type="tel"], select, textarea'
+  );
+  const radios = document.querySelectorAll('input[type="radio"]:checked');
+  const checks = document.querySelectorAll('input[type="checkbox"]:checked');
+  const likerts = document.querySelectorAll('.likert-btn.selected, .likert-na.selected');
+
+  let filled = 0;
+  allInputs.forEach(el => { if (el.value.trim()) filled++; });
+  filled += radios.length + checks.length + likerts.length;
+
+  const total = allInputs.length + 20 + 5 + (QUALITY_ITEMS.length + IMPACT_ITEMS.length + TEACHER_ITEMS.length);
+  const pct = Math.min(100, Math.round((filled / total) * 100));
+
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = pct + '% complete';
+}
+
+// ── FORM SERIALISE ─────────────────────────────────────────────────────────
+function serialiseForm() {
+  const data = {};
+  // Text / select / textarea
+  document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], select, textarea').forEach(el => {
+    if (el.name && el.value.trim()) data[el.name] = el.value.trim();
+  });
+  // Radios
+  document.querySelectorAll('input[type="radio"]:checked').forEach(el => {
+    data[el.name] = el.value;
+  });
+  // Checkboxes (arrays)
+  document.querySelectorAll('input[type="checkbox"]:checked').forEach(el => {
+    if (!data[el.name]) data[el.name] = [];
+    data[el.name].push(el.value);
+  });
+  // Likerts
+  document.querySelectorAll('.likert-btn.selected, .likert-na.selected').forEach(btn => {
+    data[btn.dataset.field] = btn.dataset.val;
+  });
+  return data;
+}
+
+function formatBody(data) {
+  const lines = [
+    '=== Swim & Water Safety — Resource Feedback Form Submission ===',
+    `Submitted: ${new Date().toLocaleString('en-AU')}`,
+    '',
+  ];
+  const sections = {
+    'About the Submitter': ['submitter_name','submitter_role','submitter_email','submitter_phone','school_type','school_location','year_levels'],
+    'Resource Used': ['resource_name','resource_other','usage[]'],
+    'Curriculum Alignment': ['curriculum_align','curriculum_name','curriculum_comments'],
+    'Quality Ratings': QUALITY_ITEMS.map(i => i.id),
+    'Online Ratings': ONLINE_ITEMS.map(i => i.id),
+    'Print Ratings': PRINT_ITEMS.map(i => i.id),
+    'Accessibility': ['accessible_general','eal_consider','disability_consider','extension_consider','cald_consider','accessibility_comments'],
+    'Student Impact': IMPACT_ITEMS.map(i => i.id),
+    'Teacher Experience': TEACHER_ITEMS.map(i => i.id),
+    'General Feedback': ['what_worked','improvements','additional_topics','anecdote','other_comments'],
+  };
+  // Add any likert comments
+  [...QUALITY_ITEMS, ...ONLINE_ITEMS, ...PRINT_ITEMS, ...IMPACT_ITEMS, ...TEACHER_ITEMS].forEach(item => {
+    const ckey = `${item.id}_comment`;
+    if (data[ckey]) data[`Rating comment — ${item.q}`] = data[ckey];
+  });
+
+  Object.entries(data).forEach(([k, v]) => {
+    const val = Array.isArray(v) ? v.join(', ') : v;
+    lines.push(`${k}: ${val}`);
+  });
+  return lines.join('\n');
+}
+
+// ── SUBMIT ─────────────────────────────────────────────────────────────────
+document.getElementById('feedback-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const data = serialiseForm();
+  const body = encodeURIComponent(formatBody(data));
+  const resourceName = data['resource_name'] || 'General feedback';
+  const subject = encodeURIComponent(`Water Safety Resource Feedback — ${resourceName}`);
+  const mailto = `mailto:swimwater.safety@gmail.com?subject=${subject}&body=${body}`;
+  // Open mailto — works regardless of how many fields are filled
+  window.location.href = mailto;
+  // Show success banner
+  setTimeout(() => {
+    document.getElementById('success-banner').style.display = 'block';
+    document.getElementById('success-banner').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 400);
+});
+
+// ── INPUT LISTENERS ────────────────────────────────────────────────────────
+document.querySelectorAll('input, select, textarea').forEach(el => {
+  el.addEventListener('change', updateProgress);
+  el.addEventListener('input', updateProgress);
+});
+
+// ── INIT ───────────────────────────────────────────────────────────────────
+buildLikert('quality-likerts', QUALITY_ITEMS, '');
+buildLikert('online-likerts', ONLINE_ITEMS, '');
+buildLikert('print-likerts', PRINT_ITEMS, 'p');
+buildLikert('both-online-likerts', ONLINE_ITEMS, 'bo');
+buildLikert('both-print-likerts', PRINT_ITEMS, 'bp');
+buildLikert('impact-likerts', IMPACT_ITEMS, '');
+buildLikert('teacher-likerts', TEACHER_ITEMS, '');
+updateProgress();
+</script>
+</body>
+</html>
