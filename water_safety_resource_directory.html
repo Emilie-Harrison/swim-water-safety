@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Safety Resource Directory | Victorian HPE Year 7–8</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --navy:#0a1e3d; --blue:#1565c0; --sky:#1e88e5; --teal:#00897b;
+    --amber:#f59e0b; --red:#e53935; --bg:#f4f7fb; --card:#fff;
+    --border:#dde6f0; --text:#1a2840; --muted:#5a6e8a;
+  }
+  body { background:var(--bg); font-family:'Inter',sans-serif; color:var(--text); }
+
+  .hero {
+    background: linear-gradient(135deg,#0a1e3d 0%,#1565c0 60%,#1e88e5 100%);
+    color:#fff; padding:56px 50px 60px; position:relative; overflow:hidden;
+  }
+  .hero::after {
+    content:''; position:absolute; bottom:-2px; left:0; right:0; height:60px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60'%3E%3Cpath fill='%23f4f7fb' d='M0,30 Q360,60 720,30 Q1080,0 1440,30 L1440,60 L0,60Z'/%3E%3C/svg%3E") bottom/cover no-repeat;
+  }
+  .hero-tag { font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:3px; text-transform:uppercase; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); border-radius:4px; padding:4px 14px; display:inline-block; margin-bottom:16px; }
+  .hero h1 { font-family:'Syne',sans-serif; font-size:3rem; font-weight:800; line-height:1.1; margin-bottom:12px; }
+  .hero h1 em { font-style:normal; color:#90CAF9; }
+  .hero p { font-size:1rem; opacity:0.85; max-width:600px; margin-bottom:24px; }
+  .hero-tags { display:flex; flex-wrap:wrap; gap:10px; }
+  .hero-chip { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25); border-radius:6px; padding:5px 14px; font-size:0.82rem; font-weight:600; }
+
+  .body { max-width:1080px; margin:0 auto; padding:50px 24px; }
+
+  /* Category header */
+  .cat-header { display:flex; align-items:center; gap:14px; margin:44px 0 18px; padding-bottom:10px; border-bottom:3px solid var(--blue); }
+  .cat-num { background:var(--navy); color:#fff; width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:1rem; flex-shrink:0; }
+  .cat-header h2 { font-family:'Syne',sans-serif; font-size:1.4rem; color:var(--navy); }
+
+  /* Resource card */
+  .resource-card {
+    background:var(--card); border:1px solid var(--border); border-radius:14px;
+    padding:22px 26px; margin-bottom:16px;
+    box-shadow:0 2px 10px rgba(10,30,61,0.05);
+    display:grid; grid-template-columns:auto 1fr; gap:0 20px;
+  }
+  .org-badge {
+    width:54px; height:54px; border-radius:12px; display:flex; align-items:center;
+    justify-content:center; font-size:1.5rem; grid-row:1/3; flex-shrink:0;
+    align-self:start; margin-top:2px;
+  }
+  .org-badge.vic { background:#e3f2fd; }
+  .org-badge.lsv { background:#e8f5e9; }
+  .org-badge.rlssa { background:#fff3e0; }
+  .org-badge.austswim { background:#f3e5f5; }
+  .org-badge.paddle { background:#e0f2f1; }
+  .org-badge.parks { background:#f1f8e9; }
+  .org-badge.intl { background:#fce4ec; }
+
+  .rc-top { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .rc-top h3 { font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; color:var(--navy); }
+  .rc-type { font-family:'JetBrains Mono',monospace; font-size:0.7rem; background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:2px 10px; color:var(--muted); white-space:nowrap; }
+  .rc-desc { font-size:0.88rem; color:var(--muted); line-height:1.55; margin:6px 0 10px; }
+  .rc-links { display:flex; flex-direction:column; gap:5px; }
+  .rc-link { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--sky); word-break:break-all; text-decoration:none; }
+  .rc-link:hover { text-decoration:underline; }
+  .rc-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+  .rc-tag { background:rgba(21,101,192,0.08); border:1px solid rgba(21,101,192,0.2); border-radius:10px; padding:2px 10px; font-size:0.73rem; color:var(--blue); font-weight:600; }
+  .rc-tag.green { background:rgba(0,137,123,0.08); border-color:rgba(0,137,123,0.2); color:var(--teal); }
+  .rc-tag.amber { background:rgba(245,158,11,0.08); border-color:rgba(245,158,11,0.2); color:#b45309; }
+
+  /* Teaching approach box */
+  .approach-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; margin:20px 0; }
+  .approach-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:18px 20px; }
+  .approach-card .ap-icon { font-size:1.6rem; margin-bottom:10px; display:block; }
+  .approach-card h3 { font-family:'Syne',sans-serif; font-size:1rem; color:var(--navy); margin-bottom:6px; }
+  .approach-card p { font-size:0.84rem; color:var(--muted); line-height:1.5; }
+  .approach-card ul { font-size:0.83rem; color:var(--muted); padding-left:16px; margin-top:6px; }
+  .approach-card ul li { margin-bottom:3px; line-height:1.4; }
+
+  /* Combo box */
+  .combo-box { background:linear-gradient(135deg,#e3f2fd,#e8eaf6); border:1px solid #bbdefb; border-radius:14px; padding:22px 26px; margin:20px 0; }
+  .combo-box h3 { font-family:'Syne',sans-serif; font-size:1.1rem; color:var(--navy); margin-bottom:12px; }
+  .combo-steps { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; }
+  .combo-step { background:#fff; border-radius:10px; padding:14px 16px; border:1px solid var(--border); }
+  .combo-step .cs-num { font-family:'Syne',sans-serif; font-weight:800; font-size:1.4rem; color:var(--sky); margin-bottom:4px; }
+  .combo-step h4 { font-size:0.88rem; font-weight:700; color:var(--navy); margin-bottom:4px; }
+  .combo-step p { font-size:0.78rem; color:var(--muted); line-height:1.4; }
+
+  /* Swimsafe rules */
+  .swimsafe { background:linear-gradient(135deg,#003054,#005f8e); color:#fff; border-radius:14px; padding:24px 28px; margin:20px 0; }
+  .swimsafe h3 { font-family:'Syne',sans-serif; font-size:1.2rem; margin-bottom:16px; color:#90CAF9; }
+  .ss-rules { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:12px; }
+  .ss-rule { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:10px; padding:14px 16px; }
+  .ss-rule .ss-icon { font-size:1.4rem; margin-bottom:6px; display:block; }
+  .ss-rule h4 { font-weight:700; font-size:0.9rem; margin-bottom:4px; }
+  .ss-rule p { font-size:0.78rem; opacity:0.8; line-height:1.3; }
+
+  footer { background:var(--navy); color:rgba(255,255,255,0.6); padding:24px 50px; font-size:0.8rem; text-align:center; margin-top:60px; }
+  footer a { color:rgba(255,255,255,0.6); }
+
+  @media(max-width:600px){
+    .hero{padding:40px 20px 60px;}
+    .hero h1{font-size:2rem;}
+    .resource-card{grid-template-columns:1fr;}
+    .org-badge{display:none;}
+    .body{padding:30px 14px;}
+  }
+
+  /* Focus-visible styles — WCAG 2.4.7 / 2.4.11 */
+  :focus-visible {
+    outline: 3px solid #0582CA !important;
+    outline-offset: 2px !important;
+    border-radius: 3px;
+  }
+  .skip-nav:focus {
+    top: 0 !important;
+  }
+  
+  /* Minimum font size for accessibility — WCAG 1.4.4 / Disability Gateway clear print */
+  body, p, li, td, .card-desc, .act-body p, .lesson-body, .phase-body {
+    font-size: max(var(--font-size, 0.9rem), 14px);
+  }
+  @media print {
+    body { font-size: max(10pt, 11pt); }
+  }
+  /* min-body-font */
+  </style>
+</head>
+<body>
+  <!-- Skip navigation — WCAG 2.4.1 -->
+  <a href="#main-content" class="skip-nav" style="
+    position:absolute;top:-100px;left:8px;
+    background:#003554;color:#fff;
+    padding:8px 18px;border-radius:0 0 8px 8px;
+    font-family:sans-serif;font-size:0.9rem;font-weight:700;
+    text-decoration:none;z-index:9999;
+    transition:top 0.2s;
+  " onFocus="this.style.top='0'" onBlur="this.style.top='-100px'">
+    Skip to main content
+  </a>
+
+<div class="hero">
+  <div class="hero-tag">📚 Teacher Reference</div>
+  <h1>WATER SAFETY<br><em>RESOURCE DIRECTORY</em></h1>
+  <p>All organisations, platforms and dry-land teaching resources for Victorian HPE — Year 7–8. Fully verified URLs, dry-land applicability notes, and recommended teaching approaches.</p>
+  <div class="hero-tags">
+    <div class="hero-chip">🏫 Victorian Schools</div>
+    <div class="hero-chip">💧 Dry-Land Ready</div>
+    <div class="hero-chip">📋 Curriculum 2.0 Aligned</div>
+    <div class="hero-chip">🎯 Year 7–8</div>
+  </div>
+</div>
+
+<div class="body" id="main-content">
+
+  <!-- ===== CAT 1: VICTORIAN GOV ===== -->
+  <div class="cat-header">
+    <div class="cat-num">1</div>
+    <h2>Victorian Government &amp; Curriculum-Aligned Resources</h2>
+  </div>
+
+  <div class="resource-card">
+    <div class="org-badge vic">🏛</div>
+    <div>
+      <div class="rc-top">
+        <h3>Victorian Department of Education — Swimming &amp; Water Safety</h3>
+        <span class="rc-type">Government / Policy</span>
+      </div>
+      <p class="rc-desc">Official DE guidance for schools including policy requirements, curriculum alignment, the School Swimming and Water Safety Toolkit, and funding information. Classroom-based learning is explicitly supported and required alongside pool sessions. Mandatory for all Victorian government schools from 2026 under Curriculum 2.0.</p>
+      <div class="rc-links">
+        <a class="rc-link" href="https://www2.education.vic.gov.au/pal/swimming-instruction-and-water-safety-education/policy" target="_blank">https://www2.education.vic.gov.au/pal/swimming-instruction-and-water-safety-education/policy</a>
+        <a class="rc-link" href="https://www2.education.vic.gov.au/pal/swimming-instruction-and-water-safety-education/resources" target="_blank">https://www2.education.vic.gov.au/pal/swimming-instruction-and-water-safety-education/resources</a>
+        <a class="rc-link" href="https://www.education.vic.gov.au/school/teachers/teachingresources/discipline/physed/Pages/swimmingsafety.aspx" target="_blank">https://www.education.vic.gov.au/school/teachers/teachingresources/discipline/physed/Pages/swimmingsafety.aspx</a>
+      </div>
+      <div class="rc-tags">
+        <span class="rc-tag">✅ Free</span>
+        <span class="rc-tag">📋 Curriculum-mandated</span>
+        <span class="rc-tag green">💧 Dry-land lessons included</span>
+        <span class="rc-tag">🏛 Government source</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-card">
+    <div class="org-badge vic">📐</div>
+    <div>
+      <div class="rc-top">
+        <h3>VCAA — HPE Teaching Resources</h3>
+        <span class="rc-type">Curriculum Authority</span>
+      </div>
+      <p class="rc-desc">The Victorian Curriculum and Assessment Authority provides sample F–10 swimming and water safety activities, achievement standards, and curriculum mapping tools. Includes classroom (land-based) and water-based activity samples. Updated for Version 2.0 from 2025.</p>
+      <div class="rc-links">
+        <a class="rc-link" href="https://www.vcaa.vic.edu.au/curriculum/foundation-10/curriculum-area-resources/health-and-physical-education/teaching-resources" target="_blank">https://www.vcaa.vic.edu.au/curriculum/foundation-10/curriculum-area-resources/health-and-physical-education/teaching-resources</a>
+        <a class="rc-link" href="https://victoriancurriculum.vcaa.vic.edu.au/health-and-physical-education/curriculum/f-10" target="_blank">https://victoriancurriculum.vcaa.vic.edu.au/health-and-physical-education/curriculum/f-10</a>
+      </div>
+      <div class="rc-tags">
+        <span class="rc-tag">✅ Free</span>
+        <span class="rc-tag">📋 Official curriculum codes</span>
+        <span class="rc-tag green">💧 Classroom activities</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-card">
+    <div class="org-badge vic">🌐</div>
+    <div>
+      <div class="rc-top">
+        <h3>Victorian Government — Water Safety Information Hub</h3>
+        <span class="rc-type">Public Information</span>
+      </div>
+      <p class="rc-desc">State government public-facing water safety information including beach safety, inland waterways, multilingual resources, and the BeachSafe link. Excellent for student research tasks and data analysis activities. Updated regularly with seasonal information.</p>
+      <div class="rc-links">
+        <a class="rc-link" href="https://www.vic.gov.au/water-safety" target="_blank">https://www.vic.gov.au/water-safety</a>
+        <a class="rc-link" href="https://www.police.vic.gov.au/beach-and-waterways-safety" target="_blank">https://www.police.vic.gov.au/beach-and-waterways-safety</a>
+      </div>
+      <div class="rc-tags">
+        <span class="rc-tag">✅ Free</span>
+        <span class="rc-tag amber">📊 Data for student research</span>
+        <span class="rc-tag">🌐 Multilingual resources</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CAT 2: LSV ===== -->
+  <div class="cat-header">
+    <div class="cat-num">2</div>
+    <h2>Life Saving Victoria (LSV)</h2>
+  </div>
+
+  <div class="resource-card">
+    <div class="org-badge lsv">🏊</div>
+    <div>
+      <div class="rc-top">
+        <h3>Life Saving Victoria — Main Organisation</h3>
+        <span class="rc-type">Peak Body · Victorian</span>
+      </div>
+      <p class="rc-desc">LSV is Victoria's primary aquatic safety organisation. They deliver school programs, publish annual drowning data, provide the School Swimming Toolkit, and work in partnership with VCAA on curriculum development. Their classroom-based resources are free and curriculum-aligned. The LSV Toolkit is the single most useful starting point for Victorian HPE teachers delivering water safety.</p>
+      <div class="rc-links">
+        <a class="rc-link" href="https://lsv.com.au" target="_blank">https://lsv.com.au</a>
+        <a class="rc-link" href="https://lsv.com.au/toolkit/classroom_based_water_safety.php" target="_blank">https://lsv.com.au/toolkit/classroom_based_water_safety.php</a>
+        <a class="rc-link" href="https://lsv.com.au/research/victorian-drowning-reports/" target="_blank">https://lsv.com.au/research/victorian-drowning-reports/ (annual drowning reports)</a>
+        <a class="rc-link" href="https://lsv.com.au/toolkit/curriculum_more.php" target="_blank">https://lsv.com.au/toolkit/curriculum_more.php (curriculum alignment tool)</a>
+      </div>
+      <div class="rc-tags">
+        <span class="rc-tag">✅ Free</span>
+        <span class="rc-tag green">💧 Fully dry-land usable</span>
+        <span class="rc-tag">📋 VCAA-co-developed</span>
+        <span class="rc-tag amber">📊 Annual drowning data</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="swimsafe">
+    <h3>🌊 LSV SwimSafe Rules — Key Dry-Land Teaching Content</h3>
+    <div class="ss-rules">
+      <div class="ss-rule">
+        <span class="ss-icon">🪧</span>
+        <h4>Read Signs</h4>
+        <p>Always read warning signs and beach flags before entering any water environment</p>
+      </div>
+      <div class="ss-rule">
+        <span class="ss-icon">🧗</span>
+        <h4>Enter Feet First</h4>
+        <p>Never dive into unknown water — submerged objects and shallow depth cause spinal injuries</p>
+      </div>
+      <div class="ss-rule">
+        <span class="ss-icon">📏</span>
+        <h4>Stay In Depth</h4>
+        <p>Only swim in water where your feet can touch the bottom, unless you are a confident swimmer</p>
+      </div>
+      <div class="ss-rule">
+        <span class="ss-icon">👫</span>
+        <h4>Swim With a Friend</h4>
+        <p>Never swim alone — always have someone with you who can call for help</p>
+      </div>
+      <div class="ss-rule">
+        <span class="ss-icon">🙋</span>
+        <h4>Signal For Help</h4>
+        <p>Raise one arm and call out if you need assistance. Stay calm and float to conserve energy</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-card">
+    <div class="org-badge lsv">📊</div>
+    <div>
+      <div class="rc-top">
+        <h3>LSV Annual Drowning Reports (2023–24 Key Data)</h3>
+        <span class="rc-type">Research Data · Annual</span>
+      </div>
+      <p class="rc-desc">LSV publishes a detailed annual drowning report based on State Coroner data. The 2023–24 report showed 54 fatal drownings in Victoria — the highest in over a decade. Nearly 1 in 5 victims were aged 15–24, and ALL deaths occurred at unpatrolled locations. This data is powerful for classroom discussion and numeracy tasks.</p>
+      <div class="rc-links">
+        <a class="rc-link" href="https://lsv.com.au/research/victorian-drowning-reports/" target="_blank">https://lsv.com.au/research/victorian-drowning-reports/</a>
+        <a class="rc-link" href="https://blog.lsv.com.au/2025/07/09/swimming-and-water-safety-in-the-new-victorian-curriculum-f-10-2-0/" target="_blank">https://blog.lsv.com.au/2025/07/09/swimming-and-water-safety-in-the-new-victorian-curriculum-f-10-2-0/</a>
+      </div>
+      <div class="rc-tags">
+        <span class="rc-tag">✅ Free / Public</span>
+        <span class="rc-tag amber">📊 Numeracy cross-curriculum</span>
+        <span class="rc-tag green">💧 Dry-land data activity</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CAT 3: RLSSA ===== -->
+  <div class="cat-header">
+    <div class="cat-num">3</div>
+    <h2>Royal Life Saving Society Australia (RLSSA)</h2>
+  </div>
+
+  <div class="resource-card">
+    <div class="org-badge rlssa">🏅</div>
+    <div>
+      <div class="rc-top">
+        <h3>Royal Life Saving Society Australia — Swim and Survive</h3>
+        <span class="rc-type">National Organisation</span>
+      </div>
+      <p class="rc-desc">RLSSA's Swim and Survive program is Australia's national learn-to-swim and water safety framework. It includes dry-land classroom modules that can be taught independently of pool sessions. The Bronze e-Lifesaving program (secondary level) addresses risk-taking, peer pressure, alcohol around water, and emergency response — ideal for Year 7–8.</p>
+      <div class="rc-links">
+        <a class="rc-link" href="https://www.royallifesaving.com.au" target="_blank">https://www.royallifesaving.com.au</a>
+        <a class="rc-link" href="https://www.drowningprevention.org.au/swimandsurvive" target="_blank">https://www.drowningprevention.org.au/swimandsurvive</a>
+        <a class="rc-link" href="https://www.royallifesaving.com.au/about/contact-us" target="_blank">https://www.royallifesaving.com.au/about/contact-us</a>
+      </div>
+      <div class="rc-tags">
+        <span class="rc-tag">National framework</span>
+        <span class="rc-tag green">💧 5 classroom modules</span>
+        <span class="rc-tag">🎓 Bronze e-Lifesaving (Sec)</span>
+        <span class="rc-tag amber">⚠️ Check cost for modules</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CAT 4: AUSTSWIM ===== -->
+  <div class="cat-header">
+    <div class="cat-num">4</div>
+    <h2>AUSTSWIM</h2>
+  </div>
+
+  <div class="resource-card">
+    <div class="org-badge austswim">🎓</div>
+    <div>
+      <div class="rc-top">
+        <h3>AUSTSWIM — Australia's Swimming &amp; Water Safety Teaching Body</h3>
+        <span class="rc-type">Teacher Training / Framework</span>
+      </div>
+      <p class="rc-desc">AUSTSWIM provides nationally recognised teacher training in swimming and water safety. Their frameworks and curriculum models are excellent for understanding progression of water safety knowledge and designing dry-land lessons. The "Teacher of Swimming and Water Safety" qualification covers risk management, lesson planning, inclusion, and water safety theory — all usable as dry-land content frameworks.</p>
+      <div class="rc-links">
+        <a class="rc-link" href="https://austswim.com.au" target="_blank">https://austswim.com.au</a>
+        <a class="rc-link" href="https://austswim.com.au/contact-us" target="_blank">https://austswim.com.au/contact-us</a>
+      </div>
+      <div class="rc-tags">
+        <span class="rc-tag">📐 Lesson design frameworks</span>
+        <span class="rc-tag green">💧 Dry-land theory content</span>
+        <span class="rc-tag">🎓 Teacher training</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CAT 5: PADDLE AUSTRALIA ===== -->
+  <div class="cat-header">
+    <div class="cat-num">5</div>
+    <h2>Paddle Australia — Inland &amp; Coastal Water Safety</h2>
+  </div>
+
+  <div class="resource-card">
+    <div class="org-badge paddle">🛶</div>
+    <div>
+      <div class="rc-top">
+        <h3>Paddle Australia</h3>
+        <span class="rc-type">National Sport Organisation</span>
+      </div>
+      <p class="rc-desc">Paddle Australia governs canoeing, kayaking, and paddling sports. Critically for Victorian HPE, their safety resources cover rivers, lakes, moving water, and coastal environments — all relevant to the Yarra River, Goulburn River, Port Phillip Bay, and other Victorian waterways. Excellent for a dry-land unit on inland waterway safety, which is where most Victorian drowning deaths occur.</p>
+      <div class="rc-links">
+        <a class="rc-link" href="https://paddle.org.au" target="_blank">https://paddle.org.au</a>
+        <a class="rc-link" href="https://paddle.org.au/contact/" target="_blank">https://paddle.org.au/contact/</a>
+      </div>
+      <div class="rc-tags">
+        <span class="rc-tag green">💧 Inland waterway focus</span>
+        <span class="rc-tag amber">🏞 Victorian river context</span>
+        <span class="rc-tag">⛵ Coastal + open water</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CAT 6: PARKS VIC ===== -->
+  <div class="cat-header">
+    <div class="cat-num">6</div>
+    <h2>Parks Victoria</h2>
+  </div>
+
+  <div class="resource-card">
+    <div class="org-badge parks">🌿</div>
+    <div>
+      <div class="rc-top">
+        <h3>Parks Victoria — Open Water &amp; Natural Environment Safety</h3>
+        <span class="rc-type">Government Agency</span>
+      </div>
+      <p class="rc-desc">Parks Victoria manages Victoria's national parks, state parks, and waterways including the Yarra River. Their safety materials cover waterway hazards (currents, submerged objects, cold water, flooding) in natural environments. Excellent for localised scenario-based classroom learning — students can research specific Victorian parks and rivers.</p>
+      <div class="rc-links">
+        <a class="rc-link" href="https://www.park.vic.gov.au" target="_blank">https://www.park.vic.gov.au</a>
+      </div>
+      <div class="rc-tags">
+        <span class="rc-tag green">💧 Localised Victorian scenarios</span>
+        <span class="rc-tag amber">🌿 Natural environment context</span>
+        <span class="rc-tag">✅ Free</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CAT 7: INTERNATIONAL ===== -->
+  <div class="cat-header">
+    <div class="cat-num">7</div>
+    <h2>High-Quality International Resources</h2>
+  </div>
+
+  <div class="resource-card">
+    <div class="org-badge intl">🇬🇧</div>
+    <div>
+      <div class="rc-top">
+        <h3>Royal Life Saving Society UK</h3>
+        <span class="rc-type">International · UK</span>
+      </div>
+      <p class="rc-desc">RLSS UK provides classroom lesson plans, water safety scenarios, and rescue decision-making frameworks suitable for secondary students. Their materials include UK-specific contexts but the concepts translate directly to Victorian settings. Free downloadable classroom resources are available.</p>
+      <div class="rc-links">
+        <a class="rc-link" href="https://www.rlss.org.uk" target="_blank">https://www.rlss.org.uk</a>
+        <a class="rc-link" href="https://www.rlss.org.uk/education" target="_blank">https://www.rlss.org.uk/education</a>
+      </div>
+      <div class="rc-tags">
+        <span class="rc-tag">✅ Free resources</span>
+        <span class="rc-tag green">💧 Classroom lessons</span>
+        <span class="rc-tag">🎭 Scenario-based</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-card">
+    <div class="org-badge intl">🇺🇸</div>
+    <div>
+      <div class="rc-top">
+        <h3>American Red Cross — Water Safety Education</h3>
+        <span class="rc-type">International · USA</span>
+      </div>
+      <p class="rc-desc">The Red Cross "Think So You Don't Sink" decision-making model and water safety curriculum includes interactive resources, videos, and home/pool/open water safety lessons. Strong evidence base and excellent for cross-referencing with Australian data. Videos are highly engaging for secondary students.</p>
+      <div class="rc-links">
+        <a class="rc-link" href="https://www.redcross.org/take-a-class/water-safety" target="_blank">https://www.redcross.org/take-a-class/water-safety</a>
+      </div>
+      <div class="rc-tags">
+        <span class="rc-tag">✅ Free videos</span>
+        <span class="rc-tag green">💧 Decision-making model</span>
+        <span class="rc-tag">🎬 Engaging for teens</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-card">
+    <div class="org-badge intl">🇺🇸</div>
+    <div>
+      <div class="rc-top">
+        <h3>US Centers for Disease Control (CDC) — Drowning Prevention</h3>
+        <span class="rc-type">International · Public Health</span>
+      </div>
+      <p class="rc-desc">The CDC drowning prevention pages provide public health data, risk factor analysis, and prevention research. Excellent for secondary students undertaking data analysis or numeracy-linked tasks. The evidence-base is strong and the statistics can be compared to Australian/Victorian data for higher-order thinking tasks.</p>
+      <div class="rc-links">
+        <a class="rc-link" href="https://www.cdc.gov/drowning/prevention" target="_blank">https://www.cdc.gov/drowning/prevention</a>
+      </div>
+      <div class="rc-tags">
+        <span class="rc-tag amber">📊 Data analysis tasks</span>
+        <span class="rc-tag">🏥 Public health lens</span>
+        <span class="rc-tag green">💧 Numeracy cross-curricular</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TEACHING APPROACHES ===== -->
+  <div class="cat-header">
+    <div class="cat-num" style="background:var(--teal);">✦</div>
+    <h2>Best-Practice Dry-Land Teaching Approaches</h2>
+  </div>
+
+  <div class="approach-grid">
+    <div class="approach-card">
+      <span class="ap-icon">🎭</span>
+      <h3>Scenario-Based Learning</h3>
+      <p>Present real or realistic drowning scenarios in Victorian contexts. Students apply knowledge to decide the safest course of action.</p>
+      <ul>
+        <li>River after rain</li>
+        <li>Unpatrolled beach on New Year's Day</li>
+        <li>Pool party — unresponsive person</li>
+        <li>Rope swing into dam</li>
+      </ul>
+    </div>
+    <div class="approach-card">
+      <span class="ap-icon">🙌</span>
+      <h3>Role Play &amp; Simulation</h3>
+      <p>Students physically simulate rescue actions in the classroom — no water needed.</p>
+      <ul>
+        <li>Throw rescue with towels/ropes</li>
+        <li>Calling 000 role-play</li>
+        <li>DRS ABCD sequencing on mats</li>
+        <li>Peer pressure decision scenarios</li>
+      </ul>
+    </div>
+    <div class="approach-card">
+      <span class="ap-icon">🗺</span>
+      <h3>Hazard Mapping</h3>
+      <p>Students analyse images or maps of waterways, identifying and ranking hazards by risk level.</p>
+      <ul>
+        <li>Annotated beach images</li>
+        <li>River cross-section diagrams</li>
+        <li>Pool environment analysis</li>
+        <li>Parks Victoria location maps</li>
+      </ul>
+    </div>
+    <div class="approach-card">
+      <span class="ap-icon">📊</span>
+      <h3>Data Analysis (Cross-Curricular)</h3>
+      <p>Use LSV drowning data for numeracy activities — percentages, graphs, trends over time.</p>
+      <ul>
+        <li>Calculate percentage by age group</li>
+        <li>Graph 10-year trends</li>
+        <li>Compare beach vs inland rates</li>
+        <li>Compare Australian vs global data</li>
+      </ul>
+    </div>
+    <div class="approach-card">
+      <span class="ap-icon">⚖️</span>
+      <h3>Decision-Making Models</h3>
+      <p>Teach frameworks that students can apply to any water safety situation:</p>
+      <ul>
+        <li>LSV SwimSafe rules</li>
+        <li>RLSSA risk assessment framework</li>
+        <li>Red Cross "Think so you don't sink"</li>
+        <li>STOP–THINK–ACT structure</li>
+      </ul>
+    </div>
+    <div class="approach-card">
+      <span class="ap-icon">🎨</span>
+      <h3>Communication Tasks</h3>
+      <p>Students create water safety materials for real audiences — develops literacy, ICT, and health promotion skills.</p>
+      <ul>
+        <li>Social media post for teens</li>
+        <li>Poster for new migrants (CALD)</li>
+        <li>Letter to a younger sibling</li>
+        <li>Script for a 30-second radio ad</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== RECOMMENDED COMBINATION ===== -->
+  <div class="cat-header">
+    <div class="cat-num" style="background:var(--amber);color:#1a1a00;">★</div>
+    <h2>Recommended Resource Combination for Victorian Schools</h2>
+  </div>
+
+  <div class="combo-box">
+    <h3>🏆 "Best Combo" — Core + Enhancement Resources</h3>
+    <div class="combo-steps">
+      <div class="combo-step">
+        <div class="cs-num">1</div>
+        <h4>Life Saving Victoria (Core)</h4>
+        <p>Local, curriculum-aligned, practical. Use LSV Toolkit as your primary source. Free and VCAA co-developed.</p>
+      </div>
+      <div class="combo-step">
+        <div class="cs-num">2</div>
+        <h4>RLSSA — Swim &amp; Survive</h4>
+        <p>Structured classroom modules and Bronze e-Lifesaving for secondary. Strong risk &amp; decision-making content.</p>
+      </div>
+      <div class="combo-step">
+        <div class="cs-num">3</div>
+        <h4>Victorian DE &amp; VCAA</h4>
+        <p>Curriculum compliance, planning framework, and achievement standards. Essential for documentation.</p>
+      </div>
+      <div class="combo-step">
+        <div class="cs-num">+</div>
+        <h4>Enhancements</h4>
+        <p>Paddle Australia (inland safety), Red Cross videos (engaging teens), CDC data (numeracy cross-curricular), Parks Vic (Victorian context).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BeachSafe callout -->
+  <div style="background:linear-gradient(135deg,#003054,#006494);color:#fff;border-radius:14px;padding:22px 28px;margin:20px 0;display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+    <div style="font-size:2rem;">📱</div>
+    <div>
+      <h3 style="font-family:'Syne',sans-serif;font-size:1.1rem;margin-bottom:4px;">BeachSafe App — Essential Student Resource</h3>
+      <p style="font-size:0.88rem;opacity:0.85;margin-bottom:8px;">Free Surf Life Saving Australia app showing patrolled beaches, patrol hours, conditions, and safety alerts across Victoria. Use as a homework/research task: find the 3 nearest patrolled beaches to your home.</p>
+      <a href="https://beachsafe.org.au" style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#90CAF9;">https://beachsafe.org.au</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Victorian Curriculum F–10 Version 2.0 · HPE · Year 7–8 · Water Safety Resource Directory<br>
+  Compiled for Victorian secondary HPE teachers · Sources verified April 2026 · 
+  <a href="https://lsv.com.au">lsv.com.au</a> · <a href="https://victoriancurriculum.vcaa.vic.edu.au">victoriancurriculum.vcaa.vic.edu.au</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Safety Scenario Cards | Printable | Year 7–8 HPE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#f0f4f8;
+    font-family:'Nunito',sans-serif;
+    padding:30px 20px;
+    color:#1a2840;
+  }
+
+  .page-title {
+    text-align:center;
+    margin-bottom:30px;
+    padding:24px 30px;
+    background:linear-gradient(135deg,#0a1e3d,#1565c0);
+    color:#fff;
+    border-radius:16px;
+  }
+  .page-title h1 { font-size:2rem; font-weight:900; margin-bottom:6px; }
+  .page-title p { font-size:0.9rem; opacity:0.85; }
+  .print-note {
+    background:#fffbeb;border:1px solid #fcd34d;border-radius:10px;
+    padding:14px 20px;margin-bottom:24px;font-size:0.88rem;color:#92400e;
+  }
+
+  /* Cards grid */
+  .cards-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:20px;
+    max-width:1100px;
+    margin:0 auto;
+  }
+
+  /* Individual card */
+  .scenario-card {
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 3px 16px rgba(10,30,61,0.1);
+    border:2px solid transparent;
+    display:flex;
+    flex-direction:column;
+    break-inside:avoid;
+  }
+
+  .card-header {
+    padding:14px 18px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .card-icon {
+    width:44px; height:44px;
+    border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem;
+    flex-shrink:0;
+    background:rgba(255,255,255,0.25);
+  }
+  .card-header-text h3 {
+    font-size:1rem;
+    font-weight:900;
+    color:#fff;
+    line-height:1.2;
+  }
+  .card-num {
+    margin-left:auto;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.85rem;
+    font-weight:500;
+    color:rgba(255,255,255,0.7);
+    background:rgba(0,0,0,0.15);
+    border-radius:8px;
+    padding:3px 10px;
+    flex-shrink:0;
+  }
+
+  /* Card types - colours */
+  .type-beach .card-header { background:linear-gradient(135deg,#1565c0,#1e88e5); border-color:#1565c0; }
+  .type-beach { border-color:#1565c0; }
+  .type-river .card-header { background:linear-gradient(135deg,#2e7d32,#43a047); }
+  .type-river { border-color:#2e7d32; }
+  .type-pool .card-header { background:linear-gradient(135deg,#0277bd,#01579b); }
+  .type-pool { border-color:#0277bd; }
+  .type-emergency .card-header { background:linear-gradient(135deg,#c62828,#e53935); }
+  .type-emergency { border-color:#c62828; }
+  .type-decision .card-header { background:linear-gradient(135deg,#e65100,#f57c00); }
+  .type-decision { border-color:#e65100; }
+
+  .card-body { padding:18px 18px 14px; flex:1; }
+  .scenario-text {
+    background:#f4f7fb;
+    border-radius:10px;
+    padding:13px 15px;
+    font-size:0.88rem;
+    color:#1a2840;
+    line-height:1.55;
+    margin-bottom:14px;
+    border-left:3px solid #cbd5e1;
+  }
+  .scenario-text strong { color:#1565c0; }
+
+  .questions-label {
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:#5a6e8a;
+    margin-bottom:8px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .question-list { list-style:none; }
+  .question-list li {
+    font-size:0.85rem;
+    color:#334455;
+    padding:7px 0;
+    border-bottom:1px dashed #e2e8f0;
+    padding-left:20px;
+    position:relative;
+    line-height:1.4;
+  }
+  .question-list li:last-child { border-bottom:none; }
+  .question-list li::before {
+    content:attr(data-q);
+    position:absolute;
+    left:0;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.75rem;
+    color:#94a3b8;
+    font-weight:500;
+    top:7px;
+  }
+
+  .card-footer {
+    padding:10px 18px 14px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    border-top:1px solid #f0f4f8;
+  }
+  .cf-tag {
+    background:#f0f4f8;
+    border:1px solid #dde6f0;
+    border-radius:8px;
+    padding:3px 10px;
+    font-size:0.72rem;
+    color:#5a6e8a;
+    font-weight:700;
+  }
+  .cf-tag.key-rule {
+    background:#fff3e0;
+    border-color:#ffcc80;
+    color:#e65100;
+  }
+
+  /* Extension cards */
+  .extension-card {
+    background:#fff;
+    border-radius:14px;
+    border:2px dashed #9c27b0;
+    padding:18px 20px;
+    break-inside:avoid;
+  }
+  .extension-card .ext-header {
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    color:#9c27b0;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:10px;
+  }
+  .extension-card h3 { font-size:1rem; font-weight:800; color:#1a2840; margin-bottom:8px; }
+  .extension-card p { font-size:0.85rem; color:#5a6e8a; line-height:1.5; }
+  .extension-card ul { font-size:0.84rem; color:#334455; padding-left:16px; margin-top:8px; }
+  .extension-card ul li { margin-bottom:4px; line-height:1.4; }
+
+  /* Teacher answer overlay */
+  .answer-reveal {
+    background:#fffbeb;
+    border:1px solid #fde68a;
+    border-radius:10px;
+    padding:12px 14px;
+    margin-top:12px;
+  }
+  .answer-reveal .ar-label {
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.68rem;
+    color:#b45309;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:6px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .answer-reveal p { font-size:0.82rem; color:#3a2a00; line-height:1.45; }
+
+  /* Section label */
+  .section-label {
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.78rem;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#5a6e8a;
+    text-align:center;
+    margin:30px 0 14px;
+    padding:8px;
+    border-top:1px solid #dde6f0;
+    border-bottom:1px solid #dde6f0;
+  }
+
+  @media print {
+    body { background:#fff; padding:10px; }
+    .page-title { break-after:always; }
+    .print-note { display:none; }
+    .cards-grid { grid-template-columns:repeat(2,1fr); }
+    .scenario-card, .extension-card { break-inside:avoid; }
+    .answer-reveal { display:none; }
+  }
+
+  /* Focus-visible styles — WCAG 2.4.7 / 2.4.11 */
+  :focus-visible {
+    outline: 3px solid #0582CA !important;
+    outline-offset: 2px !important;
+    border-radius: 3px;
+  }
+  .skip-nav:focus {
+    top: 0 !important;
+  }
+  
+  /* Minimum font size for accessibility — WCAG 1.4.4 / Disability Gateway clear print */
+  body, p, li, td, .card-desc, .act-body p, .lesson-body, .phase-body {
+    font-size: max(var(--font-size, 0.9rem), 14px);
+  }
+  @media print {
+    body { font-size: max(10pt, 11pt); }
+  }
+  /* min-body-font */
+  </style>
+</head>
+<body>
+  <!-- Skip navigation — WCAG 2.4.1 -->
+  <a href="#main-content" class="skip-nav" style="
+    position:absolute;top:-100px;left:8px;
+    background:#003554;color:#fff;
+    padding:8px 18px;border-radius:0 0 8px 8px;
+    font-family:sans-serif;font-size:0.9rem;font-weight:700;
+    text-decoration:none;z-index:9999;
+    transition:top 0.2s;
+  " onFocus="this.style.top='0'" onBlur="this.style.top='-100px'">
+    Skip to main content
+  </a>
+
+<div class="page-title">
+  <h1>🌊 WATER SAFETY SCENARIO CARDS</h1>
+  <p>Year 7–8 HPE · Classroom Station Activities · Victorian Curriculum 2.0 · Safety Focus Area</p>
+</div>
+
+<div class="print-note" style="max-width:1100px;margin:0 auto 24px;">
+  <strong>🖨 Teacher Print Instructions:</strong> Print double-sided and cut along the card borders. Laminate for reuse. Set up as station rotations (groups of 3–4, 8–10 min per station) or use as individual activity cards. The <strong>green "Teacher Answer" boxes</strong> are hidden when printed — use the on-screen version for marking. Recommend pairing with the Student Workbook scenario activities.
+</div>
+
+<div class="cards-grid" id="main-content" style="max-width:1100px;margin:0 auto;">
+
+  <!-- ===== BEACH CARDS ===== -->
+  <div style="grid-column:1/-1;"><div class="section-label">🏖 BEACH SCENARIOS</div></div>
+
+  <!-- CARD B1 -->
+  <div class="scenario-card type-beach">
+    <div class="card-header">
+      <div class="card-icon">🏖</div>
+      <div class="card-header-text"><h3>The Unpatrolled Beach</h3></div>
+      <span class="card-num">B1</span>
+    </div>
+    <div class="card-body">
+      <div class="scenario-text">
+        <strong>Scene:</strong> It's a hot Saturday in January. Your group of friends (8 of you) arrive at a remote beach near Torquay. There are no flags, no lifeguards, and no signs. The surf looks rough. One friend says, "Don't be a wimp — let's just go in!" Two others start walking toward the water.
+      </div>
+      <div class="questions-label">📝 Discuss &amp; Answer</div>
+      <ul class="question-list">
+        <li data-q="Q1">What are THREE safety concerns with this situation?</li>
+        <li data-q="Q2">What would you say to your friends? Write the exact words.</li>
+        <li data-q="Q3">What should you do instead of swimming at this location?</li>
+        <li data-q="Q4">Why is peer pressure especially dangerous near water?</li>
+      </ul>
+      <div class="answer-reveal">
+        <div class="ar-label">🔑 Teacher Answers</div>
+        <p>1. No lifeguards/supervision; rough surf suggests rip current risk; no way to call for help quickly. 2. Accept any assertive response e.g. "I'm not going in — let's find a patrolled beach, it's worth the drive." 3. Use BeachSafe app to find nearest patrolled beach, or stay on shore. 4. Peer pressure causes people to override their own risk assessment — a key factor in teen drowning.</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="cf-tag">🏖 Beach</span>
+      <span class="cf-tag">👥 Peer pressure</span>
+      <span class="cf-tag key-rule">SwimSafe: Read Signs · Swim with a Friend</span>
+    </div>
+  </div>
+
+  <!-- CARD B2 -->
+  <div class="scenario-card type-beach">
+    <div class="card-header">
+      <div class="card-icon">🌊</div>
+      <div class="card-header-text"><h3>Caught in a Rip</h3></div>
+      <span class="card-num">B2</span>
+    </div>
+    <div class="card-body">
+      <div class="scenario-text">
+        <strong>Scene:</strong> Maya, 13, is swimming between the flags at a patrolled beach in Phillip Island. She feels herself being pulled sideways and then out from shore. The more she tries to swim back, the more tired she gets. She's about 30m from shore and starting to panic.
+      </div>
+      <div class="questions-label">📝 Discuss &amp; Answer</div>
+      <ul class="question-list">
+        <li data-q="Q1">What is Maya most likely caught in? How can she tell?</li>
+        <li data-q="Q2">What is the WORST thing Maya can do right now? Why?</li>
+        <li data-q="Q3">Describe the three steps Maya should take to survive.</li>
+        <li data-q="Q4">What should her friends on the beach do?</li>
+      </ul>
+      <div class="answer-reveal">
+        <div class="ar-label">🔑 Teacher Answers</div>
+        <p>1. A rip current — she's being pulled outward and sideways despite swimming hard. 2. Continue sprinting directly against the current — it will exhaust her. 3. Stay calm, float/conserve energy, swim parallel to shore to escape the narrow current channel, then angle back. 4. Wave and shout to attract lifeguard attention; do NOT enter the water themselves.</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="cf-tag">🌊 Rip current</span>
+      <span class="cf-tag">🏊 Survival swimming</span>
+      <span class="cf-tag key-rule">Signal for Help · Stay Calm · Swim Parallel</span>
+    </div>
+  </div>
+
+  <!-- CARD B3 -->
+  <div class="scenario-card type-beach">
+    <div class="card-header">
+      <div class="card-icon">🚩</div>
+      <div class="card-header-text"><h3>The Flag Problem</h3></div>
+      <span class="card-num">B3</span>
+    </div>
+    <div class="card-body">
+      <div class="scenario-text">
+        <strong>Scene:</strong> You arrive at Torquay beach with your family. You can see: two red-and-yellow flags about 100m to your left, a black-and-white quartered flag area 30m in front of you, and an orange windsock flying near the patrol tent. Your younger cousin (8 years old) wants to jump in right where you're standing and has brought a blow-up crocodile.
+      </div>
+      <div class="questions-label">📝 Discuss &amp; Answer</div>
+      <ul class="question-list">
+        <li data-q="Q1">What does each of the three flags mean?</li>
+        <li data-q="Q2">Where should your family swim? Explain your reasoning.</li>
+        <li data-q="Q3">Why is the inflatable crocodile a problem today? Be specific.</li>
+        <li data-q="Q4">What would you say to your 8-year-old cousin?</li>
+      </ul>
+      <div class="answer-reveal">
+        <div class="ar-label">🔑 Teacher Answers</div>
+        <p>1. Red/yellow = patrolled swimming zone; black/white = watercraft/surfboard zone; orange windsock = offshore winds present. 2. Between the red and yellow flags — supervised and safe. 3. The orange windsock means offshore winds. Inflatables will be carried out to sea. If the cousin falls off in deep water, the inflatable is gone and they're stranded. 4. "We need to walk to the flags first, and you can't bring the crocodile today because the wind will blow it out to sea — it's not safe."</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="cf-tag">🏖 Beach flags</span>
+      <span class="cf-tag">🟠 Windsock</span>
+      <span class="cf-tag key-rule">SwimSafe: Read Signs · Swim Between Flags</span>
+    </div>
+  </div>
+
+  <!-- ===== RIVER / INLAND CARDS ===== -->
+  <div style="grid-column:1/-1;"><div class="section-label">🏞 RIVER &amp; INLAND WATERWAY SCENARIOS</div></div>
+
+  <!-- CARD R1 -->
+  <div class="scenario-card type-river">
+    <div class="card-header">
+      <div class="card-icon">🏞</div>
+      <div class="card-header-text"><h3>The Rope Swing</h3></div>
+      <span class="card-num">R1</span>
+    </div>
+    <div class="card-body">
+      <div class="scenario-text">
+        <strong>Scene:</strong> A popular river spot in the Yarra Valley has a rope swing over the water. It's a hot day and kids have been using it all afternoon. A Year 9 student you don't know swings out and lets go awkwardly. He hits the water and doesn't come back up. His friends are panicking. You are standing on the bank with a towel and your phone.
+      </div>
+      <div class="questions-label">📝 Discuss &amp; Answer</div>
+      <ul class="question-list">
+        <li data-q="Q1">What is your FIRST action? Why not jump in?</li>
+        <li data-q="Q2">How do you use the towel to help without entering the water?</li>
+        <li data-q="Q3">Walk through the DRS ABCD steps if the person is pulled out unconscious.</li>
+        <li data-q="Q4">What are THREE hazards at this location you should have noticed BEFORE this happened?</li>
+      </ul>
+      <div class="answer-reveal">
+        <div class="ar-label">🔑 Teacher Answers</div>
+        <p>1. Call 000, then attempt a throw rescue — jumping in risks a second drowning. 2. Throw one end of the towel to the person; pull them toward the bank. 3. D-Check for danger (rocks, current), R-Tap shoulder/shout, S-Ensure 000 called, A-Open airway, B-Check breathing 10 sec, C-30 compressions + 2 breaths, D-Use AED if available. 4. No lifeguard supervision; unknown water depth; submerged rocks or debris under water at landing point; cold water shock risk.</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="cf-tag">🏞 River</span>
+      <span class="cf-tag">🩺 DRS ABCD</span>
+      <span class="cf-tag key-rule">THROW, DON'T GO</span>
+    </div>
+  </div>
+
+  <!-- CARD R2 -->
+  <div class="scenario-card type-river">
+    <div class="card-header">
+      <div class="card-icon">🌧</div>
+      <div class="card-header-text"><h3>After the Rain</h3></div>
+      <span class="card-num">R2</span>
+    </div>
+    <div class="card-body">
+      <div class="scenario-text">
+        <strong>Scene:</strong> It rained heavily last night but today is sunny and warm. Your group wants to swim in their favourite river spot near Warburton. The water looks higher and faster than usual, and it's a murky brown colour. One friend says it looks fine and starts getting changed.
+      </div>
+      <div class="questions-label">📝 Discuss &amp; Answer</div>
+      <ul class="question-list">
+        <li data-q="Q1">List FOUR specific hazards that high, murky, fast river water creates.</li>
+        <li data-q="Q2">Why does the murky brown colour matter for safety?</li>
+        <li data-q="Q3">Your friend says "I swam here last week and it was fine." How do you respond?</li>
+        <li data-q="Q4">What is a safer alternative for cooling off today?</li>
+      </ul>
+      <div class="answer-reveal">
+        <div class="ar-label">🔑 Teacher Answers</div>
+        <p>1. Stronger current, submerged debris (logs, rocks, fence posts), cold water from mountain runoff, loss of reference points for depth. 2. Murky water = you can't see the bottom or any obstacles. Submerged logs/fences could trap you. 3. "Conditions change completely after rain — what was safe last week could kill you today. The current is completely different." 4. Local public pool; wait 48–72 hours for water to clear and level to drop; go to a patrolled beach.</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="cf-tag">🌧 Inland waterway</span>
+      <span class="cf-tag">⚠️ Flood conditions</span>
+      <span class="cf-tag key-rule">Conditions change rapidly</span>
+    </div>
+  </div>
+
+  <!-- CARD R3 - Cold Water -->
+  <div class="scenario-card type-river">
+    <div class="card-header">
+      <div class="card-icon">🌡</div>
+      <div class="card-header-text"><h3>Cold Water Shock</h3></div>
+      <span class="card-num">R3</span>
+    </div>
+    <div class="card-body">
+      <div class="scenario-text">
+        <strong>Scene:</strong> Jake (Year 8) and his family are camping near Lake Eildon in December. It's 36°C. Jake sees people on the news about cold water shock but thinks "it's summer so the water must be warm." He runs and jumps into the lake. Within seconds he gasps involuntarily, his muscles seize up, and he can't control his breathing. He's only in waist-deep water but starts to panic.
+      </div>
+      <div class="questions-label">📝 Discuss &amp; Answer</div>
+      <ul class="question-list">
+        <li data-q="Q1">What is cold water shock and why did it happen on a hot day?</li>
+        <li data-q="Q2">What should Jake's parents have told him before he got in?</li>
+        <li data-q="Q3">Why is the "gasping" reflex so dangerous even in shallow water?</li>
+        <li data-q="Q4">What is the safe way to enter cold water?</li>
+      </ul>
+      <div class="answer-reveal">
+        <div class="ar-label">🔑 Teacher Answers</div>
+        <p>1. Involuntary body response when skin temperature drops suddenly. Alpine lakes like Eildon are fed by snowmelt and can be 12–15°C even in summer regardless of air temperature. 2. Enter slowly, check the temperature, don't jump in, stay shallow. 3. If you gasp and inhale water you can drown even in waist-deep water before you can stand up. 4. Wade in gradually, acclimatise, never jump into unknown water, always enter feet first.</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="cf-tag">🌡 Cold water</span>
+      <span class="cf-tag">🏔 Alpine lakes</span>
+      <span class="cf-tag key-rule">Enter feet first · Acclimatise slowly</span>
+    </div>
+  </div>
+
+  <!-- ===== POOL CARDS ===== -->
+  <div style="grid-column:1/-1;"><div class="section-label">🏊 POOL &amp; BACKYARD SCENARIOS</div></div>
+
+  <!-- CARD P1 -->
+  <div class="scenario-card type-pool">
+    <div class="card-header">
+      <div class="card-icon">🏊</div>
+      <div class="card-header-text"><h3>Pool Party Emergency</h3></div>
+      <span class="card-num">P1</span>
+    </div>
+    <div class="card-body">
+      <div class="scenario-text">
+        <strong>Scene:</strong> You're at a friend's pool party (Year 8, about 20 kids). The adults have gone inside to get food. Everyone is laughing and music is loud. You look over and notice a 13-year-old face-down and motionless at the shallow end. No one else has noticed.
+      </div>
+      <div class="questions-label">📝 Discuss &amp; Answer</div>
+      <ul class="question-list">
+        <li data-q="Q1">Describe exactly what you do in the first 30 seconds.</li>
+        <li data-q="Q2">Write the words you would shout to get adult help.</li>
+        <li data-q="Q3">If the person is not breathing, what do you do? List the steps in order.</li>
+        <li data-q="Q4">What could have been done BEFORE this happened to reduce the risk?</li>
+      </ul>
+      <div class="answer-reveal">
+        <div class="ar-label">🔑 Teacher Answers</div>
+        <p>1. Shout for help immediately, pull person to the edge using pool noodle/your arm from the edge if possible (don't jump in), check for response. 2. "CALL 000 NOW — SOMEONE IS DROWNING IN THE POOL" — use direct, clear language. 3. Place on flat surface, D-check for danger, check response, send for help (000), open airway, check breathing 10 sec, begin CPR (30:2). 4. Designated adult water watcher; no distraction (music/phones reduced); buddy system; everyone know where towrope/rescue equipment is.</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="cf-tag">🏊 Pool</span>
+      <span class="cf-tag">🩺 DRS ABCD</span>
+      <span class="cf-tag key-rule">Act immediately · Call 000</span>
+    </div>
+  </div>
+
+  <!-- CARD P2 -->
+  <div class="scenario-card type-pool">
+    <div class="card-header">
+      <div class="card-icon">🏠</div>
+      <div class="card-header-text"><h3>The Backyard Pool</h3></div>
+      <span class="card-num">P2</span>
+    </div>
+    <div class="card-body">
+      <div class="scenario-text">
+        <strong>Scene:</strong> You're babysitting your 4-year-old neighbour at their home. The backyard has a pool. The gate appears to be shut. You're inside making lunch and you hear silence — you realise you haven't heard the child in a few minutes.
+      </div>
+      <div class="questions-label">📝 Discuss &amp; Answer</div>
+      <ul class="question-list">
+        <li data-q="Q1">What do you do immediately?</li>
+        <li data-q="Q2">Why is "silence" actually a warning sign around water with young children?</li>
+        <li data-q="Q3">What should have been done when you first arrived as the babysitter?</li>
+        <li data-q="Q4">What are THREE pool safety features every backyard pool should have?</li>
+      </ul>
+      <div class="answer-reveal">
+        <div class="ar-label">🔑 Teacher Answers</div>
+        <p>1. Check the backyard immediately — if child is in pool, begin DRS ABCD, call 000. 2. Drowning is silent — there's no splashing or calling for help. Children slip under quietly. A silent child near a pool means check immediately. 3. Check all pool gates are properly latched (4-sided fencing); know where the child is at ALL times; check the pool area. 4. 4-sided isolation fencing (1.2m+), self-closing/latching gate, no furniture near fence to climb over, CPR chart displayed.</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="cf-tag">🏠 Backyard pool</span>
+      <span class="cf-tag">👧 Young child safety</span>
+      <span class="cf-tag key-rule">Drowning is silent · Active supervision</span>
+    </div>
+  </div>
+
+  <!-- ===== EMERGENCY RESPONSE CARDS ===== -->
+  <div style="grid-column:1/-1;"><div class="section-label">🩺 EMERGENCY RESPONSE SCENARIOS</div></div>
+
+  <!-- CARD E1 -->
+  <div class="scenario-card type-emergency">
+    <div class="card-header">
+      <div class="card-icon">🆘</div>
+      <div class="card-header-text"><h3>Calling 000</h3></div>
+      <span class="card-num">E1</span>
+    </div>
+    <div class="card-body">
+      <div class="scenario-text">
+        <strong>Scene:</strong> You are at an unpatrolled beach. An adult has been pulled out of the water by two bystanders. He is lying on the sand, unconscious, and not breathing. One person is attempting CPR. Your job is to call 000. You're shaking.
+      </div>
+      <div class="questions-label">📝 Discuss &amp; Answer</div>
+      <ul class="question-list">
+        <li data-q="Q1">Write down exactly what you would say when 000 answers.</li>
+        <li data-q="Q2">What information does the operator NEED from you?</li>
+        <li data-q="Q3">Should you hang up once you've given the information? Why or why not?</li>
+        <li data-q="Q4">What if you don't know the exact address?</li>
+      </ul>
+      <div class="answer-reveal">
+        <div class="ar-label">🔑 Teacher Answers</div>
+        <p>1. Sample: "Ambulance please. I'm at [beach name] near [nearest suburb/landmark]. A man has been pulled from the water. He is unconscious and not breathing. CPR is in progress." 2. Location, what happened, number of people injured, whether they are breathing, your name and number. 3. Never hang up — stay on the line, the operator will guide CPR and send help. 4. Describe the nearest landmark, carpark, road name — or use the what3words app location. Give the best description you can.</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="cf-tag">📞 000</span>
+      <span class="cf-tag">🚑 Emergency services</span>
+      <span class="cf-tag key-rule">Never hang up · Give exact location</span>
+    </div>
+  </div>
+
+  <!-- CARD E2 -->
+  <div class="scenario-card type-emergency">
+    <div class="card-header">
+      <div class="card-icon">🪢</div>
+      <div class="card-header-text"><h3>Throw Rescue</h3></div>
+      <span class="card-num">E2</span>
+    </div>
+    <div class="card-body">
+      <div class="scenario-text">
+        <strong>Scene:</strong> A young woman has slipped off the jetty at a lake near Gippsland and is struggling in the water 5 metres from the edge. She can't swim. You have: a coiled rope, a life ring attached to the jetty, your jumper, and a wooden plank on the jetty. She is panicking and going under.
+      </div>
+      <div class="questions-label">📝 Discuss &amp; Answer</div>
+      <ul class="question-list">
+        <li data-q="Q1">Rank the four items from BEST to WORST rescue tool. Explain your ranking.</li>
+        <li data-q="Q2">Describe HOW you would use the best rescue tool. Be specific.</li>
+        <li data-q="Q3">Why should you NOT jump in to save her, even if you're a strong swimmer?</li>
+        <li data-q="Q4">What should you shout to her while you're attempting the rescue?</li>
+      </ul>
+      <div class="answer-reveal">
+        <div class="ar-label">🔑 Teacher Answers</div>
+        <p>1. Best: Life ring (attached, won't let go) → Rope (throw and pull) → Plank (she can grab on) → Jumper (limited reach). 2. Unclip the life ring, shout "Grab this!", throw it slightly past her so she can grab it as it drifts back, then pull steadily while keeping low. 3. A panicking person will climb on you and push you under — even strong swimmers have drowned this way. Stay on the jetty. 4. "STAY CALM! I'M THROWING YOU A RING! GRAB IT AND HOLD ON!"</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="cf-tag">🪢 Throw rescue</span>
+      <span class="cf-tag">🚫 Don't enter water</span>
+      <span class="cf-tag key-rule">Throw, Don't Go</span>
+    </div>
+  </div>
+
+  <!-- ===== DECISION-MAKING CARDS ===== -->
+  <div style="grid-column:1/-1;"><div class="section-label">⚖️ DECISION-MAKING &amp; RISK SCENARIOS</div></div>
+
+  <!-- CARD D1 -->
+  <div class="scenario-card type-decision">
+    <div class="card-header">
+      <div class="card-icon">⚖️</div>
+      <div class="card-header-text"><h3>The Group Decision</h3></div>
+      <span class="card-num">D1</span>
+    </div>
+    <div class="card-body">
+      <div class="scenario-text">
+        <strong>Scene:</strong> It's New Year's Day. You're with 10 friends at the Mornington Peninsula. The patrolled beach is a 20-minute walk away. Half the group wants to swim at the nearby unpatrolled beach "to save time." The other half (including you) wants to go to the patrolled beach. The unpatrolled beach has no signs, no flags, and looks rougher.
+      </div>
+      <div class="questions-label">📝 Discuss &amp; Answer</div>
+      <ul class="question-list">
+        <li data-q="Q1">Using the LSV drowning data: what time of year and location are drownings most likely?</li>
+        <li data-q="Q2">Write a persuasive argument to convince the group to walk to the patrolled beach.</li>
+        <li data-q="Q3">What does "All 54 Victorian drowning deaths in 2023–24 happened at unpatrolled locations" tell your friends?</li>
+        <li data-q="Q4">If you're outvoted and the group swims at the unpatrolled beach, what precautions should you all take?</li>
+      </ul>
+      <div class="answer-reveal">
+        <div class="ar-label">🔑 Teacher Answers</div>
+        <p>1. Summer (Dec-Feb) at unpatrolled beaches, rivers, and dams. 2. Accept compelling arguments using statistics and specific risk factors. 3. It tells them that NO ONE has drowned at a patrolled beach in Victoria in the entire year — the data proves patrolled beaches save lives. 4. Never swim alone, stay shallow, swim with a buddy, know where everyone is, have someone watch from shore, know how to call 000.</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="cf-tag">⚖️ Decision-making</span>
+      <span class="cf-tag">📊 Uses LSV data</span>
+      <span class="cf-tag key-rule">Always swim between the flags</span>
+    </div>
+  </div>
+
+  <!-- CARD D2 -->
+  <div class="scenario-card type-decision">
+    <div class="card-header">
+      <div class="card-icon">🍺</div>
+      <div class="card-header-text"><h3>Alcohol &amp; Water</h3></div>
+      <span class="card-num">D2</span>
+    </div>
+    <div class="card-body">
+      <div class="scenario-text">
+        <strong>Scene:</strong> A group of 18-year-olds are celebrating finishing Year 12. They're at a house with a pool. Most have been drinking. One person (who has had several drinks) decides to jump in the pool for a swim at 1am to "cool off." His friends cheer him on.
+      </div>
+      <div class="questions-label">📝 Discuss &amp; Answer</div>
+      <ul class="question-list">
+        <li data-q="Q1">List FOUR ways alcohol specifically increases drowning risk.</li>
+        <li data-q="Q2">What should his friends do? What would most people actually do? Why is there a gap?</li>
+        <li data-q="Q3">Why is night-time swimming especially risky?</li>
+        <li data-q="Q4">If someone in this situation becomes unconscious in the pool, what complicates the DRS ABCD response?</li>
+      </ul>
+      <div class="answer-reveal">
+        <div class="ar-label">🔑 Teacher Answers</div>
+        <p>1. Impaired judgement (overestimates ability), impaired coordination, slowed reaction time, impaired body temperature regulation (hypothermia risk). 2. Should: stop him, suggest getting out, stay with him. Most would: cheer because peer pressure and alcohol reduce risk perception. 3. Poor visibility = harder to see if someone goes under; harder to see hazards; slower response. 4. In water CPR is ineffective — must get person out first, which takes time; alcohol in the blood complicates assessment of consciousness level.</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="cf-tag">🍺 Alcohol risk</span>
+      <span class="cf-tag">🌙 Night swimming</span>
+      <span class="cf-tag key-rule">Never mix alcohol and water</span>
+    </div>
+  </div>
+
+  <!-- ===== EXTENSION CARDS ===== -->
+  <div style="grid-column:1/-1;"><div class="section-label">🌟 EXTENSION &amp; RESEARCH CARDS</div></div>
+
+  <div class="extension-card">
+    <div class="ext-header">⭐ Extension Card X1 — Data Analysis</div>
+    <h3>Analysing Victorian Drowning Statistics</h3>
+    <p>Visit: <strong>https://lsv.com.au/research/victorian-drowning-reports/</strong></p>
+    <ul>
+      <li>Find the most recent LSV drowning report. What was the total number of drowning deaths?</li>
+      <li>What percentage were aged 15–24? Calculate this from the raw data.</li>
+      <li>What were the TOP 3 locations for drowning deaths? What does this tell you about risk?</li>
+      <li>Create a bar graph comparing deaths by age group. Which group has the highest rate per population?</li>
+      <li>Compare Victoria to national data at: <strong>https://www.royallifesaving.com.au/research</strong></li>
+    </ul>
+  </div>
+
+  <div class="extension-card">
+    <div class="ext-header">⭐ Extension Card X2 — Community Action</div>
+    <h3>Water Safety Communication Campaign</h3>
+    <p>Design a water safety awareness campaign for ONE of the following target audiences:</p>
+    <ul>
+      <li><strong>Option A:</strong> Teenagers aged 13–17 — create an Instagram carousel (3 slides) using real statistics and a compelling message</li>
+      <li><strong>Option B:</strong> Recent migrants and multicultural community — create a factsheet explaining beach flag meanings and Victorian waterway risks in simple English</li>
+      <li><strong>Option C:</strong> Primary school students (Year 5–6) — create a 5-panel comic strip teaching the SwimSafe rules</li>
+    </ul>
+    <p style="margin-top:10px;"><em>Your campaign must include at least ONE real statistic with its source URL.</em></p>
+  </div>
+
+  <div class="extension-card">
+    <div class="ext-header">⭐ Extension Card X3 — Cross-Curricular Health</div>
+    <h3>Physiology of Drowning — Research Task</h3>
+    <p>Research and explain what happens in the body during a drowning emergency. Your response should address:</p>
+    <ul>
+      <li>What happens to oxygen levels in the blood within minutes of submersion?</li>
+      <li>Why does brain damage occur so quickly? (hint: research cerebral hypoxia)</li>
+      <li>How does CPR maintain circulation until the heart can restart?</li>
+      <li>Why is early CPR + early defibrillation the most important factor in survival?</li>
+    </ul>
+    <p style="margin-top:8px;">Sources: <strong>https://www.stjohnvic.com.au</strong> | <strong>https://www.heartfoundation.org.au</strong></p>
+  </div>
+
+</div>
+
+<div style="max-width:1100px;margin:30px auto 0;padding:20px;background:#0a1e3d;border-radius:14px;color:rgba(255,255,255,0.7);font-size:0.78rem;text-align:center;">
+  Victorian Curriculum F–10 Version 2.0 · HPE · Year 7–8 · Safety Focus Area (VCHPEP126, VCHPEP130) · 
+  Sources: Life Saving Victoria – https://lsv.com.au · LSV Drowning Reports – https://lsv.com.au/research/victorian-drowning-reports/ · 
+  Victoria Police – https://www.police.vic.gov.au/beach-and-waterways-safety
+</div>
+
+</body>
+</html>
