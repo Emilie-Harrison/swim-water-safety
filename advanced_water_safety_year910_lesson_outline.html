@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Water Safety — Lesson Outline | Year 9–10 HPE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#0a1e3d;--ocean:#1565c0;--bg:#f0f4f8;--card:#fff;
+    --border:#c8d8e8;--text:#0a1e3d;--muted:#3a5a6e;
+    --l1:#1565c0;--l2:#00695c;--l3:#b71c1c;--l4:#6a1b9a;--l5:#e65100;
+  }
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.6;}
+
+  .skip-nav{position:absolute;top:-100px;left:8px;background:var(--navy);color:#fff;padding:8px 18px;border-radius:0 0 8px 8px;font-size:0.9rem;font-weight:700;text-decoration:none;z-index:9999;transition:top 0.2s;}
+  .skip-nav:focus{top:0;}
+  :focus-visible{outline:3px solid var(--ocean);outline-offset:2px;border-radius:3px;}
+
+  .header{background:linear-gradient(135deg,#050d1e,#0a1e3d,#1565c0);color:#fff;padding:36px 44px 44px;position:relative;overflow:hidden;}
+  .header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:36px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 36'%3E%3Cpath fill='%23f0f4f8' d='M0,18 Q360,36 720,18 Q1080,0 1440,18 L1440,36 L0,36Z'/%3E%3C/svg%3E") bottom/cover no-repeat;}
+  .h-tag{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);border-radius:4px;padding:4px 14px;display:inline-block;margin-bottom:12px;}
+  .header h1{font-family:'Poppins',sans-serif;font-size:2.2rem;font-weight:800;margin-bottom:5px;}
+  .header p{font-size:0.9rem;opacity:0.82;max-width:580px;margin-bottom:16px;}
+  .h-chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .hc{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:600;}
+
+  .body{max-width:960px;margin:0 auto;padding:32px 22px 60px;}
+
+  /* UNIT OVERVIEW */
+  .overview{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:28px;}
+  .overview h2{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:14px;}
+  .overview-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .ov-block h3{font-family:'DM Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:8px;}
+  .ov-block ul{list-style:none;padding:0;}
+  .ov-block ul li{font-size:0.88rem;padding:3px 0 3px 14px;position:relative;border-bottom:1px dashed var(--border);line-height:1.4;}
+  .ov-block ul li:last-child{border-bottom:none;}
+  .ov-block ul li::before{content:'▸';position:absolute;left:0;color:var(--ocean);font-size:0.7rem;top:5px;}
+
+  /* PREREQUISITE */
+  .prereq{background:#e3f2fd;border-left:4px solid var(--ocean);border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:28px;font-size:0.88rem;color:var(--text);}
+  .prereq strong{color:var(--ocean);}
+
+  /* LESSON CARDS */
+  .lesson-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:22px;box-shadow:0 3px 12px rgba(10,30,61,0.06);}
+  .lc-header{padding:16px 22px;color:#fff;display:flex;align-items:center;gap:14px;}
+  .lc-num{width:42px;height:42px;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:800;font-size:1.1rem;flex-shrink:0;}
+  .lc-title-block h3{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:4px;}
+  .lc-meta{display:flex;flex-wrap:wrap;gap:7px;}
+  .lm{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:10px;padding:2px 12px;font-size:0.72rem;font-weight:600;}
+  .l1 .lc-header{background:var(--l1);}
+  .l2 .lc-header{background:var(--l2);}
+  .l3 .lc-header{background:var(--l3);}
+  .l4 .lc-header{background:var(--l4);}
+  .l5 .lc-header{background:var(--l5);}
+  .lc-body{padding:20px 22px;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .lc-section h4{font-family:'Poppins',sans-serif;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--border);}
+  .l1 .lc-body .lc-section h4{color:var(--l1);border-color:var(--l1);}
+  .l2 .lc-body .lc-section h4{color:var(--l2);border-color:var(--l2);}
+  .l3 .lc-body .lc-section h4{color:var(--l3);border-color:var(--l3);}
+  .l4 .lc-body .lc-section h4{color:var(--l4);border-color:var(--l4);}
+  .l5 .lc-body .lc-section h4{color:var(--l5);border-color:var(--l5);}
+
+  /* LEARNING INTENTION */
+  .li-box{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:11px 14px;margin-bottom:10px;font-size:0.88rem;line-height:1.5;}
+  .li-box strong{color:var(--navy);}
+
+  /* SUCCESS CRITERIA */
+  .sc-list{list-style:none;padding:0;}
+  .sc-item{display:flex;align-items:flex-start;gap:9px;padding:7px 0;border-bottom:1px solid var(--border);font-size:0.86rem;line-height:1.4;}
+  .sc-item:last-child{border-bottom:none;}
+  .sc-tick{width:18px;height:18px;border:1.5px solid var(--border);border-radius:4px;flex-shrink:0;margin-top:1px;}
+  .sc-code{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;white-space:nowrap;align-self:flex-start;margin-top:2px;}
+
+  /* VOCAB */
+  .vocab-grid{display:flex;flex-wrap:wrap;gap:6px;}
+  .vocab-pill{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:0.78rem;color:var(--text);}
+  .vocab-pill strong{font-size:0.72rem;color:var(--muted);display:block;line-height:1;}
+
+  /* KEY TASK */
+  .key-task{background:#fffbeb;border:1px solid #fbc02d;border-radius:8px;padding:10px 14px;font-size:0.86rem;color:#3a2a00;line-height:1.5;}
+  .key-task .kt-label{font-family:'DM Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#b45309;display:block;margin-bottom:4px;}
+
+  /* REFLECTION */
+  .reflection{grid-column:1/-1;background:#f0f4f8;border-radius:8px;padding:12px 16px;}
+  .reflection h4{font-family:'Poppins',sans-serif;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px;}
+  .reflection p{font-size:0.86rem;color:var(--muted);font-style:italic;}
+  .ans-line{border-bottom:1px solid var(--border);min-height:26px;margin-bottom:6px;}
+
+  /* ASSESSMENT OVERVIEW */
+  .assessment-box{background:linear-gradient(135deg,#0a1e3d,#1565c0);color:#fff;border-radius:14px;padding:22px 26px;margin-top:28px;}
+  .assessment-box h2{font-family:'Poppins',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:14px;}
+  .assessment-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .ao{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:14px 16px;}
+  .ao h4{font-size:0.88rem;font-weight:700;color:#90caf9;margin-bottom:5px;}
+  .ao p{font-size:0.81rem;opacity:0.85;line-height:1.5;}
+
+  footer{background:var(--navy);color:rgba(255,255,255,0.65);padding:16px 44px;font-size:0.74rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:20px;}
+
+  @media(max-width:640px){.header{padding:26px 18px 40px;}.body{padding:20px 14px 40px;}.overview-grid,.lc-body,.assessment-opts{grid-template-columns:1fr;}}
+  @media print{body{background:#fff;}.lesson-card{page-break-inside:avoid;}@page{size:A4;margin:15mm;}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<header class="header">
+  <div class="h-tag">Student Lesson Outline · Year 9–10</div>
+  <h1>Advanced Water Safety<br>Unit Overview &amp; Lesson Outline</h1>
+  <p>This outline shows you what you will learn, how you will be assessed, and the key vocabulary for each lesson across the full unit.</p>
+  <div class="h-chips">
+    <span class="hc">Year 9–10 HPE</span>
+    <span class="hc">5 Lessons</span>
+    <span class="hc">Victorian Curriculum 2.0</span>
+    <span class="hc">VC2HP10P02 · VC2HP10P08 · VC2HP10P09 · VC2HP10M01</span>
+  </div>
+</header>
+
+<div id="main-content" tabindex="-1" style="outline:none;"></div>
+<div class="body">
+
+  <!-- UNIT OVERVIEW -->
+  <div class="overview">
+    <h2>📋 Unit Overview</h2>
+    <div class="overview-grid">
+      <div class="ov-block">
+        <h3>By the end of this unit you will KNOW</h3>
+        <ul>
+          <li>Victorian &amp; global drowning rates and how to calculate them</li>
+          <li>The physiology of drowning and how CPR keeps the brain alive</li>
+          <li>Social determinants that influence who drowns and why</li>
+          <li>Which prevention strategies have the strongest evidence</li>
+          <li>How Australian approaches compare to international ones</li>
+        </ul>
+      </div>
+      <div class="ov-block">
+        <h3>By the end you will UNDERSTAND</h3>
+        <ul>
+          <li>Why data alone doesn't prevent drowning</li>
+          <li>How structural factors create unequal drowning risk</li>
+          <li>Why some prevention strategies work and others don't</li>
+          <li>The link between community action and individual safety</li>
+          <li>How to evaluate health information critically</li>
+        </ul>
+      </div>
+      <div class="ov-block">
+        <h3>By the end you will be able to DO</h3>
+        <ul>
+          <li>Calculate and interpret drowning rate statistics</li>
+          <li>Evaluate prevention evidence and justify decisions</li>
+          <li>Compare international water safety approaches</li>
+          <li>Design an evidence-based health communication product</li>
+          <li>Argue a health policy position using real data</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="prereq">
+    <strong>Prerequisite knowledge:</strong> This unit builds directly on the Year 7–8 Swim &amp; Water Safety unit. You should already know: beach flags and their meanings, the DRS ABCD emergency action plan, the 5 LSV SwimSafe rules, rip current escape strategies, and basic Victorian drowning statistics. If you haven't completed Year 7–8, speak with your teacher for a catch-up summary.
+  </div>
+
+  <!-- LESSON 1 -->
+  <div class="lesson-card l1">
+    <div class="lc-header">
+      <div class="lc-num">1</div>
+      <div class="lc-title-block">
+        <h3>Advanced Data Analysis — Victorian &amp; Global Drowning Trends</h3>
+        <div class="lc-meta">
+          <span class="lm">⏱ 50 min</span>
+          <span class="lm">Workbook Section 1</span>
+          <span class="lm">VC2HP10P02 · VC2HP10P08</span>
+          <span class="lm">Individual + Pairs</span>
+        </div>
+      </div>
+    </div>
+    <div class="lc-body">
+      <div class="lc-section">
+        <h4>Learning Intention</h4>
+        <div class="li-box">
+          We are learning to <strong>calculate, compare, and critically interpret</strong> Victorian and global drowning statistics to understand who is most at risk and why.
+        </div>
+        <h4 style="margin-top:14px;">Success Criteria</h4>
+        <ul class="sc-list">
+          <li class="sc-item"><span class="sc-tick"></span><span>I can calculate Victorian drowning rates per 100,000 population and compare them to the national average, showing all working.</span><span class="sc-code">VC2HP10P08</span></li>
+          <li class="sc-item"><span class="sc-tick"></span><span>I can analyse CALD over-representation in drowning data and explain at least two structural reasons for the pattern — not just individual ones.</span><span class="sc-code">VC2HP10P02</span></li>
+          <li class="sc-item"><span class="sc-tick"></span><span>I can create a correctly labelled bar graph from real LSV data and write a two-sentence interpretation of the trend it shows.</span><span class="sc-code">VC2HP10P08</span></li>
+        </ul>
+      </div>
+      <div class="lc-section">
+        <h4>Key Vocabulary</h4>
+        <div class="vocab-grid">
+          <div class="vocab-pill"><strong>drowning rate</strong>deaths per 100,000 population</div>
+          <div class="vocab-pill"><strong>CALD</strong>Culturally &amp; Linguistically Diverse</div>
+          <div class="vocab-pill"><strong>over-representation</strong>higher % than population share</div>
+          <div class="vocab-pill"><strong>non-fatal drowning</strong>near-drowning, survived</div>
+          <div class="vocab-pill"><strong>unpatrolled</strong>no lifeguard present</div>
+          <div class="vocab-pill"><strong>trend</strong>pattern over time in data</div>
+          <div class="vocab-pill"><strong>demographic</strong>statistical group characteristic</div>
+          <div class="vocab-pill"><strong>disproportion</strong>unequal distribution</div>
+        </div>
+        <div class="key-task" style="margin-top:12px;">
+          <span class="kt-label">Key Activity</span>
+          Calculate Victoria's drowning rate, compare to national and global averages, and build a data visualisation from the LSV Drowning Report 2023–24.
+        </div>
+      </div>
+      <div class="reflection">
+        <h4>End-of-Lesson Reflection</h4>
+        <p>Exit ticket: In one sentence — what is the single most important data insight from today, and why does it matter?</p>
+        <div class="ans-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON 2 -->
+  <div class="lesson-card l2">
+    <div class="lc-header">
+      <div class="lc-num">2</div>
+      <div class="lc-title-block">
+        <h3>Physiology of Drowning &amp; CPR Mechanics</h3>
+        <div class="lc-meta">
+          <span class="lm">⏱ 50 min</span>
+          <span class="lm">Workbook Section 2</span>
+          <span class="lm">VC2HP10P08 · VC2HP10M01</span>
+          <span class="lm">Individual</span>
+        </div>
+      </div>
+    </div>
+    <div class="lc-body">
+      <div class="lc-section">
+        <h4>Learning Intention</h4>
+        <div class="li-box">
+          We are learning to <strong>explain the physiological sequence of drowning</strong> and justify why early bystander CPR is the single most important factor in survival outcomes.
+        </div>
+        <h4 style="margin-top:14px;">Success Criteria</h4>
+        <ul class="sc-list">
+          <li class="sc-item"><span class="sc-tick"></span><span>I can describe the correct sequence of physiological events during drowning using all five required terms: submersion, hypoxia, laryngospasm, cardiac arrest, cerebral hypoxia.</span><span class="sc-code">VC2HP10P08</span></li>
+          <li class="sc-item"><span class="sc-tick"></span><span>I can explain in plain language why starting CPR within 4 minutes produces significantly better outcomes than starting after 8 minutes, using the terms cardiac output and oxygenated blood.</span><span class="sc-code">VC2HP10M01</span></li>
+          <li class="sc-item"><span class="sc-tick"></span><span>I can explain what secondary drowning is, why it is clinically significant, and what action should be taken after any submersion incident — even if the person appears fine.</span><span class="sc-code">VC2HP10P08</span></li>
+        </ul>
+      </div>
+      <div class="lc-section">
+        <h4>Key Vocabulary</h4>
+        <div class="vocab-grid">
+          <div class="vocab-pill"><strong>hypoxia</strong>oxygen deprivation at tissue level</div>
+          <div class="vocab-pill"><strong>laryngospasm</strong>involuntary airway closure</div>
+          <div class="vocab-pill"><strong>cardiac arrest</strong>heart stops pumping effectively</div>
+          <div class="vocab-pill"><strong>cerebral hypoxia</strong>oxygen deprivation to the brain</div>
+          <div class="vocab-pill"><strong>cardiac output</strong>volume of blood heart pumps per minute</div>
+          <div class="vocab-pill"><strong>CPR</strong>30 compressions : 2 breaths, 100–120 bpm</div>
+          <div class="vocab-pill"><strong>secondary drowning</strong>delayed pulmonary oedema post-submersion</div>
+          <div class="vocab-pill"><strong>1-10-1 rule</strong>cold water survival framework</div>
+        </div>
+        <div class="key-task" style="margin-top:12px;">
+          <span class="kt-label">Key Activity</span>
+          Sequence the physiological events of drowning in order, then write a plain-language explanation of the 4-minute CPR window.
+        </div>
+      </div>
+      <div class="reflection">
+        <h4>End-of-Lesson Reflection</h4>
+        <p>Explain the 4-minute window to someone who has never heard of it — use plain language, no medical jargon.</p>
+        <div class="ans-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON 3 -->
+  <div class="lesson-card l3">
+    <div class="lc-header">
+      <div class="lc-num">3</div>
+      <div class="lc-title-block">
+        <h3>Social Determinants of Drowning Risk</h3>
+        <div class="lc-meta">
+          <span class="lm">⏱ 50 min</span>
+          <span class="lm">Workbook Section 3</span>
+          <span class="lm">VC2HP10P02 · VC2HP10P08</span>
+          <span class="lm">Pairs + Jigsaw</span>
+        </div>
+      </div>
+    </div>
+    <div class="lc-body">
+      <div class="lc-section">
+        <h4>Learning Intention</h4>
+        <div class="li-box">
+          We are learning to <strong>analyse how social, cultural, and structural factors</strong> influence who drowns and why — moving beyond individual explanations to systemic ones.
+        </div>
+        <h4 style="margin-top:14px;">Success Criteria</h4>
+        <ul class="sc-list">
+          <li class="sc-item"><span class="sc-tick"></span><span>I can identify at least three social determinants of drowning risk and explain the specific mechanism by which each one increases risk — not just that it does.</span><span class="sc-code">VC2HP10P02</span></li>
+          <li class="sc-item"><span class="sc-tick"></span><span>I can distinguish between individual explanations (personal behaviour) and structural explanations (systemic factors) for drowning risk, using real Victorian data as evidence.</span><span class="sc-code">VC2HP10P02</span></li>
+          <li class="sc-item"><span class="sc-tick"></span><span>I can propose three specific, practical actions a Victorian school could take to reduce CALD drowning disproportionality — with enough detail to actually implement them.</span><span class="sc-code">VC2HP10P08</span></li>
+        </ul>
+      </div>
+      <div class="lc-section">
+        <h4>Key Vocabulary</h4>
+        <div class="vocab-grid">
+          <div class="vocab-pill"><strong>social determinants</strong>non-medical factors shaping health</div>
+          <div class="vocab-pill"><strong>structural factors</strong>systemic, not individual, causes</div>
+          <div class="vocab-pill"><strong>masculinity norms</strong>social expectations for males</div>
+          <div class="vocab-pill"><strong>socioeconomic status</strong>income, education, occupation level</div>
+          <div class="vocab-pill"><strong>health inequity</strong>unfair, avoidable health differences</div>
+          <div class="vocab-pill"><strong>intersectionality</strong>overlapping social identities</div>
+          <div class="vocab-pill"><strong>community capacity</strong>ability of a group to address issues</div>
+          <div class="vocab-pill"><strong>correlation</strong>relationship between two variables</div>
+        </div>
+        <div class="key-task" style="margin-top:12px;">
+          <span class="kt-label">Key Activity</span>
+          Jigsaw activity — each pair analyses one social determinant and reports back to the class, building a shared picture of the factors that drive Victorian drowning disproportionality.
+        </div>
+      </div>
+      <div class="reflection">
+        <h4>End-of-Lesson Reflection</h4>
+        <p>Name ONE social determinant a school can address and ONE it cannot. Why is that distinction important for planning prevention strategies?</p>
+        <div class="ans-line"></div>
+        <div class="ans-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON 4 -->
+  <div class="lesson-card l4">
+    <div class="lc-header">
+      <div class="lc-num">4</div>
+      <div class="lc-title-block">
+        <h3>Prevention Strategies &amp; International Comparison</h3>
+        <div class="lc-meta">
+          <span class="lm">⏱ 50 min</span>
+          <span class="lm">Workbook Sections 4–5</span>
+          <span class="lm">VC2HP10P08 · VC2HP10P09</span>
+          <span class="lm">Individual + Research</span>
+        </div>
+      </div>
+    </div>
+    <div class="lc-body">
+      <div class="lc-section">
+        <h4>Learning Intention</h4>
+        <div class="li-box">
+          We are learning to <strong>evaluate drowning prevention strategies against evidence</strong> and compare Australian approaches to those used internationally, identifying what Victoria could learn or adopt.
+        </div>
+        <h4 style="margin-top:14px;">Success Criteria</h4>
+        <ul class="sc-list">
+          <li class="sc-item"><span class="sc-tick"></span><span>I can evaluate five prevention strategies (pool fencing, swim lessons, lifeguard patrols, warning signs, CALD programs) against the criteria of evidence strength, target population, and key limitations.</span><span class="sc-code">VC2HP10P08</span></li>
+          <li class="sc-item"><span class="sc-tick"></span><span>I can compare the water safety approaches of RLSSA (Australia), RLSS UK, and the American Red Cross, identifying at least one substantive difference in their core messages or strategies.</span><span class="sc-code">VC2HP10P09</span></li>
+          <li class="sc-item"><span class="sc-tick"></span><span>I can argue, with evidence cited from at least one primary source with a URL, whether a specific international approach should or should not be adopted in Victoria.</span><span class="sc-code">VC2HP10P09</span></li>
+        </ul>
+      </div>
+      <div class="lc-section">
+        <h4>Key Vocabulary</h4>
+        <div class="vocab-grid">
+          <div class="vocab-pill"><strong>evidence hierarchy</strong>ranking of research quality</div>
+          <div class="vocab-pill"><strong>primary source</strong>original data or research</div>
+          <div class="vocab-pill"><strong>pool fencing</strong>4-sided isolation fencing</div>
+          <div class="vocab-pill"><strong>patrolled location</strong>supervised by lifeguard</div>
+          <div class="vocab-pill"><strong>Float to Live</strong>RLSS UK primary survival message</div>
+          <div class="vocab-pill"><strong>RLSSA</strong>Royal Life Saving Society Australia</div>
+          <div class="vocab-pill"><strong>intervention</strong>deliberate action to change outcomes</div>
+          <div class="vocab-pill"><strong>success metric</strong>measurable indicator of effectiveness</div>
+        </div>
+        <div class="key-task" style="margin-top:12px;">
+          <span class="kt-label">Research Sites</span>
+          royallifesaving.com.au · rlss.org.uk/education · redcross.org/take-a-class/water-safety · lsv.com.au · who.int
+        </div>
+      </div>
+      <div class="reflection">
+        <h4>End-of-Lesson Reflection</h4>
+        <p>Which ONE prevention strategy has the strongest evidence? Which has the weakest? Defend your answer.</p>
+        <div class="ans-line"></div>
+        <div class="ans-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON 5 -->
+  
+  <div class="lesson-card l5" style="border-top-color:#dc2626;">
+    <div class="lc-header">
+      <div class="lc-num" style="background:#dc2626;">5</div>
+      <div class="lc-title-block">
+        <h3>Diving, Spinal Injuries &amp; High-Risk Teenage Behaviour</h3>
+        <div class="lc-meta">
+          <span class="lm">⏱ 50 min</span>
+          <span class="lm">Workbook Section 6</span>
+          <span class="lm">VC2HP10P02 · VC2HP10P08</span>
+          <span class="lm">Individual + Discussion</span>
+        </div>
+      </div>
+    </div>
+    <div class="lc-body">
+      <div class="lc-section">
+        <h4>Learning Intention</h4>
+        <div class="li-box">
+          We are learning to <strong>analyse Australian data on diving-related spinal injury</strong>
+          — identifying the specific risk factors, population groups, and locations driving this pattern —
+          and to evaluate prevention messages using an evidence-based framework.
+        </div>
+        <h4 style="margin-top:14px;">Success Criteria</h4>
+        <ul class="sc-list">
+          <li class="sc-item"><span class="sc-tick"></span><span>I can explain, using AIHW data, why unsafe diving accounts for 10% of spinal cord injuries and 20% of quadriplegia cases in Australia — and identify the highest-risk age group.</span><span class="sc-code">VC2HP10P08</span></li>
+          <li class="sc-item"><span class="sc-tick"></span><span>I can analyse three recent Australian case studies (Terrigal, Torquay, Bawley Beach) and identify the specific mechanism — not just the behaviour — that led to injury in each case.</span><span class="sc-code">VC2HP10P02</span></li>
+          <li class="sc-item"><span class="sc-tick"></span><span>I can construct a structural explanation for why 95% of aquatic spinal injury patients are male, using the social determinants framework from Section 3.</span><span class="sc-code">VC2HP10P02</span></li>
+          <li class="sc-item"><span class="sc-tick"></span><span>I can evaluate the "Feet First, First Time" prevention message against evidence and propose one specific complementary strategy for a named high-risk group.</span><span class="sc-code">VC2HP10P08</span></li>
+        </ul>
+      </div>
+      <div class="lc-section">
+        <h4>Key Vocabulary</h4>
+        <div class="vocab-box">
+          cervical spine · quadriplegia · spinal cord injury · sandbank · tidal depth variation ·
+          false confidence · inland waterway · remote rescue delay · sediment · aquatic spinal injury ·
+          feet first first time · AIHW · RLSSA · diving-related injury
+        </div>
+        <h4 style="margin-top:14px;">Key Data — Keep This Handy</h4>
+        <ul style="font-size:0.88rem;line-height:1.7;padding-left:18px;">
+          <li>Unsafe diving = 10% of all spinal cord injuries and 20% of quadriplegia cases in Australia (AIHW)</li>
+          <li>95% of aquatic spinal injury patients are male; 75%+ are under 30; 66% suffer permanent disability</li>
+          <li>Highest incidence by age group: children aged 10–14</li>
+          <li>RLSSA: "More people drown in inland waterways than any other location in Australia"</li>
+          <li>+34% increase in drowning among 15–20 year olds post-COVID vs pre-COVID (RLSSA)</li>
+        </ul>
+      </div>
+      <div class="reflection">
+        <h4>End-of-Lesson Reflection</h4>
+        <p>The data shows the highest incidence of diving spinal injury is in children aged 10–14. What specific social and environmental factors explain why this age group is most at risk — and what would a targeted prevention response look like?</p>
+        <div class="ans-line"></div>
+        <div class="ans-line"></div>
+      </div>
+    </div>
+  </div>
+
+<div class="lesson-card l6" style="border-top-color:#1565c0;">
+    <div class="lc-header">
+      <div class="lc-num" style="background:#1565c0;">6</div>
+      <div class="lc-title-block">
+        <h3>Assessment Task — Planning, Drafting &amp; Peer Review</h3>
+        <div class="lc-meta">
+          <span class="lm">⏱ 50 min</span>
+          <span class="lm">Workbook Section 7</span>
+          <span class="lm">VC2HP10P08 · VC2HP10P09</span>
+          <span class="lm">Individual + Peer review</span>
+        </div>
+      </div>
+    </div>
+    <div class="lc-body">
+      <div class="lc-section">
+        <h4>Learning Intention</h4>
+        <div class="li-box">
+          We are learning to <strong>synthesise our unit knowledge into an evidence-based communication product</strong> — a policy brief, campaign, or school audit — that argues a clear position and proposes measurable outcomes.
+        </div>
+        <h4 style="margin-top:14px;">Success Criteria</h4>
+        <ul class="sc-list">
+          <li class="sc-item"><span class="sc-tick"></span><span>I can produce a coherent draft of my chosen assessment option that includes at least three credible sources with URLs and at least one accurate Victorian or global statistic.</span><span class="sc-code">VC2HP10P09</span></li>
+          <li class="sc-item"><span class="sc-tick"></span><span>I can clearly identify my target audience or addressee and demonstrate that my communication product is designed specifically for them — not as a generic response.</span><span class="sc-code">VC2HP10P09</span></li>
+          <li class="sc-item"><span class="sc-tick"></span><span>I can use the assessment checklist to peer-review a classmate's draft and provide two specific, constructive written suggestions for improvement.</span><span class="sc-code">VC2HP10P08</span></li>
+        </ul>
+      </div>
+      <div class="lc-section">
+        <h4>Assessment Options — Choose ONE</h4>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="background:#e3f2fd;border:1px solid #90caf9;border-radius:8px;padding:10px 13px;font-size:0.84rem;">
+            <strong style="color:var(--ocean);">Option A — Policy Brief</strong><br>
+            600–800 words to Victorian Minister for Sport. Two recommendations + evidence + success metrics.
+          </div>
+          <div style="background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:10px 13px;font-size:0.84rem;">
+            <strong style="color:#2e7d32;">Option B — Campaign Product</strong><br>
+            Target ONE high-risk group. Campaign name, message, visual, platform + 100-word justification.
+          </div>
+          <div style="background:#f3e5f5;border:1px solid #ce93d8;border-radius:8px;padding:10px 13px;font-size:0.84rem;">
+            <strong style="color:#6a1b9a;">Option C — School Audit ★ Advanced</strong><br>
+            Audit your school's provision. Benchmark against Curriculum 2.0. Priority matrix + recommendations.
+          </div>
+        </div>
+      </div>
+      <div class="reflection">
+        <h4>Unit Reflection — Complete After Lesson 5</h4>
+        <p>What is the single most important thing I learned in this unit that I didn't know before?</p>
+        <div class="ans-line"></div>
+        <p style="margin-top:6px;font-size:0.82rem;font-style:italic;">What question does this unit leave me wanting to investigate further?</p>
+        <div class="ans-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ASSESSMENT OVERVIEW -->
+  <div class="assessment-box">
+    <h2>🎯 Assessment Overview — What Is Expected</h2>
+    <div class="assessment-opts">
+      <div class="ao">
+        <h4>All options must include:</h4>
+        <p>✓ At least 3 sources with URLs<br>✓ At least 1 Victorian or global statistic<br>✓ Clear target audience / addressee<br>✓ Specific call to action or recommendation<br>✓ Connection to a social determinant or physiological concept</p>
+      </div>
+      <div class="ao">
+        <h4>A-standard work:</h4>
+        <p>Goes beyond description. Analyses, evaluates, and argues with evidence. Acknowledges counter-arguments. Proposes measurable outcomes. Cites primary sources. Is written specifically for the named audience.</p>
+      </div>
+      <div class="ao">
+        <h4>Key resources to cite:</h4>
+        <p>lsv.com.au/research<br>royallifesaving.com.au<br>who.int/drowning<br>victoriancurriculum.vcaa.vic.edu.au<br>rlss.org.uk/education<br>redcross.org/water-safety</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>Advanced Water Safety — Student Lesson Outline · Year 9–10 · Victorian Curriculum F–10 Version 2.0 · VC2HP10P02, VC2HP10P08, VC2HP10P09, VC2HP10M01</div>
+  <div style="font-family:'DM Mono',monospace;font-size:0.7rem;">lsv.com.au · victoriancurriculum.vcaa.vic.edu.au</div>
+</footer>
+</body>
+</html>

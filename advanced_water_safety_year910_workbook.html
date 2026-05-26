@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Water Safety — Student Workbook | Year 9–10 HPE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#0a1e3d; --blue:#1565c0; --sky:#1e88e5; --teal:#00695c;
+    --amber:#f59e0b; --alert:#dc2626; --purple:#7b1fa2;
+    --bg:#f0f4fa; --card:#fff; --border:#c8d8e8; --text:#0a1e3d; --muted:#3a5a6e;
+  }
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.6;}
+
+  /* COVER */
+  .cover{background:linear-gradient(150deg,#020c1a 0%,#0a1e3d 50%,#1565c0 100%);color:#fff;padding:50px 48px 60px;position:relative;overflow:hidden;}
+  .cover::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='600' height='600' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;}
+  .cover-tag{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);border-radius:4px;padding:4px 14px;display:inline-block;margin-bottom:16px;}
+  .cover h1{font-family:'Poppins',sans-serif;font-size:3rem;font-weight:800;line-height:1.08;margin-bottom:6px;}
+  .cover h1 em{font-style:normal;color:#90caf9;}
+  .cover .cover-sub{font-size:1rem;opacity:0.8;margin-bottom:28px;}
+  .cover-note{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:10px;padding:12px 16px;font-size:0.85rem;opacity:0.85;max-width:520px;margin-bottom:24px;}
+  .cover-details{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:520px;}
+  .cd{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:10px 14px;}
+  .cd label{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;opacity:0.6;display:block;margin-bottom:5px;}
+  .cd .fill{border-bottom:1px solid rgba(255,255,255,0.35);min-height:22px;display:block;}
+
+  /* CURRICULUM STRIP */
+  .curr-strip{background:#0a1e3d;color:rgba(255,255,255,0.7);padding:10px 48px;font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:1px;display:flex;flex-wrap:wrap;gap:12px;}
+
+  /* BODY */
+  .body{max-width:960px;margin:0 auto;padding:36px 24px 60px;}
+
+  /* INTRO */
+  .intro-box{background:#fff;border-left:5px solid var(--blue);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:24px;font-size:0.92rem;color:var(--muted);}
+  .intro-box strong{color:var(--navy);}
+
+  /* SECTION */
+  .section-header{display:flex;align-items:center;gap:12px;margin:40px 0 18px;padding-bottom:10px;border-bottom:3px solid var(--blue);}
+  .section-num{background:var(--navy);color:#fff;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:800;font-size:1.1rem;flex-shrink:0;}
+  .section-header h2{font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);}
+
+  /* KEY KNOWLEDGE */
+  .kk{background:#f0f4fa;border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:18px;}
+  .kk h3{font-family:'Poppins',sans-serif;font-size:0.85rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+  .kk ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:5px 16px;}
+  .kk ul.single{grid-template-columns:1fr;}
+  .kk ul li{font-size:0.88rem;color:var(--text);padding-left:14px;position:relative;line-height:1.4;}
+  .kk ul li::before{content:'▸';position:absolute;left:0;color:var(--blue);font-size:0.72rem;top:2px;}
+  .kk .src{font-family:'DM Mono',monospace;font-size:0.68rem;color:#8a9aaa;margin-top:8px;padding-top:6px;border-top:1px solid var(--border);}
+
+  /* ACTIVITY */
+  .activity{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(10,30,61,0.05);}
+  .act-header{background:linear-gradient(to right,var(--navy),var(--blue));color:#fff;padding:10px 18px;display:flex;align-items:center;gap:10px;}
+  .act-header h3{font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:700;}
+  .act-meta{margin-left:auto;font-family:'DM Mono',monospace;font-size:0.72rem;opacity:0.75;}
+  .act-body{padding:18px 20px;}
+  .act-body p{font-size:0.9rem;margin-bottom:10px;color:var(--muted);}
+
+  /* ANSWER LINES */
+  .ans-line{border-bottom:1px solid var(--border);min-height:32px;margin-bottom:8px;padding:4px 4px 2px;font-size:0.88rem;color:#bbb;}
+
+  /* TABLES */
+  .wb-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.88rem;}
+  .wb-table th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;font-weight:600;}
+  .wb-table td{padding:9px 12px;border:1px solid var(--border);vertical-align:top;}
+  .wb-table tr:nth-child(even) td{background:#f8fafc;}
+  .wb-table td.write{background:#fffef5;color:#aaa;font-style:italic;font-size:0.85rem;}
+
+  /* QUESTION */
+  .q-block{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:14px;}
+  .q-block .qn{font-family:'Poppins',sans-serif;font-weight:700;font-size:0.82rem;color:var(--blue);margin-bottom:6px;display:flex;justify-content:space-between;}
+  .marks{font-family:'DM Mono',monospace;font-size:0.72rem;background:#e3f2fd;border:1px solid #90caf9;border-radius:8px;padding:1px 8px;color:var(--blue);}
+  .q-block p{font-size:0.9rem;margin-bottom:8px;}
+
+  /* SCENARIO */
+  .scenario{background:#fffbeb;border:1px solid #fcd34d;border-radius:10px;padding:14px 18px;margin:12px 0;}
+  .scenario .sc-lbl{font-family:'DM Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:2px;color:#b45309;margin-bottom:6px;}
+  .scenario p{font-size:0.9rem;color:#3a2a00;line-height:1.5;}
+
+  /* DATA CHART AREA */
+  .chart-area{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:16px;margin:12px 0;}
+  .chart-area h4{font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:8px;}
+  .chart-area p{font-size:0.85rem;color:var(--muted);}
+
+  /* ASSESSMENT TASK */
+  .assessment-card{background:linear-gradient(135deg,#0a1e3d,#1565c0);color:#fff;border-radius:14px;padding:24px 28px;margin:20px 0;}
+  .assessment-card h3{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:12px;}
+  .assessment-card .opt{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:12px 16px;margin-bottom:10px;}
+  .assessment-card .opt h4{font-size:0.9rem;font-weight:700;margin-bottom:4px;color:#90caf9;}
+  .assessment-card .opt p{font-size:0.83rem;opacity:0.85;line-height:1.5;}
+
+  /* SELF-ASSESSMENT */
+  .sa{background:#f0f4fa;border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin:20px 0;}
+  .sa h3{font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+
+  /* FOOTER */
+  .wb-footer{background:var(--navy);color:rgba(255,255,255,0.65);padding:18px 48px;font-size:0.75rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:40px;}
+  .wb-footer a{color:rgba(255,255,255,0.65);}
+
+  @media(max-width:600px){.cover{padding:36px 20px 48px;}.body{padding:20px 14px 40px;}.cover-details{grid-template-columns:1fr;}.kk ul{grid-template-columns:1fr;}}
+
+  /* Focus-visible styles — WCAG 2.4.7 / 2.4.11 */
+  :focus-visible {
+    outline: 3px solid #0582CA !important;
+    outline-offset: 2px !important;
+    border-radius: 3px;
+  }
+  .skip-nav:focus {
+    top: 0 !important;
+  }
+  
+  /* Minimum font size for accessibility — WCAG 1.4.4 / Disability Gateway clear print */
+  body, p, li, td, .card-desc, .act-body p, .lesson-body, .phase-body {
+    font-size: max(var(--font-size, 0.9rem), 14px);
+  }
+  @media print {
+    body { font-size: max(10pt, 11pt); }
+  }
+  /* min-body-font */
+  </style>
+</head>
+<body>
+  <!-- Skip navigation — WCAG 2.4.1 -->
+  <a href="#main-content" class="skip-nav" style="
+    position:absolute;top:-100px;left:8px;
+    background:#003554;color:#fff;
+    padding:8px 18px;border-radius:0 0 8px 8px;
+    font-family:sans-serif;font-size:0.9rem;font-weight:700;
+    text-decoration:none;z-index:9999;
+    transition:top 0.2s;
+  " onFocus="this.style.top='0'" onBlur="this.style.top='-100px'">
+    Skip to main content
+  </a>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-tag">Advanced Unit · Student Workbook</div>
+  <h1>ADVANCED WATER<br><em>SAFETY</em></h1>
+  <p class="cover-sub">Health &amp; Physical Education · Year 9–10 · Victorian Curriculum F–10 Version 2.0</p>
+  <div class="cover-note">
+    This advanced unit builds on the Year 7–8 foundation. You will <strong>analyse</strong> Victorian and international drowning data, <strong>evaluate</strong> prevention strategies, <strong>investigate</strong> the physiology of drowning, and produce a <strong>policy-level communication product</strong> for a real audience.
+  </div>
+  <div class="cover-details">
+    <div class="cd"><label>Student Name</label><span class="fill"></span></div>
+    <div class="cd"><label>Class</label><span class="fill"></span></div>
+    <div class="cd"><label>Teacher</label><span class="fill"></span></div>
+  </div>
+</div>
+
+<div class="curr-strip">
+  <span><strong>Curriculum 2.0:</strong> VC2HP10P02 · VC2HP10P08 · VC2HP10P09 · VC2HP10M01</span>
+  <span><strong>Focus Areas:</strong> Safety (S) · Health Literacy · Community Health Promotion</span>
+</div>
+
+<div class="body" id="main-content">
+
+  <div class="intro-box">
+    <strong>Welcome to Advanced Water Safety.</strong> You already know the fundamentals — flags, rip currents, DRS ABCD, and SwimSafe rules from Year 7–8. This unit asks you to go deeper: <em>why</em> do drowning rates remain so high despite awareness campaigns? Who is most at risk and why? What does the research say about what actually works? And what would <em>you</em> recommend to reduce Victorian drowning deaths?
+  </div>
+
+  <!-- ═══ SECTION 1: DATA ANALYSIS ═══ -->
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <h2>Advanced Data Analysis — Victorian &amp; Global Drowning Trends</h2>
+  </div>
+
+  <div class="kk">
+    <h3>Key Knowledge — Advanced Data Context</h3>
+    <ul>
+      <li>Victoria's 54 drowning deaths in 2023–24 was the highest toll in over a decade</li>
+      <li>Non-fatal drownings were 60% above the 10-year average</li>
+      <li>CALD communities accounted for ~40% of deaths — highest proportion ever recorded</li>
+      <li>Globally, ~320,000 people drown annually (WHO 2021 data)</li>
+      <li>Low- and middle-income countries account for 90% of global drowning deaths</li>
+      <li>Males account for approximately 80% of global drowning deaths</li>
+      <li>Children under 5 are the highest-risk age group globally</li>
+      <li>In Australia, 1.2 people per 100,000 drown annually (RLSSA national data)</li>
+    </ul>
+    <p class="src">Sources: LSV — lsv.com.au/research/victorian-drowning-reports/ · WHO — who.int/news-room/fact-sheets/detail/drowning · RLSSA — royallifesaving.com.au/research · CDC — cdc.gov/drowning/prevention</p>
+  </div>
+
+  <div class="activity">
+    <div class="act-header">
+      <h3>Activity 1.1 — Comparative Data Analysis</h3>
+      <span class="act-meta">Individual / pair · ~20 min</span>
+    </div>
+    <div class="act-body">
+      <p>Use the data sources above and your workbook to complete the following analysis tasks. For each, show your working or cite your source.</p>
+
+      <div class="q-block">
+        <div class="qn">Question 1.1a — Calculation <span class="marks">3 marks</span></div>
+        <p>Victoria's population in 2023–24 was approximately 6.9 million. Calculate Victoria's drowning rate per 100,000 population, then compare it to the national Australian rate (1.2 per 100,000). What does the difference tell you?</p>
+        <div class="ans-line">Calculation: ___________________________________________________________________</div>
+        <div class="ans-line">Victorian rate: ________________ per 100,000 · National rate: 1.2 per 100,000</div>
+        <div class="ans-line">What this tells us: _____________________________________________________________</div>
+        <div class="ans-line">________________________________________________________________________________</div>
+      </div>
+
+      <div class="q-block">
+        <div class="qn">Question 1.1b — Trend Analysis <span class="marks">4 marks</span></div>
+        <p>Visit: <strong>lsv.com.au/research/victorian-drowning-reports/</strong> — access the two most recent annual reports. Identify ONE trend that has worsened over that period and ONE that has improved. For each, suggest a possible reason for the trend.</p>
+        <table role="table" class="wb-table">
+          <tr><th>Trend Direction</th><th>What has changed?</th><th>Possible reason</th></tr>
+          <tr><td><strong>Worsening trend</strong></td><td class="write">Describe the change...</td><td class="write">Your explanation...</td></tr>
+          <tr><td><strong>Improving trend</strong></td><td class="write">Describe the change...</td><td class="write">Your explanation...</td></tr>
+        </table>
+      </div>
+
+      <div class="q-block">
+        <div class="qn">Question 1.1c — Global Comparison <span class="marks">3 marks</span></div>
+        <p>The WHO reports ~320,000 drowning deaths globally per year. Using this data and Victorian data, answer: If Victoria's drowning rate was at the global average for high-income countries (approximately 0.8 per 100,000), how many Victorian deaths per year would that represent? Show your calculation and explain what interventions might close this gap.</p>
+        <div class="ans-line">Calculation: ___________________________________________________________________</div>
+        <div class="ans-line">Expected deaths at 0.8 per 100,000: _____________________________________________</div>
+        <div class="ans-line">Interventions that could close the gap: ___________________________________________</div>
+        <div class="ans-line">________________________________________________________________________________</div>
+      </div>
+
+      <div class="chart-area">
+        <h4>📊 Data Visualisation Task</h4>
+        <p>In the space below (or on a separate page), create a bar graph or pie chart comparing Victorian drowning deaths by: (a) location type (beach, river/dam, pool), or (b) age group. Label axes, include a title, and write a 2-sentence interpretation below your graph.</p>
+        <div style="border:1.5px dashed var(--border);border-radius:8px;min-height:140px;margin-top:10px;padding:10px;font-size:0.85rem;color:#bbb;font-style:italic;">Draw or attach your graph here...</div>
+        <div class="ans-line" style="margin-top:10px;">Interpretation: _________________________________________________________________</div>
+        <div class="ans-line">________________________________________________________________________________</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 2: PHYSIOLOGY ═══ -->
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <h2>Physiology of Drowning — What Happens in the Body</h2>
+  </div>
+
+  <div class="kk">
+    <h3>Key Knowledge — Physiological Processes</h3>
+    <ul class="single">
+      <li><strong>Hypoxia:</strong> Oxygen deprivation. Brain cells begin dying within 4–6 minutes of oxygen loss. After 10 minutes without CPR, the chance of survival without significant brain damage is very low.</li>
+      <li><strong>Cold water shock (1-10-1 rule):</strong> ~1 min to control breathing; ~10 min of useful swimming; up to 1 hr before hypothermia incapacitates (varies greatly by water temperature, body composition, and clothing).</li>
+      <li><strong>Wet vs dry drowning:</strong> In most drowning cases (wet), water enters the lungs. In ~10–15% (dry), laryngospasm prevents water entry but still causes asphyxia.</li>
+      <li><strong>Secondary drowning:</strong> Rare but real — symptoms (coughing, fatigue, chest pain) can appear hours after a near-drowning event. Always seek medical review after a submersion incident.</li>
+      <li><strong>CPR physiology:</strong> Chest compressions create approximately 25–30% of normal cardiac output, delivering enough oxygenated blood to keep the brain alive until the heart can restart (spontaneously or via defibrillation).</li>
+    </ul>
+    <p class="src">Sources: St John Ambulance Vic — stjohnvic.com.au · Heart Foundation — heartfoundation.org.au · WHO Drowning Factsheet — who.int</p>
+  </div>
+
+  <div class="activity">
+    <div class="act-header">
+      <h3>Activity 2.1 — Physiology Research Task</h3>
+      <span class="act-meta">Individual · ~15 min</span>
+    </div>
+    <div class="act-body">
+      <div class="q-block">
+        <div class="qn">Question 2.1a <span class="marks">3 marks</span></div>
+        <p>Explain the physiological sequence of events that occurs during drowning — from submersion to brain damage — in order. Use the terms: submersion, hypoxia, laryngospasm, cardiac arrest, cerebral hypoxia.</p>
+        <div class="ans-line">1. _____________________________________________________________________________</div>
+        <div class="ans-line">2. _____________________________________________________________________________</div>
+        <div class="ans-line">3. _____________________________________________________________________________</div>
+        <div class="ans-line">4. _____________________________________________________________________________</div>
+      </div>
+      <div class="q-block">
+        <div class="qn">Question 2.1b <span class="marks">3 marks</span></div>
+        <p>Using the CPR physiology information above, explain why early bystander CPR is described as the single most important factor in survival from cardiac arrest caused by drowning. In your answer, refer to cardiac output, oxygenation, and the 4-minute window.</p>
+        <div class="ans-line">________________________________________________________________________________</div>
+        <div class="ans-line">________________________________________________________________________________</div>
+        <div class="ans-line">________________________________________________________________________________</div>
+        <div class="ans-line">________________________________________________________________________________</div>
+      </div>
+      <div class="q-block">
+        <div class="qn">Question 2.1c — Research <span class="marks">2 marks</span></div>
+        <p>What is secondary drowning and why is it clinically significant? Find one source that discusses it and write the URL below.</p>
+        <div class="ans-line">Secondary drowning is: __________________________________________________________</div>
+        <div class="ans-line">________________________________________________________________________________</div>
+        <div class="ans-line">Why it matters clinically: _______________________________________________________</div>
+        <div class="ans-line">Source URL: _____________________________________________________________________</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 3: SOCIAL DETERMINANTS ═══ -->
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <h2>Social Determinants of Drowning Risk</h2>
+  </div>
+
+  <div class="kk">
+    <h3>Key Knowledge — Who Is at Risk and Why</h3>
+    <ul>
+      <li>Social determinants are the non-medical factors that influence health outcomes</li>
+      <li>For drowning: gender norms, cultural background, socioeconomic status, and geography all play a role</li>
+      <li>CALD communities may have limited swimming opportunity due to cultural norms, cost, or country-of-origin practices</li>
+      <li>Masculinity norms ("don't back down from dares") are a documented risk factor for young male drowning</li>
+      <li>Rural and regional Victorians swim at unpatrolled inland waterways at higher rates than urban residents</li>
+      <li>People with lower socioeconomic status are less likely to have learned to swim as children</li>
+      <li>Alcohol is a factor in approximately 20–30% of adult drowning deaths in Victoria</li>
+    </ul>
+    <p class="src">Sources: LSV Drowning Report 2023–24 · RLSSA National Drowning Report · WHO Social Determinants of Health Framework</p>
+  </div>
+
+  <div class="activity">
+    <div class="act-header">
+      <h3>Activity 3.1 — Social Determinants Analysis</h3>
+      <span class="act-meta">Pairs · ~18 min</span>
+    </div>
+    <div class="act-body">
+      <div class="q-block">
+        <div class="qn">Question 3.1a <span class="marks">4 marks</span></div>
+        <p>Choose TWO social determinants of drowning risk from the key knowledge above. For each, explain: (a) how it increases risk, and (b) what a realistic prevention strategy targeting that determinant would look like.</p>
+        <table role="table" class="wb-table">
+          <tr><th>Social Determinant</th><th>How it increases risk</th><th>Prevention strategy</th></tr>
+          <tr><td><strong>Determinant 1:</strong><br><span class="write" style="font-size:0.82rem;font-style:italic;">Write here...</span></td><td class="write"></td><td class="write"></td></tr>
+          <tr><td><strong>Determinant 2:</strong><br><span class="write" style="font-size:0.82rem;font-style:italic;">Write here...</span></td><td class="write"></td><td class="write"></td></tr>
+        </table>
+      </div>
+      <div class="q-block">
+        <div class="qn">Question 3.1b <span class="marks">3 marks</span></div>
+        <p>The data shows that ~40% of Victorian drowning deaths in 2023–24 involved CALD community members. Propose THREE specific, practical actions a Victorian secondary school could take to reduce this disproportion — beyond just teaching the standard swim and water safety curriculum.</p>
+        <div class="ans-line">1. _____________________________________________________________________________</div>
+        <div class="ans-line">________________________________________________________________________________</div>
+        <div class="ans-line">2. _____________________________________________________________________________</div>
+        <div class="ans-line">________________________________________________________________________________</div>
+        <div class="ans-line">3. _____________________________________________________________________________</div>
+        <div class="ans-line">________________________________________________________________________________</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 4: PREVENTION EVALUATION ═══ -->
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <h2>Evaluating Drowning Prevention Strategies</h2>
+  </div>
+
+  <div class="kk">
+    <h3>Key Knowledge — Prevention Approaches and Evidence</h3>
+    <ul>
+      <li><strong>Engineering:</strong> Pool fencing (4-sided isolation) — strongest evidence base of any single intervention. Reduces child drowning in home pools by ~83%.</li>
+      <li><strong>Supervision:</strong> Lifeguard presence at patrolled beaches — all 54 Victorian 2023–24 drowning deaths were at unpatrolled locations.</li>
+      <li><strong>Education:</strong> Swim lessons — strong evidence for reducing child drowning. Adults benefit less unless combined with behaviour change.</li>
+      <li><strong>Legislation:</strong> Pool fencing laws, lifejacket requirements, alcohol restrictions near water.</li>
+      <li><strong>Technology:</strong> AEDs, throw rescue equipment, CCTV at public pools, drowning detection systems.</li>
+      <li><strong>Community programs:</strong> LSV SwimSafe, RLSSA Swim and Survive, targeted CALD programs.</li>
+    </ul>
+    <p class="src">Sources: WHO Drowning Prevention Guide — who.int · LSV Toolkit — lsv.com.au/toolkit · RLSSA — royallifesaving.com.au</p>
+  </div>
+
+  <div class="activity">
+    <div class="act-header">
+      <h3>Activity 4.1 — Prevention Strategy Evaluation</h3>
+      <span class="act-meta">Individual · ~15 min</span>
+    </div>
+    <div class="act-body">
+      <p>Evaluate the following prevention strategies using the framework: <strong>Evidence strength · Target population · Limitations · Cost</strong></p>
+      <table role="table" class="wb-table">
+        <tr><th>Strategy</th><th>Evidence strength (Strong / Moderate / Limited)</th><th>Limitations</th><th>Best target group</th></tr>
+        <tr>
+          <td>Pool fencing (4-sided)</td>
+          <td class="write"></td><td class="write"></td><td class="write"></td>
+        </tr>
+        <tr>
+          <td>Mandatory swim lessons for primary school students</td>
+          <td class="write"></td><td class="write"></td><td class="write"></td>
+        </tr>
+        <tr>
+          <td>Increasing patrolled beach patrols to 7 days / week</td>
+          <td class="write"></td><td class="write"></td><td class="write"></td>
+        </tr>
+        <tr>
+          <td>Warning signs at unpatrolled beaches</td>
+          <td class="write"></td><td class="write"></td><td class="write"></td>
+        </tr>
+        <tr>
+          <td>Targeted CALD community swim programs</td>
+          <td class="write"></td><td class="write"></td><td class="write"></td>
+        </tr>
+      </table>
+      <div class="q-block" style="margin-top:14px;">
+        <div class="qn">Question 4.1a — Justification <span class="marks">4 marks</span></div>
+        <p>If you were advising the Victorian Government on how to spend $5 million on drowning prevention, which TWO strategies would you prioritise, and why? Use evidence from your table and the key knowledge above to justify your recommendations.</p>
+        <div class="ans-line">Strategy 1: ____________________________________________________________________</div>
+        <div class="ans-line">Justification: __________________________________________________________________</div>
+        <div class="ans-line">________________________________________________________________________________</div>
+        <div class="ans-line">Strategy 2: ____________________________________________________________________</div>
+        <div class="ans-line">Justification: __________________________________________________________________</div>
+        <div class="ans-line">________________________________________________________________________________</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 5: INTERNATIONAL COMPARISON ═══ -->
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <h2>International Approaches — Comparing Australia, UK, and USA</h2>
+  </div>
+
+  <div class="activity">
+    <div class="act-header">
+      <h3>Activity 5.1 — Research Comparison Task</h3>
+      <span class="act-meta">Individual / pair · ~20 min · Research required</span>
+    </div>
+    <div class="act-body">
+      <p>Visit the three organisations below. Research their approach to water safety education for secondary students. Complete the comparison table.</p>
+      <div style="background:#f0f4fa;border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-bottom:14px;font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--muted);">
+        🇦🇺 RLSSA: royallifesaving.com.au &nbsp;|&nbsp; 🇬🇧 RLSS UK: rlss.org.uk/education &nbsp;|&nbsp; 🇺🇸 Red Cross: redcross.org/take-a-class/water-safety
+      </div>
+      <table role="table" class="wb-table">
+        <tr>
+          <th>Element</th>
+          <th>🇦🇺 RLSSA (Australia)</th>
+          <th>🇬🇧 RLSS UK</th>
+          <th>🇺🇸 American Red Cross</th>
+        </tr>
+        <tr><td><strong>Primary program name</strong></td><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+        <tr><td><strong>Key safety message / slogan</strong></td><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+        <tr><td><strong>Secondary school focus</strong></td><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+        <tr><td><strong>Emergency response approach</strong></td><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+        <tr><td><strong>Unique feature</strong></td><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+      </table>
+      <div class="q-block" style="margin-top:14px;">
+        <div class="qn">Question 5.1a <span class="marks">3 marks</span></div>
+        <p>Based on your research, identify ONE element from an international approach that is NOT currently prominent in Victorian water safety education, and argue whether it should be adopted. Support your argument with evidence.</p>
+        <div class="ans-line">The element is: ________________________________________________________________</div>
+        <div class="ans-line">Whether it should be adopted and why: ___________________________________________</div>
+        <div class="ans-line">________________________________________________________________________________</div>
+        <div class="ans-line">________________________________________________________________________________</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══ SECTION 6: DIVING, SPINAL INJURIES & HIGH-RISK BEHAVIOUR ═══ -->
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <h2>Diving, Spinal Injuries &amp; High-Risk Teenage Behaviour</h2>
+  </div>
+
+  <div class="knowledge-box" style="border-left-color:#dc2626;">
+    <h3 style="color:#dc2626;">Key Knowledge — Australian Statistics &amp; Research Context</h3>
+    <p>Diving and jumping into unknown or shallow water is one of the leading causes of catastrophic, permanent injury among Australian teenagers — yet it remains heavily under-discussed in water safety education. The following data should inform both your understanding of the issue and your assessment task arguments.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin:14px 0;">
+      <div style="background:#fde8e8;border:1px solid #f09090;border-radius:10px;padding:14px;text-align:center;">
+        <div style="font-family:'Poppins',sans-serif;font-size:2rem;font-weight:900;color:#dc2626;line-height:1;">10%</div>
+        <p style="font-size:0.8rem;color:#5a1010;margin-top:4px;line-height:1.4;">of all spinal cord injuries in Australia are caused by unsafe diving</p>
+      </div>
+      <div style="background:#fde8e8;border:1px solid #f09090;border-radius:10px;padding:14px;text-align:center;">
+        <div style="font-family:'Poppins',sans-serif;font-size:2rem;font-weight:900;color:#dc2626;line-height:1;">20%</div>
+        <p style="font-size:0.8rem;color:#5a1010;margin-top:4px;line-height:1.4;">of quadriplegia cases in Australia result from diving injuries</p>
+      </div>
+      <div style="background:#fde8e8;border:1px solid #f09090;border-radius:10px;padding:14px;text-align:center;">
+        <div style="font-family:'Poppins',sans-serif;font-size:2rem;font-weight:900;color:#dc2626;line-height:1;">95%</div>
+        <p style="font-size:0.8rem;color:#5a1010;margin-top:4px;line-height:1.4;">of aquatic spinal injury patients are male (major Australian review)</p>
+      </div>
+      <div style="background:#fde8e8;border:1px solid #f09090;border-radius:10px;padding:14px;text-align:center;">
+        <div style="font-family:'Poppins',sans-serif;font-size:2rem;font-weight:900;color:#dc2626;line-height:1;">75%+</div>
+        <p style="font-size:0.8rem;color:#5a1010;margin-top:4px;line-height:1.4;">of aquatic spinal injury patients are under 30 years of age</p>
+      </div>
+      <div style="background:#fde8e8;border:1px solid #f09090;border-radius:10px;padding:14px;text-align:center;">
+        <div style="font-family:'Poppins',sans-serif;font-size:2rem;font-weight:900;color:#dc2626;line-height:1;">66%</div>
+        <p style="font-size:0.8rem;color:#5a1010;margin-top:4px;line-height:1.4;">of aquatic spinal injury patients suffer permanent disability</p>
+      </div>
+      <div style="background:#fde8e8;border:1px solid #f09090;border-radius:10px;padding:14px;text-align:center;">
+        <div style="font-family:'Poppins',sans-serif;font-size:2rem;font-weight:900;color:#dc2626;line-height:1;">+34%</div>
+        <p style="font-size:0.8rem;color:#5a1010;margin-top:4px;line-height:1.4;">increase in drowning among 15–20 year olds post-COVID vs pre-COVID (RLSSA)</p>
+      </div>
+    </div>
+    <p style="font-size:0.84rem;color:var(--muted);margin-top:6px;">Sources: Royal Life Saving Australia (royallifesaving.com.au) · AIHW Diving Injury Report (aihw.gov.au) · Royal Perth Hospital spinal injury study</p>
+  </div>
+
+  <div class="knowledge-box" style="border-left-color:#b45309;background:#fffbeb;">
+    <h3 style="color:#b45309;">Highest-Risk Age Groups &amp; Locations</h3>
+    <p>The pattern of injury is not random — it is concentrated in specific age groups, behaviours, and locations. Understanding this pattern is essential for designing effective prevention.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px;">
+      <div>
+        <p style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:6px;">Highest-risk age groups:</p>
+        <ul style="font-size:0.88rem;line-height:1.7;padding-left:16px;">
+          <li>Children aged 10–14 — highest incidence of diving-related spinal injuries</li>
+          <li>15–20 year olds — 34% increase in drowning post-COVID</li>
+          <li>Males under 30 — more than 75% of all aquatic spinal injuries</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:6px;">High-risk locations:</p>
+        <ul style="font-size:0.88rem;line-height:1.7;padding-left:16px;">
+          <li>River bridges and wharves / jetties</li>
+          <li>Dam walls and irrigation channels</li>
+          <li>Rope swings over rivers and quarries</li>
+          <li>Rock platforms and waterfalls</li>
+          <li>Beaches with tidal sandbanks</li>
+          <li>Floodways and drainage channels</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:10px;font-size:0.88rem;">Royal Life Saving Australia identifies <strong>peer pressure, impulsive behaviour, alcohol, "showing off," jumping from structures, and overconfidence in swimming ability</strong> as the major behavioural contributors to teenage aquatic injuries and fatalities.</p>
+  </div>
+
+  <!-- CASE STUDIES -->
+  <div style="margin:20px 0 10px;display:flex;align-items:center;gap:10px;padding-bottom:8px;border-bottom:2px solid #dc2626;">
+    <h3 style="font-family:'Poppins',sans-serif;font-size:1rem;font-weight:800;color:#dc2626;">Australian Case Studies — Recent Incidents</h3>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px;">
+    <div style="background:var(--card);border:1px solid var(--border);border-top:4px solid #dc2626;border-radius:10px;padding:14px 16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:#dc2626;margin-bottom:6px;">Case Study 1 · NSW 2025</div>
+      <p style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:6px;">Terrigal Wharf — spinal injury</p>
+      <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;margin-bottom:8px;">A teenage boy suffered serious spinal injuries after diving from a wharf at Terrigal into water he believed was deep. Helicopter evacuation to hospital. He was unaware of the reduced water depth beneath the wharf.</p>
+      <p style="font-size:0.78rem;font-weight:700;color:var(--text);">Key themes:</p>
+      <ul style="font-size:0.8rem;color:var(--muted);padding-left:14px;line-height:1.6;">
+        <li>Unknown depth beneath structures</li>
+        <li>"It looked deep enough" misconception</li>
+        <li>Hidden shallow zones under wharves</li>
+        <li>Catastrophic neck injury from one dive</li>
+      </ul>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-top:4px solid #dc2626;border-radius:10px;padding:14px 16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:#dc2626;margin-bottom:6px;">Case Study 2 · Victoria 2025</div>
+      <p style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:6px;">Torquay Front Beach — surf beach diving</p>
+      <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;margin-bottom:8px;">A teenage boy suffered a serious suspected spinal injury after a diving incident at Torquay Front Beach and was airlifted to hospital. Surf beach sandbanks shift constantly, making depth at any given point highly unpredictable.</p>
+      <p style="font-size:0.78rem;font-weight:700;color:var(--text);">Key themes:</p>
+      <ul style="font-size:0.8rem;color:var(--muted);padding-left:14px;line-height:1.6;">
+        <li>Sandbanks change with every tide</li>
+        <li>Holiday risk-taking behaviour</li>
+        <li>Lifelong consequences of one dive</li>
+        <li>Surf beaches are not "safe" for diving</li>
+      </ul>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-top:4px solid #dc2626;border-radius:10px;padding:14px 16px;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:#dc2626;margin-bottom:6px;">Case Study 3 · NSW 2024</div>
+      <p style="font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:6px;">Bawley Beach jetty — sandbank formation</p>
+      <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;margin-bottom:8px;">A young man suffered serious injuries diving from a jetty near Bawley Beach. A sandbank had recently formed beneath the jumping area, dramatically reducing water depth. Prior experience at the location created false confidence.</p>
+      <p style="font-size:0.78rem;font-weight:700;color:var(--text);">Key themes:</p>
+      <ul style="font-size:0.8rem;color:var(--muted);padding-left:14px;line-height:1.6;">
+        <li>Depth changes — even at familiar sites</li>
+        <li>"I've done it before" false confidence</li>
+        <li>Tidal sediment movement</li>
+        <li>Local knowledge ≠ current safety</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- INLAND WATERWAYS RISK SUMMARY -->
+  <div class="knowledge-box" style="border-left-color:#1565c0;background:#e3f2fd;">
+    <h3 style="color:#1565c0;">Why Inland Waterways Are Australia's Highest-Risk Environment</h3>
+    <p>Royal Life Saving Australia states: <em>"More people drown in inland waterways than any other location in Australia."</em> Five specific factors explain this:</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;">
+      <div style="background:#fff;border-radius:8px;padding:12px 14px;border:1px solid #90caf9;">
+        <p style="font-weight:700;font-size:0.88rem;color:#1565c0;margin-bottom:4px;">1. Depth changes constantly</p>
+        <p style="font-size:0.84rem;color:var(--muted);line-height:1.5;">Drought, flooding, irrigation releases, sediment build-up, sandbank movement, and dam level changes all alter depth unpredictably — even between morning and afternoon.</p>
+      </div>
+      <div style="background:#fff;border-radius:8px;padding:12px 14px;border:1px solid #90caf9;">
+        <p style="font-weight:700;font-size:0.88rem;color:#1565c0;margin-bottom:4px;">2. Visibility is poor</p>
+        <p style="font-size:0.84rem;color:var(--muted);line-height:1.5;">Rocks, submerged trees, debris, logs, shopping trolleys, and submerged branches are frequently invisible beneath turbid (murky) water.</p>
+      </div>
+      <div style="background:#fff;border-radius:8px;padding:12px 14px;border:1px solid #90caf9;">
+        <p style="font-weight:700;font-size:0.88rem;color:#1565c0;margin-bottom:4px;">3. Cold water shock</p>
+        <p style="font-size:0.84rem;color:var(--muted);line-height:1.5;">Many Australian rivers and dams remain cold even in hot weather, triggering panic, muscle cramping, loss of coordination, and drowning within minutes.</p>
+      </div>
+      <div style="background:#fff;border-radius:8px;padding:12px 14px;border:1px solid #90caf9;">
+        <p style="font-weight:700;font-size:0.88rem;color:#1565c0;margin-bottom:4px;">4. Alcohol and group risk-taking</p>
+        <p style="font-size:0.84rem;color:var(--muted);line-height:1.5;">Inland water incidents frequently involve alcohol, teenage males, group peer pressure, and jumping from bridges or riverbanks — a combination that significantly multiplies risk.</p>
+      </div>
+      <div style="background:#fff;border-radius:8px;padding:12px 14px;border:1px solid #90caf9;">
+        <p style="font-weight:700;font-size:0.88rem;color:#1565c0;margin-bottom:4px;">5. Remote locations delay rescue</p>
+        <p style="font-size:0.84rem;color:var(--muted);line-height:1.5;">River and dam locations often mean delayed ambulance access, limited mobile phone reception, no lifeguards, and delayed spinal immobilisation — all of which worsen outcomes.</p>
+      </div>
+      <div style="background:#fff;border-radius:8px;padding:12px 14px;border:1px solid #90caf9;">
+        <p style="font-weight:700;font-size:0.88rem;color:#1565c0;margin-bottom:4px;">The core prevention message</p>
+        <p style="font-size:0.84rem;color:var(--muted);line-height:1.5;"><strong>"Feet first, first time."</strong> Never dive into unknown water. Always check depth every single time — not just the first time. Previous safety at a location does not guarantee current safety.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTIVITY 6.1 -->
+  <div class="activity-box">
+    <h3>Activity 6.1 — Case Study Analysis</h3>
+    <p class="activity-intro">Using the three case studies above and the statistical data provided, answer the following questions. All responses should be evidence-based, using specific statistics where relevant.</p>
+
+    <div class="q-block">
+      <p class="q-num">6.1a</p>
+      <p class="q-text">Identify two common factors present across all three Australian case studies. For each factor, explain the specific mechanism by which it contributed to the injury — not just that it was present.</p>
+      <div class="ans-area"></div>
+    </div>
+
+    <div class="q-block">
+      <p class="q-num">6.1b</p>
+      <p class="q-text">The Australian data shows that 95% of aquatic spinal injury patients are male. Using the social determinants framework from Section 3, construct a structural explanation for this statistic. Your answer must go beyond "males take more risks" and identify the social factors that drive this behaviour pattern.</p>
+      <div class="ans-area"></div>
+    </div>
+
+    <div class="q-block">
+      <p class="q-num">6.1c</p>
+      <p class="q-text">Two-thirds of Australian aquatic spinal injury patients suffer permanent disability. Why does a diving injury at the cervical (neck) spine carry a particularly high risk of permanent quadriplegia compared with injuries at other spinal levels? Use the physiological content from Section 2 to support your answer.</p>
+      <div class="ans-area"></div>
+    </div>
+
+    <div class="q-block">
+      <p class="q-num">6.1d — Extension</p>
+      <p class="q-text">The Bawley Beach case study illustrates the concept of <em>false confidence from prior experience</em>. Using this case as a foundation, argue why prior familiarity with a location may be <strong>more dangerous</strong> than complete unfamiliarity. What specific prevention message should follow from this argument?</p>
+      <div class="ans-area"></div>
+    </div>
+  </div>
+
+  <!-- ACTIVITY 6.2 -->
+  <div class="activity-box">
+    <h3>Activity 6.2 — Myth vs Evidence Analysis</h3>
+    <p class="activity-intro">The following myths are extremely common among secondary-aged students. For each myth, write a clear evidence-based refutation — using specific Australian statistics or mechanisms where possible. The refutation must explain WHY the myth is false, not just assert that it is.</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-bottom:10px;">
+      <thead>
+        <tr>
+          <th style="background:#dc2626;color:#fff;padding:9px 12px;text-align:left;width:38%;">Common myth</th>
+          <th style="background:#dc2626;color:#fff;padding:9px 12px;text-align:left;width:62%;">Evidence-based refutation (write your response)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fde8e8;">
+          <td style="padding:10px 12px;border-bottom:1px solid #f09090;vertical-align:top;font-style:italic;">"If other people are jumping there, it must be safe."</td>
+          <td style="padding:10px 12px;border-bottom:1px solid #f09090;min-height:60px;"><div style="min-height:52px;"></div></td>
+        </tr>
+        <tr>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;font-style:italic;">"Clear water means deep water."</td>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);"><div style="min-height:52px;"></div></td>
+        </tr>
+        <tr style="background:#fde8e8;">
+          <td style="padding:10px 12px;border-bottom:1px solid #f09090;vertical-align:top;font-style:italic;">"I checked it before — I know this spot."</td>
+          <td style="padding:10px 12px;border-bottom:1px solid #f09090;"><div style="min-height:52px;"></div></td>
+        </tr>
+        <tr>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;font-style:italic;">"Good swimmers are safe from diving injuries."</td>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);"><div style="min-height:52px;"></div></td>
+        </tr>
+        <tr style="background:#fde8e8;">
+          <td style="padding:10px 12px;border-bottom:1px solid #f09090;vertical-align:top;font-style:italic;">"It's safer to jump feet-first than to dive."</td>
+          <td style="padding:10px 12px;border-bottom:1px solid #f09090;"><div style="min-height:52px;"></div></td>
+        </tr>
+        <tr>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;font-style:italic;">"The jetty is high — so the water must be deep."</td>
+          <td style="padding:10px 12px;border-bottom:1px solid var(--border);"><div style="min-height:52px;"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ACTIVITY 6.3 -->
+  <div class="activity-box">
+    <h3>Activity 6.3 — Prevention Strategy Design</h3>
+    <p class="activity-intro">Using the evidence from this section, design a targeted prevention strategy for one specific high-risk group and location. Your strategy must be grounded in the data above and must address the specific behavioural and structural factors driving risk for your chosen group.</p>
+
+    <div class="q-block">
+      <p class="q-num">Target group</p>
+      <p class="q-text">Identify your target group (e.g. "teenage males aged 15–18 at Victorian river swimming holes") and explain in one paragraph why this group faces disproportionate risk — citing at least two statistics.</p>
+      <div class="ans-area"></div>
+    </div>
+    <div class="q-block">
+      <p class="q-num">Prevention strategy</p>
+      <p class="q-text">Describe your strategy in specific terms: What will you do? Through what channel? Who delivers it? What behaviour change does it target? How will you know if it has worked (SMART metric)?</p>
+      <div class="ans-area"></div>
+    </div>
+    <div class="q-block">
+      <p class="q-num">Limitation</p>
+      <p class="q-text">Identify the most significant limitation of your strategy — and explain what a more complete response would look like if resources were not a constraint.</p>
+      <div class="ans-area"></div>
+    </div>
+  </div>
+
+
+  <!-- ═══ SECTION 7: ASSESSMENT TASK ═══ -->
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <h2>Assessment Task — Water Safety Policy Communication</h2>
+  </div>
+
+  <div class="assessment-card">
+    <h3>🎯 Your Assessment Task</h3>
+    <p style="font-size:0.88rem;opacity:0.88;margin-bottom:14px;">Using the research and analysis you have completed in this unit, produce ONE of the following. All options require evidence-based argument and must reference at least THREE credible sources with URLs.</p>
+    <div class="opt">
+      <h4>Option A — Policy Brief (Extended Written Response)</h4>
+      <p>Write a 600–800 word policy brief addressed to the Victorian Minister for Sport and Recreation, recommending THREE specific actions the government should take to reduce Victorian drowning deaths over the next 5 years. Must include current data, analysis of social determinants, and evidence-based prevention strategies.</p>
+    </div>
+    <div class="opt">
+      <h4>Option B — Multimodal Campaign Product</h4>
+      <p>Design a complete water safety awareness campaign targeting ONE specific high-risk group identified in Victorian drowning data (e.g. young males, CALD communities, inland waterway users). Must include: campaign name, visual concept, key message, evidence-based justification, target platform, and success metrics.</p>
+    </div>
+    <div class="opt">
+      <h4>Option C — School Audit &amp; Recommendation Report</h4>
+      <p>Conduct a water safety audit of your school — what does it currently do for water safety education? What is missing? Produce a structured report with recommendations, benchmarked against Victorian Curriculum 2.0 requirements and LSV best practice.</p>
+    </div>
+    <p style="font-size:0.8rem;opacity:0.75;margin-top:12px;">★ All options: minimum 3 sources · statistical evidence · clear audience · call to action or recommendation</p>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Planning Space — Assessment Task</div>
+    <p><strong>Option chosen:</strong></p>
+    <div class="ans-line"></div>
+    <p style="margin-top:10px;"><strong>Target audience / addressee:</strong></p>
+    <div class="ans-line"></div>
+    <p style="margin-top:10px;"><strong>Three sources I will use (with URLs):</strong></p>
+    <div class="ans-line">1. _____________________________________________________________________________</div>
+    <div class="ans-line">2. _____________________________________________________________________________</div>
+    <div class="ans-line">3. _____________________________________________________________________________</div>
+    <p style="margin-top:10px;"><strong>Key argument / central claim:</strong></p>
+    <div class="ans-line">________________________________________________________________________________</div>
+    <div class="ans-line">________________________________________________________________________________</div>
+  </div>
+
+  <!-- SELF-ASSESSMENT -->
+  <div class="sa">
+    <h3>✏️ Unit Self-Assessment</h3>
+    <table role="table" class="wb-table" style="font-size:0.85rem;">
+      <tr>
+        <th>Skill / Knowledge Area</th>
+        <th style="width:14%;text-align:center;">Still developing</th>
+        <th style="width:14%;text-align:center;">Solid</th>
+        <th style="width:14%;text-align:center;">Can teach it</th>
+      </tr>
+      <tr><td>Calculate and interpret drowning rate data</td><td style="text-align:center;">○</td><td style="text-align:center;">○</td><td style="text-align:center;">○</td></tr>
+      <tr><td>Explain the physiology of drowning and CPR</td><td style="text-align:center;">○</td><td style="text-align:center;">○</td><td style="text-align:center;">○</td></tr>
+      <tr><td>Identify and analyse social determinants of drowning risk</td><td style="text-align:center;">○</td><td style="text-align:center;">○</td><td style="text-align:center;">○</td></tr>
+      <tr><td>Evaluate prevention strategies with evidence</td><td style="text-align:center;">○</td><td style="text-align:center;">○</td><td style="text-align:center;">○</td></tr>
+      <tr><td>Compare international approaches</td><td style="text-align:center;">○</td><td style="text-align:center;">○</td><td style="text-align:center;">○</td></tr>
+      <tr><td>Produce an evidence-based policy argument</td><td style="text-align:center;">○</td><td style="text-align:center;">○</td><td style="text-align:center;">○</td></tr>
+    </table>
+    <p style="font-size:0.88rem;font-weight:600;color:var(--navy);margin-top:12px;">One question I still have:</p>
+    <div class="ans-line"></div>
+  </div>
+
+</div>
+
+<div class="wb-footer">
+  <div>Victorian Curriculum F–10 Version 2.0 · HPE · Year 9–10 · VC2HP10P02, VC2HP10P08, VC2HP10P09, VC2HP10M01</div>
+  <div style="text-align:right;font-family:'DM Mono',monospace;font-size:0.7rem;line-height:1.8;">
+    LSV: <a href="https://lsv.com.au">lsv.com.au</a> · RLSSA: <a href="https://www.royallifesaving.com.au">royallifesaving.com.au</a><br>
+    WHO: <a href="https://www.who.int/news-room/fact-sheets/detail/drowning">who.int</a> · Victorian Curriculum: <a href="https://f10.vcaa.vic.edu.au">victoriancurriculum.vcaa.vic.edu.au</a>
+  </div>
+</div>
+</body>
+</html>

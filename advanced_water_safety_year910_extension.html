@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Water Safety — Extension Workbook | Year 9–10 HPE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#0a1e3d;--ocean:#1565c0;--purple:#6a1b9a;
+    --teal:#00695c;--amber:#b45309;--sage:#2e7d32;--alert:#c62828;
+    --bg:#f0f4f8;--card:#fff;--border:#c8d8e8;--text:#0a1e3d;--muted:#3a5a6e;
+  }
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.65;}
+  .skip-nav{position:absolute;top:-100px;left:8px;background:var(--navy);color:#fff;padding:8px 18px;border-radius:0 0 8px 8px;font-size:0.9rem;font-weight:700;text-decoration:none;z-index:9999;transition:top 0.2s;}
+  .skip-nav:focus{top:0;}
+  :focus-visible{outline:3px solid var(--ocean);outline-offset:2px;border-radius:3px;}
+
+  .cover{background:linear-gradient(150deg,#050d1e,#0a1e3d,#6a1b9a);color:#fff;padding:44px 44px 52px;position:relative;overflow:hidden;}
+  .cv-tag{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:5px 16px;display:inline-block;margin-bottom:14px;}
+  .cover h1{font-family:'Poppins',sans-serif;font-size:2.6rem;font-weight:800;line-height:1.1;margin-bottom:8px;}
+  .cover h1 em{font-style:normal;color:#ce93d8;}
+  .cover p{font-size:0.92rem;opacity:0.82;max-width:560px;margin-bottom:20px;}
+  .cover-note{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:10px;padding:12px 16px;font-size:0.88rem;line-height:1.55;max-width:540px;margin-bottom:22px;}
+  .cover-fields{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:500px;}
+  .cf{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:10px 12px;}
+  .cf label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;opacity:0.55;display:block;margin-bottom:4px;}
+  .cf .fill{border-bottom:1px solid rgba(255,255,255,0.35);min-height:22px;}
+  .curr-strip{background:#0a1e3d;color:rgba(255,255,255,0.6);padding:9px 44px;font-family:'DM Mono',monospace;font-size:0.7rem;}
+
+  .body{max-width:900px;margin:0 auto;padding:32px 24px 56px;}
+
+  .ext-note{background:#f3e5f5;border-left:5px solid var(--purple);border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:26px;font-size:0.9rem;color:var(--text);}
+  .ext-note strong{color:var(--purple);}
+
+  .sec-header{display:flex;align-items:center;gap:12px;margin:36px 0 18px;padding-bottom:10px;border-bottom:3px solid var(--purple);}
+  .sec-header:first-of-type{margin-top:0;}
+  .sec-num{background:var(--purple);color:#fff;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:800;font-size:1.1rem;flex-shrink:0;}
+  .sec-header h2{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;color:var(--navy);}
+
+  .q-block{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:14px;}
+  .q-block .qn{font-family:'Poppins',sans-serif;font-weight:700;font-size:0.9rem;color:var(--purple);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;}
+  .marks{font-family:'DM Mono',monospace;font-size:0.7rem;background:#f3e5f5;border:1px solid #ce93d8;border-radius:6px;padding:1px 8px;color:var(--purple);}
+  .q-block p{font-size:0.9rem;margin-bottom:8px;color:var(--text);}
+  .q-block .hint{font-size:0.8rem;color:var(--muted);font-style:italic;margin-bottom:6px;display:block;}
+  .ans-line{border-bottom:1.5px solid var(--border);min-height:30px;margin-bottom:8px;padding:2px 4px;display:block;}
+  .ans-box{border:1.5px solid var(--border);border-radius:8px;min-height:90px;padding:10px;font-size:0.88rem;color:#bbb;margin-bottom:10px;width:100%;font-family:'DM Sans',sans-serif;resize:vertical;}
+
+  .challenge{background:#f3e5f5;border:1px solid #ce93d8;border-left:5px solid var(--purple);border-radius:0 10px 10px 0;padding:12px 16px;margin:10px 0;font-size:0.88rem;color:var(--text);}
+  .challenge strong{color:var(--purple);}
+
+  .data-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.86rem;}
+  .data-table th{background:var(--navy);color:#fff;padding:8px 11px;text-align:left;font-weight:700;}
+  .data-table td{padding:8px 11px;border:1px solid var(--border);vertical-align:top;}
+  .data-table tr:nth-child(even) td{background:var(--bg);}
+  .data-table td.write{background:#fffef5;color:#aaa;font-style:italic;font-size:0.82rem;}
+
+  .counter-arg{background:#e3f2fd;border:1px solid #90caf9;border-radius:8px;padding:12px 16px;margin:10px 0;font-size:0.88rem;color:var(--text);}
+  .counter-arg strong{color:var(--ocean);}
+
+  .sa-box{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:16px 20px;margin:20px 0;}
+  .sa-box h3{font-family:'Poppins',sans-serif;font-size:0.92rem;font-weight:700;color:var(--navy);margin-bottom:12px;}
+  .sa-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:0.88rem;}
+  .sa-row:last-child{border-bottom:none;}
+
+  .wb-footer{background:var(--navy);color:rgba(255,255,255,0.65);padding:16px 44px;font-size:0.74rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:36px;}
+  @media(max-width:600px){.cover{padding:30px 18px 44px;}.body{padding:20px 14px 40px;}.cover-fields{grid-template-columns:1fr;}}
+  @media print{body{background:#fff;}.cover{page-break-after:always;}@page{size:A4;margin:15mm;}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<div class="cover">
+  <div class="cv-tag">★ Extension Workbook · Year 9–10</div>
+  <h1>ADVANCED WATER<br><em>SAFETY</em></h1>
+  <p style="opacity:0.82;margin-bottom:10px;">Health &amp; Physical Education · Year 9–10 · Victorian Curriculum F–10 Version 2.0</p>
+  <div class="cover-note">
+    This extension workbook goes further than the standard Year 9–10 workbook. Expect original research tasks, complex argument construction, statistical modelling, diving/spinal injury analysis, and policy-level thinking. All questions require A-standard reasoning and evidence.
+  </div>
+  <div class="cover-fields">
+    <div class="cf"><label>Student Name</label><span class="fill"></span></div>
+    <div class="cf"><label>Class</label><span class="fill"></span></div>
+    <div class="cf"><label>Teacher</label><span class="fill"></span></div>
+  </div>
+</div>
+<div class="curr-strip">Victorian Curriculum 2.0 · HPE Year 9–10 · VC2HP10P02 · VC2HP10P08 · VC2HP10P09 · VC2HP10M01</div>
+
+<div id="main-content" tabindex="-1" style="outline:none;"></div>
+<div class="body">
+
+  <div class="ext-note">
+    <strong>📌 This is an extension workbook.</strong> Questions require sophisticated analysis, original research, and evidence-based argument — not description or summary. For each question, ask yourself: Am I explaining WHY, not just WHAT? Am I citing primary sources with URLs? Am I acknowledging complexity and counter-arguments?
+  </div>
+
+  <!-- ══ SECTION 1: ADVANCED DATA ══ -->
+  <div class="sec-header">
+    <div class="sec-num">1</div>
+    <h2>Advanced Data Analysis — Beyond the Standard Workbook</h2>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q1.1 — Statistical Modelling <span class="marks">5 marks</span></div>
+    <p>Using the Victorian drowning data from LSV (lsv.com.au/research), calculate drowning rates per 100,000 for THREE consecutive years. Plot these on a hand-drawn or digital line graph. Then apply a linear trend line and extrapolate: what would the predicted 2026–27 rate be if the trend continues? What are the limitations of this prediction?</p>
+    <span class="hint">Show all calculations. The trend line must be justified — not guessed. Discuss at least two factors that could cause actual figures to deviate significantly from your prediction.</span>
+    <div class="ans-box" rows="5" style="min-height:110px;"></div>
+    <div class="ans-line">Predicted 2026–27 rate: _______ per 100,000 · Limitations: ___________________________</div>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q1.2 — Disaggregation Challenge <span class="marks">4 marks</span></div>
+    <p>The LSV reports an overall Victorian drowning rate of 0.78 per 100,000. However, this single figure obscures enormous demographic variation. Calculate (or estimate using LSV data) the drowning rate specifically for: (a) Victorian males, and (b) CALD Victorians. Compare these to the overall rate and explain what "disaggregating the data" reveals that aggregate statistics hide.</p>
+    <span class="hint">For CALD rate: use 40% of deaths and 28% of population. For male rate: 46 of 54 deaths, approx 50% of the population. Show your working.</span>
+    <div class="ans-box"></div>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q1.3 — International Statistical Comparison <span class="marks">4 marks</span></div>
+    <p>Research and compare Victorian drowning rates against TWO other countries of your choice using primary sources (WHO, CDC, or national drowning organisation data). Present your findings in the table, then write a 150-word analysis explaining what the comparison reveals — and what it does NOT reveal — about the effectiveness of Victorian water safety approaches.</p>
+    <table class="data-table">
+      <tr><th>Jurisdiction</th><th>Rate per 100,000</th><th>Year of data</th><th>Primary source URL</th><th>Income category (World Bank)</th></tr>
+      <tr><td>Victoria, Australia</td><td>0.78</td><td>2023–24</td><td>lsv.com.au</td><td>High income</td></tr>
+      <tr><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+      <tr><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+    </table>
+    <div class="ans-box" style="min-height:100px;"></div>
+  </div>
+
+  <!-- ══ SECTION 2: PHYSIOLOGY EXTENSION ══ -->
+  <div class="sec-header">
+    <div class="sec-num">2</div>
+    <h2>Physiology — Advanced Applications</h2>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q2.1 — Physiological Mechanism Analysis <span class="marks">4 marks</span></div>
+    <p>The 1-10-1 cold water rule states approximately 10 minutes of useful swimming ability is available after cold water immersion. Explain the specific physiological mechanism that LIMITS swimming ability during this window — not simply that "the body gets cold." Your answer must include: peripheral vasoconstriction, neuromuscular dysfunction, and the specific reason why fitness level does NOT significantly extend this window.</p>
+    <div class="ans-box"></div>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q2.2 — Evaluating CPR Evidence <span class="marks">5 marks</span></div>
+    <p>Research: locate ONE peer-reviewed study or national clinical guideline that addresses bystander CPR survival rates in drowning specifically (not cardiac arrest in general). Record the source, its key finding, and evaluate: (a) how well it supports the 4-minute window claim, (b) any limitations of the study, (c) whether it changes your own advice about CPR instruction in schools. Cite in full.</p>
+    <span class="hint">Search: Google Scholar, PubMed, Resuscitation Council guidelines, Australian Resuscitation Council (resus.org.au)</span>
+    <div class="ans-box" style="min-height:110px;"></div>
+    <div class="ans-line">Full citation: ___________________________________________________________</div>
+  </div>
+
+  <div class="challenge">
+    <strong>★ Extension Challenge:</strong> The "Float to Live" campaign (RLSS UK) recommends floating as a PRIMARY response, arguing that attempting to swim immediately wastes the 10-minute window. Some Australian water safety educators disagree, arguing that situational factors (currents, distance from shore) make swimming preferable. Research both positions and construct a 200-word evidence-based argument for one side, explicitly acknowledging the strongest counter-argument.
+  </div>
+  <div class="ans-box" style="min-height:130px;"></div>
+
+  <!-- ══ SECTION 3: STRUCTURAL ANALYSIS ══ -->
+  <div class="sec-header">
+    <div class="sec-num">3</div>
+    <h2>Structural Analysis — Advanced Social Determinants</h2>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q3.1 — Intersectionality Application <span class="marks">5 marks</span></div>
+    <p>The concept of intersectionality explains that individuals experience compounded disadvantage when multiple social identities overlap. Apply this framework to Victorian drowning risk. Identify a specific profile of a person who faces MULTIPLE intersecting risk factors — and explain how each factor amplifies the others rather than simply adding to them. Your response must reference at least two primary data sources.</p>
+    <span class="hint">Example profile to consider: a recently arrived CALD male, aged 19, in a regional area who fishes commercially. How do the risk factors interact and amplify each other — not just accumulate?</span>
+    <div class="ans-box" style="min-height:120px;"></div>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q3.2 — Policy Critique <span class="marks">4 marks</span></div>
+    <p>Victorian pool fencing legislation mandates four-sided isolation fencing for new residential pools. Research the specific legislative requirements (Consumer Affairs Victoria or local council regulations). Identify ONE significant gap or limitation in current pool fencing legislation — and construct an argument for a specific, practical amendment that would address it. Cite the legislation.</p>
+    <div class="ans-box"></div>
+    <div class="ans-line">Legislative reference: ___________________________________________________</div>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q3.3 — Health Equity Analysis <span class="marks">5 marks</span></div>
+    <p>Distinguish between health equality and health equity. Then argue: should a Victorian Government water safety prevention budget be distributed equally across all population groups, or equitably (with more resources directed to higher-risk groups)? Construct a fully justified argument using Victorian drowning data as your primary evidence. Acknowledge and refute the strongest counter-argument to your position.</p>
+    <div class="counter-arg">
+      <strong>Counter-argument you must refute:</strong> "Targeting resources to specific groups is discriminatory and creates division. All Victorians deserve equal investment in their safety."
+    </div>
+    <div class="ans-box" style="min-height:130px;"></div>
+  </div>
+
+  <!-- ══ SECTION 4: EVALUATION ══ -->
+  <div class="sec-header">
+    <div class="sec-num">4</div>
+    <h2>Prevention Strategy — Advanced Evaluation</h2>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q4.1 — Evidence Quality Assessment <span class="marks">4 marks</span></div>
+    <p>Locate the specific research evidence underpinning the claim that "four-sided pool isolation fencing reduces child drowning by approximately 83%." Evaluate: (a) what type of study produced this figure, (b) where this study was conducted and how transferable its findings are to contemporary Victoria, and (c) what would be needed to update this evidence for current Victorian conditions. Cite your source.</p>
+    <div class="ans-box"></div>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q4.2 — Cost-Effectiveness Analysis <span class="marks">5 marks</span></div>
+    <p>A concept used in public health is cost per life saved — how much investment produces one prevented death. Research (or estimate from available data) the approximate cost of: (a) extending patrolled beach hours by 20% across Victoria, (b) funding CALD community swim programs reaching 10,000 participants per year. For each, estimate the number of drowning deaths that might be prevented annually. Which provides better cost-effectiveness, and what are the significant limitations of this type of analysis?</p>
+    <span class="hint">This requires synthesis and estimation — there is no single correct number. Your reasoning and evidence quality matter more than the specific figures you arrive at.</span>
+    <div class="ans-box" style="min-height:130px;"></div>
+  </div>
+
+  <!-- ══ SECTION 5: ORIGINAL RESEARCH ══ -->
+  <div class="sec-header">
+    <div class="sec-num">5</div>
+    <h2>Original Research &amp; International Policy Analysis</h2>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q5.1 — Primary Source Research <span class="marks">5 marks</span></div>
+    <p>Locate and read the most recent WHO publication specifically on drowning prevention (not just the fact sheet — the full guidance document). Identify ONE recommendation from that document that is currently NOT reflected in Victoria's approach. Construct a policy brief paragraph (150–200 words) arguing for its adoption, addressed to the Victorian Minister for Sport. Include: the WHO recommendation, the evidence base, what adoption would require, and what the expected impact would be.</p>
+    <span class="hint">WHO Drowning Prevention: A Guide to Implementing Recommendations (2014) or equivalent — search who.int publications. Note: you are looking for specific programmatic recommendations, not general principles.</span>
+    <div class="ans-box" style="min-height:160px;"></div>
+    <div class="ans-line">WHO source URL and publication year: _______________________________________</div>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q5.2 — Contested Evidence Analysis <span class="marks">4 marks</span></div>
+    <p>Research: there is ongoing debate among water safety researchers about whether swim lessons for adults are cost-effective at reducing drowning deaths, given that most adult drowning victims could already swim. Find evidence on BOTH sides of this debate and present a balanced synthesis — concluding with your own evidence-based position. You must cite at least two sources.</p>
+    <div class="ans-box" style="min-height:130px;"></div>
+  </div>
+
+
+  <!-- ══ SECTION 6: DIVING & SPINAL INJURIES — EXTENSION ══ -->
+  <div class="sec-header">
+    <div class="sec-num">6</div>
+    <h2>Diving, Spinal Injuries &amp; High-Risk Behaviour — Extension Analysis</h2>
+  </div>
+
+  <div class="ext-note" style="background:#fff0f0;border-left:5px solid #dc2626;border-radius:0 10px 10px 0;padding:13px 18px;margin-bottom:20px;font-size:0.9rem;">
+    <strong style="color:#dc2626;">Extension focus:</strong> This section requires primary source research, original policy argument construction, and intersectionality analysis applied to a new content domain. All questions require A-standard reasoning. Cite all sources with full URLs.
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q6.1 — Primary Source Research: Spinal Injury Data <span class="marks">5 marks</span></div>
+    <p>Locate the AIHW report on aquatic injury OR the Royal Life Saving Australia spinal injury data (aihw.gov.au or royallifesaving.com.au). Identify ONE specific finding from that source NOT mentioned in the standard workbook. Explain: (a) what the finding is, (b) what it reveals about the scope or distribution of the problem beyond the statistics you were given, and (c) how it would strengthen or complicate a prevention policy argument.</p>
+    <span class="hint">Search: AIHW aquatic injury Australia OR RLSSA spinal injury diving. Retrieve a primary document, not a news summary.</span>
+    <textarea class="ans-box" rows="4"></textarea>
+    <div class="ans-line">Primary source URL: ___________________________________________________</div>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q6.2 — Intersectionality: Compound Risk Analysis <span class="marks">5 marks</span></div>
+    <p>The data shows 95% of aquatic spinal injury patients are male, the highest incidence group is 10–14 year olds, and inland waterways (often in rural or remote areas) account for the majority of serious incidents. Apply the intersectionality framework to construct a compound risk profile. Identify a specific type of person who faces intersecting, mutually amplifying risk factors — and argue why addressing any single factor in isolation will be insufficient. Your argument must reference at least two statistics and acknowledge one counter-argument.</p>
+    <span class="hint">Intersectionality means the risk factors multiply each other — they do not simply add. A rural teenage male faces compounded risk from masculinity norms + limited swim access + no lifeguard infrastructure + alcohol availability + delayed emergency response. Explain the amplification mechanisms.</span>
+    <textarea class="ans-box" rows="5"></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q6.3 — False Confidence as a Structural Problem <span class="marks">4 marks</span></div>
+    <p>The three Australian case studies (Terrigal Wharf NSW 2025, Torquay Front Beach Vic 2025, Bawley Beach NSW 2024) all involve a version of false confidence — either "it looked safe" or "I've done it before." Argue that false confidence near water is NOT primarily an individual attitude problem but a structural communications failure. What should water safety organisations, local councils, and schools be doing differently — and why are current approaches insufficient? Cite at least one primary source.</p>
+    <span class="hint">Think about: the difference between warning signs (which address knowledge) and behaviour change infrastructure (which addresses the decision-making environment). What would a structural solution look like versus an educational one?</span>
+    <textarea class="ans-box" rows="5"></textarea>
+    <div class="ans-line">Source URL: ___________________________________________________</div>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q6.4 — Policy Argument: Diving Prevention vs Other Priorities <span class="marks">5 marks</span></div>
+    <p>Diving and shallow-water spinal injuries account for 10% of spinal cord injuries and 20% of quadriplegia cases in Australia — but they receive significantly less public health funding and policy attention than drowning prevention. Construct a fully evidenced argument for why the Victorian Government should allocate a dedicated budget line to diving injury prevention separate from its drowning prevention spend. Your argument must: cite at least two statistics, address the strongest counter-argument ("drowning kills more people"), include a specific, costed intervention proposal, and name a success metric.</p>
+    <span class="hint">Consider: cost of lifetime quadriplegia care vs cost of prevention; the age distribution of victims (10–14 highest); the permanence of spinal injury vs some drowning outcomes. Also consider WHO cost-effectiveness frameworks you applied in Section 4.</span>
+    <textarea class="ans-box" rows="7"></textarea>
+    <div class="ans-line">Source 1 URL: _______________  Source 2 URL: _______________</div>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q6.5 — Extension: The "Feet First" Campaign — Is It Enough? <span class="marks">4 marks</span></div>
+    <p>Australian water safety organisations have promoted the "Feet first, first time" message for decades. Evaluate its effectiveness using the evidence hierarchy you applied in Section 4. Is this message addressing the right behaviour? Does the evidence support it as the primary prevention strategy for this risk group? What would a stronger evidence base look like, and what alternative or complementary strategy would you argue for?</p>
+    <span class="hint">Apply the same evaluative framework you used for pool fencing and patrol hours: What type of evidence exists? What is the causal mechanism? What population does it reach? What does it not address?</span>
+    <textarea class="ans-box" rows="5"></textarea>
+  </div>
+
+
+  <!-- ══ SECTION 7: SUMMATIVE EXTENSION ══ -->
+  <div class="sec-header">
+    <div class="sec-num">7</div>
+    <h2>Summative Assessment — Extension Prompts</h2>
+  </div>
+
+  <div class="q-block">
+    <div class="qn">Q6.1 — Advanced Assessment Task Options <span class="marks">Extension</span></div>
+    <p>Choose ONE of the following extension versions of the summative assessment task:</p>
+    <div style="display:flex;flex-direction:column;gap:10px;margin:10px 0;">
+      <div style="background:#e3f2fd;border:1.5px solid #90caf9;border-radius:8px;padding:12px 14px;font-size:0.88rem;">
+        <strong style="color:var(--ocean);">Option A★ — Senate Submission (800–1,000 words)</strong><br>
+        Write a formal submission to a hypothetical Senate inquiry into drowning prevention funding in Australia. Argue for a specific national policy change using Victorian and national data. Must include an executive summary, three numbered recommendations, evidence base, and anticipated impact metrics. Cite a minimum of five primary sources.
+      </div>
+      <div style="background:#e8f5e9;border:1.5px solid #a5d6a7;border-radius:8px;padding:12px 14px;font-size:0.88rem;">
+        <strong style="color:var(--sage);">Option B★ — Longitudinal Campaign Strategy</strong><br>
+        Design a multi-phase, multi-channel water safety campaign targeting CALD males aged 18–35 in Victoria. The campaign must: be grounded in specific LSV and RLSSA data; address structural barriers (not just awareness); include three campaign phases across 12 months; specify platforms, messages, and culturally safe delivery approaches; include an evaluation framework with SMART success metrics; and acknowledge limitations.
+      </div>
+      <div style="background:#f3e5f5;border:1.5px solid #ce93d8;border-radius:8px;padding:12px 14px;font-size:0.88rem;">
+        <strong style="color:var(--purple);">Option C★ — Comparative Systems Analysis</strong><br>
+        Conduct a full comparative analysis of water safety education systems in Australia, the UK, and New Zealand (or another comparable country). Evaluate each against four criteria: curriculum integration, community reach, equity focus, and measurable impact. Conclude with specific recommendations for what Victoria should adopt, adapt, or reject from international approaches. Cite primary sources from all three countries.
+      </div>
+    </div>
+    <span class="hint">These are A-standard tasks requiring 3–5 primary sources, sophisticated argument structure, and evidence of original research beyond the workbook.</span>
+  </div>
+
+  <!-- SELF-ASSESSMENT -->
+  <div class="sa-box">
+    <h3>✏️ Extension Self-Assessment — Am I Meeting the Standard?</h3>
+    <div class="sa-row">☐ &nbsp; My arguments go beyond description — I explain mechanisms and causation, not just facts</div>
+    <div class="sa-row">☐ &nbsp; I have cited at least 5 primary sources with full URLs</div>
+    <div class="sa-row">☐ &nbsp; I have acknowledged and directly refuted at least one counter-argument</div>
+    <div class="sa-row">☐ &nbsp; My statistical calculations show working and include a check for reasonableness</div>
+    <div class="sa-row">☐ &nbsp; I have proposed specific, measurable solutions — not just identified problems</div>
+    <div class="sa-row">☐ &nbsp; I have connected the physiological, social, and policy dimensions of the issue</div>
+    <div class="sa-row">☐ &nbsp; My writing is addressed to a specific, named audience — not written generically</div>
+  </div>
+
+</div>
+
+<div class="wb-footer">
+  <div>Advanced Water Safety — Extension Workbook · Victorian Curriculum F–10 Version 2.0 · HPE Year 9–10 · VC2HP10P02, VC2HP10P08, VC2HP10P09, VC2HP10M01</div>
+  <div style="text-align:right;font-family:'DM Mono',monospace;font-size:0.7rem;">lsv.com.au · royallifesaving.com.au · who.int · victoriancurriculum.vcaa.vic.edu.au</div>
+</div>
+</body>
+</html>

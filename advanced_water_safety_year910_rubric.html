@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Water Safety — Assessment Rubric | Year 9–10 HPE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#0a1e3d;--ocean:#1565c0;--bg:#f0f4f8;
+    --text:#0a1e3d;--muted:#3a5a6e;--border:#c8d8e8;
+    --e:#fde8e8;--d:#fff3e0;--c:#fffde7;--b:#e8f5e9;--a:#e3f2fd;
+    --e-t:#c62828;--d-t:#e65100;--c-t:#b45309;--b-t:#2e7d32;--a-t:#1565c0;
+  }
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.55;}
+
+  .skip-nav{position:absolute;top:-100px;left:8px;background:var(--navy);color:#fff;padding:8px 18px;border-radius:0 0 8px 8px;font-size:0.9rem;font-weight:700;text-decoration:none;z-index:9999;transition:top 0.2s;}
+  .skip-nav:focus{top:0;}
+  :focus-visible{outline:3px solid var(--ocean);outline-offset:2px;border-radius:3px;}
+
+  .print-note{max-width:1060px;margin:0 auto 14px;background:#fffbeb;border:1px solid #fbc02d;border-radius:8px;padding:10px 16px;font-size:0.82rem;color:#78350f;}
+
+  .page{max-width:1060px;margin:0 auto;background:#fff;box-shadow:0 6px 28px rgba(10,30,61,0.12);border-radius:4px;overflow:hidden;}
+
+  /* HEADER */
+  .ph{background:linear-gradient(135deg,#050d1e 0%,#0a1e3d 55%,#1565c0 100%);color:#fff;padding:20px 28px 24px;position:relative;overflow:hidden;}
+  .ph::after{content:'';position:absolute;bottom:0;left:0;right:0;height:26px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1060 26'%3E%3Cpath fill='%23ffffff' d='M0,13 Q265,26 530,13 Q795,0 1060,13 L1060,26 L0,26Z'/%3E%3C/svg%3E") bottom/cover no-repeat;}
+  .ph-top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .ph-badge{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.24);border-radius:3px;padding:3px 10px;display:inline-block;margin-bottom:7px;}
+  .ph h1{font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:3px;}
+  .ph p{font-size:0.8rem;opacity:0.78;}
+  .ph-restricted{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:1.5px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:4px;padding:4px 10px;color:rgba(255,255,255,0.7);}
+
+  /* STUDENT DETAILS */
+  .student-bar{background:#f8fafc;border-bottom:1px solid var(--border);padding:10px 28px;display:flex;gap:20px;flex-wrap:wrap;}
+  .sf label{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:3px;}
+  .sf .fl{border-bottom:1.5px solid var(--border);min-width:140px;min-height:22px;display:block;}
+
+  /* INTRO */
+  .intro{padding:14px 28px 0;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .intro-box{background:var(--bg);border-radius:8px;padding:12px 14px;font-size:0.82rem;color:var(--muted);line-height:1.5;}
+  .intro-box strong{color:var(--navy);display:block;margin-bottom:4px;font-size:0.82rem;}
+
+  /* GRADE LEGEND */
+  .grade-legend{display:flex;gap:6px;padding:10px 28px 4px;flex-wrap:wrap;}
+  .gl{border-radius:6px;padding:4px 14px;font-size:0.78rem;font-weight:700;display:flex;align-items:center;gap:5px;}
+  .gl-e{background:var(--e);color:var(--e-t);}
+  .gl-d{background:var(--d);color:var(--d-t);}
+  .gl-c{background:var(--c);color:var(--c-t);}
+  .gl-b{background:var(--b);color:var(--b-t);}
+  .gl-a{background:var(--a);color:var(--a-t);}
+
+  /* RUBRIC TABLE */
+  .rubric-wrap{padding:8px 28px 20px;overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;font-size:0.78rem;}
+  th{background:var(--navy);color:#fff;padding:9px 10px;text-align:left;font-weight:700;font-size:0.76rem;line-height:1.3;}
+  td{padding:8px 10px;border:1px solid var(--border);vertical-align:top;line-height:1.4;}
+  .crit-col{font-family:'Poppins',sans-serif;font-weight:700;font-size:0.8rem;color:var(--navy);background:#f5f8fb;}
+  .crit-code{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--muted);font-weight:400;display:block;margin-top:2px;}
+  .e-col{background:var(--e);color:#5a1010;}
+  .d-col{background:var(--d);color:#5a2000;}
+  .c-col{background:var(--c);color:#3a2a00;}
+  .b-col{background:var(--b);color:#1a3a22;}
+  .a-col{background:var(--a);color:#0a1e3d;}
+  .self-col{background:#fafcff;color:var(--muted);font-style:italic;}
+  .self-col .sa-opts{display:flex;flex-direction:column;gap:4px;margin-top:4px;}
+  .sa-opt{border:1px solid var(--border);border-radius:4px;padding:3px 8px;font-size:0.72rem;display:flex;align-items:center;gap:5px;cursor:pointer;}
+  .sa-opt::before{content:'○';font-size:0.8rem;color:var(--muted);}
+
+  /* COMMENT SECTION */
+  .comment-section{padding:0 28px 20px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .cs-box{border:1px solid var(--border);border-radius:8px;padding:12px 14px;}
+  .cs-box label{font-family:'DM Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);display:block;margin-bottom:6px;}
+  .cs-line{border-bottom:1px solid var(--border);min-height:24px;margin-bottom:5px;}
+
+  /* OVERALL GRADE */
+  .overall-row{padding:0 28px 16px;display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;}
+  .overall-box{border:1.5px solid var(--border);border-radius:8px;padding:10px 16px;flex:1;min-width:160px;}
+  .overall-box label{font-family:'DM Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);display:block;margin-bottom:6px;}
+  .grade-circles{display:flex;gap:6px;}
+  .gc{width:32px;height:32px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.9rem;cursor:pointer;}
+  .gc-e{border-color:var(--e-t);color:var(--e-t);}
+  .gc-d{border-color:var(--d-t);color:var(--d-t);}
+  .gc-c{border-color:var(--c-t);color:var(--c-t);}
+  .gc-b{border-color:var(--b-t);color:var(--b-t);}
+  .gc-a{border-color:var(--a-t);color:var(--a-t);}
+
+  /* PAGE FOOTER */
+  .pf{background:var(--navy);color:rgba(255,255,255,0.65);padding:10px 28px;font-size:0.7rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+
+  body{padding:20px 14px;}
+  @media print{body{background:#fff;padding:0;}.print-note{display:none;}.page{box-shadow:none;}@page{size:A4 landscape;margin:8mm;}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<div class="print-note">
+  <strong>🖨 Print instructions:</strong> Print <strong>A4 landscape</strong> for best results. Background graphics ON. Distribute to students at the start of the unit so they know exactly what is expected. The self-assessment column is completed by the student before submitting.
+</div>
+
+<div class="page" id="main-content" tabindex="-1">
+  <div class="ph">
+    <div class="ph-top">
+      <div>
+        <div class="ph-badge">Assessment Rubric · Year 9–10 Advanced Water Safety</div>
+        <h1>Advanced Water Safety — Assessment Rubric</h1>
+        <p>Health &amp; Physical Education · Year 9–10 · Victorian Curriculum F–10 Version 2.0</p>
+      </div>
+      <div class="ph-restricted">Teacher &amp; Student Copy</div>
+    </div>
+  </div>
+
+  <div class="student-bar">
+    <div class="sf"><label>Student Name</label><span class="fl"></span></div>
+    <div class="sf"><label>Class</label><span class="fl" style="min-width:70px;"></span></div>
+    <div class="sf"><label>Teacher</label><span class="fl"></span></div>
+    <div class="sf"><label>Assessment Option (circle)</label><span class="fl" style="min-width:220px;padding-top:2px;font-size:0.82rem;">A — Policy Brief &nbsp;&nbsp; B — Campaign &nbsp;&nbsp; C — School Audit</span></div>
+    <div class="sf"><label>Due Date</label><span class="fl" style="min-width:80px;"></span></div>
+  </div>
+
+  <div class="intro">
+    <div class="intro-box">
+      <strong>How to use this rubric</strong>
+      Read each criterion row carefully. Before submitting your work, complete the <em>Student Self-Assessment</em> column honestly — circle the grade descriptor that best matches your work. Your teacher will independently complete their assessment. Differences between your self-assessment and teacher assessment are a great starting point for feedback conversations.
+    </div>
+    <div class="intro-box">
+      <strong>What the grades mean</strong>
+      <strong style="color:var(--a-t);">A — Extending:</strong> Sophisticated, evidence-rich, insightful analysis.<br>
+      <strong style="color:var(--b-t);">B — Building:</strong> Accurate, well-supported, clearly argued.<br>
+      <strong style="color:var(--c-t);">C — Consolidating:</strong> Sound understanding, reasonable evidence.<br>
+      <strong style="color:var(--d-t);">D — Developing:</strong> Partial understanding, limited evidence.<br>
+      <strong style="color:var(--e-t);">E — Emerging:</strong> Beginning to engage with the concepts.
+    </div>
+  </div>
+
+  <div class="grade-legend">
+    <span style="font-size:0.78rem;font-weight:600;color:var(--muted);align-self:center;">Grade scale:</span>
+    <span class="gl gl-e">E — Emerging</span>
+    <span class="gl gl-d">D — Developing</span>
+    <span class="gl gl-c">C — Consolidating</span>
+    <span class="gl gl-b">B — Building</span>
+    <span class="gl gl-a">A — Extending</span>
+  </div>
+
+  <div class="rubric-wrap">
+    <table role="table" aria-label="Assessment rubric">
+      <thead>
+        <tr>
+          <th style="width:13%;">Criterion &amp; Curriculum Code</th>
+          <th style="width:13%;" class="e-col" style="color:#c62828;">E — Emerging</th>
+          <th style="width:13%;" class="d-col">D — Developing</th>
+          <th style="width:14%;" class="c-col">C — Consolidating</th>
+          <th style="width:14%;" class="b-col">B — Building</th>
+          <th style="width:14%;" class="a-col">A — Extending</th>
+          <th style="width:19%;">Student Self-Assessment<br><span style="font-weight:400;font-size:0.7rem;opacity:0.8;">Complete before submitting</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="crit-col">1. Data Analysis &amp; Calculation<span class="crit-code">VC2HP10P08</span></td>
+          <td class="e-col">Cannot perform basic drowning rate calculations; misinterprets or ignores data.</td>
+          <td class="d-col">Attempts calculations with errors; provides a simple description of data without interpretation.</td>
+          <td class="c-col">Correctly calculates at least one rate; provides a reasonable, if brief, interpretation linking figures to context.</td>
+          <td class="b-col">Accurate calculations with working shown; interprets significance and compares across contexts (e.g. Victoria vs national vs global); identifies key trends.</td>
+          <td class="a-col">Sophisticated calculations; nuanced interpretation; identifies implications and limitations of the data; draws connections to other unit content.</td>
+          <td class="self-col">
+            I think I am at:
+            <div class="sa-opts">
+              <span class="sa-opt">E — Emerging</span>
+              <span class="sa-opt">D — Developing</span>
+              <span class="sa-opt">C — Consolidating</span>
+              <span class="sa-opt">B — Building</span>
+              <span class="sa-opt">A — Extending</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="crit-col">2. Physiological Knowledge<span class="crit-code">VC2HP10P08 · VC2HP10M01</span></td>
+          <td class="e-col">Cannot describe drowning physiology; vocabulary absent or significantly incorrect.</td>
+          <td class="d-col">Names some physiological processes but cannot explain the mechanisms behind them.</td>
+          <td class="c-col">Describes the drowning sequence in the correct order; uses most of the required vocabulary terms correctly.</td>
+          <td class="b-col">Explains mechanisms precisely (not just names them); connects physiology to the CPR rationale and survival outcomes in a logical chain.</td>
+          <td class="a-col">Sophisticated, accurate physiological analysis; all specified terms used correctly in context; explains clinical implications including the 4-minute window and secondary drowning.</td>
+          <td class="self-col">
+            I think I am at:
+            <div class="sa-opts">
+              <span class="sa-opt">E — Emerging</span>
+              <span class="sa-opt">D — Developing</span>
+              <span class="sa-opt">C — Consolidating</span>
+              <span class="sa-opt">B — Building</span>
+              <span class="sa-opt">A — Extending</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="crit-col">3. Social Determinants Analysis<span class="crit-code">VC2HP10P02</span></td>
+          <td class="e-col">Identifies individuals as solely responsible; no systemic analysis present; relies on stereotypes.</td>
+          <td class="d-col">Acknowledges that social factors exist; limited or superficial analysis of how they work.</td>
+          <td class="c-col">Identifies key social determinants (e.g. gender norms, CALD background, SES); explains how they increase risk with reference to Victorian data.</td>
+          <td class="b-col">Analyses multiple determinants with specific evidence; distinguishes structural from individual causes; proposes targeted strategies linked to specific mechanisms.</td>
+          <td class="a-col">Sophisticated structural analysis; clearly distinguishes individual vs systemic causes; proposes evidence-based, equitable interventions; acknowledges complexity and intersectionality.</td>
+          <td class="self-col">
+            I think I am at:
+            <div class="sa-opts">
+              <span class="sa-opt">E — Emerging</span>
+              <span class="sa-opt">D — Developing</span>
+              <span class="sa-opt">C — Consolidating</span>
+              <span class="sa-opt">B — Building</span>
+              <span class="sa-opt">A — Extending</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="crit-col">4. Prevention Strategy Evaluation<span class="crit-code">VC2HP10P08 · VC2HP10P09</span></td>
+          <td class="e-col">Cannot distinguish stronger from weaker prevention evidence; describes strategies without evaluating them.</td>
+          <td class="d-col">Names prevention strategies; evaluates them superficially without using evidence or criteria.</td>
+          <td class="c-col">Evaluates at least two strategies with reference to evidence; identifies at least one limitation for each; shows awareness of trade-offs.</td>
+          <td class="b-col">Comparative evaluation using an evidence hierarchy; explicitly justifies resource allocation decisions; references specific studies or data sources.</td>
+          <td class="a-col">Critical, nuanced evaluation; acknowledges trade-offs and context-dependence; sophisticated prioritisation with specific, well-justified reasoning and primary source citations.</td>
+          <td class="self-col">
+            I think I am at:
+            <div class="sa-opts">
+              <span class="sa-opt">E — Emerging</span>
+              <span class="sa-opt">D — Developing</span>
+              <span class="sa-opt">C — Consolidating</span>
+              <span class="sa-opt">B — Building</span>
+              <span class="sa-opt">A — Extending</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="crit-col">5. International Comparison<span class="crit-code">VC2HP10P09</span></td>
+          <td class="e-col">No evidence of research; cannot identify or describe any international approaches.</td>
+          <td class="d-col">Names one international organisation; provides a superficial, mostly descriptive account.</td>
+          <td class="c-col">Compares at least two international approaches against Victorian practice; identifies at least one substantive difference.</td>
+          <td class="b-col">Identifies substantive differences and similarities; evaluates the relevance of international approaches to the Victorian context with specific reasoning.</td>
+          <td class="a-col">Critical, evidence-based comparison drawing on primary sources; argues specifically for or against adoption of international elements in Victoria; acknowledges contextual factors.</td>
+          <td class="self-col">
+            I think I am at:
+            <div class="sa-opts">
+              <span class="sa-opt">E — Emerging</span>
+              <span class="sa-opt">D — Developing</span>
+              <span class="sa-opt">C — Consolidating</span>
+              <span class="sa-opt">B — Building</span>
+              <span class="sa-opt">A — Extending</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="crit-col">6. Communication Product<span class="crit-code">VC2HP10P08</span></td>
+          <td class="e-col">Incomplete; no clear audience, no evidence, no call to action or recommendation.</td>
+          <td class="d-col">Basic message present; audience vague; one loosely cited fact; call to action generic.</td>
+          <td class="c-col">Clear message; appropriate audience; at least one data-backed claim with source URL; specific call to action or recommendation.</td>
+          <td class="b-col">Compelling product; evidence-based claims throughout; language clearly tailored to the named audience; measurable and realistic outcomes proposed.</td>
+          <td class="a-col">Sophisticated, persuasive, evidence-rich product demonstrating advanced health literacy; addresses specific barriers for the target group; measurable outcomes; primary source citations throughout.</td>
+          <td class="self-col">
+            I think I am at:
+            <div class="sa-opts">
+              <span class="sa-opt">E — Emerging</span>
+              <span class="sa-opt">D — Developing</span>
+              <span class="sa-opt">C — Consolidating</span>
+              <span class="sa-opt">B — Building</span>
+              <span class="sa-opt">A — Extending</span>
+            </div>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="crit-col">6. Diving &amp; Spinal Injury Analysis<span class="crit-code">VC2HP10P02 · VC2HP10P08</span></td>
+          <td class="e-col">Cannot identify the mechanism of diving-related spinal injury; confuses swimming ability with injury prevention.</td>
+          <td class="d-col">Identifies that diving can cause spinal injury; cites one statistic with a source; limited explanation of why the injury occurs.</td>
+          <td class="c-col">Explains the cervical spine mechanism accurately; cites at least two AIHW/RLSSA statistics; provides a reasonable case study analysis identifying one common factor.</td>
+          <td class="b-col">Accurate physiological explanation; two or more statistics cited with sources; case study analysis identifies common factors across all three incidents and explains the specific mechanism — not just the behaviour — in each.</td>
+          <td class="a-col">Sophisticated analysis; structural explanation for the 95% male statistic using social determinants; distinguishes individual from structural causes; explains why inland waterway diving risk compounds with remote rescue delay and alcohol/group dynamics; evaluates the "Feet First" prevention message against evidence; proposes a complementary strategy for a named high-risk group with a SMART metric. Accurately deploys terms including quadriplegia, cervical spine, and false confidence.</td>
+          <td class="self-col">
+            I think I am at:
+            <div class="sa-opts">
+              <span class="sa-opt">E — Emerging</span>
+              <span class="sa-opt">D — Developing</span>
+              <span class="sa-opt">C — Consolidating</span>
+              <span class="sa-opt">B — Building</span>
+              <span class="sa-opt">A — Extending</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- COMMENTS + OVERALL GRADE -->
+  <div class="overall-row">
+    <div class="overall-box">
+      <label>Student self-assessed overall grade</label>
+      <div class="grade-circles">
+        <div class="gc gc-e">E</div>
+        <div class="gc gc-d">D</div>
+        <div class="gc gc-c">C</div>
+        <div class="gc gc-b">B</div>
+        <div class="gc gc-a">A</div>
+      </div>
+    </div>
+    <div class="overall-box" style="flex:2;">
+      <label>Student: one thing I am most proud of in this assessment</label>
+      <div class="cs-line"></div>
+      <div class="cs-line"></div>
+    </div>
+    <div class="overall-box" style="flex:2;">
+      <label>Student: one thing I would improve if I had more time</label>
+      <div class="cs-line"></div>
+      <div class="cs-line"></div>
+    </div>
+  </div>
+
+  <div class="comment-section">
+    <div class="cs-box">
+      <label>Teacher: strengths</label>
+      <div class="cs-line"></div>
+      <div class="cs-line"></div>
+      <div class="cs-line"></div>
+    </div>
+    <div class="cs-box">
+      <label>Teacher: areas for development</label>
+      <div class="cs-line"></div>
+      <div class="cs-line"></div>
+      <div class="cs-line"></div>
+    </div>
+    <div class="cs-box" style="grid-column:1/-1;">
+      <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+        <div>
+          <label>Teacher overall grade awarded</label>
+          <div class="grade-circles">
+            <div class="gc gc-e">E</div>
+            <div class="gc gc-d">D</div>
+            <div class="gc gc-c">C</div>
+            <div class="gc gc-b">B</div>
+            <div class="gc gc-a">A</div>
+          </div>
+        </div>
+        <div style="flex:1;">
+          <label>Teacher signature &amp; date</label>
+          <div class="cs-line"></div>
+        </div>
+        <div style="flex:1;">
+          <label>Student signature (acknowledges feedback received)</label>
+          <div class="cs-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf">
+    <span>Advanced Water Safety — Assessment Rubric · HPE Year 9–10 · Victorian Curriculum F–10 Version 2.0 · VC2HP10P02, VC2HP10P08, VC2HP10P09, VC2HP10M01</span>
+    <span style="font-family:'DM Mono',monospace;">Emilie Harrison · swimwater.safety@gmail.com</span>
+  </div>
+</div>
+</body>
+</html>

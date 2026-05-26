@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Water Safety — Quiz Question Bank | Year 9–10 HPE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#0a1e3d;--ocean:#1565c0;--sky:#1e88e5;
+    --teal:#00695c;--amber:#b45309;--alert:#c62828;--purple:#6a1b9a;--sage:#2e7d32;
+    --bg:#f0f4f8;--card:#fff;--border:#c8d8e8;--text:#0a1e3d;--muted:#3a5a6e;
+  }
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.6;}
+  .skip-nav{position:absolute;top:-100px;left:8px;background:var(--navy);color:#fff;padding:8px 18px;border-radius:0 0 8px 8px;font-size:0.9rem;font-weight:700;text-decoration:none;z-index:9999;transition:top 0.2s;}
+  .skip-nav:focus{top:0;}
+  :focus-visible{outline:3px solid var(--ocean);outline-offset:2px;border-radius:3px;}
+
+  .header{background:linear-gradient(135deg,#050d1e,#0a1e3d,#1565c0);color:#fff;padding:36px 44px 44px;position:relative;overflow:hidden;}
+  .header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:36px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 36'%3E%3Cpath fill='%23f0f4f8' d='M0,18 Q360,36 720,18 Q1080,0 1440,18 L1440,36 L0,36Z'/%3E%3C/svg%3E") bottom/cover no-repeat;}
+  .h-tag{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);border-radius:4px;padding:4px 14px;display:inline-block;margin-bottom:12px;}
+  .header h1{font-family:'Poppins',sans-serif;font-size:2.2rem;font-weight:800;margin-bottom:5px;}
+  .header p{font-size:0.9rem;opacity:0.82;max-width:580px;margin-bottom:16px;}
+  .h-chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .hc{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:600;}
+
+  .body{max-width:980px;margin:0 auto;padding:30px 22px 60px;}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-bottom:28px;}
+  .stat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;}
+  .stat .big{font-family:'Poppins',sans-serif;font-size:2rem;font-weight:800;color:var(--ocean);line-height:1;}
+  .stat p{font-size:0.76rem;color:var(--muted);margin-top:3px;}
+
+  /* HOW TO USE */
+  .how-to{background:var(--card);border:1px solid var(--border);border-left:5px solid var(--ocean);border-radius:0 12px 12px 0;padding:16px 20px;margin-bottom:28px;}
+  .how-to h3{font-family:'Poppins',sans-serif;font-size:0.95rem;color:var(--ocean);margin-bottom:8px;}
+  .how-to p,.how-to li{font-size:0.88rem;color:var(--muted);line-height:1.6;}
+  .how-to ul{padding-left:18px;margin-top:4px;}
+  .platforms{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+  .plat{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:4px 12px;font-size:0.8rem;font-weight:600;}
+
+  /* LESSON SECTIONS */
+  .lesson-section{margin-bottom:40px;}
+  .lesson-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:8px;border-bottom:3px solid;}
+  .ln{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:800;font-size:1rem;color:#fff;flex-shrink:0;}
+  .lesson-head h2{font-family:'Poppins',sans-serif;font-size:1.15rem;font-weight:700;}
+  .lesson-head .qcount{margin-left:auto;font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:2px 10px;}
+
+  .l1 .lesson-head{border-color:var(--ocean);} .l1 .ln{background:var(--ocean);} .l1 .lesson-head h2{color:var(--ocean);}
+  .l2 .lesson-head{border-color:var(--teal);}  .l2 .ln{background:var(--teal);}  .l2 .lesson-head h2{color:var(--teal);}
+  .l3 .lesson-head{border-color:var(--alert);} .l3 .ln{background:var(--alert);} .l3 .lesson-head h2{color:var(--alert);}
+  .l4 .lesson-head{border-color:var(--purple);}.l4 .ln{background:var(--purple);}.l4 .lesson-head h2{color:var(--purple);}
+  .l5 .lesson-head{border-color:var(--amber);} .l5 .ln{background:var(--amber);} .l5 .lesson-head h2{color:var(--amber);}
+
+  /* QUESTION CARDS */
+  .q-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:14px;box-shadow:0 2px 6px rgba(10,30,61,0.04);}
+  .q-meta{display:flex;align-items:center;gap:8px;margin-bottom:9px;flex-wrap:wrap;}
+  .q-num{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:2px 9px;}
+  .diff{font-size:0.68rem;font-weight:700;border-radius:6px;padding:2px 9px;}
+  .diff-med{background:#fff8e1;color:var(--amber);}
+  .diff-hard{background:#fce4ec;color:var(--alert);}
+  .diff-ext{background:#f3e5f5;color:var(--purple);}
+  .q-type{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--muted);}
+  .q-text{font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:12px;line-height:1.45;}
+  .options{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px;}
+  .option{padding:8px 12px;border-radius:7px;border:1.5px solid var(--border);font-size:0.88rem;color:var(--text);line-height:1.35;}
+  .option.correct{background:#e8f5e9;border-color:#66bb6a;font-weight:600;}
+  .option.correct::before{content:'✓  ';}
+  .option.wrong{background:#fafafa;color:var(--muted);}
+  .answer-box{background:#fffbeb;border:1px solid #fbc02d;border-radius:8px;padding:10px 13px;font-size:0.85rem;color:#78350f;line-height:1.5;}
+  .answer-box strong{color:#92400e;}
+  .tf-opts{display:flex;gap:8px;}
+  .tf-opt{flex:1;padding:8px;border-radius:7px;border:1.5px solid var(--border);font-size:0.9rem;font-weight:600;text-align:center;}
+  .tf-opt.correct{background:#e8f5e9;border-color:#66bb6a;color:var(--sage);}
+  .tf-opt.wrong{background:#fafafa;color:var(--muted);}
+  .short-ans-area{border:1px dashed var(--border);border-radius:7px;padding:10px 12px;margin-bottom:10px;background:#fafcff;font-size:0.85rem;color:#aab;min-height:52px;}
+
+  footer{background:var(--navy);color:rgba(255,255,255,0.65);padding:16px 44px;font-size:0.74rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  @media(max-width:600px){.options{grid-template-columns:1fr;}.header{padding:26px 18px 40px;}.body{padding:20px 14px 40px;}}
+  @media print{body{background:#fff;}.q-card{page-break-inside:avoid;}@page{size:A4;margin:15mm;}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<header class="header">
+  <div class="h-tag">📝 Quiz Question Bank · Year 9–10</div>
+  <h1>Advanced Water Safety<br>Quiz Question Bank</h1>
+  <p>30 higher-order questions for Kahoot, Quizlet, or written assessment — covering all 5 lessons of the Year 9–10 Advanced Water Safety unit. Answers, difficulty ratings, and teaching notes included.</p>
+  <div class="h-chips">
+    <span class="hc">Year 9–10 HPE</span>
+    <span class="hc">30 questions</span>
+    <span class="hc">5 lesson topics</span>
+    <span class="hc">Kahoot / Quizlet ready</span>
+    <span class="hc">Victorian Curriculum 2.0</span>
+  </div>
+</header>
+
+<div id="main-content" tabindex="-1" style="outline:none;"></div>
+<div class="body">
+
+  <div class="stats">
+    <div class="stat"><div class="big">30</div><p>Total questions</p></div>
+    <div class="stat"><div class="big">18</div><p>Multiple choice</p></div>
+    <div class="stat"><div class="big">6</div><p>True / False</p></div>
+    <div class="stat"><div class="big">6</div><p>Short answer</p></div>
+    <div class="stat"><div class="big">0</div><p>Easy — all Medium–Hard–Extension</p></div>
+    <div class="stat"><div class="big">12</div><p>Medium</p></div>
+    <div class="stat"><div class="big">12</div><p>Hard</p></div>
+    <div class="stat"><div class="big">6</div><p>Extension</p></div>
+  </div>
+
+  <div class="how-to">
+    <h3>📋 How to use this question bank</h3>
+    <p>All questions are pitched at Year 9–10 analytical level — Medium through Extension. Use them for:</p>
+    <ul>
+      <li><strong>Start-of-lesson warm-up</strong> — 3–4 questions to activate prior knowledge from the previous lesson</li>
+      <li><strong>End-of-lesson exit quiz</strong> — 4–5 questions from that lesson's section</li>
+      <li><strong>End-of-unit Kahoot revision</strong> — all 30 as a full-class game</li>
+      <li><strong>Written short-answer practice</strong> — use the Extension questions as formative assessment prompts</li>
+      <li><strong>Peer quiz challenge</strong> — pairs quiz each other using the question cards</li>
+    </ul>
+    <div class="platforms">
+      <span class="plat">🎮 Kahoot — kahoot.com</span>
+      <span class="plat">🃏 Quizlet — quizlet.com</span>
+      <span class="plat">📝 Google Forms</span>
+      <span class="plat">✍️ Written assessment</span>
+    </div>
+  </div>
+
+  <!-- ══ LESSON 1: DATA ANALYSIS ══ -->
+  <div class="lesson-section l1">
+    <div class="lesson-head">
+      <div class="ln">1</div>
+      <h2>Advanced Data Analysis — Victorian &amp; Global Drowning Trends</h2>
+      <span class="qcount">Q1–Q6 · 6 questions</span>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q1</span><span class="diff diff-med">Medium</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">Victoria had 54 drowning deaths in 2023–24 with a population of approximately 6.9 million. What is the correct drowning rate per 100,000 population?</p>
+      <div class="options">
+        <div class="option wrong">A. 1.2 per 100,000</div>
+        <div class="option correct">B. 0.78 per 100,000</div>
+        <div class="option wrong">C. 0.54 per 100,000</div>
+        <div class="option wrong">D. 2.1 per 100,000</div>
+      </div>
+      <div class="answer-box"><strong>Answer: B — 0.78 per 100,000</strong><br>Calculation: 54 ÷ 69 (units of 100,000 in 6.9M) = 0.78. Note: Victoria's rate is actually BELOW the national average of 1.2 per 100,000 — a nuance worth discussing. It does not mean all is well, given specific problem areas (CALD, inland waterways).</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q2</span><span class="diff diff-med">Medium</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">CALD communities account for approximately 40% of Victorian drowning deaths but approximately 28% of the population. What term best describes this pattern?</p>
+      <div class="options">
+        <div class="option wrong">A. Under-representation</div>
+        <div class="option correct">B. Over-representation</div>
+        <div class="option wrong">C. Proportional representation</div>
+        <div class="option wrong">D. Statistical noise</div>
+      </div>
+      <div class="answer-box"><strong>Answer: B — Over-representation</strong><br>40% of deaths vs 28% of population = over-representation ratio of approximately 1.43:1. Key teaching point: this is a structural issue, not a reflection on any community's individual behaviour. Access to swim lessons, language barriers to safety messaging, and occupational risk (fishing) are structural factors.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q3</span><span class="diff diff-hard">Hard</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">If Victoria's drowning rate dropped to match the Australian national average of 1.2 per 100,000, approximately how many Victorian drowning deaths per year would be expected?</p>
+      <div class="options">
+        <div class="option wrong">A. 38 deaths</div>
+        <div class="option wrong">B. 54 deaths</div>
+        <div class="option correct">C. 83 deaths</div>
+        <div class="option wrong">D. 120 deaths</div>
+      </div>
+      <div class="answer-box"><strong>Answer: C — 83 deaths</strong><br>Calculation: 1.2 × 69 (units of 100,000) = 82.8 ≈ 83. Counterintuitive insight: Victoria is already BELOW the national average — dropping to the national rate would mean MORE deaths, not fewer. This is a powerful discussion starter about statistics and perception.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q4</span><span class="diff diff-hard">Hard</span><span class="q-type">True / False</span></div>
+      <p class="q-text">Victoria's non-fatal drowning rate in 2023–24 was approximately 60% above the 10-year average, suggesting the total scale of the water safety problem is much larger than fatal figures alone indicate.</p>
+      <div class="tf-opts">
+        <div class="tf-opt correct">True</div>
+        <div class="tf-opt wrong">False</div>
+      </div>
+      <div class="answer-box"><strong>Answer: True</strong><br>Non-fatal drownings represent near-death experiences, long-term trauma, and significant healthcare costs. Each near-drowning also represents a failure of prevention. The 60% above average figure in 2023–24 signals a systemic problem that fatal statistics alone would understate.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q5</span><span class="diff diff-ext">Extension</span><span class="q-type">Short answer</span></div>
+      <p class="q-text">A student argues: "Victoria should be proud — our drowning rate of 0.78 per 100,000 is well below the national average of 1.2." Evaluate this argument. What does the student get right, and what important context are they missing?</p>
+      <div class="short-ans-area">Student response area — 4–6 sentences expected at B/A standard…</div>
+      <div class="answer-box"><strong>Sample A-standard answer:</strong> The student is correct that Victoria's overall rate is below the national average — this is accurate and worth acknowledging. However, this obscures significant internal disparities: CALD communities are over-represented at 1.43:1, inland waterway deaths have been rising, and the 2023–24 total of 54 was the highest in over a decade. A rate below average does not mean the problem is under control — it means the baseline is already too high and particular communities are being failed by the current system.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q6</span><span class="diff diff-hard">Hard</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">The WHO reports approximately 320,000 global drowning deaths per year, with 90% occurring in low- and middle-income countries. What does this tell us about the relationship between income and drowning risk?</p>
+      <div class="options">
+        <div class="option wrong">A. People in low-income countries are worse swimmers</div>
+        <div class="option correct">B. Structural factors like infrastructure, access to swim lessons, and lifeguard services significantly influence drowning risk</div>
+        <div class="option wrong">C. Climate differences between countries explain the disparity</div>
+        <div class="option wrong">D. Drowning is primarily a problem in developing nations and not relevant to Australia</div>
+      </div>
+      <div class="answer-box"><strong>Answer: B — Structural factors</strong><br>This question bridges individual behaviour and structural analysis. The 90% figure reflects lack of pool fencing laws, limited lifeguard infrastructure, no swim education in schools, and higher rates of open-water occupational activities (fishing, rice cultivation). This connects directly to the social determinants theme in Lesson 3.</div>
+    </div>
+  </div>
+
+  <!-- ══ LESSON 2: PHYSIOLOGY ══ -->
+  <div class="lesson-section l2">
+    <div class="lesson-head">
+      <div class="ln">2</div>
+      <h2>Physiology of Drowning &amp; CPR Mechanics</h2>
+      <span class="qcount">Q7–Q12 · 6 questions</span>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q7</span><span class="diff diff-med">Medium</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">Which of the following correctly describes the physiological event called laryngospasm?</p>
+      <div class="options">
+        <div class="option wrong">A. The heart stopping due to lack of oxygen</div>
+        <div class="option correct">B. Involuntary closure of the vocal cords on contact with water, preventing water entry to the lungs</div>
+        <div class="option wrong">C. The brain losing consciousness due to low blood pressure</div>
+        <div class="option wrong">D. Rapid loss of muscle coordination in cold water</div>
+      </div>
+      <div class="answer-box"><strong>Answer: B — Laryngospasm</strong><br>Laryngospasm accounts for "dry drowning" in approximately 10–15% of cases — the person asphyxiates without water entering the lungs. It is involuntary and cannot be consciously controlled. Even in dry drowning, the outcome (cerebral hypoxia) is the same as wet drowning if CPR is not started promptly.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q8</span><span class="diff diff-med">Medium</span><span class="q-type">True / False</span></div>
+      <p class="q-text">Standard chest compressions during CPR generate approximately 25–30% of normal resting cardiac output — which is sufficient to prevent irreversible brain cell death while waiting for emergency services.</p>
+      <div class="tf-opts">
+        <div class="tf-opt correct">True</div>
+        <div class="tf-opt wrong">False</div>
+      </div>
+      <div class="answer-box"><strong>Answer: True</strong><br>25–30% of normal output is enough to keep the brain alive in a holding pattern. This is why bystander CPR — even imperfect CPR — dramatically improves survival rates. It buys time until defibrillation or ROSC. The figure also explains why compressions should be hard and fast (100–120 bpm, 5–6cm depth) — partial effort generates even less output.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q9</span><span class="diff diff-hard">Hard</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">A drowning victim receives bystander CPR starting at 3 minutes after cardiac arrest. Which of the following best explains why this produces significantly better outcomes than CPR starting at 9 minutes?</p>
+      <div class="options">
+        <div class="option wrong">A. CPR is more effective when the body is still warm</div>
+        <div class="option correct">B. Brain cells begin dying irreversibly after 4–6 minutes without oxygenated blood; starting at 3 minutes limits the window of cell death before compressions restore minimum perfusion</div>
+        <div class="option wrong">C. The heart is more likely to restart spontaneously within 3 minutes</div>
+        <div class="option wrong">D. Emergency services always arrive faster when CPR is started early</div>
+      </div>
+      <div class="answer-box"><strong>Answer: B</strong><br>The mechanism is cerebral hypoxia — irreversible neuron death begins at 4–6 minutes. Starting CPR at 3 minutes keeps minimum oxygenation going before significant cell death occurs. At 9 minutes, substantial brain damage has already occurred regardless of how good the CPR is. This is why the 4-minute window and bystander CPR training matter so much.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q10</span><span class="diff diff-hard">Hard</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">Secondary drowning involves pulmonary oedema developing hours after a submersion incident. Which of the following best describes the clinical significance of this condition?</p>
+      <div class="options">
+        <div class="option wrong">A. It is a common complication that affects most near-drowning survivors</div>
+        <div class="option correct">B. It is rare but potentially fatal — symptoms may not appear for hours after the incident, making it easy to dismiss a near-drowning as resolved</div>
+        <div class="option wrong">C. It only affects people who were underwater for more than 5 minutes</div>
+        <div class="option wrong">D. It can be fully prevented by performing rescue breaths during CPR</div>
+      </div>
+      <div class="answer-box"><strong>Answer: B</strong><br>Secondary drowning (pulmonary oedema) affects a small percentage of near-drowning victims but is potentially fatal because it develops hours later. Symptoms — coughing, fatigue, chest pain, laboured breathing — can appear up to 24 hours post-incident. The key clinical point: ANY submersion incident, even if the person appears fine, warrants medical review. Parents and coaches must be aware of this.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q11</span><span class="diff diff-ext">Extension</span><span class="q-type">Short answer</span></div>
+      <p class="q-text">Explain the "1-10-1" cold water survival rule. Why does the rule suggest 10 minutes of useful swimming ability rather than longer, even for a strong swimmer?</p>
+      <div class="short-ans-area">Student response area…</div>
+      <div class="answer-box"><strong>Sample A-standard answer:</strong> The 1-10-1 rule describes three phases: approximately 1 minute to control breathing (cold shock causes involuntary hyperventilation); approximately 10 minutes of useful swimming before peripheral vasoconstriction and muscle cooling cause swimming failure; up to 1 hour before hypothermia incapacitates (varies with water temperature, body composition, clothing). The 10-minute swimming window is limited even for strong swimmers because cold water causes neuromuscular dysfunction independent of fitness — muscles simply stop responding to nerve signals as temperature drops. A world-class swimmer cannot swim indefinitely in 12°C water.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q12</span><span class="diff diff-hard">Hard</span><span class="q-type">True / False</span></div>
+      <p class="q-text">The correct sequence of physiological events during drowning is: submersion → laryngospasm → cardiac arrest → hypoxia → cerebral hypoxia.</p>
+      <div class="tf-opts">
+        <div class="tf-opt wrong">True</div>
+        <div class="tf-opt correct">False</div>
+      </div>
+      <div class="answer-box"><strong>Answer: False</strong><br>The correct sequence is: submersion → laryngospasm (involuntary) → water entry / hypoxia develops → cardiac arrest → cerebral hypoxia. Cardiac arrest follows hypoxia, not the other way around. In dry drowning, laryngospasm persists and hypoxia still develops — just without water entering the lungs. Cerebral hypoxia is the terminal event that leads to brain death if CPR is not started promptly.</div>
+    </div>
+  </div>
+
+  <!-- ══ LESSON 3: SOCIAL DETERMINANTS ══ -->
+  <div class="lesson-section l3">
+    <div class="lesson-head">
+      <div class="ln">3</div>
+      <h2>Social Determinants of Drowning Risk</h2>
+      <span class="qcount">Q13–Q18 · 6 questions</span>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q13</span><span class="diff diff-med">Medium</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">In 2023–24, males accounted for approximately 85% of Victorian drowning deaths. Which of the following best explains this disparity from a social determinants perspective?</p>
+      <div class="options">
+        <div class="option wrong">A. Males are biologically weaker swimmers than females</div>
+        <div class="option correct">B. Masculinity norms — social expectations that males should take risks, not back down from dares, and demonstrate strength — lead to higher engagement in risky water behaviours</div>
+        <div class="option wrong">C. Males spend more time near water than females</div>
+        <div class="option wrong">D. Males are less likely to have completed swimming lessons</div>
+      </div>
+      <div class="answer-box"><strong>Answer: B — Masculinity norms</strong><br>This is a social determinant, not a biological one. Research consistently links risk-taking behaviour near water to gender norms that frame backing away from a dare as weakness. This connects to alcohol consumption, swimming at unpatrolled locations, and solo swimming. Prevention strategies targeting this group need to reframe water safety as intelligence, not weakness.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q14</span><span class="diff diff-med">Medium</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">Which of the following is a structural explanation for CALD community over-representation in Victorian drowning statistics — rather than an individual explanation?</p>
+      <div class="options">
+        <div class="option wrong">A. CALD community members make poor decisions near water</div>
+        <div class="option wrong">B. CALD families don't value water safety</div>
+        <div class="option correct">C. Many CALD community members grew up in countries without access to swimming lessons or public pools, creating a skill gap that is structural and historical rather than individual</div>
+        <div class="option wrong">D. CALD community members are more likely to swim in cold water</div>
+      </div>
+      <div class="answer-box"><strong>Answer: C — Structural explanation</strong><br>Distinguishing structural from individual explanations is a core Year 9–10 skill. Structural factors exist at the system level — lack of swim infrastructure in countries of origin is not an individual choice. Other structural factors: language barriers to safety messaging, higher rates of occupational water exposure (commercial fishing), lower rates of swim lesson access due to cost and cultural norms around mixed-gender facilities.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q15</span><span class="diff diff-hard">Hard</span><span class="q-type">True / False</span></div>
+      <p class="q-text">The social determinants of health framework suggests that health outcomes are primarily determined by individual choices and personal responsibility.</p>
+      <div class="tf-opts">
+        <div class="tf-opt wrong">True</div>
+        <div class="tf-opt correct">False</div>
+      </div>
+      <div class="answer-box"><strong>Answer: False</strong><br>The WHO Social Determinants of Health Framework explicitly states that health outcomes are shaped by "the conditions in which people are born, grow, live, work, and age" — systemic factors largely outside individual control. Individual choices exist within these structures. A person who grew up without access to swim lessons faces a structurally different risk level to someone who had unlimited pool access as a child, regardless of their individual choices as an adult.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q16</span><span class="diff diff-hard">Hard</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">A school wants to reduce drowning risk for its CALD student population. Which of the following interventions specifically targets the structural barriers — rather than just individual awareness?</p>
+      <div class="options">
+        <div class="option wrong">A. Showing CALD students a video about drowning statistics</div>
+        <div class="option wrong">B. Sending home a translated safety flyer</div>
+        <div class="option correct">C. Partnering with LSV to deliver free, culturally safe, in-language swim lessons in the local community, delivered by CALD community members</div>
+        <div class="option wrong">D. Including a chapter on water safety in the CALD student welcome booklet</div>
+      </div>
+      <div class="answer-box"><strong>Answer: C</strong><br>Options A, B, and D address awareness but not the structural barrier — which is skill gap and access. Free, in-language lessons delivered by community members addresses: cost (removes financial barrier), language (removes communication barrier), cultural safety (addresses discomfort with mixed-gender or unfamiliar environments), and skill development (directly addresses the root cause). This is the difference between individual-level and structural-level intervention.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q17</span><span class="diff diff-ext">Extension</span><span class="q-type">Short answer</span></div>
+      <p class="q-text">Define "health inequity" and explain, using the Victorian drowning data, why the CALD over-representation in drowning deaths is an example of health inequity rather than health inequality.</p>
+      <div class="short-ans-area">Student response area…</div>
+      <div class="answer-box"><strong>Sample A-standard answer:</strong> Health inequality refers to any difference in health outcomes between groups. Health inequity refers specifically to differences that are unfair, avoidable, and rooted in unjust social conditions. The CALD over-representation in Victorian drowning deaths (40% of deaths, 28% of population) is an inequity because it results from structural barriers — limited swim access in countries of origin, language barriers to safety messaging — that CALD community members did not choose and could not individually overcome. It is avoidable through targeted structural interventions (funded community swim programs, translated resources, culturally safe delivery), making it a matter of social justice, not just statistical difference.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q18</span><span class="diff diff-hard">Hard</span><span class="q-type">True / False</span></div>
+      <p class="q-text">Alcohol is a factor in approximately 20–30% of adult drowning deaths in Victoria, suggesting that alcohol restriction near water is a relevant prevention strategy.</p>
+      <div class="tf-opts">
+        <div class="tf-opt correct">True</div>
+        <div class="tf-opt wrong">False</div>
+      </div>
+      <div class="answer-box"><strong>Answer: True</strong><br>Alcohol impairs judgment, coordination, thermoregulation, and creates overconfidence — a dangerous combination near water. The 20–30% figure reflects its role as a contributing factor rather than the sole cause. Prevention implications: signage at popular swimming locations, community norm-setting campaigns targeting social swimming culture, and alcohol management at organised water events.</div>
+    </div>
+  </div>
+
+  <!-- ══ LESSON 4: PREVENTION STRATEGIES ══ -->
+  <div class="lesson-section l4">
+    <div class="lesson-head">
+      <div class="ln">4</div>
+      <h2>Prevention Strategies &amp; International Comparison</h2>
+      <span class="qcount">Q19–Q24 · 6 questions</span>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q19</span><span class="diff diff-med">Medium</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">Which drowning prevention strategy has the strongest evidence base for reducing child drowning in home pools?</p>
+      <div class="options">
+        <div class="option wrong">A. Warning signs at pool gates</div>
+        <div class="option wrong">B. Parent supervision during pool use</div>
+        <div class="option correct">C. Four-sided pool isolation fencing</div>
+        <div class="option wrong">D. Mandatory swimming lessons for children</div>
+      </div>
+      <div class="answer-box"><strong>Answer: C — Four-sided pool isolation fencing</strong><br>Four-sided isolation fencing (surrounding the pool on all four sides, separate from the house) reduces child drowning in home pools by approximately 83% — the strongest evidence base of any single prevention intervention. Three-sided fencing (where one side is the house) is significantly less effective. This is why Victorian pool fencing laws mandate four-sided isolation in new builds.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q20</span><span class="diff diff-hard">Hard</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">The RLSS UK "Float to Live" campaign teaches floating as the PRIMARY response to any water emergency. How does this differ from the traditional Victorian water safety message?</p>
+      <div class="options">
+        <div class="option wrong">A. There is no difference — Victoria already uses "Float to Live" as its primary message</div>
+        <div class="option correct">B. Victorian messaging focuses primarily on swimming to safety; "Float to Live" argues that floating and conserving energy should come first, only attempting to swim when rested</div>
+        <div class="option wrong">C. "Float to Live" is aimed at children only, while Victorian messaging targets all ages</div>
+        <div class="option wrong">D. "Float to Live" is a UK program that has no relevance to Australian water environments</div>
+      </div>
+      <div class="answer-box"><strong>Answer: B</strong><br>The key distinction is physiological priority. Swimming to safety requires energy; floating conserves it. In cold water especially, the "swim immediately" instinct wastes the limited swimming window (the 10-minute rule). RLSS UK argues that floating first — controlling panic and breathing — then assessing swimming options is physiologically superior. Victorian messaging could adopt this emphasis without abandoning existing content. Source: rlss.org.uk</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q21</span><span class="diff diff-hard">Hard</span><span class="q-type">True / False</span></div>
+      <p class="q-text">Warning signs at unpatrolled beaches have the same evidence strength as lifeguard supervision for preventing adult drowning deaths.</p>
+      <div class="tf-opts">
+        <div class="tf-opt wrong">True</div>
+        <div class="tf-opt correct">False</div>
+      </div>
+      <div class="answer-box"><strong>Answer: False</strong><br>Warning signs have limited evidence — they raise awareness but do not prevent the behaviour (swimming at unpatrolled locations) that leads to drowning. The strongest evidence is lifeguard supervision: 0 deaths at patrolled Victorian locations in 2023–24 vs 54 at unpatrolled locations. Signs are low-cost and useful as part of a broader strategy but cannot substitute for active supervision. This is a critical distinction in prevention strategy evaluation.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q22</span><span class="diff diff-med">Medium</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">When evaluating which drowning prevention strategies to fund, what is the most important criterion?</p>
+      <div class="options">
+        <div class="option wrong">A. The strategy that is cheapest to implement</div>
+        <div class="option wrong">B. The strategy that is most familiar to the public</div>
+        <div class="option correct">C. The strategy with the strongest evidence of effectiveness for the specific target population and context</div>
+        <div class="option wrong">D. The strategy that has been used the longest internationally</div>
+      </div>
+      <div class="answer-box"><strong>Answer: C — Evidence + target population + context</strong><br>Pool fencing has the strongest overall evidence but is irrelevant to inland waterway deaths. Lifeguard patrols work at beaches but don't help at farm dams. CALD swim programs have good evidence for specific communities but limited reach. Effective prevention policy matches strategy to the specific risk profile of the target group — which is exactly what the Victorian data analysis enables.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q23</span><span class="diff diff-ext">Extension</span><span class="q-type">Short answer</span></div>
+      <p class="q-text">You have been asked to advise the Victorian Government on how to allocate $2 million to reduce drowning deaths. Identify two strategies you would prioritise, justify each with evidence, and explain the trade-offs involved in your choices.</p>
+      <div class="short-ans-area">Student response area…</div>
+      <div class="answer-box"><strong>Sample A-standard answer:</strong> Priority 1 — Expand patrolled beach hours and locations ($1.2M): strongest evidence base (0 deaths at patrolled sites 2023–24), direct intervention against the highest-risk behaviour, measurable outcome (expanded patrol hours). Trade-off: high cost per prevented death; doesn't address inland waterway or CALD risk. Priority 2 — Subsidised in-language CALD community swim programs ($800K): addresses the structural access gap responsible for ~40% of deaths; demonstrated impact in RLSSA pilot programs; long-term skill development. Trade-off: slower to show measurable results; requires sustained funding beyond a single year. Together these address the two largest identified risk gaps in the Victorian data.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q24</span><span class="diff diff-hard">Hard</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">Which of the following best describes why mandatory swim lessons for adults have weaker evidence for reducing drowning than mandatory swim lessons for children?</p>
+      <div class="options">
+        <div class="option wrong">A. Adults learn less effectively than children</div>
+        <div class="option correct">B. Adult drowning is more strongly associated with risk-taking behaviour, alcohol, and structural factors than with inability to swim — so skill alone does not address the root causes</div>
+        <div class="option wrong">C. Adult swim lessons are too expensive to be practical</div>
+        <div class="option wrong">D. There is no evidence that swim lessons work for anyone</div>
+      </div>
+      <div class="answer-box"><strong>Answer: B</strong><br>Most Victorian adult drowning victims could swim to some degree. The risk factors are behavioural (alcohol, swimming alone, ignoring flags) and structural (CALD access gaps, inland waterway use without safety knowledge). Adult interventions need to address these root causes — behaviour change campaigns, structural access programs, and targeted messaging — rather than assuming skill deficit is the primary issue.</div>
+    </div>
+  </div>
+
+  <!-- ══ LESSON 5: ASSESSMENT TASK ══ -->
+  <div class="lesson-section l5">
+    <div class="lesson-head">
+      <div class="ln">5</div>
+      <h2>Assessment Task — Evidence, Argument &amp; Communication</h2>
+      <span class="qcount">Q25–Q30 · 6 questions</span>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q25</span><span class="diff diff-med">Medium</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">A policy brief is addressed to the Victorian Minister for Sport. Which of the following best describes what this means for how the brief should be written?</p>
+      <div class="options">
+        <div class="option wrong">A. It should be written in simple language because the minister may not know much about the topic</div>
+        <div class="option wrong">B. It should include as much technical detail as possible to demonstrate expertise</div>
+        <div class="option correct">C. It should be concise, evidence-based, action-oriented, and frame recommendations in terms of government capacity, cost-effectiveness, and measurable outcomes</div>
+        <div class="option wrong">D. It should avoid statistics because politicians prefer stories</div>
+      </div>
+      <div class="answer-box"><strong>Answer: C</strong><br>Policy briefs to ministers are professional documents designed to support decision-making. They prioritise: clarity over comprehensiveness, actionable recommendations over description, evidence over opinion, and measurable outcomes over aspirational statements. Ministers receive dozens of briefs — brevity, clarity, and specificity are essential.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q26</span><span class="diff diff-med">Medium</span><span class="q-type">True / False</span></div>
+      <p class="q-text">In an evidence-based health communication product, citing a government health website URL is a stronger source than citing a peer-reviewed journal article.</p>
+      <div class="tf-opts">
+        <div class="tf-opt wrong">True</div>
+        <div class="tf-opt correct">False</div>
+      </div>
+      <div class="answer-box"><strong>Answer: False</strong><br>Peer-reviewed journal articles undergo rigorous blind review and represent the strongest form of evidence. Government websites (e.g. lsv.com.au, who.int) are credible primary sources for statistics and policy positions. For the purposes of this unit, government and reputable NGO sources (LSV, RLSSA, WHO) are considered acceptable primary sources. Social media, general websites, and Wikipedia are not.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q27</span><span class="diff diff-hard">Hard</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">A student designing a water safety campaign targeting young males chooses Instagram as their platform and uses the message: "Real strength is knowing when not to jump in." Which persuasion principle does this message employ?</p>
+      <div class="options">
+        <div class="option wrong">A. Fear appeal — threatening consequences to change behaviour</div>
+        <div class="option correct">B. Reframing — redefining the meaning of masculinity to align safety-seeking behaviour with the target audience's values</div>
+        <div class="option wrong">C. Social proof — showing that everyone else is making safe choices</div>
+        <div class="option wrong">D. Authority — using an expert to endorse the message</div>
+      </div>
+      <div class="answer-box"><strong>Answer: B — Reframing</strong><br>This message directly targets the masculinity norm barrier by redefining what "strength" means — rather than opposing the value (strength) it reframes it. Research shows fear appeals are often ineffective with young males and can backfire. Reframing is a more sophisticated technique that works with existing values rather than against them. This demonstrates deep understanding of the target audience.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q28</span><span class="diff diff-hard">Hard</span><span class="q-type">Multiple choice</span></div>
+      <p class="q-text">A school audit of water safety provision finds that the school teaches beach flag identification in Year 7 but has no content addressing inland waterway safety, physiological knowledge, social determinants, or Year 9–10 content. Which Curriculum 2.0 codes are NOT being addressed?</p>
+      <div class="options">
+        <div class="option wrong">A. VC2HP8P08 and VC2HP8P10 only</div>
+        <div class="option wrong">B. VC2HP8M01 only</div>
+        <div class="option correct">C. VC2HP10P02, VC2HP10P08, VC2HP10P10, VC2HP10P09, and VC2HP10M01</div>
+        <div class="option wrong">D. All codes are adequately addressed by the Year 7 content</div>
+      </div>
+      <div class="answer-box"><strong>Answer: C — Year 9–10 codes</strong><br>VC2HP8P08/126 are Year 7–8 codes (partially addressed). VC2HP10P02/144/147/148 and VC2HP10M01 are Year 9–10 codes requiring analysis of health behaviours across diverse groups, evaluation using health data, planning community strategies, and specialised movement concepts. A school that only covers Year 7–8 beach safety content is not meeting the full Victorian Curriculum requirements for Years 9–10.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q29</span><span class="diff diff-ext">Extension</span><span class="q-type">Short answer</span></div>
+      <p class="q-text">What is the difference between a measurable success metric and a vague aspiration? Give one example of each in the context of a water safety prevention campaign targeting young males.</p>
+      <div class="short-ans-area">Student response area…</div>
+      <div class="answer-box"><strong>Sample A-standard answer:</strong> A measurable success metric specifies a concrete, observable outcome with a timeframe — it can be evaluated. A vague aspiration describes a desired state without specifying how success would be measured or when. Vague: "We want young males to make safer choices near water." This cannot be measured — how would we know if it was achieved? Measurable: "A 15% reduction in 15–24 year old male unpatrolled location drowning deaths in Victoria within 3 years of campaign launch, measured against LSV Drowning Report data." This names the indicator, the target group, the magnitude of change, the timeframe, and the measurement source.</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-meta"><span class="q-num">Q30</span><span class="diff diff-hard">Hard</span><span class="q-type">True / False</span></div>
+      <p class="q-text">Acknowledging counter-arguments in a policy brief weakens the argument by introducing doubt.</p>
+      <div class="tf-opts">
+        <div class="tf-opt wrong">True</div>
+        <div class="tf-opt correct">False</div>
+      </div>
+      <div class="answer-box"><strong>Answer: False</strong><br>Acknowledging and responding to counter-arguments (called "refutation") strengthens credibility. A reader who is aware of the counter-argument and sees it addressed is more persuaded than one who is simply not told about it. This is a key feature of A-standard persuasive writing. Pretending a counter-argument doesn't exist reads as naive or evasive — addressing and refuting it demonstrates sophisticated thinking.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>Advanced Water Safety — Quiz Question Bank · Year 9–10 HPE · Victorian Curriculum F–10 Version 2.0 · VC2HP10P02, VC2HP10P08, VC2HP10P10, VC2HP10P09, VC2HP10M01</div>
+  <div style="font-family:'DM Mono',monospace;font-size:0.7rem;">lsv.com.au · royallifesaving.com.au · who.int · rlss.org.uk</div>
+</footer>
+</body>
+</html>

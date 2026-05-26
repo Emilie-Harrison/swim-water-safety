@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Water Safety — Guest Speaker Resource | Year 9–10 HPE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#0a1e3d;--ocean:#1565c0;--teal:#00695c;--amber:#b45309;--sage:#2e7d32;
+    --bg:#f0f4f8;--card:#fff;--border:#c8d8e8;--text:#0a1e3d;--muted:#3a5a6e;
+  }
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.6;}
+  .skip-nav{position:absolute;top:-100px;left:8px;background:var(--navy);color:#fff;padding:8px 18px;border-radius:0 0 8px 8px;font-size:0.9rem;font-weight:700;text-decoration:none;z-index:9999;transition:top 0.2s;}
+  .skip-nav:focus{top:0;}
+  :focus-visible{outline:3px solid var(--ocean);outline-offset:2px;border-radius:3px;}
+
+  .header{background:linear-gradient(135deg,#050d1e,#0a1e3d,#00695c);color:#fff;padding:36px 44px 44px;position:relative;overflow:hidden;}
+  .header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:36px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 36'%3E%3Cpath fill='%23f0f4f8' d='M0,18 Q360,36 720,18 Q1080,0 1440,18 L1440,36 L0,36Z'/%3E%3C/svg%3E") bottom/cover no-repeat;}
+  .h-tag{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);border-radius:4px;padding:4px 14px;display:inline-block;margin-bottom:12px;}
+  .header h1{font-family:'Poppins',sans-serif;font-size:2.2rem;font-weight:800;margin-bottom:5px;}
+  .header p{font-size:0.9rem;opacity:0.82;max-width:600px;margin-bottom:16px;}
+  .h-chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .hc{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:600;}
+
+  .body{max-width:900px;margin:0 auto;padding:30px 22px 60px;}
+
+  /* PHASE TABS */
+  .tab-nav{display:flex;gap:3px;background:#c0d8ee;border-radius:10px;padding:4px;margin-bottom:22px;flex-wrap:wrap;}
+  .tab-btn{flex:1;padding:9px;border:none;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:0.84rem;font-weight:600;cursor:pointer;background:transparent;color:var(--muted);transition:all 0.15s;min-width:80px;text-align:center;}
+  .tab-btn.active{background:var(--card);color:var(--ocean);box-shadow:0 2px 6px rgba(0,100,148,0.1);}
+  .tab-pane{display:none;}
+  .tab-pane.active{display:block;}
+
+  /* CARDS */
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;box-shadow:0 2px 6px rgba(10,30,61,0.04);}
+  .card h3{font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:700;color:var(--ocean);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .card p{font-size:0.88rem;color:var(--muted);line-height:1.6;margin-bottom:6px;}
+  .card ul{padding-left:17px;font-size:0.88rem;color:var(--muted);line-height:1.7;}
+  .green-card{background:#e8f5e9;border:1px solid #a5d6a7;border-left:5px solid var(--sage);border-radius:0 12px 12px 0;padding:14px 18px;margin-bottom:16px;}
+  .green-card h3{font-family:'Poppins',sans-serif;font-size:0.92rem;font-weight:700;color:var(--sage);margin-bottom:8px;}
+  .amber-card{background:#fffbeb;border:1px solid #fbc02d;border-left:5px solid var(--amber);border-radius:0 12px 12px 0;padding:14px 18px;margin-bottom:16px;}
+  .amber-card h3{font-family:'Poppins',sans-serif;font-size:0.92rem;font-weight:700;color:var(--amber);margin-bottom:8px;}
+
+  /* QUESTION BANK */
+  .q-section{margin-bottom:20px;}
+  .q-section h3{font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--border);}
+  .q-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.88rem;}
+  .q-item:last-child{border-bottom:none;}
+  .q-check{width:18px;height:18px;border:1.5px solid var(--border);border-radius:4px;flex-shrink:0;margin-top:2px;}
+  .q-item .q-text{flex:1;color:var(--text);}
+  .q-item .q-tag{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;white-space:nowrap;align-self:flex-start;margin-top:2px;flex-shrink:0;}
+
+  /* NOTE-TAKING */
+  .note-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .note-box{border:1px solid var(--border);border-radius:10px;padding:14px 16px;}
+  .note-box label{font-family:'DM Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);display:block;margin-bottom:8px;}
+  .ans-line{border-bottom:1.5px solid var(--border);min-height:28px;margin-bottom:7px;padding:2px 4px;font-size:0.88rem;color:#bbb;display:block;}
+  .ans-box{border:1.5px solid var(--border);border-radius:8px;min-height:80px;padding:10px;font-size:0.88rem;color:#bbb;margin-bottom:10px;}
+  .big-note{border:1.5px solid var(--border);border-radius:10px;min-height:200px;padding:14px;font-size:0.88rem;color:#bbb;margin-bottom:14px;background:#fafcff;}
+  .big-note::placeholder{color:#bbb;}
+
+  /* REFLECTION */
+  .reflection-q{background:#f0f4f8;border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:14px;}
+  .reflection-q p{font-size:0.9rem;font-weight:600;color:var(--text);margin-bottom:8px;}
+
+  /* SPEAKER TYPES */
+  .speaker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;}
+  .speaker-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-align:center;}
+  .speaker-card .sp-icon{font-size:1.8rem;margin-bottom:6px;}
+  .speaker-card h4{font-family:'Poppins',sans-serif;font-size:0.84rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+  .speaker-card p{font-size:0.78rem;color:var(--muted);line-height:1.4;}
+
+  footer{background:var(--navy);color:rgba(255,255,255,0.65);padding:16px 44px;font-size:0.74rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  @media(max-width:600px){.header{padding:26px 18px 40px;}.body{padding:20px 14px 40px;}.note-grid,.speaker-grid{grid-template-columns:1fr;}}
+  @media print{.tab-nav{display:none;}.tab-pane{display:block!important;page-break-after:always;}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<header class="header">
+  <div class="h-tag">🎤 Guest Speaker Resource · Year 9–10</div>
+  <h1>Advanced Water Safety<br>Guest Speaker Preparation &amp; Follow-Up</h1>
+  <p>Prepare for a visit from a water safety professional, make the most of their expertise during the visit, and consolidate your learning afterwards.</p>
+  <div class="h-chips">
+    <span class="hc">Year 9–10 HPE</span>
+    <span class="hc">Pre-visit preparation</span>
+    <span class="hc">During-visit notes</span>
+    <span class="hc">Post-visit reflection</span>
+    <span class="hc">VC2HP10P02–VC2HP10P09</span>
+  </div>
+</header>
+
+<div id="main-content" tabindex="-1" style="outline:none;"></div>
+<div class="body">
+
+  <div class="tab-nav" role="tablist" aria-label="Speaker resource sections">
+    <button type="button" class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-pre" onclick="showTab('pre',this)">📚 Before the Visit</button>
+    <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-during" onclick="showTab('during',this)">✏️ During the Visit</button>
+    <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-after" onclick="showTab('after',this)">💡 After the Visit</button>
+    <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-teacher" onclick="showTab('teacher',this)">🍏 Teacher Notes</button>
+  </div>
+
+  <!-- PRE-VISIT -->
+  <div id="tab-pre" class="tab-pane active">
+
+    <div class="amber-card">
+      <h3>⚠️ Complete before the visit</h3>
+      <p style="font-size:0.88rem;color:#78350f;">Do this reading and preparation <em>before</em> your speaker arrives. Coming prepared means you can ask better questions and get more out of the visit. Your teacher may check your preparation.</p>
+    </div>
+
+    <!-- SPEAKER TYPES -->
+    <div class="card">
+      <h3>🎤 Who Might Be Visiting?</h3>
+      <div class="speaker-grid">
+        <div class="speaker-card">
+          <div class="sp-icon">🏄</div>
+          <h4>LSV / SLS Educator</h4>
+          <p>Life Saving Victoria or Surf Life Saving. Expert on beach safety, drowning prevention programs, Victorian data.</p>
+        </div>
+        <div class="speaker-card">
+          <div class="sp-icon">🚑</div>
+          <h4>Paramedic / First Responder</h4>
+          <p>Frontline experience with drowning incidents. Expert on CPR, emergency response, and what happens at real incidents.</p>
+        </div>
+        <div class="speaker-card">
+          <div class="sp-icon">🔬</div>
+          <h4>Water Safety Researcher</h4>
+          <p>RLSSA, university, or government researcher. Expert on evidence, data analysis, prevention program evaluation.</p>
+        </div>
+        <div class="speaker-card">
+          <div class="sp-icon">👮</div>
+          <h4>Water Police / Coast Guard</h4>
+          <p>Expert on maritime safety, river incidents, rescue operations, and legal requirements for watercraft.</p>
+        </div>
+        <div class="speaker-card">
+          <div class="sp-icon">🧑‍🏫</div>
+          <h4>Community Swim Educator</h4>
+          <p>Runs swim programs for CALD communities, schools, or disadvantaged groups. Expert on access and equity.</p>
+        </div>
+        <div class="speaker-card">
+          <div class="sp-icon">💊</div>
+          <h4>Emergency Physician / Nurse</h4>
+          <p>Hospital perspective on near-drowning and drowning cases. Expert on physiology, CPR outcomes, secondary drowning.</p>
+        </div>
+      </div>
+      <div class="ans-line" style="margin-top:8px;">Our speaker's name: _________________________  Organisation: _________________________</div>
+      <div class="ans-line">Their role / expertise: ___________________________________________________________________</div>
+    </div>
+
+    <!-- PRE-READING -->
+    <div class="card">
+      <h3>📖 Background Reading — Complete Before the Visit</h3>
+      <p>Review these sections from your workbook so you can engage with the speaker at a deeper level:</p>
+      <ul>
+        <li>Workbook Section 1 — Victorian drowning statistics (particularly the CALD and gender data)</li>
+        <li>Workbook Section 2 — Physiology of drowning and the 4-minute CPR window</li>
+        <li>Workbook Section 3 — Social determinants of drowning risk</li>
+        <li>Workbook Section 4 — Prevention strategies and their evidence base</li>
+      </ul>
+      <p style="margin-top:10px;font-size:0.86rem;font-weight:600;color:var(--navy);">Before the visit, write ONE thing you already know about your speaker's area of expertise, and ONE question you are genuinely curious about:</p>
+      <div class="ans-line" style="margin-top:6px;">One thing I already know: ___________________________________________________________________</div>
+      <div class="ans-line">One thing I'm genuinely curious about: _____________________________________________________</div>
+    </div>
+
+    <!-- QUESTION BANK -->
+    <div class="card">
+      <h3>❓ Question Bank — Select 3–4 to Ask</h3>
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px;">Tick the questions you want to ask. Add your own at the bottom. Good questions are specific, genuine, and build on what you have already learned — not things you could google.</p>
+
+      <div class="q-section">
+        <h3>About Their Work &amp; Career</h3>
+        <div class="q-item"><span class="q-check"></span><span class="q-text">What does a typical day in your role look like, and how much of it involves direct water safety work?</span><span class="q-tag">Career</span></div>
+        <div class="q-item"><span class="q-check"></span><span class="q-text">What made you choose this career, and what do you find most meaningful about it?</span><span class="q-tag">Career</span></div>
+        <div class="q-item"><span class="q-check"></span><span class="q-text">What skills or qualifications are most important for someone wanting to work in water safety?</span><span class="q-tag">Pathways</span></div>
+      </div>
+
+      <div class="q-section">
+        <h3>About the Data &amp; Evidence</h3>
+        <div class="q-item"><span class="q-check"></span><span class="q-text">The LSV data shows all 54 Victorian drowning deaths in 2023–24 occurred at unpatrolled locations. What do you think is the single biggest barrier to getting people to swim at patrolled locations?</span><span class="q-tag">Data</span></div>
+        <div class="q-item"><span class="q-check"></span><span class="q-text">CALD communities are over-represented in Victorian drowning deaths at approximately 1.43:1. What structural factors do you see most clearly in your work?</span><span class="q-tag">Equity</span></div>
+        <div class="q-item"><span class="q-check"></span><span class="q-text">Are there any prevention strategies you've seen that the data says should work but that don't in practice? Why do you think that is?</span><span class="q-tag">Prevention</span></div>
+      </div>
+
+      <div class="q-section">
+        <h3>About the Physiology &amp; Real Incidents</h3>
+        <div class="q-item"><span class="q-check"></span><span class="q-text">We've learned about the 4-minute CPR window. In your experience, what actually happens in real incidents — how quickly does bystander CPR usually start?</span><span class="q-tag">Physiology</span></div>
+        <div class="q-item"><span class="q-check"></span><span class="q-text">What is the most common mistake you see people make in a water emergency?</span><span class="q-tag">Emergency</span></div>
+        <div class="q-item"><span class="q-check"></span><span class="q-text">Has a near-drowning incident ever involved secondary drowning in your experience? How was it identified?</span><span class="q-tag">Physiology</span></div>
+      </div>
+
+      <div class="q-section">
+        <h3>About the Future</h3>
+        <div class="q-item"><span class="q-check"></span><span class="q-text">What do you think is the most promising new development in drowning prevention over the next 10 years?</span><span class="q-tag">Future</span></div>
+        <div class="q-item"><span class="q-check"></span><span class="q-text">If you could change one thing about how Victorian schools teach water safety, what would it be?</span><span class="q-tag">Education</span></div>
+        <div class="q-item"><span class="q-check"></span><span class="q-text">What can a Year 9–10 student realistically do right now to make a difference in water safety in their community?</span><span class="q-tag">Action</span></div>
+      </div>
+
+      <p style="font-size:0.84rem;font-weight:600;color:var(--navy);margin-bottom:8px;">My own questions:</p>
+      <div class="ans-line"></div>
+      <div class="ans-line"></div>
+    </div>
+  </div>
+
+  <!-- DURING VISIT -->
+  <div id="tab-during" class="tab-pane">
+
+    <div class="green-card">
+      <h3>✅ During the Visit — Tips</h3>
+      <ul style="padding-left:16px;font-size:0.88rem;color:#1a3a22;line-height:1.7;">
+        <li>Write down KEY ideas, statistics, and stories — not every word. Focus on what's new or surprising.</li>
+        <li>Note anything that confirms, challenges, or adds nuance to what you learned in the workbook.</li>
+        <li>When you ask a question, write down the answer immediately — don't rely on memory.</li>
+        <li>Note any specific sources, reports, or websites the speaker mentions.</li>
+      </ul>
+    </div>
+
+    <div class="note-grid">
+      <div class="note-box">
+        <label>Speaker name &amp; organisation</label>
+        <div class="ans-line"></div>
+        <label style="margin-top:8px;">Topic / focus area of their talk</label>
+        <div class="ans-line"></div>
+        <label style="margin-top:8px;">Key statistic they mentioned (with source if given)</label>
+        <div class="ans-line"></div>
+        <div class="ans-line"></div>
+      </div>
+      <div class="note-box">
+        <label>Most surprising thing they said</label>
+        <div class="ans-line"></div>
+        <div class="ans-line"></div>
+        <label style="margin-top:8px;">Something that challenged what I thought I knew</label>
+        <div class="ans-line"></div>
+        <div class="ans-line"></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:14px;">
+      <h3>📝 Main Notes — Key Ideas &amp; Insights</h3>
+      <div class="big-note" contenteditable="true" placeholder="Write your notes here during the presentation or excursion…"></div>
+    </div>
+
+    <div class="card">
+      <h3>❓ Questions I Asked &amp; Answers I Got</h3>
+      <p style="font-size:0.86rem;color:var(--muted);margin-bottom:10px;">Record each question you asked and the key points of the speaker's answer.</p>
+      <div class="ans-line">Q: ______________________________________________________________________________</div>
+      <div class="ans-line">A: ______________________________________________________________________________</div>
+      <div class="ans-line"></div>
+      <div class="ans-line">Q: ______________________________________________________________________________</div>
+      <div class="ans-line">A: ______________________________________________________________________________</div>
+      <div class="ans-line"></div>
+      <div class="ans-line">Q: ______________________________________________________________________________</div>
+      <div class="ans-line">A: ______________________________________________________________________________</div>
+    </div>
+  </div>
+
+  <!-- AFTER VISIT -->
+  <div id="tab-after" class="tab-pane">
+
+    <div class="card">
+      <h3>🔗 Connecting to the Unit — Complete Within 24 Hours</h3>
+      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:14px;">Research shows reflection immediately after a learning experience significantly improves retention. Complete this section the same day as the visit.</p>
+
+      <div class="reflection-q">
+        <p>What was the single most valuable insight you gained from the speaker that you could NOT have learned from a website or textbook?</p>
+        <div class="ans-box"></div>
+      </div>
+
+      <div class="reflection-q">
+        <p>Which section of your student workbook did the speaker's content connect most strongly to? How did their real-world perspective deepen your understanding of that content?</p>
+        <div class="ans-line">Workbook section: ___________________________</div>
+        <div class="ans-box"></div>
+      </div>
+
+      <div class="reflection-q">
+        <p>Did the speaker say anything that contradicted, complicated, or added nuance to what you had learned in the unit? Describe it and explain whether it changes your understanding.</p>
+        <div class="ans-box"></div>
+      </div>
+
+      <div class="reflection-q">
+        <p>How does what you learned from the speaker influence how you will approach your Section 6 assessment task? Identify at least ONE specific way.</p>
+        <div class="ans-line">I will use what I learned by: _______________________________________________________________</div>
+        <div class="ans-line">___________________________________________________________________________</div>
+      </div>
+
+      <div class="reflection-q">
+        <p>Write a brief thank-you message to the speaker (2–3 sentences) that references something specific they said and explains why it was meaningful to you.</p>
+        <div class="ans-box"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📚 Sources the Speaker Mentioned — Follow Up</h3>
+      <div class="ans-line">Organisation / website 1: _________________________________________________________________</div>
+      <div class="ans-line">Report or resource mentioned: ____________________________________________________________</div>
+      <div class="ans-line">Organisation / website 2: _________________________________________________________________</div>
+      <div class="ans-line">Report or resource mentioned: ____________________________________________________________</div>
+      <p style="font-size:0.84rem;color:var(--muted);margin-top:8px;">These sources could strengthen your Section 6 assessment task — look them up and record any useful statistics or arguments.</p>
+    </div>
+  </div>
+
+  <!-- TEACHER NOTES -->
+  <div id="tab-teacher" class="tab-pane">
+
+    <div class="amber-card">
+      <h3>📌 For Teacher Use</h3>
+      <p style="font-size:0.88rem;color:#78350f;">This tab contains guidance for teachers arranging a guest speaker or excursion for the Year 9–10 Advanced Water Safety unit.</p>
+    </div>
+
+    <div class="card">
+      <h3>🎤 Suggested Speakers &amp; Contact Organisations</h3>
+      <ul>
+        <li><strong>Life Saving Victoria (LSV):</strong> lsv.com.au — contact the community engagement team for school presentations. LSV educators can present on Victorian drowning data, CALD community programs, and prevention strategies.</li>
+        <li><strong>Surf Life Saving Victoria:</strong> surflifesaving.com.au/vic — club educators available for school visits and career pathway presentations.</li>
+        <li><strong>Royal Life Saving Society Australia:</strong> royallifesaving.com.au — research and education staff available for advanced content presentations.</li>
+        <li><strong>Local Ambulance Victoria:</strong> ambulance.vic.gov.au — paramedics available through community education programs. Excellent for physiology and CPR content.</li>
+        <li><strong>Water Police (Victoria Police):</strong> police.vic.gov.au — water police educators available for inland waterway and boating safety content.</li>
+        <li><strong>AUSTSWIM:</strong> austswim.com.au — swim educators available for practical and career pathway content.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>📋 Briefing Your Speaker</h3>
+      <p>Send the following brief to your speaker before the visit:</p>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px;font-size:0.86rem;color:var(--muted);font-style:italic;margin-top:8px;">
+        "We are a Year 9–10 HPE class completing the Advanced Water Safety unit under the Victorian Curriculum 2.0. Students have already studied: Victorian and global drowning statistics (including CALD over-representation data), physiology of drowning and CPR mechanics, social determinants of drowning risk, evidence-based prevention strategies, and international comparisons (RLSSA, RLSS UK, Red Cross). They are preparing an evidence-based assessment task (policy brief, campaign, or school audit). The visit will be most valuable if you can share real-world context, professional experience, and career pathways, and engage with students' pre-prepared questions."
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✅ Preparation Checklist</h3>
+      <ul style="list-style:none;padding:0;">
+        <li style="padding:5px 0;border-bottom:1px solid var(--border);font-size:0.88rem;">☐ Speaker confirmed, date/time locked in</li>
+        <li style="padding:5px 0;border-bottom:1px solid var(--border);font-size:0.88rem;">☐ Speaker briefed on student prior knowledge and unit context</li>
+        <li style="padding:5px 0;border-bottom:1px solid var(--border);font-size:0.88rem;">☐ Students have completed "Before the Visit" tab (check completion)</li>
+        <li style="padding:5px 0;border-bottom:1px solid var(--border);font-size:0.88rem;">☐ Students have selected 3–4 questions from the question bank</li>
+        <li style="padding:5px 0;border-bottom:1px solid var(--border);font-size:0.88rem;">☐ Venue organised — space for Q&A discussion</li>
+        <li style="padding:5px 0;border-bottom:1px solid var(--border);font-size:0.88rem;">☐ "After the Visit" reflection assigned as homework (due within 24 hours)</li>
+        <li style="padding:5px 0;font-size:0.88rem;">☐ Thank-you follow-up organised (student messages collected and sent)</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>Advanced Water Safety — Guest Speaker Resource · Year 9–10 HPE · Victorian Curriculum F–10 Version 2.0 · VC2HP10P02–VC2HP10P09</div>
+  <div style="font-family:'DM Mono',monospace;font-size:0.7rem;">lsv.com.au · royallifesaving.com.au · stjohnvic.com.au</div>
+</footer>
+
+<script>
+function showTab(id,btn){
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false');});
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected','true');
+}
+</script>
+</body>
+</html>

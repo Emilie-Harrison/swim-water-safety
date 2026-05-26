@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Water Safety — Community Action Project Guide | Year 9–10 HPE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#0a1e3d;--ocean:#1565c0;--teal:#00695c;--sage:#2e7d32;
+    --amber:#b45309;--alert:#c62828;--purple:#6a1b9a;
+    --bg:#f0f4f8;--card:#fff;--border:#c8d8e8;--text:#0a1e3d;--muted:#3a5a6e;
+  }
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.6;}
+  .skip-nav{position:absolute;top:-100px;left:8px;background:var(--navy);color:#fff;padding:8px 18px;border-radius:0 0 8px 8px;font-size:0.9rem;font-weight:700;text-decoration:none;z-index:9999;transition:top 0.2s;}
+  .skip-nav:focus{top:0;}
+  :focus-visible{outline:3px solid var(--ocean);outline-offset:2px;border-radius:3px;}
+
+  .header{background:linear-gradient(135deg,#050d1e,#00695c,#1565c0);color:#fff;padding:36px 44px 44px;position:relative;overflow:hidden;}
+  .header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:36px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 36'%3E%3Cpath fill='%23f0f4f8' d='M0,18 Q360,36 720,18 Q1080,0 1440,18 L1440,36 L0,36Z'/%3E%3C/svg%3E") bottom/cover no-repeat;}
+  .h-tag{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);border-radius:4px;padding:4px 14px;display:inline-block;margin-bottom:12px;}
+  .header h1{font-family:'Poppins',sans-serif;font-size:2.2rem;font-weight:800;margin-bottom:5px;}
+  .header p{font-size:0.9rem;opacity:0.82;max-width:600px;margin-bottom:16px;}
+  .h-chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .hc{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:600;}
+
+  .body{max-width:920px;margin:0 auto;padding:30px 22px 60px;}
+
+  /* PHASE CARDS */
+  .phase-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:22px;box-shadow:0 3px 12px rgba(10,30,61,0.05);}
+  .phase-head{padding:14px 22px;color:#fff;display:flex;align-items:center;gap:12px;}
+  .ph-1{background:linear-gradient(135deg,var(--ocean),#1e88e5);}
+  .ph-2{background:linear-gradient(135deg,var(--teal),#00897b);}
+  .ph-3{background:linear-gradient(135deg,var(--purple),#8e24aa);}
+  .ph-4{background:linear-gradient(135deg,var(--amber),#f57c00);}
+  .ph-5{background:linear-gradient(135deg,var(--sage),#43a047);}
+  .phase-num{width:38px;height:38px;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:800;font-size:1rem;flex-shrink:0;}
+  .phase-title h3{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;margin-bottom:3px;}
+  .phase-meta{display:flex;flex-wrap:wrap;gap:6px;}
+  .pm{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.22);border-radius:7px;padding:2px 10px;font-size:0.7rem;font-weight:600;}
+  .phase-body{padding:20px 22px;}
+
+  /* FIELD */
+  .field{margin-bottom:16px;}
+  .field label{font-size:0.86rem;font-weight:600;color:var(--text);display:block;margin-bottom:5px;}
+  .field .hint{font-size:0.8rem;color:var(--muted);margin-bottom:5px;display:block;}
+  .field textarea,.field input{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:9px 12px;font-family:'DM Sans',sans-serif;font-size:0.88rem;color:var(--text);background:#fafcff;outline:none;resize:vertical;min-height:70px;}
+  .field input{min-height:unset;resize:none;}
+  .field textarea:focus,.field input:focus{border-color:var(--ocean);}
+
+  /* TABLE */
+  .t{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.86rem;}
+  .t th{background:var(--navy);color:#fff;padding:8px 11px;text-align:left;font-weight:700;}
+  .t td{padding:8px 11px;border:1px solid var(--border);vertical-align:top;}
+  .t tr:nth-child(even) td{background:var(--bg);}
+  .t td.write{background:#fffef5;color:#aaa;font-style:italic;font-size:0.84rem;}
+
+  /* PRIORITY MATRIX */
+  .matrix{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;margin:12px 0;}
+  .mx-cell{border:1.5px solid var(--border);border-radius:8px;padding:12px;min-height:80px;}
+  .mx-cell .mx-label{font-family:'DM Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:6px;display:block;}
+  .mx-hi-hi{background:#e8f5e9;border-color:#66bb6a;}
+  .mx-hi-lo{background:#fffde7;border-color:#fbc02d;}
+  .mx-lo-hi{background:#fff3e0;border-color:#ffb74d;}
+  .mx-lo-lo{background:#f5f5f5;border-color:#bdbdbd;}
+  .mx-axis-label{font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:700;color:var(--muted);text-align:center;padding:4px;}
+
+  /* ANS LINES */
+  .ans-line{border-bottom:1.5px solid var(--border);min-height:28px;margin-bottom:8px;padding:2px 4px;font-size:0.88rem;color:#bbb;display:block;}
+
+  /* EXAMPLE BOXES */
+  .example{background:#e3f2fd;border:1px solid #90caf9;border-left:4px solid var(--ocean);border-radius:0 8px 8px 0;padding:11px 14px;margin-bottom:12px;font-size:0.86rem;color:var(--navy);}
+  .example strong{color:var(--ocean);}
+
+  /* CHECKLIST */
+  .cl{list-style:none;padding:0;}
+  .cl li{display:flex;align-items:flex-start;gap:9px;padding:6px 0;border-bottom:1px solid var(--border);font-size:0.87rem;}
+  .cl li:last-child{border-bottom:none;}
+  .cl-box{width:17px;height:17px;border:1.5px solid var(--border);border-radius:4px;flex-shrink:0;margin-top:2px;}
+
+  footer{background:var(--navy);color:rgba(255,255,255,0.65);padding:16px 44px;font-size:0.74rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  @media(max-width:600px){.header{padding:26px 18px 40px;}.body{padding:20px 14px 40px;}.matrix{grid-template-columns:1fr;}}
+  @media print{body{background:#fff;}.phase-card{page-break-inside:avoid;}@page{size:A4;margin:15mm;}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<header class="header">
+  <div class="h-tag">🌱 Community Action Project · Year 9–10</div>
+  <h1>Advanced Water Safety<br>Community Action Project Guide</h1>
+  <p>Plan, implement, and evaluate a real water safety awareness project for your school or local community. This guide takes you through five project phases, from needs analysis to evaluation.</p>
+  <div class="h-chips">
+    <span class="hc">Year 9–10 HPE</span>
+    <span class="hc">VC2HP10P08</span>
+    <span class="hc">Community capacity building</span>
+    <span class="hc">Extended project</span>
+    <span class="hc">Assessment-ready</span>
+  </div>
+</header>
+
+<div id="main-content" tabindex="-1" style="outline:none;"></div>
+<div class="body">
+
+  <div class="example">
+    <strong>About this project:</strong> This guide aligns with VC2HP10P08 — "Plan, rehearse and evaluate strategies (including first aid and CPR) for managing situations where their own or others' health, safety or wellbeing may be negatively impacted at home, school and in the community." Completing this project gives you direct evidence of community health promotion skills that can also support VCE Health &amp; Human Development pathways. Use your findings from the student workbook, WebQuest, and data analysis pack to inform your project.
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase-card">
+    <div class="phase-head ph-1">
+      <div class="phase-num">1</div>
+      <div class="phase-title">
+        <h3>Needs Analysis — What Problem Are You Solving?</h3>
+        <div class="phase-meta">
+          <span class="pm">VC2HP10P02 · VC2HP10P08</span>
+          <span class="pm">~1 lesson</span>
+        </div>
+      </div>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:16px;">Before designing any project, you need to understand the specific need you are addressing. Use Victorian drowning data and your school context to identify the gap your project will fill.</p>
+
+      <div class="field">
+        <label>1. What specific water safety gap or problem have you identified?</label>
+        <span class="hint">Think: who in your school community is at risk? What do they not know or not do? Use data from the LSV Drowning Report to justify your choice.</span>
+        <textarea placeholder="e.g. 'Year 9–10 students at our school swim at the unpatrolled dam near the school on hot days. They are in the 15–24 age group that accounts for 1 in 5 Victorian drowning deaths. They do not know the dangers of cold water shock at inland waterways.'"></textarea>
+      </div>
+
+      <div class="field">
+        <label>2. Who is your target audience?</label>
+        <span class="hint">Be specific — not just "students." Which year levels, which demographic, which context?</span>
+        <input type="text" placeholder="e.g. Year 9–10 students, aged 14–16, at [school name], who swim recreationally near water in summer">
+      </div>
+
+      <div class="field">
+        <label>3. Evidence for the need — cite at least ONE statistic with a source URL.</label>
+        <input type="text" placeholder="Statistic: ___________  Source URL: ___________">
+        <input type="text" placeholder="Additional evidence (optional): ___________" style="margin-top:6px;">
+      </div>
+
+      <div class="field">
+        <label>4. Why isn't this gap already being addressed? What structural or awareness barrier exists?</label>
+        <textarea placeholder="e.g. 'The school's current water safety education stops at Year 8 and doesn't address inland waterways. Students are not aware of cold water shock or the risks specific to the dam they visit.'"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-card">
+    <div class="phase-head ph-2">
+      <div class="phase-num">2</div>
+      <div class="phase-title">
+        <h3>Project Design — What Will You Do and Why?</h3>
+        <div class="phase-meta">
+          <span class="pm">VC2HP10P08 · VC2HP10P09</span>
+          <span class="pm">~1–2 lessons</span>
+        </div>
+      </div>
+    </div>
+    <div class="phase-body">
+      <div class="field">
+        <label>5. Project name and one-sentence summary</label>
+        <input type="text" placeholder="Project name: ___________">
+        <input type="text" placeholder="Summary (one sentence): ___________" style="margin-top:6px;">
+      </div>
+
+      <div class="field">
+        <label>6. Choose your project type (tick one or more):</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;">
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:0.86rem;">☐ Social media awareness campaign</div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:0.86rem;">☐ Poster / display in school</div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:0.86rem;">☐ Assembly or class presentation</div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:0.86rem;">☐ Parent / community flyer</div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:0.86rem;">☐ Peer education session</div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:0.86rem;">☐ School website / newsletter article</div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:0.86rem;">☐ Event or activity (e.g. safety quiz)</div>
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:9px 12px;font-size:0.86rem;">☐ Other: _______________</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>7. Key messages — what do you want your audience to KNOW, THINK, and DO after engaging with your project?</label>
+        <table class="t">
+          <tr><th>Know (facts / information)</th><th>Think (change in attitude)</th><th>Do (specific behaviour change)</th></tr>
+          <tr><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+          <tr><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+        </table>
+      </div>
+
+      <div class="field">
+        <label>8. Priority matrix — plot your project options on the matrix below. Label each option by letter (A, B, C…). Choose the quadrant with HIGH impact and HIGH feasibility.</label>
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center;">
+          <div style="writing-mode:vertical-lr;transform:rotate(180deg);font-size:0.8rem;font-weight:700;color:var(--muted);text-align:center;">← Low Impact &nbsp; High Impact →</div>
+          <div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:4px;">
+              <div class="mx-axis-label">Low Feasibility</div>
+              <div class="mx-axis-label">High Feasibility</div>
+            </div>
+            <div class="matrix">
+              <div class="mx-cell mx-hi-lo">
+                <span class="mx-label">High Impact / Low Feasibility</span>
+                <span style="font-size:0.8rem;color:var(--muted);">Worth fighting for — but requires resources</span>
+              </div>
+              <div class="mx-cell mx-hi-hi">
+                <span class="mx-label">High Impact / High Feasibility ⭐</span>
+                <span style="font-size:0.8rem;color:var(--sage);">Your first priority</span>
+              </div>
+              <div class="mx-cell mx-lo-lo">
+                <span class="mx-label">Low Impact / Low Feasibility</span>
+                <span style="font-size:0.8rem;color:var(--muted);">Avoid — not worth the effort</span>
+              </div>
+              <div class="mx-cell mx-lo-hi">
+                <span class="mx-label">Low Impact / High Feasibility</span>
+                <span style="font-size:0.8rem;color:var(--amber);">Easy wins — supplementary only</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-card">
+    <div class="phase-head ph-3">
+      <div class="phase-num">3</div>
+      <div class="phase-title">
+        <h3>Implementation Plan — Who Does What by When?</h3>
+        <div class="phase-meta">
+          <span class="pm">VC2HP10P08</span>
+          <span class="pm">~1 lesson</span>
+        </div>
+      </div>
+    </div>
+    <div class="phase-body">
+      <table class="t">
+        <tr>
+          <th>Task</th>
+          <th>Responsible person(s)</th>
+          <th>Due date</th>
+          <th>Resources needed</th>
+          <th>Done? ✓</th>
+        </tr>
+        <tr><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+        <tr><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+        <tr><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+        <tr><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+        <tr><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+      </table>
+
+      <div class="field" style="margin-top:14px;">
+        <label>Potential barriers and how you will overcome them:</label>
+        <table class="t">
+          <tr><th>Potential barrier</th><th>How you will overcome it</th></tr>
+          <tr><td class="write"></td><td class="write"></td></tr>
+          <tr><td class="write"></td><td class="write"></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase-card">
+    <div class="phase-head ph-4">
+      <div class="phase-num">4</div>
+      <div class="phase-title">
+        <h3>Evaluation Design — How Will You Know If It Worked?</h3>
+        <div class="phase-meta">
+          <span class="pm">VC2HP10P08</span>
+          <span class="pm">Design before implementation</span>
+        </div>
+      </div>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:14px;">Design your evaluation <em>before</em> you implement — this is how real public health campaigns measure success. A good success metric is: Specific, Measurable, Achievable, Relevant, and Time-bound (SMART).</p>
+
+      <table class="t">
+        <tr>
+          <th>Outcome to measure</th>
+          <th>How you will measure it</th>
+          <th>Success threshold (what "success" looks like)</th>
+          <th>When you will measure</th>
+        </tr>
+        <tr>
+          <td>Awareness of key water safety message</td>
+          <td class="write">e.g. Pre/post quiz, 5 questions</td>
+          <td class="write">e.g. 70%+ correct after exposure</td>
+          <td class="write">Immediately after</td>
+        </tr>
+        <tr><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+        <tr><td class="write"></td><td class="write"></td><td class="write"></td><td class="write"></td></tr>
+      </table>
+
+      <div class="field" style="margin-top:12px;">
+        <label>Write your primary success metric as a SMART statement:</label>
+        <textarea placeholder="e.g. 'At least 80% of Year 9–10 students who view our Instagram campaign will correctly identify the three key signs of a rip current, as measured by a 3-question quiz posted 24 hours after the campaign launch.'"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 5 -->
+  <div class="phase-card">
+    <div class="phase-head ph-5">
+      <div class="phase-num">5</div>
+      <div class="phase-title">
+        <h3>Reflection &amp; Evaluation — What Did You Learn?</h3>
+        <div class="phase-meta">
+          <span class="pm">VC2HP10P08</span>
+          <span class="pm">Complete after implementation</span>
+        </div>
+      </div>
+    </div>
+    <div class="phase-body">
+      <div class="field">
+        <label>Did you meet your success metric? What evidence do you have?</label>
+        <textarea placeholder="Refer to specific data from your evaluation (e.g. quiz results, engagement metrics, attendance numbers)…"></textarea>
+      </div>
+      <div class="field">
+        <label>What worked well? Why?</label>
+        <textarea placeholder="Be specific — what design decisions, messages, or delivery methods were most effective?"></textarea>
+      </div>
+      <div class="field">
+        <label>What would you do differently next time?</label>
+        <textarea placeholder="Identify at least two specific improvements with reasoning…"></textarea>
+      </div>
+      <div class="field">
+        <label>How does your project connect to the broader social determinants of drowning risk you studied in the unit?</label>
+        <textarea placeholder="e.g. 'Our project targeted gender norms by reframing risk assessment as intelligence rather than weakness. This addressed the structural factor of masculinity norms that contributes to the 85% male drowning rate in Victoria.'"></textarea>
+      </div>
+
+      <div style="margin-top:14px;">
+        <p style="font-size:0.86rem;font-weight:600;color:var(--navy);margin-bottom:8px;">Project completion checklist:</p>
+        <ul class="cl">
+          <li><span class="cl-box"></span>Needs analysis completed with at least one cited statistic</li>
+          <li><span class="cl-box"></span>Target audience clearly defined</li>
+          <li><span class="cl-box"></span>Key messages (Know / Think / Do) stated</li>
+          <li><span class="cl-box"></span>SMART success metric designed before implementation</li>
+          <li><span class="cl-box"></span>Project implemented and documented (photos, screenshots, attendance, etc.)</li>
+          <li><span class="cl-box"></span>Evaluation data collected against the success metric</li>
+          <li><span class="cl-box"></span>Reflection completed connecting project to unit content</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>Advanced Water Safety — Community Action Project Guide · Year 9–10 HPE · Victorian Curriculum F–10 Version 2.0 · VC2HP10P02 · VC2HP10P08 · VC2HP10P09</div>
+  <div style="font-family:'DM Mono',monospace;font-size:0.7rem;">Emilie Harrison · swimwater.safety@gmail.com</div>
+</footer>
+</body>
+</html>

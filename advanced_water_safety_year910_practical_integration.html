@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Water Safety — Practical Assessment Integration | Year 9–10 HPE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#0a1e3d;--ocean:#1565c0;--teal:#00695c;--amber:#b45309;
+    --alert:#c62828;--sage:#2e7d32;--purple:#6a1b9a;
+    --bg:#f0f4f8;--card:#fff;--border:#c8d8e8;--text:#0a1e3d;--muted:#3a5a6e;
+  }
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.6;}
+  .skip-nav{position:absolute;top:-100px;left:8px;background:var(--navy);color:#fff;padding:8px 18px;border-radius:0 0 8px 8px;font-size:0.9rem;font-weight:700;text-decoration:none;z-index:9999;transition:top 0.2s;}
+  .skip-nav:focus{top:0;}
+  :focus-visible{outline:3px solid var(--ocean);outline-offset:2px;border-radius:3px;}
+
+  .print-note{max-width:960px;margin:0 auto 14px;background:#fffbeb;border:1px solid #fbc02d;border-radius:8px;padding:10px 16px;font-size:0.82rem;color:#78350f;}
+
+  .page{max-width:960px;margin:0 auto;background:var(--card);box-shadow:0 6px 28px rgba(10,30,61,0.1);border-radius:4px;overflow:hidden;}
+
+  /* HEADER */
+  .ph{background:linear-gradient(135deg,#050d1e 0%,#0a1e3d 50%,#1565c0 100%);color:#fff;padding:22px 30px 26px;}
+  .ph-badge{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);border-radius:3px;padding:3px 10px;display:inline-block;margin-bottom:7px;}
+  .ph h1{font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:3px;}
+  .ph p{font-size:0.8rem;opacity:0.78;}
+  .ph-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+  .pm{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:3px 12px;font-size:0.72rem;font-weight:600;}
+
+  /* STUDENT DETAILS */
+  .student-bar{background:#f8fafc;border-bottom:1px solid var(--border);padding:10px 30px;display:flex;gap:18px;flex-wrap:wrap;}
+  .sf label{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:3px;}
+  .sf .fl{border-bottom:1.5px solid var(--border);min-width:120px;min-height:22px;display:block;}
+
+  /* BODY */
+  .pb{padding:20px 30px 26px;}
+
+  /* SECTION LABELS */
+  .sec-label{font-family:'Poppins',sans-serif;font-size:0.88rem;font-weight:700;color:var(--navy);padding:8px 0 4px;border-bottom:2px solid var(--ocean);margin-bottom:12px;margin-top:20px;display:flex;align-items:center;gap:8px;}
+  .sec-label:first-child{margin-top:0;}
+
+  /* INTRO */
+  .intro{background:var(--bg);border:1px solid var(--border);border-left:4px solid var(--ocean);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:16px;font-size:0.86rem;color:var(--muted);}
+  .intro strong{color:var(--navy);}
+
+  /* THEORY-PRACTICE MAPPING */
+  .mapping-table{width:100%;border-collapse:collapse;font-size:0.82rem;margin:10px 0;}
+  .mapping-table th{background:var(--navy);color:#fff;padding:8px 11px;text-align:left;font-weight:700;font-size:0.78rem;}
+  .mapping-table td{padding:8px 11px;border:1px solid var(--border);vertical-align:top;line-height:1.45;}
+  .mapping-table tr:nth-child(even) td{background:var(--bg);}
+  .mapping-table td.theory{font-size:0.8rem;color:var(--text);}
+  .mapping-table td.practical{font-size:0.8rem;color:var(--teal);font-weight:600;}
+  .mapping-table td.write{background:#fffef5;color:#aaa;font-style:italic;font-size:0.8rem;}
+
+  /* SKILL CHECKLIST */
+  .skill-table{width:100%;border-collapse:collapse;font-size:0.8rem;margin:10px 0;}
+  .skill-table th{background:var(--navy);color:#fff;padding:8px 10px;text-align:left;font-weight:700;font-size:0.75rem;}
+  .skill-table td{padding:8px 10px;border:1px solid var(--border);vertical-align:middle;}
+  .skill-table tr:nth-child(even) td{background:var(--bg);}
+  .skill-label{font-weight:600;font-size:0.8rem;color:var(--text);}
+  .skill-theory{font-size:0.75rem;color:var(--muted);font-style:italic;}
+  .rating-cells{display:flex;gap:4px;justify-content:center;}
+  .rc{width:28px;height:28px;border:1.5px solid var(--border);border-radius:6px;font-size:0.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+  .rc-e{color:var(--alert);border-color:#f09090;}
+  .rc-d{color:var(--amber);border-color:#fbc02d;}
+  .rc-c{color:var(--amber);border-color:#fbc02d;}
+  .rc-b{color:var(--sage);border-color:#a5d6a7;}
+  .rc-a{color:var(--ocean);border-color:#90caf9;}
+  .rc-na{color:var(--muted);border-color:var(--border);}
+
+  /* REFLECTION */
+  .refl-q{border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:10px;}
+  .refl-q p{font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:7px;}
+  .refl-q .hint{font-size:0.78rem;color:var(--muted);font-style:italic;margin-bottom:7px;display:block;}
+  .ans-line{border-bottom:1.5px solid var(--border);min-height:26px;margin-bottom:6px;padding:2px 3px;font-size:0.84rem;color:#bbb;display:block;}
+  .ans-box{border:1.5px solid var(--border);border-radius:7px;min-height:60px;padding:9px;font-size:0.84rem;color:#bbb;margin-bottom:8px;}
+
+  /* THEORY CONNECTOR */
+  .theory-connector{background:#e3f2fd;border:1px solid #90caf9;border-radius:8px;padding:10px 14px;margin:8px 0;font-size:0.82rem;color:var(--navy);}
+  .tc-label{font-family:'DM Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--ocean);display:block;margin-bottom:4px;}
+
+  /* SIGN OFF */
+  .sign-off{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;}
+  .so-box{border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;}
+  .so-box label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px;}
+  .so-line{border-bottom:1px solid var(--border);min-height:28px;margin-bottom:5px;}
+
+  /* PAGE FOOTER */
+  .pf{background:var(--navy);color:rgba(255,255,255,0.65);padding:10px 30px;font-size:0.7rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+
+  body{padding:18px 14px;}
+  @media print{body{background:#fff;padding:0;}.print-note{display:none;}.page{box-shadow:none;}@page{size:A4;margin:10mm;}}
+  @media(max-width:600px){.student-bar,.sign-off{flex-direction:column;}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<div class="print-note">
+  <strong>🖨 Print instructions:</strong> A4 portrait, background graphics ON. This sheet bridges the Year 9–10 theory unit with pool-based practical sessions. Distribute to students before their first practical session and collect after the final pool lesson for inclusion in their workbook portfolio.
+</div>
+
+<div class="page" id="main-content" tabindex="-1">
+
+  <div class="ph">
+    <div class="ph-badge">Practical Assessment Integration Sheet · Year 9–10</div>
+    <h1>Advanced Water Safety — Practical Assessment Integration Sheet</h1>
+    <p>Connecting your Year 9–10 theory knowledge to practical pool-based skills · Victorian Curriculum F–10 Version 2.0</p>
+    <div class="ph-meta">
+      <span class="pm">VC2HP10M01</span>
+      <span class="pm">VC2HP10P08</span>
+      <span class="pm">VC2HP10P10</span>
+      <span class="pm">Year 9–10 HPE</span>
+      <span class="pm">Pool Practical Sessions</span>
+    </div>
+  </div>
+
+  <div class="student-bar">
+    <div class="sf"><label>Student Name</label><span class="fl"></span></div>
+    <div class="sf"><label>Class</label><span class="fl" style="min-width:70px;"></span></div>
+    <div class="sf"><label>Teacher</label><span class="fl"></span></div>
+    <div class="sf"><label>Pool sessions completed (circle)</label><span class="fl" style="min-width:100px;padding-top:3px;font-size:0.8rem;">1 &nbsp; 2 &nbsp; 3 &nbsp; 4</span></div>
+  </div>
+
+  <div class="pb">
+
+    <div class="intro">
+      <strong>Purpose of this sheet:</strong> Your Year 9–10 unit covers sophisticated theory — drowning physiology, CPR mechanics, social determinants, and prevention evidence. This sheet helps you <em>connect that theory to what you actually do in the pool</em>. For each practical skill, you will identify which workbook concept it demonstrates, rate your own performance, and reflect on what the theory tells you about how to improve.
+    </div>
+
+    <!-- SECTION 1: THEORY-PRACTICE MAPPING -->
+    <div class="sec-label">1 — Theory-to-Practice Connections</div>
+
+    <table class="mapping-table" role="table" aria-label="Theory to practice mapping">
+      <thead>
+        <tr>
+          <th style="width:22%;">Practical Skill</th>
+          <th style="width:26%;">Theory Connection (Workbook Section)</th>
+          <th style="width:26%;">How the theory explains WHY this skill matters</th>
+          <th style="width:26%;">What good performance looks like</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="practical">Survival float (face-down float with head turn to breathe)</td>
+          <td class="theory">Section 2 — Physiology; 1-10-1 Cold Water Rule</td>
+          <td>Floating conserves energy during the critical 10-minute swimming window. Each unnecessary movement depletes the window faster.</td>
+          <td>Relaxed body position; minimal movement; controlled head turn; sustainable for 5+ minutes</td>
+        </tr>
+        <tr>
+          <td class="practical">Treading water — 3 minutes</td>
+          <td class="theory">Section 2 — Cardiac output, energy conservation</td>
+          <td>Treading uses significantly more energy than floating. The physiological case for floating is grounded in energy conservation during hypoxic threat.</td>
+          <td>Egg-beater or scissor kick; arms sculling; minimal forward movement; controlled breathing throughout</td>
+        </tr>
+        <tr>
+          <td class="practical">Clothed float and swim</td>
+          <td class="theory">Section 2 — Cold water physiology; 1-10-1 Rule</td>
+          <td>Most drowning incidents happen in everyday clothing. Clothing changes buoyancy and drag. RLSS UK "Float to Live" specifically addresses this scenario.</td>
+          <td>Able to maintain float with clothes on; adjusts swimming technique for added resistance</td>
+        </tr>
+        <tr>
+          <td class="practical">50-metre distance swim</td>
+          <td class="theory">Section 2 — Cardiovascular fitness and drowning risk</td>
+          <td>Swimming ability is a protective factor but is NOT the primary cause of adult drowning — most Victorian drowning victims could swim to some degree.</td>
+          <td>Completes 50m; uses an efficient stroke; paced rather than sprinted</td>
+        </tr>
+        <tr>
+          <td class="practical">Throw rescue — rope and ring</td>
+          <td class="theory">Section 1 (Y7-8 consolidation); RLSSA throw hierarchy</td>
+          <td>"Throw, Don't Go" — entering water to rescue an untrained person risks a double drowning. Throw rescue is the safest intervention for an untrained bystander.</td>
+          <td>Accurate throw reaching the victim; clear verbal instruction; able to explain RLSSA hierarchy</td>
+        </tr>
+        <tr>
+          <td class="practical">CPR — correct compression rate and depth</td>
+          <td class="theory">Section 2 — CPR cardiac output; 4-minute window</td>
+          <td>CPR at 100–120 bpm and 5–6cm depth generates ~25–30% of normal cardiac output — enough to sustain brain perfusion. Too slow or too shallow produces inadequate output.</td>
+          <td>100–120 bpm (metronome test); 5–6cm depth; full chest recoil; 30:2 ratio maintained; continues without stopping</td>
+        </tr>
+        <tr>
+          <td class="practical">Distress signal — raise one arm</td>
+          <td class="theory">Section 1 (Y7-8); SwimSafe Rule 5</td>
+          <td>One raised arm is the internationally recognised swimmer distress signal. Waving both arms looks like play; a single raised arm signals emergency.</td>
+          <td>Practised in water; one arm clearly extended vertically; able to maintain float while signalling</td>
+        </tr>
+        <tr>
+          <td class="practical">Cold water entry — feet first, step-in</td>
+          <td class="theory">Section 2 — Cold water shock, gasping reflex</td>
+          <td>Jumping into cold water triggers cold water shock — involuntary gasping that can cause immediate aspiration. Feet-first step-in gives the body time to adjust.</td>
+          <td>Enters feet first; pauses at waist depth; controls breathing before proceeding; articulates the physiological reason</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- SECTION 2: PRACTICAL SKILLS RATING -->
+    <div class="sec-label">2 — Practical Skills Self-Assessment</div>
+
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">Rate your performance after each pool session. <strong>E</strong> = not yet demonstrated &nbsp;·&nbsp; <strong>D</strong> = attempted with significant errors &nbsp;·&nbsp; <strong>C</strong> = demonstrated with minor errors &nbsp;·&nbsp; <strong>B</strong> = demonstrated competently &nbsp;·&nbsp; <strong>A</strong> = demonstrated with confidence and could explain why</p>
+
+    <table class="skill-table" role="table" aria-label="Practical skills self-assessment">
+      <thead>
+        <tr>
+          <th style="width:28%;">Skill</th>
+          <th style="width:20%;">Theory connection (in your own words)</th>
+          <th style="width:10%;text-align:center;">Session 1</th>
+          <th style="width:10%;text-align:center;">Session 2</th>
+          <th style="width:10%;text-align:center;">Session 3</th>
+          <th style="width:10%;text-align:center;">Session 4</th>
+          <th style="width:12%;">One improvement I will make</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="skill-label">Survival float</span><br><span class="skill-theory">5-minute face-down float</span></td>
+          <td class="write"></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td class="write"></td>
+        </tr>
+        <tr>
+          <td><span class="skill-label">Treading water</span><br><span class="skill-theory">3-minute continuous</span></td>
+          <td class="write"></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td class="write"></td>
+        </tr>
+        <tr>
+          <td><span class="skill-label">Clothed float and swim</span><br><span class="skill-theory">50m in everyday clothes</span></td>
+          <td class="write"></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td class="write"></td>
+        </tr>
+        <tr>
+          <td><span class="skill-label">Distance swim</span><br><span class="skill-theory">200m continuous (any stroke)</span></td>
+          <td class="write"></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td class="write"></td>
+        </tr>
+        <tr>
+          <td><span class="skill-label">Throw rescue</span><br><span class="skill-theory">Ring and rope to 8m</span></td>
+          <td class="write"></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td class="write"></td>
+        </tr>
+        <tr>
+          <td><span class="skill-label">CPR — technique and rate</span><br><span class="skill-theory">30:2, 100–120 bpm, 5–6cm</span></td>
+          <td class="write"></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td class="write"></td>
+        </tr>
+        <tr>
+          <td><span class="skill-label">Distress signal</span><br><span class="skill-theory">One arm raised while floating</span></td>
+          <td class="write"></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td class="write"></td>
+        </tr>
+        <tr>
+          <td><span class="skill-label">Cold water entry — feet first</span><br><span class="skill-theory">Step-in with breathing control</span></td>
+          <td class="write"></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td><div class="rating-cells"><span class="rc rc-e">E</span><span class="rc rc-d">D</span><span class="rc rc-c">C</span><span class="rc rc-b">B</span><span class="rc rc-a">A</span></div></td>
+          <td class="write"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- SECTION 3: REFLECTIVE QUESTIONS -->
+    <div class="sec-label">3 — Theory-Informed Reflection</div>
+
+    <div class="refl-q">
+      <p>Which practical skill was most difficult for you? Use your knowledge of physiology from Workbook Section 2 to explain WHY that skill is physically demanding — not just that it was hard.</p>
+      <span class="hint">e.g. If CPR was difficult, explain in terms of cardiac output requirements, compression rate physiology, and why depth matters.</span>
+      <div class="ans-box"></div>
+    </div>
+
+    <div class="refl-q">
+      <p>The data from Workbook Section 1 shows that most Victorian adult drowning victims could swim. How does your practical experience change or deepen your understanding of why knowing how to swim is NOT the same as being water safe at a Year 9–10 level?</p>
+      <div class="ans-box"></div>
+    </div>
+
+    <div class="refl-q">
+      <p>The RLSS UK "Float to Live" campaign argues that floating should come BEFORE attempting to swim in a water emergency. After your practical sessions, do you agree with this advice? Use specific evidence from your own experience in the pool and from the theory.</p>
+      <div class="ans-line">I agree / partially agree / disagree (circle one)</div>
+      <div class="ans-box"></div>
+    </div>
+
+    <div class="refl-q">
+      <p>Identify ONE connection between a social determinant you studied (Workbook Section 3) and a practical skill gap you observed — either in yourself or in the class generally. How does this connection explain one aspect of Victorian drowning risk?</p>
+      <span class="hint">e.g. A student who did not grow up swimming may struggle with the survival float because they never had access to lessons — this is a structural access gap, not a personal failing.</span>
+      <div class="ans-box"></div>
+    </div>
+
+    <!-- SECTION 4: THEORY CONNECTOR (for assessment link) -->
+    <div class="sec-label">4 — Connecting Practical Experience to Your Assessment Task</div>
+
+    <div class="theory-connector">
+      <span class="tc-label">Assessment Connection</span>
+      This section helps you use your practical experience as evidence in your Section 6 assessment task. What did you observe, feel, or understand from the pool sessions that you could use to strengthen a policy brief, campaign, or school audit?
+    </div>
+
+    <div class="refl-q">
+      <p>Describe ONE specific moment from a practical session that gave you insight into why water safety education matters — something you could use as a real example or evidence in your assessment task.</p>
+      <div class="ans-box"></div>
+    </div>
+
+    <div class="refl-q">
+      <p>If you were advising the Victorian Government on what practical skills Year 9–10 students <em>must</em> be able to perform before they leave secondary school, which TWO would you prioritise and why? Base your answer on both the Victorian drowning data and your practical experience.</p>
+      <div class="ans-line">Priority 1: _____________ · Because: _______________________________________________</div>
+      <div class="ans-line">___________________________________________________________________________________</div>
+      <div class="ans-line">Priority 2: _____________ · Because: _______________________________________________</div>
+      <div class="ans-line">___________________________________________________________________________________</div>
+    </div>
+
+    <!-- SIGN OFF -->
+    <div class="sign-off">
+      <div class="so-box">
+        <label>Student signature</label>
+        <span class="so-line"></span>
+        <label>Date completed</label>
+        <span class="so-line"></span>
+      </div>
+      <div class="so-box">
+        <label>Teacher: practical sessions completed</label>
+        <span class="so-line" style="padding-top:2px;font-size:0.8rem;">Sessions: 1 &nbsp; 2 &nbsp; 3 &nbsp; 4 (circle)</span>
+        <label style="margin-top:6px;">Teacher signature</label>
+        <span class="so-line"></span>
+      </div>
+      <div class="so-box">
+        <label>Teacher comment on theory-practice integration</label>
+        <span class="so-line"></span>
+        <span class="so-line"></span>
+        <span class="so-line"></span>
+      </div>
+    </div>
+
+  </div><!-- end pb -->
+
+  <div class="pf">
+    <span>Advanced Water Safety — Practical Assessment Integration Sheet · HPE Year 9–10 · Victorian Curriculum F–10 Version 2.0 · VC2HP10M01, VC2HP10P08, VC2HP10P10</span>
+    <span style="font-family:'DM Mono',monospace;">Emilie Harrison · swimwater.safety@gmail.com</span>
+  </div>
+
+</div><!-- end page -->
+</body>
+</html>
