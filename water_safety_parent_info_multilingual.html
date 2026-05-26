@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Safety for Families — Multilingual | Victorian HPE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --ocean:#006494;--sky:#0582CA;--deep:#003554;
+    --alert:#c62828;--safe:#2e7d32;--amber:#b45309;
+    --bg:#e8f4fb;--card:#fff;--border:#b8d8ee;--text:#002b40;--muted:#3a6a8a;
+  }
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;padding:24px 16px;}
+
+  /* LANGUAGE TABS */
+  .lang-nav{max-width:820px;margin:0 auto 16px;display:flex;gap:4px;background:var(--border);border-radius:10px;padding:4px;flex-wrap:wrap;}
+  .lang-btn{flex:1;min-width:80px;padding:9px 12px;border:none;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:0.84rem;font-weight:600;cursor:pointer;background:transparent;color:var(--muted);transition:all 0.15s;text-align:center;}
+  .lang-btn.active{background:var(--card);color:var(--ocean);box-shadow:0 2px 6px rgba(0,100,148,0.12);}
+
+  .lang-pane{display:none;}
+  .lang-pane.active{display:block;}
+
+  /* TRANSLATION NOTICE */
+  .trans-notice{max-width:820px;margin:0 auto 10px;background:#fffbeb;border:1px solid #fcd34d;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;padding:8px 14px;font-size:0.8rem;color:#78350f;}
+
+  /* PRINT NOTE */
+  .print-note{max-width:820px;margin:0 auto 16px;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:10px 16px;font-size:0.82rem;color:#1b5e20;}
+  .print-note strong{color:#1a3a10;}
+
+  /* A4 PAGE */
+  .page{max-width:820px;margin:0 auto;background:var(--card);box-shadow:0 6px 30px rgba(0,50,100,0.14);border-radius:4px;overflow:hidden;}
+
+  /* HEADER */
+  .ph{background:linear-gradient(135deg,#002b40 0%,#006494 65%,#0582CA 100%);color:#fff;padding:22px 30px 26px;position:relative;overflow:hidden;}
+  .ph::after{content:'';position:absolute;bottom:0;left:0;right:0;height:32px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 32'%3E%3Cpath fill='white' d='M0,16 Q205,32 410,16 Q615,0 820,16 L820,32 L0,32Z'/%3E%3C/svg%3E") bottom/cover no-repeat;}
+  .ph-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+  .ph-logo{width:52px;height:52px;border:2px dashed rgba(255,255,255,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.5rem;color:rgba(255,255,255,0.4);text-align:center;font-family:'DM Mono',monospace;letter-spacing:1px;flex-shrink:0;}
+  .ph-badge{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:3px;padding:3px 10px;display:inline-block;margin-bottom:8px;}
+  .ph h1{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:800;line-height:1.2;margin-bottom:3px;}
+  .ph p{font-size:0.82rem;opacity:0.82;}
+
+  /* PAGE BODY */
+  .pb{padding:22px 30px 18px;display:flex;flex-direction:column;gap:14px;}
+
+  /* INTRO STRIP */
+  .intro{background:#e0f0fb;border-left:5px solid var(--ocean);border-radius:0 8px 8px 0;padding:10px 14px;font-size:0.84rem;color:var(--text);line-height:1.55;}
+  .intro strong{color:var(--ocean);}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .stat{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;}
+  .stat .n{font-family:'Poppins',sans-serif;font-size:1.6rem;font-weight:800;color:var(--ocean);line-height:1;}
+  .stat .n.r{color:var(--alert);}
+  .stat p{font-size:0.72rem;color:var(--muted);margin-top:3px;line-height:1.3;}
+
+  /* TWO COL */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+  /* RULE CARD */
+  .rc{background:#f0f7ff;border:1px solid var(--border);border-radius:8px;padding:12px 14px;}
+  .rc h3{font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:700;color:var(--ocean);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+  .rc ul{list-style:none;}
+  .rc ul li{font-size:0.8rem;color:var(--text);padding:4px 0 4px 16px;position:relative;border-bottom:1px dotted var(--border);line-height:1.35;}
+  .rc ul li:last-child{border-bottom:none;}
+  .rc ul li::before{content:'▸';position:absolute;left:2px;color:var(--ocean);font-size:0.68rem;top:6px;}
+
+  /* ALERT */
+  .alert{background:#fde8e8;border:1px solid #f09090;border-left:4px solid var(--alert);border-radius:0 8px 8px 0;padding:10px 14px;}
+  .alert h3{font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:700;color:var(--alert);margin-bottom:6px;display:flex;align-items:center;gap:5px;}
+  .alert ul{padding-left:14px;font-size:0.8rem;color:#5a1010;line-height:1.5;}
+
+  /* TIP */
+  .tip{background:#e8f5e9;border:1px solid #a5d6a7;border-left:4px solid var(--safe);border-radius:0 8px 8px 0;padding:10px 14px;}
+  .tip h3{font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:700;color:var(--safe);margin-bottom:6px;display:flex;align-items:center;gap:5px;}
+  .tip ul{padding-left:14px;font-size:0.8rem;color:#1a3a22;line-height:1.5;}
+
+  /* EMERGENCY */
+  .emerg{background:var(--alert);color:#fff;border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:14px;}
+  .emerg .bignum{font-family:'Poppins',sans-serif;font-size:2.4rem;font-weight:800;line-height:1;flex-shrink:0;}
+  .emerg h3{font-family:'Poppins',sans-serif;font-size:0.88rem;font-weight:700;margin-bottom:2px;}
+  .emerg p{font-size:0.78rem;opacity:0.9;line-height:1.4;}
+
+  /* LINKS */
+  .links{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+  .lnk{background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:8px 10px;text-align:center;}
+  .lnk .org{font-size:0.68rem;font-weight:700;color:var(--ocean);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px;}
+  .lnk a{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--sky);word-break:break-all;}
+  .lnk p{font-size:0.68rem;color:var(--muted);margin-top:2px;line-height:1.3;}
+
+  /* MULTILINGUAL NOTE */
+  .ml-note{font-size:0.72rem;color:var(--muted);text-align:center;font-style:italic;}
+  .ml-note a{color:var(--sky);font-family:'DM Mono',monospace;font-size:0.68rem;}
+
+  /* PAGE FOOTER */
+  .pf{background:var(--deep);color:rgba(255,255,255,0.65);padding:10px 30px;font-size:0.7rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+  .pf a{color:rgba(255,255,255,0.65);}
+
+  /* LANGUAGE-SPECIFIC FONTS */
+  .zh{font-family:'Noto Sans SC','DM Sans',sans-serif;}
+  .hi{font-family:'Noto Sans','DM Sans',sans-serif;}
+  .my{font-family:'Noto Sans','DM Sans',sans-serif;}
+
+  @media(max-width:540px){.stats,.two,.links{grid-template-columns:1fr;}.ph h1{font-size:1.2rem;}.pb{padding:16px;}.lang-nav{flex-direction:column;}}
+  @media print{body{background:#fff;padding:0;}.lang-nav,.print-note,.trans-notice{display:none;}.lang-pane{display:block!important;page-break-after:always;}.lang-pane:last-child{page-break-after:auto;}@page{size:A4;margin:10mm;}}
+
+  /* Focus-visible styles — WCAG 2.4.7 / 2.4.11 */
+  :focus-visible {
+    outline: 3px solid #0582CA !important;
+    outline-offset: 2px !important;
+    border-radius: 3px;
+  }
+  .skip-nav:focus {
+    top: 0 !important;
+  }
+    /* Accessibility note: line-height intentionally compact for print layout.
+     Screen-reader users should use the HTML workbook version. */
+  
+  /* Minimum font size for accessibility — WCAG 1.4.4 / Disability Gateway clear print */
+  body, p, li, td, .card-desc, .act-body p, .lesson-body, .phase-body {
+    font-size: max(var(--font-size, 0.9rem), 14px);
+  }
+  @media print {
+    body { font-size: max(10pt, 11pt); }
+  }
+  /* min-body-font */
+  </style>
+</head>
+<body>
+  <!-- Skip navigation — WCAG 2.4.1 -->
+  <a href="#main-content" class="skip-nav" style="
+    position:absolute;top:-100px;left:8px;
+    background:#003554;color:#fff;
+    padding:8px 18px;border-radius:0 0 8px 8px;
+    font-family:sans-serif;font-size:0.9rem;font-weight:700;
+    text-decoration:none;z-index:9999;
+    transition:top 0.2s;
+  " onFocus="this.style.top='0'" onBlur="this.style.top='-100px'">
+    Skip to main content
+  </a>
+
+<div class="print-note" id="main-content">
+  <strong>🖨 Print instructions:</strong> Print each language tab separately (A4 portrait, background graphics ON, margins: Minimum). The <strong>Print / Save as PDF</strong> browser function works well for each tab. Distribute the relevant language version to each family. Translations should ideally be reviewed by a community language speaker — see the notice on each non-English page.
+</div>
+
+<div class="trans-notice">
+  ⚠️ <strong>Translation note:</strong> The Chinese, Hindi and Burmese versions below are machine-assisted translations. For critical safety content, we strongly recommend having these reviewed by a qualified community interpreter before distribution. LSV provides professionally translated resources at: <a href="https://lsv.com.au/community/multicultural-safety/" style="color:#b45309;">lsv.com.au/community/multicultural-safety/</a>
+</div>
+
+<div class="lang-nav" role="tablist" aria-label="Language selection">
+  <button type="button" class="lang-btn active" onclick="showLang('en')">🇦🇺 English</button>
+  <button type="button" class="lang-btn" onclick="showLang('zh')">🇨🇳 中文 (Simplified)</button>
+  <button type="button" class="lang-btn" onclick="showLang('hi')">🇮🇳 हिन्दी (Hindi)</button>
+  <button type="button" class="lang-btn" onclick="showLang('my')">🇲🇲 မြန်မာ (Burmese)</button>
+</div>
+
+<!-- ═══════════ ENGLISH ═══════════ -->
+<div id="lang-en" lang="en" class="lang-pane active">
+<div class="page">
+  <div class="ph">
+    <div class="ph-top">
+      <div>
+        <div class="ph-badge">Parent &amp; Family Information</div>
+        <h1>Keeping Your Child Safe Near Water</h1>
+        <p>Your child is completing our <strong>Swim &amp; Water Safety unit</strong> in HPE. This sheet summarises the key messages so the whole family can be water safe together.</p>
+      </div>
+      <div class="ph-logo">LOGO<br>HERE</div>
+    </div>
+  </div>
+  <div class="pb">
+    <div class="intro"><strong>Why this matters:</strong> In 2023–24, 54 people drowned fatally in Victoria — the highest toll in over a decade. Nearly 1 in 5 victims were aged 15–24. <strong>All 54 deaths occurred at unpatrolled locations.</strong> Drowning is almost entirely preventable with the right knowledge.</div>
+    <div class="stats">
+      <div class="stat"><div class="n r">54</div><p>Fatal Victorian drownings 2023–24 — highest in over a decade</p></div>
+      <div class="stat"><div class="n">0</div><p>Deaths at patrolled locations — lifeguard supervision saves lives</p></div>
+      <div class="stat"><div class="n r">1 in 5</div><p>Victims were aged 15–24 — young people are at high risk</p></div>
+    </div>
+    <div class="two">
+      <div class="rc">
+        <h3>🌊 The 5 LSV SwimSafe Rules</h3>
+        <ul>
+          <li><strong>Read signs</strong> — check flags and warnings before entering any water</li>
+          <li><strong>Enter feet first</strong> — never dive into unknown water</li>
+          <li><strong>Stay in depth</strong> — only swim where you can stand up</li>
+          <li><strong>Swim with a friend</strong> — never swim alone</li>
+          <li><strong>Signal for help</strong> — raise ONE arm if in trouble</li>
+        </ul>
+      </div>
+      <div class="rc">
+        <h3>🏖 Beach Flag Quick Guide</h3>
+        <ul>
+          <li><strong style="color:#c62828;">🔴🟡 Red &amp; Yellow</strong> — Patrolled zone — always swim here</li>
+          <li><strong style="color:#c62828;">🔴 Red only</strong> — Dangerous — extreme caution</li>
+          <li><strong>⬛⬜ Black &amp; White</strong> — Surfers only — no swimmers</li>
+          <li><strong style="color:#b45309;">🟡⚫ Yellow &amp; Black</strong> — Swimmers only, no boards</li>
+          <li><strong style="color:#e65100;">🟠 Orange windsock</strong> — Offshore winds — no inflatables</li>
+          <li><strong style="color:#7b1fa2;">🟣 Purple</strong> — Dangerous marine life</li>
+        </ul>
+      </div>
+      <div class="alert">
+        <h3>🌊 If Caught in a Rip Current</h3>
+        <ul>
+          <li><strong>Stay calm</strong> — don't fight the current</li>
+          <li><strong>Float</strong> and conserve energy</li>
+          <li><strong>Swim parallel</strong> to shore to escape the channel</li>
+          <li><strong>Angle back</strong> to the beach</li>
+          <li><strong>Signal</strong> — raise one arm for help</li>
+        </ul>
+      </div>
+      <div class="tip">
+        <h3>✅ What Families Can Do</h3>
+        <ul>
+          <li>Always swim at <strong>patrolled beaches</strong> between the flags</li>
+          <li>Download <strong>BeachSafe</strong> app (free) — find nearest patrolled beach</li>
+          <li>Never allow swimming <strong>alone</strong> or at unpatrolled locations</li>
+          <li>Learn <strong>CPR</strong> — St John runs family courses (stjohnvic.com.au)</li>
+          <li>Talk about <strong>peer pressure</strong> — it's OK to say no to unsafe dares</li>
+          <li>Avoid <strong>alcohol</strong> near water — it significantly increases risk</li>
+        </ul>
+      </div>
+    </div>
+    <div class="emerg">
+      <div class="bignum">000</div>
+      <div>
+        <h3>Water Emergency — Call 000 Immediately</h3>
+        <p>Say: your location, what happened, how many injured, whether they are breathing. <strong>Stay on the line.</strong> While waiting: throw a rope, towel, or any floating object. <strong>Throw, don't go.</strong></p>
+      </div>
+    </div>
+    <div class="links">
+      <div class="lnk"><div class="org">Life Saving Victoria</div><a href="https://lsv.com.au">lsv.com.au</a><p>SwimSafe, drowning reports, multilingual resources</p></div>
+      <div class="lnk"><div class="org">BeachSafe App</div><a href="https://beachsafe.org.au">beachsafe.org.au</a><p>Find nearest patrolled beach and patrol times</p></div>
+      <div class="lnk"><div class="org">St John Ambulance</div><a href="https://www.stjohnvic.com.au">stjohnvic.com.au</a><p>CPR and first aid family courses</p></div>
+    </div>
+    <div class="ml-note">LSV also provides water safety information in Arabic, Vietnamese, Chinese, Somali, and other languages: <a href="https://lsv.com.au/community/multicultural-safety/">lsv.com.au/community/multicultural-safety/</a></div>
+  </div>
+  <div class="pf"><span>Swim &amp; Water Safety · HPE Year 7–8 · Victorian Curriculum F–10 Version 2.0</span><span>lsv.com.au · beachsafe.org.au</span></div>
+</div>
+</div>
+
+<!-- ═══════════ CHINESE ═══════════ -->
+<div id="lang-zh" lang="zh-Hans" class="lang-pane">
+<div class="trans-notice">⚠️ 此翻译由机器辅助生成，建议在分发前由社区语言翻译员审核。LSV专业翻译资源：<a href="https://lsv.com.au/community/multicultural-safety/" style="color:#b45309;">lsv.com.au/community/multicultural-safety/</a></div>
+<div class="page zh">
+  <div class="ph">
+    <div class="ph-top">
+      <div>
+        <div class="ph-badge">家长和家庭信息</div>
+        <h1>保护您的孩子远离水边危险</h1>
+        <p>您的孩子正在体育健康课（HPE）中学习<strong>游泳与水上安全</strong>。本页总结了关键信息，帮助全家共同了解水上安全知识。</p>
+      </div>
+      <div class="ph-logo">LOGO<br>HERE</div>
+    </div>
+  </div>
+  <div class="pb">
+    <div class="intro"><strong>为什么这很重要：</strong>2023–24年，维多利亚州共有54人溺亡，创十年来最高记录。近五分之一的受害者年龄在15至24岁之间。<strong>所有54起死亡事故均发生在无救生员监管的地点。</strong>溺水几乎完全可以预防。</div>
+    <div class="stats">
+      <div class="stat"><div class="n r">54</div><p>2023–24年维多利亚州溺亡人数——十年来最高</p></div>
+      <div class="stat"><div class="n">0</div><p>在有救生员监管的地点溺亡人数——监管可救命</p></div>
+      <div class="stat"><div class="n r">五分之一</div><p>受害者年龄在15–24岁——青少年风险极高</p></div>
+    </div>
+    <div class="two">
+      <div class="rc">
+        <h3>🌊 LSV"安全游泳"五大规则</h3>
+        <ul>
+          <li><strong>查看标志</strong>——下水前查看警告标志和旗帜</li>
+          <li><strong>脚先入水</strong>——切勿在不了解的水域跳水</li>
+          <li><strong>在可站立的水深处游泳</strong>——确保脚能踩到地</li>
+          <li><strong>结伴游泳</strong>——切勿独自游泳</li>
+          <li><strong>求救信号</strong>——遇险时举起一只手臂</li>
+        </ul>
+      </div>
+      <div class="rc">
+        <h3>🏖 海滩旗帜快速指南</h3>
+        <ul>
+          <li><strong style="color:#c62828;">🔴🟡 红黄旗</strong>——有救生员监管区——务必在此游泳</li>
+          <li><strong style="color:#c62828;">🔴 单红旗</strong>——危险——极度谨慎</li>
+          <li><strong>⬛⬜ 黑白格旗</strong>——仅限冲浪者——禁止游泳者进入</li>
+          <li><strong style="color:#b45309;">🟡⚫ 黄黑旗</strong>——仅限游泳，禁止冲浪板</li>
+          <li><strong style="color:#e65100;">🟠 橙色风向袋</strong>——离岸风——禁止充气玩具</li>
+          <li><strong style="color:#7b1fa2;">🟣 紫旗</strong>——有危险海洋生物</li>
+        </ul>
+      </div>
+      <div class="alert">
+        <h3>🌊 被离岸流卷走时</h3>
+        <ul>
+          <li><strong>保持冷静</strong>——不要与水流对抗</li>
+          <li><strong>漂浮</strong>——保存体力</li>
+          <li><strong>平行于海岸游泳</strong>——逃出水流通道</li>
+          <li><strong>斜向游回</strong>——返回海滩</li>
+          <li><strong>求救</strong>——举起一只手臂呼救</li>
+        </ul>
+      </div>
+      <div class="tip">
+        <h3>✅ 家庭可以做什么</h3>
+        <ul>
+          <li>始终在<strong>有监管的海滩</strong>旗帜之间游泳</li>
+          <li>下载免费的<strong>BeachSafe应用</strong>——找到最近的监管海滩</li>
+          <li>切勿让孩子<strong>独自</strong>或在无监管地点游泳</li>
+          <li>学习<strong>心肺复苏术（CPR）</strong>——stjohnvic.com.au</li>
+          <li>谈论<strong>同伴压力</strong>——对不安全的挑战说"不"是完全可以的</li>
+          <li>水边避免<strong>饮酒</strong>——会大幅增加风险</li>
+        </ul>
+      </div>
+    </div>
+    <div class="emerg">
+      <div class="bignum">000</div>
+      <div>
+        <h3>水上紧急事故——立即拨打000</h3>
+        <p>说明：您的位置、发生了什么、受伤人数以及伤者是否有呼吸。<strong>保持通话。</strong>等待救援时：抛出绳子、毛巾或任何漂浮物。<strong>抛物救人，不要跳入水中。</strong></p>
+      </div>
+    </div>
+    <div class="links">
+      <div class="lnk"><div class="org">维多利亚州救生组织</div><a href="https://lsv.com.au">lsv.com.au</a><p>安全游泳规则、溺水报告、多语言资源</p></div>
+      <div class="lnk"><div class="org">BeachSafe应用</div><a href="https://beachsafe.org.au">beachsafe.org.au</a><p>查找最近的监管海滩及巡逻时间</p></div>
+      <div class="lnk"><div class="org">圣约翰急救</div><a href="https://www.stjohnvic.com.au">stjohnvic.com.au</a><p>家庭心肺复苏急救课程</p></div>
+    </div>
+    <div class="ml-note">LSV也提供多语言水上安全信息（含中文）：<a href="https://lsv.com.au/community/multicultural-safety/">lsv.com.au/community/multicultural-safety/</a></div>
+  </div>
+  <div class="pf"><span>游泳与水上安全 · 体育健康课7–8年级 · 维多利亚州课程F–10 2.0版</span><span>lsv.com.au · beachsafe.org.au</span></div>
+</div>
+</div>
+
+<!-- ═══════════ HINDI ═══════════ -->
+<div id="lang-hi" lang="hi" class="lang-pane">
+<div class="trans-notice">⚠️ यह अनुवाद मशीन-सहायता से किया गया है। वितरण से पहले किसी सामुदायिक भाषा दुभाषिए से इसकी समीक्षा करवाना उचित होगा। LSV के पेशेवर अनुवादित संसाधन: <a href="https://lsv.com.au/community/multicultural-safety/" style="color:#b45309;">lsv.com.au/community/multicultural-safety/</a></div>
+<div class="page hi">
+  <div class="ph">
+    <div class="ph-top">
+      <div>
+        <div class="ph-badge">अभिभावक और परिवार की जानकारी</div>
+        <h1>अपने बच्चे को पानी के पास सुरक्षित रखें</h1>
+        <p>आपका बच्चा HPE में <strong>तैराकी और जल सुरक्षा</strong> पाठ्यक्रम पूरा कर रहा है। यह पत्रक मुख्य संदेशों का सारांश देता है ताकि पूरा परिवार जल सुरक्षा के बारे में जान सके।</p>
+      </div>
+      <div class="ph-logo">LOGO<br>HERE</div>
+    </div>
+  </div>
+  <div class="pb">
+    <div class="intro"><strong>यह क्यों महत्वपूर्ण है:</strong> 2023–24 में विक्टोरिया में 54 लोगों की डूबने से मृत्यु हुई — जो एक दशक से अधिक समय में सबसे अधिक है। लगभग 5 में से 1 पीड़ित 15–24 वर्ष की आयु के थे। <strong>सभी 54 मौतें अनपेट्रोल्ड स्थानों पर हुईं।</strong> सही जानकारी से डूबना लगभग पूरी तरह रोका जा सकता है।</div>
+    <div class="stats">
+      <div class="stat"><div class="n r">54</div><p>2023–24 में विक्टोरिया में डूबने से मौतें — दस वर्षों में सर्वाधिक</p></div>
+      <div class="stat"><div class="n">0</div><p>पेट्रोल्ड स्थानों पर मौतें — निगरानी जीवन बचाती है</p></div>
+      <div class="stat"><div class="n r">5 में 1</div><p>पीड़ित 15–24 वर्ष के थे — युवा लोग उच्च जोखिम में हैं</p></div>
+    </div>
+    <div class="two">
+      <div class="rc">
+        <h3>🌊 LSV SwimSafe के 5 नियम</h3>
+        <ul>
+          <li><strong>संकेत पढ़ें</strong> — किसी भी पानी में जाने से पहले चेतावनियाँ देखें</li>
+          <li><strong>पैर पहले प्रवेश करें</strong> — अज्ञात पानी में कभी डाइव न करें</li>
+          <li><strong>गहराई में सीमित रहें</strong> — केवल वहाँ तैरें जहाँ पैर टिक सकें</li>
+          <li><strong>किसी के साथ तैरें</strong> — अकेले कभी न तैरें</li>
+          <li><strong>सहायता का संकेत दें</strong> — मुसीबत में एक हाथ उठाएँ</li>
+        </ul>
+      </div>
+      <div class="rc">
+        <h3>🏖 समुद्र तट झंडे की त्वरित मार्गदर्शिका</h3>
+        <ul>
+          <li><strong style="color:#c62828;">🔴🟡 लाल और पीला</strong> — पेट्रोल्ड क्षेत्र — हमेशा यहाँ तैरें</li>
+          <li><strong style="color:#c62828;">🔴 केवल लाल</strong> — खतरनाक — अत्यधिक सावधानी</li>
+          <li><strong>⬛⬜ काला और सफेद</strong> — केवल सर्फर — तैराक नहीं</li>
+          <li><strong style="color:#b45309;">🟡⚫ पीला और काला</strong> — केवल तैराकी, बोर्ड नहीं</li>
+          <li><strong style="color:#e65100;">🟠 नारंगी</strong> — अपतटीय हवाएँ — इन्फ्लेटेबल नहीं</li>
+          <li><strong style="color:#7b1fa2;">🟣 बैंगनी</strong> — खतरनाक समुद्री जीव</li>
+        </ul>
+      </div>
+      <div class="alert">
+        <h3>🌊 रिप करंट में फंसने पर</h3>
+        <ul>
+          <li><strong>शांत रहें</strong> — धारा से मत लड़ें</li>
+          <li><strong>तैरते रहें</strong> — ऊर्जा बचाएँ</li>
+          <li><strong>किनारे के समानांतर तैरें</strong> — धारा के चैनल से बाहर निकलें</li>
+          <li><strong>तिरछे वापस तैरें</strong> — समुद्र तट की ओर</li>
+          <li><strong>सहायता के लिए संकेत दें</strong> — एक हाथ उठाएँ</li>
+        </ul>
+      </div>
+      <div class="tip">
+        <h3>✅ परिवार क्या कर सकता है</h3>
+        <ul>
+          <li>हमेशा <strong>पेट्रोल्ड समुद्र तटों</strong> पर झंडों के बीच तैरें</li>
+          <li>मुफ्त <strong>BeachSafe ऐप</strong> डाउनलोड करें — निकटतम पेट्रोल्ड समुद्र तट खोजें</li>
+          <li>बच्चों को <strong>अकेले</strong> या बिना निगरानी वाले स्थानों पर तैरने न दें</li>
+          <li><strong>CPR</strong> सीखें — stjohnvic.com.au पर पारिवारिक पाठ्यक्रम</li>
+          <li><strong>साथी दबाव</strong> के बारे में बात करें — असुरक्षित चुनौतियों को "नहीं" कहना ठीक है</li>
+          <li>पानी के पास <strong>शराब</strong> से बचें — जोखिम काफी बढ़ जाता है</li>
+        </ul>
+      </div>
+    </div>
+    <div class="emerg">
+      <div class="bignum">000</div>
+      <div>
+        <h3>जल आपातकाल — तुरंत 000 पर कॉल करें</h3>
+        <p>बताएँ: आपका स्थान, क्या हुआ, कितने लोग घायल हैं, क्या वे सांस ले रहे हैं। <strong>लाइन पर बने रहें।</strong> प्रतीक्षा करते समय: रस्सी, तौलिया, या कोई भी तैरने वाली वस्तु फेंकें। <strong>फेंकें, पानी में न कूदें।</strong></p>
+      </div>
+    </div>
+    <div class="links">
+      <div class="lnk"><div class="org">Life Saving Victoria</div><a href="https://lsv.com.au">lsv.com.au</a><p>SwimSafe, डूबने की रिपोर्ट, बहुभाषी संसाधन</p></div>
+      <div class="lnk"><div class="org">BeachSafe ऐप</div><a href="https://beachsafe.org.au">beachsafe.org.au</a><p>निकटतम पेट्रोल्ड समुद्र तट खोजें</p></div>
+      <div class="lnk"><div class="org">St John Ambulance</div><a href="https://www.stjohnvic.com.au">stjohnvic.com.au</a><p>CPR और प्राथमिक चिकित्सा पारिवारिक पाठ्यक्रम</p></div>
+    </div>
+    <div class="ml-note">LSV हिंदी सहित कई भाषाओं में जल सुरक्षा जानकारी प्रदान करता है: <a href="https://lsv.com.au/community/multicultural-safety/">lsv.com.au/community/multicultural-safety/</a></div>
+  </div>
+  <div class="pf"><span>तैराकी और जल सुरक्षा · HPE वर्ष 7–8 · विक्टोरियन पाठ्यक्रम F–10 संस्करण 2.0</span><span>lsv.com.au · beachsafe.org.au</span></div>
+</div>
+</div>
+
+<!-- ═══════════ BURMESE ═══════════ -->
+<div id="lang-my" lang="my" class="lang-pane">
+<div class="trans-notice">⚠️ ဤဘာသာပြန်ချက်သည် စက်ကိရိယာဆော့ဖ်ဝဲမှ ကူညီဘာသာပြန်ထားသည်။ ဖြန့်ဖြူးမတိုင်မီ လူမှုရေးဘာသာစကား အဘိဓာန်ပညာရှင်မှ စစ်ဆေးရန် အကြံပြုသည်။ LSV ရေပြင်ဘေးကင်းရေး အချက်အလက်: <a href="https://lsv.com.au/community/multicultural-safety/" style="color:#b45309;">lsv.com.au/community/multicultural-safety/</a></div>
+<div class="page my">
+  <div class="ph">
+    <div class="ph-top">
+      <div>
+        <div class="ph-badge">မိဘနှင့် မိသားစု အချက်အလက်</div>
+        <h1>သင့်ကလေးကို ရေနားတွင် ဘေးကင်းစေပါ</h1>
+        <p>သင့်ကလေးသည် HPE တွင် <strong>ရေကူးနှင့် ရေပြင်ဘေးကင်းရေး</strong> ဘာသာရပ်ကို သင်ယူနေပါသည်။ ဤစာရွက်သည် မိသားစုတစ်ခုလုံး ရေပြင်ဘေးကင်းရေးကို သိမြင်နိုင်ရန် အဓိကအချက်များကို အကျဉ်းချုပ်ထားသည်။</p>
+      </div>
+      <div class="ph-logo">LOGO<br>HERE</div>
+    </div>
+  </div>
+  <div class="pb">
+    <div class="intro"><strong>ဘာကြောင့် အရေးကြီးသနည်း:</strong> 2023–24 တွင် ဗစ်တိုရီးယားတွင် လူ 54 ဦး ရေနစ်သေဆုံးခဲ့ပြီး ၎င်းသည် ဆယ်နှစ်ကျော်ကာလ၌ အများဆုံးဖြစ်သည်။ သားကောင်များ၏ ၅ ဦးတွင် ၁ ဦးသည် အသက် 15–24 ကြားဖြစ်သည်။ <strong>သေဆုံးမှု 54 ခုလုံးသည် မတိုင်ကြပ်မဲ့ နေရာများတွင် ဖြစ်ပွားခဲ့သည်။</strong> မှန်ကန်သောဗဟုသုတဖြင့် ရေနစ်မြုပ်ခြင်းကို ကာကွယ်နိုင်သည်။</div>
+    <div class="stats">
+      <div class="stat"><div class="n r">54</div><p>2023–24 ဗစ်တိုရီးယား ရေနစ်သေဆုံးမှု — ဆယ်နှစ်ကျော်ကာလ အများဆုံး</p></div>
+      <div class="stat"><div class="n">0</div><p>ကင်းလှည့်သည့် နေရာများတွင် သေဆုံးမှု — ကြည့်ရှုစောင့်ကြပ်မှုက ကယ်တင်သည်</p></div>
+      <div class="stat"><div class="n r">၅ ဦးတွင် ၁</div><p>သားကောင်များ အသက် 15–24 ကြား — လူငယ်များ အန္တရာယ်များ</p></div>
+    </div>
+    <div class="two">
+      <div class="rc">
+        <h3>🌊 LSV SwimSafe စည်းမျဉ်း ၅ ချက်</h3>
+        <ul>
+          <li><strong>သတိပြောင်းလက်မှတ်များ ဖတ်ပါ</strong> — ရေမဝင်မီ သတိပေးချက်များ စစ်ဆေးပါ</li>
+          <li><strong>ခြေထောက်ဦးသွင်းပါ</strong> — မသိသောရေထဲ မခုန်မဆင်းပါ</li>
+          <li><strong>နက်မဝင်ပါနှင့်</strong> — ခြေထောက်ကျနိုင်သည့် နေရာ၌သာ ကူးပါ</li>
+          <li><strong>မိတ်ဆွေနှင့် ကူးပါ</strong> — တစ်ဦးတည်း မကူးပါ</li>
+          <li><strong>အကူအညီ မောင်းနှင်ပါ</strong> — အန္တရာယ်ရှိလျှင် လက်တစ်ဖက် မြှောက်ပါ</li>
+        </ul>
+      </div>
+      <div class="rc">
+        <h3>🏖 ကမ်းခြေ အလံ လမ်းညွှန်</h3>
+        <ul>
+          <li><strong style="color:#c62828;">🔴🟡 အနီနှင့် အဝါ</strong> — ကင်းလှည့်သောဧရိယာ — ဤနေရာ၌သာ ကူးပါ</li>
+          <li><strong style="color:#c62828;">🔴 အနီသက်သက်</strong> — အန္တရာယ်ရှိ — အလွန်သတိထားပါ</li>
+          <li><strong>⬛⬜ အနက်နှင့် အဖြူ</strong> — ဆာဖ်ဘုတ်သာ — ကူးသောသူ မဝင်ရ</li>
+          <li><strong style="color:#b45309;">🟡⚫ အဝါနှင့် အနက်</strong> — ကူးသောသူသာ — ဘုတ်မရ</li>
+          <li><strong style="color:#e65100;">🟠 လိမ္မော်ရောင်</strong> — ကမ်းဘက်ဆန်သောလေ — မုတ်ဆိုးရေကစားစရာ မရ</li>
+          <li><strong style="color:#7b1fa2;">🟣 ခရမ်းရောင်</strong> — အန္တရာယ်ရှိသောရေသတ္တဝါများ</li>
+        </ul>
+      </div>
+      <div class="alert">
+        <h3>🌊 ရေစီးကြောင်းထဲ ဝင်ရောက်မိလျှင်</h3>
+        <ul>
+          <li><strong>တည်ငြိမ်နေပါ</strong> — စီးကြောင်းကို မတိုက်ပါ</li>
+          <li><strong>မျောနေပါ</strong> — စွမ်းအင် ချွေတာပါ</li>
+          <li><strong>ကမ်းနှင့် ပြိုင်ကူးပါ</strong> — စီးကြောင်းချောင်းမှ ထွက်ပါ</li>
+          <li><strong>ထောင့်ချိုး ပြန်ကူးပါ</strong> — ကမ်းသို့ ဦးတည်ပါ</li>
+          <li><strong>အချက်ပြပါ</strong> — လက်တစ်ဖက် မြှောက်ပြပါ</li>
+        </ul>
+      </div>
+      <div class="tip">
+        <h3>✅ မိသားစု ဘာလုပ်နိုင်သလဲ</h3>
+        <ul>
+          <li><strong>ကင်းလှည့်သောကမ်းခြေ</strong> များ၌ အလံကြားတွင်သာ ကူးပါ</li>
+          <li>အခမဲ့ <strong>BeachSafe</strong> App ဒေါင်းလုပ်ဆွဲပါ — အနီးဆုံးကင်းလှည့်ကမ်းခြေ ရှာပါ</li>
+          <li>ကလေးများကို <strong>တစ်ဦးတည်း</strong> သို့မဟုတ် မကင်းလှည့်သောနေရာများတွင် မကူးစေပါ</li>
+          <li><strong>CPR</strong> သင်ယူပါ — stjohnvic.com.au တွင် မိသားစုသင်တန်းများ</li>
+          <li><strong>ရွေ့မငြင်ဆန်နိုင်ဖြစ်</strong> ဖိအားကို ဆွေးနွေးပါ — မဘေးကင်းသောစိန်ခေါ်မှုကို "မဟုတ်" ဟု ပြောနိုင်သည်</li>
+          <li>ရေနား <strong>အရက်</strong> ရှောင်ပါ — အန္တရာယ် သိသိသာသာ တိုးသည်</li>
+        </ul>
+      </div>
+    </div>
+    <div class="emerg">
+      <div class="bignum">000</div>
+      <div>
+        <h3>ရေပြင်အရေးပေါ် — ချက်ချင်း 000 ဖုန်းခေါ်ပါ</h3>
+        <p>ပြောရမည်: သင့်တည်နေရာ၊ ဘာဖြစ်သည်ကို၊ ဒဏ်ရာရသူ မည်မျှ၊ သူ/သူမ အသက်ရှူနေသလား။ <strong>ဖုန်းကိုင်ဆက်ထားပါ။</strong> စောင့်ဆိုင်းနေစဉ်: ကြိုးတစ်ချောင်း၊ မျက်နှာသုတ်ပဝါ သို့မဟုတ် မျောနိုင်သောဝတ္ထု ပစ်ချပါ။ <strong>ပစ်ပါ၊ ရေထဲ မဝင်ပါ။</strong></p>
+      </div>
+    </div>
+    <div class="links">
+      <div class="lnk"><div class="org">Life Saving Victoria</div><a href="https://lsv.com.au">lsv.com.au</a><p>SwimSafe၊ ရေနစ်မြုပ်မှုအစီရင်ခံ၊ ဘာသာစကားစုံ</p></div>
+      <div class="lnk"><div class="org">BeachSafe App</div><a href="https://beachsafe.org.au">beachsafe.org.au</a><p>အနီးဆုံးကင်းလှည့်ကမ်းခြေ ရှာဖွေပါ</p></div>
+      <div class="lnk"><div class="org">St John Ambulance</div><a href="https://www.stjohnvic.com.au">stjohnvic.com.au</a><p>CPR မိသားစုသင်တန်းများ</p></div>
+    </div>
+    <div class="ml-note">LSV သည် မြန်မာဘာသာ အပါအဝင် ဘာသာစကားစုံဖြင့် ရေပြင်ဘေးကင်းရေး အချက်အလက်ပေးသည်: <a href="https://lsv.com.au/community/multicultural-safety/">lsv.com.au/community/multicultural-safety/</a></div>
+  </div>
+  <div class="pf"><span>ရေကူးနှင့် ရေပြင်ဘေးကင်းရေး · HPE အတန်း 7–8 · Victorian Curriculum F–10 Version 2.0</span><span>lsv.com.au · beachsafe.org.au</span></div>
+</div>
+</div>
+
+<script>
+function showLang(code) {
+  document.querySelectorAll('.lang-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('lang-'+code).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>

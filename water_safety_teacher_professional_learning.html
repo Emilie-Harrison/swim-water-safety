@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher Professional Learning Notes | Swim &amp; Water Safety</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#003554;--ocean:#006494;--sky:#0582CA;
+    --teal:#00695c;--amber:#b45309;--sage:#2e7d32;--purple:#6a1b9a;
+    --bg:#f0f7ff;--card:#fff;--border:#c0d8ee;--text:#003554;--muted:#3a6a8a;
+  }
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.7;}
+  .skip-nav{position:absolute;top:-100px;left:8px;background:var(--navy);color:#fff;padding:8px 18px;border-radius:0 0 8px 8px;font-size:0.9rem;font-weight:700;text-decoration:none;z-index:9999;transition:top 0.2s;}
+  .skip-nav:focus{top:0;}
+  :focus-visible{outline:3px solid var(--sky);outline-offset:2px;border-radius:3px;}
+
+  .header{background:linear-gradient(135deg,#002030,#003554,#1565c0);color:#fff;padding:32px 44px 44px;position:relative;overflow:hidden;}
+  .header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:36px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 36'%3E%3Cpath fill='%23f0f7ff' d='M0,18 Q360,36 720,18 Q1080,0 1440,18 L1440,36 L0,36Z'/%3E%3C/svg%3E") bottom/cover no-repeat;}
+  .h-tag{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);border-radius:4px;padding:4px 14px;display:inline-block;margin-bottom:12px;}
+  .header h1{font-family:'Poppins',sans-serif;font-size:2rem;font-weight:800;margin-bottom:5px;}
+  .header p{font-size:0.9rem;opacity:0.82;max-width:580px;margin-bottom:14px;}
+  .h-chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .hc{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:600;}
+
+  .body{max-width:880px;margin:0 auto;padding:30px 22px 60px;}
+
+  .sec-head{display:flex;align-items:center;gap:10px;margin:32px 0 14px;padding-bottom:8px;border-bottom:3px solid var(--ocean);}
+  .sec-head:first-of-type{margin-top:0;}
+  .sec-head h2{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;color:var(--navy);}
+
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;box-shadow:0 2px 6px rgba(0,50,100,0.04);}
+  .card h3{font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:700;color:var(--ocean);margin-bottom:10px;display:flex;align-items:center;gap:7px;}
+  .card p{font-size:0.9rem;color:var(--text);margin-bottom:8px;line-height:1.7;}
+  .card ul,.card ol{padding-left:18px;font-size:0.9rem;color:var(--text);line-height:1.75;}
+  .card li{margin-bottom:4px;}
+
+  .highlight{background:#e3f2fd;border-left:4px solid var(--ocean);border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:14px;font-size:0.9rem;}
+  .highlight strong{color:var(--navy);}
+  .warn{background:#fffbeb;border-left:4px solid var(--amber);border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:14px;font-size:0.9rem;color:#78350f;}
+  .green-box{background:#e8f5e9;border-left:4px solid var(--sage);border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:14px;font-size:0.9rem;color:#1a3a22;}
+
+  .stat-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin:12px 0;}
+  .stat-box{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;}
+  .stat-box .big{font-family:'Poppins',sans-serif;font-size:1.9rem;font-weight:800;color:var(--ocean);line-height:1;}
+  .stat-box p{font-size:0.76rem;color:var(--muted);margin-top:4px;line-height:1.3;}
+
+  .checklist-table{width:100%;border-collapse:collapse;font-size:0.88rem;margin:10px 0;}
+  .checklist-table th{background:var(--navy);color:#fff;padding:8px 11px;text-align:left;font-weight:700;}
+  .checklist-table td{padding:8px 11px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+  .checklist-table tr:nth-child(even) td{background:#f8fbff;}
+  .cl-box{width:16px;height:16px;border:1.5px solid var(--border);border-radius:3px;display:inline-block;vertical-align:middle;margin-right:6px;}
+
+  .pl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0;}
+  .pl-item{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 14px;}
+  .pl-item h4{font-family:'Poppins',sans-serif;font-size:0.86rem;font-weight:700;color:var(--navy);margin-bottom:5px;}
+  .pl-item p{font-size:0.83rem;color:var(--muted);line-height:1.5;}
+  .pl-item a{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--ocean);}
+
+  .reflection-box{background:linear-gradient(135deg,#002030,#003554);color:#fff;border-radius:12px;padding:20px 24px;margin-top:24px;}
+  .reflection-box h3{font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:700;margin-bottom:12px;}
+  .refl-q{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:8px;padding:10px 14px;margin-bottom:8px;font-size:0.88rem;opacity:0.9;}
+
+  footer{background:var(--navy);color:rgba(255,255,255,0.65);padding:14px 44px;font-size:0.74rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-top:20px;}
+  @media(max-width:600px){.header{padding:26px 18px 40px;}.body{padding:20px 14px 40px;}.pl-grid{grid-template-columns:1fr;}}
+  @media print{body{background:#fff;}@page{size:A4;margin:15mm;}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<header class="header">
+  <div class="h-tag">📚 Teacher Professional Learning · All Year Levels</div>
+  <h1>Teacher Professional<br>Learning Notes</h1>
+  <p>Background reading, research base, first aid currency guidance, and professional learning pathways for teachers delivering the Swim &amp; Water Safety unit.</p>
+  <div class="h-chips">
+    <span class="hc">All year levels</span>
+    <span class="hc">Teacher reference</span>
+    <span class="hc">Research-based</span>
+    <span class="hc">PL guidance</span>
+  </div>
+</header>
+
+<div id="main-content" tabindex="-1" style="outline:none;"></div>
+<div class="body">
+
+  <!-- WHY THIS MATTERS -->
+  <div class="sec-head"><span style="font-size:1.2rem;">📊</span><h2>The Evidence Base — Why This Unit Matters</h2></div>
+
+  <div class="highlight">
+    <strong>Key finding:</strong> Drowning is preventable. The evidence is clear that water safety education, when delivered well and connected to real-world application, saves lives. You are not teaching a compliance exercise — you are delivering content with direct life-or-death relevance.
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box"><div class="big">54</div><p>Victorian drowning deaths in 2023–24 — highest in over a decade</p></div>
+    <div class="stat-box"><div class="big">85%</div><p>of Victorian drowning deaths were male in 2023–24</p></div>
+    <div class="stat-box"><div class="big">40%</div><p>of Victorian drowning deaths involved CALD community members (~28% of population)</p></div>
+    <div class="stat-box"><div class="big">0</div><p>drowning deaths at patrolled locations in 2023–24</p></div>
+    <div class="stat-box"><div class="big">320,000</div><p>global drowning deaths annually — 90% in low/middle-income countries (WHO)</p></div>
+    <div class="stat-box"><div class="big">4 min</div><p>window for bystander CPR before significant irreversible brain damage occurs</p></div>
+  </div>
+
+  <div class="card">
+    <h3>📖 What the Research Tells Us About Effective Water Safety Education</h3>
+    <ul>
+      <li><strong>Swim ability alone is insufficient:</strong> Most Victorian adult drowning victims could swim. The primary risk factors are situational and behavioural — swimming at unpatrolled locations, alcohol, risk-taking — not inability to swim. Education must address decision-making, not only skills.</li>
+      <li><strong>Early intervention is most effective:</strong> International evidence consistently shows that water safety education in primary and early secondary school produces better long-term behaviour change than adult education. The Year 7–8 unit targets the optimal age window.</li>
+      <li><strong>Real-world application improves retention:</strong> Scenario-based learning (as used in the scenario card activities) produces significantly better recall and application than didactic content delivery. Students who work through realistic scenarios are better prepared to act in real emergencies.</li>
+      <li><strong>Family engagement amplifies impact:</strong> Students whose families are engaged in water safety conversations at home are more likely to apply safety behaviours. This is the rationale for the parent information sheets.</li>
+      <li><strong>Structural barriers require structural solutions:</strong> Research into CALD drowning disproportionality consistently points to access barriers, not attitudinal factors. Education-only approaches are insufficient — community swim programs and multilingual communication are essential complements.</li>
+    </ul>
+    <p style="margin-top:8px;font-size:0.84rem;color:var(--muted);">Sources: LSV Victorian Drowning Report 2023–24 | RLSSA National Drowning Report | WHO Drowning Prevention: A Guide to Implementing Recommendations | Bugeja et al. (2018) — aquatic supervision and drowning prevention</p>
+  </div>
+
+  <!-- TEACHER CONTENT KNOWLEDGE -->
+  <div class="sec-head"><span style="font-size:1.2rem;">🧠</span><h2>Teacher Content Knowledge — Key Concepts</h2></div>
+
+  <div class="card">
+    <h3>🌊 What Every Teacher Delivering This Unit Should Know</h3>
+    <p>You do not need to be an expert swimmer or a first aid professional to teach this unit effectively. However, confidence with the following concepts will significantly improve your delivery:</p>
+    <ul>
+      <li><strong>The 5 SwimSafe rules</strong> — Read signs; Enter feet first; Stay in depth; Swim with a friend; Signal for help (these are on Poster 4 in the Classroom Poster Pack)</li>
+      <li><strong>Beach flag system</strong> — Red/yellow (safe zone), single red (danger), orange windsock (offshore wind/no inflatables), purple (marine danger). <strong>The most commonly tested content across both year levels.</strong></li>
+      <li><strong>DRS ABCD in order</strong> — Danger, Response, Send (000), Airway, Breathing, CPR, Defibrillation. Be fluent in this — students will ask you to confirm it.</li>
+      <li><strong>CPR ratio and rate</strong> — 30 compressions : 2 breaths. Rate: 100–120 bpm (the tempo of "Stayin' Alive"). Depth: 5–6cm for adults. Allow full chest recoil.</li>
+      <li><strong>Rip current escape</strong> — Float, stay calm, swim PARALLEL to shore (not back toward shore), angle back when clear of the rip, raise one arm to signal.</li>
+      <li><strong>Throw, Don't Go</strong> — Never enter the water to rescue unless trained. Panicking drowning persons can pull untrained rescuers under. Throw first.</li>
+      <li><strong>The 4-minute CPR window</strong> — Brain cells begin dying irreversibly after 4–6 minutes without oxygenated blood. Bystander CPR within 4 minutes dramatically improves survival outcomes.</li>
+    </ul>
+  </div>
+
+  <div class="warn">
+    <strong>⚠️ Common student misconceptions to address proactively:</strong>
+    <ul style="margin-top:6px;padding-left:16px;">
+      <li>"If you can swim, you're safe" — false. Most Victorian drowning victims could swim.</li>
+      <li>"The water looks calm, so it's safe" — false. Rip currents and cold water shock are invisible surface hazards.</li>
+      <li>"You should swim hard against a rip to get back to shore" — dangerous. This causes exhaustion and drowning.</li>
+      <li>"CPR always works" — not always, but bystander CPR significantly improves survival odds and should always be attempted.</li>
+      <li>"Someone else will call 000" — the bystander effect. Students must understand why direct, named instruction ("You — call 000") is essential.</li>
+    </ul>
+  </div>
+  <!-- DIVING & SPINAL INJURY — TEACHER CONTENT KNOWLEDGE -->
+  <div class="card" style="border-left:4px solid #dc2626;background:#fff8f8;">
+    <h3 style="color:#dc2626;">🦴 Diving &amp; Spinal Injury — What Every Teacher Delivering Year 9–10 Should Know</h3>
+    <p>The addition of Section 6 to the Year 9–10 workbook requires teachers to be confident with spinal injury content. The following is the minimum content knowledge required to deliver Lesson 5 effectively and respond accurately to student questions.</p>
+
+    <h4 style="margin-top:12px;color:#003554;">The physiological mechanism</h4>
+    <p style="font-size:0.9rem;">When a person dives head-first into water that is shallower than expected, the force of impact travels upward through the arms and shoulders into the cervical vertebrae (C1–C7). The sudden compressive force can fracture or dislocate the vertebrae — particularly at C4–C6 — compressing or severing the spinal cord. Because spinal cord neurons cannot regenerate, the resulting loss of motor and sensory function is typically permanent. This is why quadriplegia (paralysis of all four limbs) is the most common severe outcome.</p>
+
+    <h4 style="margin-top:12px;color:#003554;">The Australian data (required for classroom delivery)</h4>
+    <ul style="font-size:0.9rem;line-height:1.75;padding-left:18px;">
+      <li>Unsafe diving = <strong>10%</strong> of all spinal cord injuries and <strong>20%</strong> of quadriplegia cases in Australia (AIHW)</li>
+      <li><strong>95%</strong> of aquatic spinal injury patients are male — <strong>75%+</strong> are under 30</li>
+      <li>Highest incidence age group: <strong>10–14 years</strong> — directly relevant to Year 7–8 students</li>
+      <li><strong>66%</strong> of patients suffer permanent disability</li>
+      <li>Post-COVID: drowning among 15–20 year olds increased by <strong>+34%</strong> (RLSSA)</li>
+    </ul>
+
+    <h4 style="margin-top:12px;color:#003554;">The three 2024–25 case studies</h4>
+    <p style="font-size:0.9rem;">You should be familiar with all three before teaching Lesson 5:
+      <strong>Terrigal Wharf (NSW 2025)</strong> — teenage boy, unknown depth under wharf structure;
+      <strong>Torquay Front Beach (Vic 2025)</strong> — teenage boy, shifting sandbank at surf beach;
+      <strong>Bawley Beach jetty (NSW 2024)</strong> — young man, sandbank formed between visits (false confidence).
+      Each illustrates a different mechanism of depth change. The Bawley case is particularly important for the false confidence concept.
+    </p>
+
+    <h4 style="margin-top:12px;color:#003554;">Addressing the "but they should have known better" response</h4>
+    <p style="font-size:0.9rem;">Students frequently explain these incidents with individual blame ("they were stupid / reckless"). The pedagogical goal of Section 6 is to move students beyond this to a structural analysis: false confidence is created by an information environment that fails to communicate that depth changes. The prevention implication is structural (better signage, local hazard communication, social norm change) — not just individual education.</p>
+
+    <h4 style="margin-top:12px;color:#003554;">Recommended reading before teaching this section</h4>
+    <ul style="font-size:0.9rem;line-height:1.7;padding-left:18px;">
+      <li>AIHW Aquatic Injury data: <strong>aihw.gov.au</strong> (search "aquatic injury" or "spinal cord injury")</li>
+      <li>Royal Life Saving Australia spinal injury resources: <strong>royallifesaving.com.au</strong></li>
+      <li>LSV Feet First campaign resources and inland waterway safety: <strong>lsv.com.au</strong></li>
+    </ul>
+  </div>
+
+
+
+  <!-- FIRST AID CURRENCY -->
+  <div class="sec-head"><span style="font-size:1.2rem;">🩺</span><h2>First Aid Currency — Teacher Requirements</h2></div>
+
+  <div class="card">
+    <h3>✅ What First Aid Training Do I Need?</h3>
+    <p>Victorian Department of Education policy requires teachers supervising swimming and water-based activities to hold current first aid certification. Specific requirements vary by activity type:</p>
+    <table class="checklist-table" role="table">
+      <thead>
+        <tr><th>Activity</th><th>Required certification</th><th>Renewal period</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Classroom water safety theory lessons</td>
+          <td>No formal first aid requirement — standard teacher training applies</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>School swimming carnival (teacher supervisor)</td>
+          <td>Current first aid certificate (HLTAID011 or equivalent). At least one qualified first aider on site.</td>
+          <td>3 years (skills check annually recommended)</td>
+        </tr>
+        <tr>
+          <td>Pool-based practical sessions (on school premises)</td>
+          <td>Current first aid certificate. Check your school's policy — some schools require a lifeguard present.</td>
+          <td>3 years</td>
+        </tr>
+        <tr>
+          <td>Water-based excursion (off-site)</td>
+          <td>Current first aid certificate. DE Excursion Policy and Swimming Policy requirements apply. See Excursion Risk Management Template.</td>
+          <td>3 years</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:8px;font-size:0.84rem;color:var(--muted);">Always verify current DE requirements before excursions: www2.education.vic.gov.au/pal/swimming-instruction-and-water-safety-education/policy</p>
+  </div>
+
+  <div class="green-box">
+    <strong>💡 Renewal tip:</strong> St John Ambulance Victoria and Australian Red Cross both offer low-cost first aid renewal courses, including online theory components. Courses typically take 6–8 hours and cost approximately $70–$100. Book at stjohnvic.com.au or redcross.org.au/first-aid.
+  </div>
+
+  <!-- PL PATHWAYS -->
+  <div class="sec-head"><span style="font-size:1.2rem;">🎓</span><h2>Professional Learning Pathways</h2></div>
+
+  <div class="pl-grid">
+    <div class="pl-item">
+      <h4>🏄 LSV Teacher Professional Development</h4>
+      <p>Life Saving Victoria offers professional development programs for HPE teachers covering water safety education, beach safety, and aquatic supervision. Programs are free or low-cost for Victorian schools.</p>
+      <a href="https://lsv.com.au/education" target="_blank">lsv.com.au/education</a>
+    </div>
+    <div class="pl-item">
+      <h4>🎖️ AUSTSWIM Qualifications</h4>
+      <p>AUSTSWIM provides nationally recognised qualifications for swimming and water safety instruction. The Teacher of Swimming and Water Safety (TSWS) qualification directly supports delivery of VC2HP8M01 and VC2HP10M01.</p>
+      <a href="https://austswim.com.au" target="_blank">austswim.com.au</a>
+    </div>
+    <div class="pl-item">
+      <h4>📊 RLSSA Research &amp; Resources</h4>
+      <p>Royal Life Saving Society Australia publishes an annual National Drowning Report and evidence briefs that inform this resource suite. The RLSSA website also provides free school education resources.</p>
+      <a href="https://royallifesaving.com.au/research" target="_blank">royallifesaving.com.au/research</a>
+    </div>
+    <div class="pl-item">
+      <h4>🩺 First Aid Currency</h4>
+      <p>Maintain current HLTAID011 (Provide First Aid) certification. Annual CPR refresher (HLTAID009) is strongly recommended for teachers running pool sessions. St John Ambulance Victoria offers flexible delivery.</p>
+      <a href="https://stjohnvic.com.au/first-aid-courses/" target="_blank">stjohnvic.com.au/first-aid-courses/</a>
+    </div>
+    <div class="pl-item">
+      <h4>🌏 Multicultural Safety Awareness</h4>
+      <p>LSV's multicultural safety team offers professional learning for teachers in culturally responsive water safety education. Particularly valuable for schools with high CALD enrolments.</p>
+      <a href="https://lsv.com.au/community/multicultural-safety/" target="_blank">lsv.com.au/community/multicultural-safety/</a>
+    </div>
+    <div class="pl-item">
+      <h4>🌿 First Nations Cultural Competency</h4>
+      <p>Reconciliation Australia's online cultural learning resources and AIATSIS provide guidance for teachers embedding First Nations perspectives into HPE curriculum contexts.</p>
+      <a href="https://www.reconciliation.org.au/schools/" target="_blank">reconciliation.org.au/schools/</a>
+    </div>
+  </div>
+
+  <!-- FREQUENTLY ASKED QUESTIONS -->
+  <div class="sec-head"><span style="font-size:1.2rem;">❓</span><h2>Frequently Asked Questions</h2></div>
+
+  <div class="card">
+    <h3>❓ "I'm not a water safety specialist. Am I qualified to teach this unit?"</h3>
+    <p>Yes. This resource suite is designed to be delivered by any qualified HPE teacher. The teacher guides provide complete lesson plans, answer keys, and background notes. You do not need specialist water safety qualifications to deliver the theory and scenario-based content. For practical pool sessions, ensure your first aid certification is current and that adequate supervision is in place.</p>
+  </div>
+
+  <div class="card">
+    <h3>❓ "My school doesn't have a pool. Can I still teach the practical component?"</h3>
+    <p>Yes, with modification. The classroom-based scenario activities, scenario cards, DRS ABCD practice (on a mat with mannequins), and CPR practise can all be conducted without a pool. For the swimming skills component (VC2HP8M01/162), consider: (a) booking community pool time for 1–2 sessions; (b) partnering with a local LSV club for a beach safety session; or (c) adapting the practical assessment to focus on first aid skills and throw-rescue technique, which can be practised on dry land.</p>
+  </div>
+
+  <div class="card">
+    <h3>❓ "A student in my class has had a near-drowning experience. How do I handle this sensitively?"</h3>
+    <p>This is an important consideration. Before teaching this unit, check with your wellbeing team about whether any students may have experienced a drowning-related trauma. If so: speak with the student and their family before the unit begins; offer opt-out options for specific activities (particularly scenario 3, "Not Moving"); ensure the student has access to wellbeing support; and frame the unit as empowering rather than fear-based. The goal is to build confidence and competence, not to dwell on tragedy.</p>
+  </div>
+
+  <div class="card">
+    <h3>❓ "How should I handle the cultural content around First Nations waterways?"</h3>
+    <p>With care, respect, and humility. You do not need to be an expert in First Nations cultures to integrate this content respectfully. The Cultural Considerations resource in this suite provides detailed guidance. Key principles: name Traditional Custodians for local waterways; frame Indigenous knowledge as complementary to, not subordinate to, Western safety frameworks; do not require First Nations students to speak on behalf of all First Nations peoples; and approach the subject with genuine curiosity rather than as a compliance exercise.</p>
+  </div>
+
+  <!-- REFLECTION PROMPTS -->
+  <div class="reflection-box">
+    <h3>💭 Professional Reflection Prompts</h3>
+    <div class="refl-q">Am I confident in my own knowledge of DRS ABCD, beach flags, and rip current escape? If not, which resources in this suite should I review first?</div>
+    <div class="refl-q">Is my first aid certification current? When is my next renewal due?</div>
+    <div class="refl-q">Do I know whether any students in this cohort have had water-related trauma that requires me to modify delivery?</div>
+    <div class="refl-q">Have I engaged with the Cultural Considerations resource and do I feel confident naming the Traditional Custodians of the relevant waterways for my students?</div>
+    <div class="refl-q">Am I framing CALD drowning over-representation as a structural inequity — or is my language inadvertently implying cultural deficit?</div>
+    <div class="refl-q">Is there a professional learning opportunity (LSV PD, AUSTSWIM course, first aid refresher) that would increase my confidence in delivering this unit?</div>
+  </div>
+
+</div>
+
+<footer>
+  <div>Swim &amp; Water Safety — Teacher Professional Learning Notes · All Year Levels · Victorian Curriculum F–10 Version 2.0</div>
+  <div style="font-family:'DM Mono',monospace;font-size:0.7rem;text-align:right;">Emilie Harrison · swimwater.safety@gmail.com</div>
+</footer>
+</body>
+</html>

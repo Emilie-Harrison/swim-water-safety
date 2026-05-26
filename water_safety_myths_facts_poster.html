@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Safety — Myths vs Facts Poster | Year 7–8 HPE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  /* ── A3 POSTER CANVAS ── */
+  body{
+    background:#1a1a2e;
+    font-family:'DM Sans',sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    min-height:100vh;
+    padding:28px 16px 48px;
+    gap:20px;
+  }
+
+  .instructions{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:10px;
+    padding:12px 22px;
+    color:rgba(255,255,255,0.5);
+    font-family:'DM Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.5px;
+    text-align:center;
+    max-width:900px;
+  }
+
+  /* A3 = 420 × 297mm. At 96dpi screen ≈ 1587 × 1123px.
+     We scale to 900px wide for screen; the @print rules restore full size. */
+  .poster{
+    width:900px;
+    min-height:636px; /* 900 × (297/420) */
+    background:linear-gradient(160deg,#003554 0%,#002030 40%,#0a1e3d 70%,#1565c0 100%);
+    border-radius:8px;
+    padding:28px 30px 30px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 24px 80px rgba(0,0,0,0.6);
+  }
+
+  /* background wave decoration */
+  .poster::before{
+    content:'';
+    position:absolute;
+    bottom:0; left:0; right:0;
+    height:180px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 180'%3E%3Cpath d='M0,100 Q112,60 225,100 Q337,140 450,80 Q562,20 675,80 Q787,140 900,100 L900,180 L0,180Z' fill='rgba(5,130,202,0.10)'/%3E%3Cpath d='M0,130 Q150,90 300,130 Q450,170 600,110 Q750,50 900,110 L900,180 L0,180Z' fill='rgba(0,100,148,0.08)'/%3E%3C/svg%3E") bottom/cover no-repeat;
+    pointer-events:none;
+  }
+
+  /* Gold accent bar left edge */
+  .poster::after{
+    content:'';
+    position:absolute;
+    top:0; left:0;
+    width:10px; height:100%;
+    background:linear-gradient(to bottom,#f4c842,#e65100);
+  }
+
+  /* ── HEADER ── */
+  .poster-header{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    margin-bottom:20px;
+    padding-left:14px;
+  }
+
+  .header-left .tag{
+    font-family:'DM Mono',monospace;
+    font-size:0.62rem;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:rgba(244,200,66,0.8);
+    margin-bottom:6px;
+    display:block;
+  }
+
+  .header-left h1{
+    font-family:'Poppins',sans-serif;
+    font-size:2.05rem;
+    font-weight:900;
+    color:#fff;
+    line-height:1;
+    text-transform:uppercase;
+    letter-spacing:-1px;
+  }
+
+  .header-left h1 em{
+    font-style:normal;
+    color:#90caf9;
+  }
+
+  .header-left .sub{
+    font-size:0.78rem;
+    color:rgba(255,255,255,0.5);
+    margin-top:5px;
+    letter-spacing:0.5px;
+  }
+
+  .stat-badge{
+    background:rgba(220,38,38,0.15);
+    border:1.5px solid rgba(220,38,38,0.4);
+    border-radius:12px;
+    padding:10px 16px;
+    text-align:center;
+    flex-shrink:0;
+  }
+
+  .stat-badge .big{
+    font-family:'Poppins',sans-serif;
+    font-size:1.8rem;
+    font-weight:900;
+    color:#f87171;
+    line-height:1;
+    display:block;
+  }
+
+  .stat-badge .lbl{
+    font-size:0.7rem;
+    color:rgba(255,255,255,0.55);
+    line-height:1.35;
+    display:block;
+    margin-top:3px;
+    max-width:120px;
+  }
+
+  /* ── KEY MESSAGE STRIP ── */
+  .key-msg{
+    background:linear-gradient(135deg,#dc2626,#c62828);
+    border-radius:8px;
+    padding:11px 20px;
+    margin-left:14px;
+    margin-bottom:16px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+
+  .key-msg .icon{
+    font-size:1.5rem;
+    flex-shrink:0;
+  }
+
+  .key-msg p{
+    font-family:'Poppins',sans-serif;
+    font-size:0.92rem;
+    font-weight:800;
+    color:#fff;
+    line-height:1.35;
+  }
+
+  .key-msg p span{
+    font-size:1.1rem;
+    background:rgba(255,255,255,0.15);
+    border-radius:4px;
+    padding:1px 8px;
+  }
+
+  /* ── MYTHS GRID ── */
+  .myths-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+    padding-left:14px;
+    margin-bottom:16px;
+  }
+
+  .myth-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:10px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* MYTH row */
+  .myth-row{
+    background:rgba(220,38,38,0.18);
+    border-bottom:1px solid rgba(220,38,38,0.3);
+    padding:9px 13px;
+    display:flex;
+    align-items:flex-start;
+    gap:9px;
+  }
+
+  .myth-row .badge{
+    background:#dc2626;
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-size:0.6rem;
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    border-radius:4px;
+    padding:2px 7px;
+    flex-shrink:0;
+    margin-top:1px;
+  }
+
+  .myth-row p{
+    font-size:0.82rem;
+    font-weight:600;
+    color:#fca5a5;
+    line-height:1.4;
+    font-style:italic;
+  }
+
+  /* FACT row */
+  .fact-row{
+    background:rgba(34,197,94,0.08);
+    padding:9px 13px;
+    display:flex;
+    align-items:flex-start;
+    gap:9px;
+    flex:1;
+  }
+
+  .fact-row .badge{
+    background:#16a34a;
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-size:0.6rem;
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    border-radius:4px;
+    padding:2px 7px;
+    flex-shrink:0;
+    margin-top:1px;
+  }
+
+  .fact-row p{
+    font-size:0.82rem;
+    color:#bbf7d0;
+    line-height:1.45;
+  }
+
+  .fact-row p strong{
+    color:#4ade80;
+    font-weight:700;
+  }
+
+  /* ── BOTTOM STRIP: RULES + STATS ── */
+  .bottom-strip{
+    padding-left:14px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+
+  .rules-box{
+    background:rgba(21,101,192,0.2);
+    border:1.5px solid rgba(21,101,192,0.4);
+    border-radius:10px;
+    padding:12px 14px;
+  }
+
+  .rules-box h3{
+    font-family:'Poppins',sans-serif;
+    font-size:0.78rem;
+    font-weight:800;
+    color:#90caf9;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+
+  .rule-row{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:4px 0;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    font-size:0.8rem;
+    color:rgba(255,255,255,0.8);
+  }
+
+  .rule-row:last-child{border-bottom:none;}
+
+  .rule-num{
+    background:#1565c0;
+    color:#fff;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Poppins',sans-serif;
+    font-weight:900;
+    font-size:0.72rem;
+    flex-shrink:0;
+  }
+
+  .stats-box{
+    background:rgba(220,38,38,0.1);
+    border:1.5px solid rgba(220,38,38,0.3);
+    border-radius:10px;
+    padding:12px 14px;
+  }
+
+  .stats-box h3{
+    font-family:'Poppins',sans-serif;
+    font-size:0.78rem;
+    font-weight:800;
+    color:#f87171;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+
+  .stat-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:4px 0;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+
+  .stat-row:last-child{border-bottom:none;}
+
+  .stat-row .num{
+    font-family:'Poppins',sans-serif;
+    font-size:1.1rem;
+    font-weight:900;
+    color:#f87171;
+    min-width:42px;
+    flex-shrink:0;
+  }
+
+  .stat-row .desc{
+    font-size:0.78rem;
+    color:rgba(255,255,255,0.65);
+    line-height:1.35;
+  }
+
+  /* ── FOOTER ── */
+  .poster-footer{
+    padding-left:14px;
+    margin-top:14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .poster-footer .src{
+    font-family:'DM Mono',monospace;
+    font-size:0.6rem;
+    color:rgba(255,255,255,0.28);
+    letter-spacing:0.5px;
+  }
+
+  .poster-footer .logo-area{
+    background:rgba(255,255,255,0.06);
+    border-radius:6px;
+    padding:5px 12px;
+    font-family:'DM Mono',monospace;
+    font-size:0.62rem;
+    color:rgba(255,255,255,0.35);
+    letter-spacing:1px;
+  }
+
+  /* ── PRINT / LAMINATE RULES ── */
+  @media print{
+    body{
+      background:white;
+      padding:0;
+    }
+    .instructions{ display:none; }
+    .poster{
+      width:420mm;
+      min-height:297mm;
+      border-radius:0;
+      box-shadow:none;
+      padding:18mm 20mm 18mm 22mm;
+      page-break-inside:avoid;
+    }
+    .header-left h1{ font-size:3rem; }
+    .myths-grid{ gap:6mm; }
+    @page{
+      size: A3 landscape;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  PRINT SETTINGS: A3 · Landscape · Fit to page · Colour · No header/footer · Laminate for display.
+  &nbsp;|&nbsp; This poster is optimised for A3 landscape at 100% zoom.
+</div>
+
+<div class="poster" role="main" aria-label="Water Safety Myths vs Facts Poster">
+
+  <!-- HEADER -->
+  <div class="poster-header">
+    <div class="header-left">
+      <span class="tag">Water Safety · Year 7–8 HPE · Victorian Curriculum 2.0</span>
+      <h1>MYTHS <em>vs</em> FACTS</h1>
+      <h1 style="font-size:1.1rem;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:0;text-transform:none;margin-top:4px;">Diving &amp; Shallow Water — What You Think You Know Could Kill You</h1>
+      <p class="sub">Sources: Royal Life Saving Australia · AIHW · Life Saving Victoria · Royal Perth Hospital spinal injury study</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <div class="stat-badge">
+        <span class="big">10%</span>
+        <span class="lbl">of spinal cord injuries<br>caused by unsafe diving</span>
+      </div>
+      <div class="stat-badge">
+        <span class="big">95%</span>
+        <span class="lbl">of aquatic spinal<br>patients are male</span>
+      </div>
+      <div class="stat-badge">
+        <span class="big">66%</span>
+        <span class="lbl">suffer permanent<br>disability</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY MESSAGE -->
+  <div class="key-msg" role="note">
+    <span class="icon" aria-hidden="true">⚠</span>
+    <p>The most common cause of aquatic spinal injury is diving or jumping into water that was shallower than expected.
+      The rule is simple: <span>FEET FIRST — FIRST TIME. EVERY TIME.</span>
+      Never dive or jump into water you haven't checked depth on — right now, today.</p>
+  </div>
+
+  <!-- MYTHS GRID: 5 rows × 2 columns = 10 myth/fact pairs -->
+  <div class="myths-grid" role="list">
+
+    <div class="myth-card" role="listitem">
+      <div class="myth-row">
+        <span class="badge">Myth</span>
+        <p>"If other people are jumping there, it must be safe."</p>
+      </div>
+      <div class="fact-row">
+        <span class="badge">Fact</span>
+        <p>Water depth changes <strong>daily</strong> due to tides, drought, floods, and sandbank movement. Someone who jumped safely yesterday could hit bottom today. The Bawley Beach sandbank case (NSW 2024) is a real example.</p>
+      </div>
+    </div>
+
+    <div class="myth-card" role="listitem">
+      <div class="myth-row">
+        <span class="badge">Myth</span>
+        <p>"Clear water means deep water."</p>
+      </div>
+      <div class="fact-row">
+        <span class="badge">Fact</span>
+        <p>Clarity tells you nothing about depth. <strong>Dangerously shallow water can be crystal clear.</strong> Rivers after dry periods and beach channels near sandbanks are classic examples of clear but fatally shallow water.</p>
+      </div>
+    </div>
+
+    <div class="myth-card" role="listitem">
+      <div class="myth-row">
+        <span class="badge">Myth</span>
+        <p>"I've jumped here before — I know this spot."</p>
+      </div>
+      <div class="fact-row">
+        <span class="badge">Fact</span>
+        <p><strong>Prior experience creates false confidence.</strong> Rivers, beaches, and dams constantly change shape due to sediment, tides, drought, and flooding. The Bawley Beach case: a sandbank formed between visits. Always check. Every time.</p>
+      </div>
+    </div>
+
+    <div class="myth-card" role="listitem">
+      <div class="myth-row">
+        <span class="badge">Myth</span>
+        <p>"Only bad swimmers get hurt diving."</p>
+      </div>
+      <div class="fact-row">
+        <span class="badge">Fact</span>
+        <p><strong>Strong swimmers suffer the same spinal injuries.</strong> A cervical spine fracture happens on impact — before swimming ability is relevant. In the Australian review, most patients were healthy young males. 66% were permanently disabled.</p>
+      </div>
+    </div>
+
+    <div class="myth-card" role="listitem">
+      <div class="myth-row">
+        <span class="badge">Myth</span>
+        <p>"Jumping feet-first is safe — you won't hit your head."</p>
+      </div>
+      <div class="fact-row">
+        <span class="badge">Fact</span>
+        <p>Jumping from height into shallow water can still cause <strong>broken legs, fractured pelvis, compressed spine, head trauma, and drowning</strong>. Feet-first impact at speed into hard bottom is not safe — it just changes which bones break.</p>
+      </div>
+    </div>
+
+    <div class="myth-card" role="listitem">
+      <div class="myth-row">
+        <span class="badge">Myth</span>
+        <p>"The jetty is high, so the water must be deep."</p>
+      </div>
+      <div class="fact-row">
+        <span class="badge">Fact</span>
+        <p>Jetty height tells you nothing about water depth. <strong>Many jetties extend over tidal shallows or sandbanks.</strong> The Terrigal Wharf case (NSW 2025): a teenage boy suffered serious spinal injuries — the height of the structure above was completely unrelated to the depth below.</p>
+      </div>
+    </div>
+
+    <div class="myth-card" role="listitem">
+      <div class="myth-row">
+        <span class="badge">Myth</span>
+        <p>"Diving injuries only happen in pools."</p>
+      </div>
+      <div class="fact-row">
+        <span class="badge">Fact</span>
+        <p>The majority of serious diving injuries occur in <strong>rivers, beaches, dams, lakes, and off jetties</strong> — not pools. Royal Life Saving Australia: more people drown in inland waterways than any other location in Australia.</p>
+      </div>
+    </div>
+
+    <div class="myth-card" role="listitem">
+      <div class="myth-row">
+        <span class="badge">Myth</span>
+        <p>"If you hit the bottom you'll just bounce up."</p>
+      </div>
+      <div class="fact-row">
+        <span class="badge">Fact</span>
+        <p><strong>Cervical spine compression causes permanent paralysis instantly.</strong> There is no "bounce." The vertebrae in your neck fracture or dislocate on impact, severing or compressing the spinal cord. Two-thirds of Australian patients have permanent disability.</p>
+      </div>
+    </div>
+
+    <div class="myth-card" role="listitem">
+      <div class="myth-row">
+        <span class="badge">Myth</span>
+        <p>"Diving injuries are rare — it won't happen to me."</p>
+      </div>
+      <div class="fact-row">
+        <span class="badge">Fact</span>
+        <p>Unsafe diving accounts for <strong>10% of all spinal cord injuries and 20% of quadriplegia cases</strong> in Australia. The highest incidence is in children aged 10–14 — the age group reading this poster. It happens most to people who think it won't.</p>
+      </div>
+    </div>
+
+    <div class="myth-card" role="listitem">
+      <div class="myth-row">
+        <span class="badge">Myth</span>
+        <p>"The dam / river looks the same as last summer."</p>
+      </div>
+      <div class="fact-row">
+        <span class="badge">Fact</span>
+        <p>Inland waterways change with <strong>every season, every rainfall event, and every drought.</strong> Depth, submerged objects, currents, and water temperature can all be dramatically different from one visit to the next — even one week to the next.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM: RULES + STATS -->
+  <div class="bottom-strip">
+    <div class="rules-box">
+      <h3>The 5 Rules — Every Time, Every Location</h3>
+      <div class="rule-row"><span class="rule-num">1</span> <span>Always enter <strong>feet first</strong> in unknown water — no exceptions</span></div>
+      <div class="rule-row"><span class="rule-num">2</span> <span>Check depth <strong>right now, today</strong> — not based on last time</span></div>
+      <div class="rule-row"><span class="rule-num">3</span> <span>Never dive from <strong>wharves, jetties, bridges, rocks, or banks</strong></span></div>
+      <div class="rule-row"><span class="rule-num">4</span> <span>Treat <strong>all inland waterways</strong> (rivers, dams, lakes) as unpredictable</span></div>
+      <div class="rule-row"><span class="rule-num">5</span> <span>If pressured to jump — <strong>the answer is always no</strong>. No explanation needed.</span></div>
+    </div>
+    <div class="stats-box">
+      <h3>Australian Data — The Scale of This Problem</h3>
+      <div class="stat-row"><span class="num">10%</span><span class="desc">of all spinal cord injuries in Australia caused by unsafe diving (AIHW)</span></div>
+      <div class="stat-row"><span class="num">20%</span><span class="desc">of quadriplegia cases in Australia result from diving injuries</span></div>
+      <div class="stat-row"><span class="num">95%</span><span class="desc">of aquatic spinal injury patients are male (major Australian review)</span></div>
+      <div class="stat-row"><span class="num">75%+</span><span class="desc">of aquatic spinal injury patients are under 30 years of age</span></div>
+      <div class="stat-row"><span class="num">66%</span><span class="desc">of patients suffer permanent disability — often quadriplegia</span></div>
+      <div class="stat-row"><span class="num">10–14</span><span class="desc">years: highest incidence of diving-related spinal injury by age group</span></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="poster-footer">
+    <p class="src">Sources: Royal Life Saving Australia (royallifesaving.com.au) · AIHW Diving Injury Report (aihw.gov.au) · LSV Victorian Drowning Report · Royal Perth Hospital spinal injury study</p>
+    <div class="logo-area">Swim &amp; Water Safety Teaching Resource Suite · Emilie Harrison · swimwater.safety@gmail.com</div>
+  </div>
+
+</div>
+
+</body>
+</html>
