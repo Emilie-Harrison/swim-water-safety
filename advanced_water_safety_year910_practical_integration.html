@@ -55,14 +55,14 @@
   .mapping-table td.write{background:#fffef5;color:#aaa;font-style:italic;font-size:0.8rem;}
 
   /* SKILL CHECKLIST */
-  .skill-table{width:100%;border-collapse:collapse;font-size:0.8rem;margin:10px 0;}
+  .skill-table{width:100%;border-collapse:collapse;font-size:0.8rem;margin:10px 0;table-layout:fixed;}
   .skill-table th{background:var(--navy);color:#fff;padding:8px 10px;text-align:left;font-weight:700;font-size:0.75rem;}
-  .skill-table td{padding:8px 10px;border:1px solid var(--border);vertical-align:middle;}
+  .skill-table td{padding:6px 8px;border:1px solid var(--border);vertical-align:middle;word-wrap:break-word;}
   .skill-table tr:nth-child(even) td{background:var(--bg);}
   .skill-label{font-weight:600;font-size:0.8rem;color:var(--text);}
   .skill-theory{font-size:0.75rem;color:var(--muted);font-style:italic;}
-  .rating-cells{display:flex;gap:4px;justify-content:center;}
-  .rc{width:28px;height:28px;border:1.5px solid var(--border);border-radius:6px;font-size:0.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+  .rating-cells{display:flex;gap:2px;justify-content:center;flex-wrap:nowrap;}
+  .rc{width:24px;height:24px;border:1.5px solid var(--border);border-radius:5px;font-size:0.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;}
   .rc-e{color:var(--alert);border-color:#f09090;}
   .rc-d{color:var(--amber);border-color:#fbc02d;}
   .rc-c{color:var(--amber);border-color:#fbc02d;}
@@ -202,13 +202,13 @@
     <table class="skill-table" role="table" aria-label="Practical skills self-assessment">
       <thead>
         <tr>
-          <th style="width:28%;">Skill</th>
-          <th style="width:20%;">Theory connection (in your own words)</th>
-          <th style="width:10%;text-align:center;">Session 1</th>
-          <th style="width:10%;text-align:center;">Session 2</th>
-          <th style="width:10%;text-align:center;">Session 3</th>
-          <th style="width:10%;text-align:center;">Session 4</th>
-          <th style="width:12%;">One improvement I will make</th>
+          <th style="width:20%;">Skill</th>
+          <th style="width:16%;">Theory connection (in your own words)</th>
+          <th style="width:11%;text-align:center;">Session 1</th>
+          <th style="width:11%;text-align:center;">Session 2</th>
+          <th style="width:11%;text-align:center;">Session 3</th>
+          <th style="width:11%;text-align:center;">Session 4</th>
+          <th style="width:20%;">One improvement I will make</th>
         </tr>
       </thead>
       <tbody>
