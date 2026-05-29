@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Safety Portfolio | Student Digital Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --ocean:#006494;--sky:#0582CA;--deep:#003554;
+    --l1:#1565c0;--l2:#00695c;--l3:#b71c1c;--l4:#6a1b9a;--l5:#e65100;
+    --bg:#f0f7ff;--card:#fff;--border:#c0d8ee;--text:#003554;--muted:#3a6a8a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);}
+
+  .header{background:linear-gradient(135deg,#002b40,#006494,#0582CA);color:#fff;padding:34px 40px 40px;position:relative;overflow:hidden;}
+  .header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:36px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 36'%3E%3Cpath fill='%23f0f7ff' d='M0,18 Q360,36 720,18 Q1080,0 1440,18 L1440,36 L0,36Z'/%3E%3C/svg%3E") bottom/cover no-repeat;}
+  .header-tag{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:2.5px;text-transform:uppercase;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:4px;padding:3px 12px;display:inline-block;margin-bottom:12px;}
+  .header h1{font-family:'Poppins',sans-serif;font-size:2rem;font-weight:800;margin-bottom:4px;}
+  .header p{font-size:0.88rem;opacity:0.82;max-width:540px;}
+
+  .student-bar{background:var(--deep);padding:12px 40px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  .student-bar label{font-family:'DM Mono',monospace;font-size:0.63rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);}
+  .student-bar input{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,0.3);color:#fff;font-family:'DM Sans',sans-serif;font-size:0.88rem;padding:2px 6px;min-width:110px;outline:none;}
+  .student-bar input:focus{border-bottom-color:#90caf9;}
+  .save-btn{margin-left:auto;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.28);border-radius:8px;color:#fff;padding:6px 16px;font-family:'DM Sans',sans-serif;font-size:0.84rem;font-weight:600;cursor:pointer;transition:background 0.2s;}
+  .save-btn:hover{background:rgba(255,255,255,0.24);}
+  .save-status{font-family:'DM Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.5);}
+
+  .main{max-width:980px;margin:0 auto;padding:30px 22px 60px;}
+
+  /* PROGRESS */
+  .progress-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:24px;}
+  .progress-card h3{font-family:'Poppins',sans-serif;font-size:0.92rem;font-weight:700;color:var(--ocean);margin-bottom:12px;}
+  .prog-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+  .prog-label{font-size:0.8rem;font-weight:600;min-width:160px;color:var(--text);}
+  .prog-track{flex:1;height:9px;background:#dde8f0;border-radius:5px;overflow:hidden;}
+  .prog-fill{height:100%;border-radius:5px;background:linear-gradient(to right,var(--ocean),var(--sky));transition:width 0.5s ease;}
+  .prog-pct{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted);min-width:32px;text-align:right;}
+
+  /* LESSON ACCORDION */
+  .lesson-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden;box-shadow:0 2px 6px rgba(0,50,100,0.04);}
+  .lesson-head{display:flex;align-items:stretch;cursor:pointer;user-select:none;}
+  .lesson-stripe{width:8px;flex-shrink:0;}
+  .lesson-head-inner{display:flex;align-items:center;gap:12px;padding:14px 18px;flex:1;}
+  .lesson-badge{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:800;font-size:0.95rem;color:#fff;flex-shrink:0;}
+  .lesson-head-inner h3{font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);flex:1;line-height:1.3;}
+  .lesson-status{font-family:'DM Mono',monospace;font-size:0.68rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:2px 9px;color:var(--muted);white-space:nowrap;}
+  .lesson-chevron{font-size:1rem;color:var(--muted);transition:transform 0.22s;margin-left:6px;}
+  .lesson-body{display:none;padding:18px 22px 16px;border-top:1px solid var(--border);}
+  .lesson-body.open{display:block;}
+
+  .l1-s{background:var(--l1);} .l1-b{background:var(--l1);}
+  .l2-s{background:var(--l2);} .l2-b{background:var(--l2);}
+  .l3-s{background:var(--l3);} .l3-b{background:var(--l3);}
+  .l4-s{background:var(--l4);} .l4-b{background:var(--l4);}
+  .l5-s{background:var(--l5);} .l5-b{background:var(--l5);}
+
+  /* FIELDS */
+  .ev-label{font-family:'DM Mono',monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin:14px 0 8px;display:flex;align-items:center;gap:6px;}
+  .field{margin-bottom:14px;}
+  .field label{font-size:0.84rem;font-weight:600;color:var(--text);display:block;margin-bottom:5px;}
+  .field .hint{font-size:0.78rem;color:var(--muted);margin-bottom:5px;line-height:1.45;}
+  .field textarea{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:9px 12px;font-family:'DM Sans',sans-serif;font-size:0.87rem;color:var(--text);resize:vertical;min-height:72px;background:#fafcff;outline:none;transition:border-color 0.2s;}
+  .field textarea:focus{border-color:var(--ocean);background:#fff;}
+  .field input[type="text"]{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:8px 12px;font-family:'DM Sans',sans-serif;font-size:0.87rem;color:var(--text);background:#fafcff;outline:none;transition:border-color 0.2s;}
+  .field input[type="text"]:focus{border-color:var(--ocean);background:#fff;}
+  .field input+input{margin-top:6px;}
+
+  /* SELF-ASSESSMENT */
+  .sa-table{width:100%;border-collapse:collapse;margin-top:4px;}
+  .sa-table td{padding:8px 10px;border-bottom:1px solid var(--border);font-size:0.87rem;vertical-align:middle;}
+  .sa-table tr:last-child td{border-bottom:none;}
+  .sa-table .sa-desc{color:var(--text);}
+  .sa-table .sa-btns{display:flex;gap:5px;white-space:nowrap;}
+  .sa-btn{border:1.5px solid var(--border);border-radius:7px;padding:4px 11px;font-size:0.75rem;font-weight:600;color:var(--muted);cursor:pointer;background:var(--bg);transition:all 0.15s;font-family:'DM Sans',sans-serif;}
+  .sa-btn.s0{background:#fde8e8;border-color:#f09090;color:#c62828;}
+  .sa-btn.s1{background:#fff8e1;border-color:#ffc107;color:#b45309;}
+  .sa-btn.s2{background:#e8f5e9;border-color:#66bb6a;color:#2e7d32;}
+
+  /* CAMPAIGN OPTIONS */
+  .camp-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;}
+  .camp-opt{background:var(--bg);border:2px solid var(--border);border-radius:10px;padding:12px 14px;cursor:pointer;transition:all 0.18s;text-align:left;font-family:'DM Sans',sans-serif;}
+  .camp-opt:hover{border-color:var(--sky);}
+  .camp-opt.selected{background:#e3f2fd;border-color:var(--ocean);}
+  .camp-opt strong{display:block;font-size:0.84rem;color:var(--ocean);margin-bottom:3px;}
+  .camp-opt span{font-size:0.78rem;color:var(--muted);line-height:1.4;}
+
+  /* STARS */
+  .stars{display:flex;gap:6px;margin-top:4px;}
+  .star-btn{font-size:1.5rem;cursor:pointer;opacity:0.3;transition:opacity 0.15s,transform 0.1s;border:none;background:none;padding:0;}
+  .star-btn.lit{opacity:1;}
+  .star-btn:hover{transform:scale(1.15);}
+
+  /* REFLECTION */
+  .reflect-card{background:linear-gradient(135deg,#e3f2fd,#ede7f6);border:1px solid #90caf9;border-radius:12px;padding:18px 22px;margin-top:22px;}
+  .reflect-card h4{font-family:'Poppins',sans-serif;font-size:0.92rem;font-weight:700;color:var(--ocean);margin-bottom:12px;}
+
+  /* TEACHER NOTE */
+  .teacher-note{background:#fffbeb;border:1px solid #fcd34d;border-left:4px solid #f59e0b;border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:22px;font-size:0.85rem;color:#78350f;}
+  .teacher-note strong{color:#92400e;}
+
+  /* EXPORT */
+  .export-bar{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap;}
+  .export-btn{border-radius:9px;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.18s;display:flex;align-items:center;gap:7px;}
+  .export-btn.primary{background:var(--ocean);color:#fff;border:2px solid var(--ocean);}
+  .export-btn.primary:hover{background:var(--deep);border-color:var(--deep);}
+  .export-btn.outline{background:transparent;border:2px solid var(--ocean);color:var(--ocean);}
+  .export-btn.outline:hover{background:var(--ocean);color:#fff;}
+  .export-btn.danger{background:transparent;border:2px solid #c62828;color:#c62828;}
+  .export-btn.danger:hover{background:#c62828;color:#fff;}
+
+  footer{background:var(--deep);color:rgba(255,255,255,0.65);padding:16px 40px;font-size:0.75rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  footer a{color:rgba(255,255,255,0.65);}
+
+  @media(max-width:620px){
+    .header{padding:26px 18px 38px;}
+    .student-bar{padding:12px 16px;}
+    .main{padding:20px 12px 40px;}
+    .camp-opts{grid-template-columns:1fr;}
+    .sa-table .sa-btns{flex-direction:column;}
+  }
+  @media print{
+    .student-bar .save-btn,.export-bar,.lesson-chevron{display:none;}
+    .lesson-body{display:block!important;}
+    body{background:#fff;}
+    @page{size:A4;margin:15mm;}
+  }
+
+  /* Focus-visible styles — WCAG 2.4.7 / 2.4.11 */
+  :focus-visible {
+    outline: 3px solid #0582CA !important;
+    outline-offset: 2px !important;
+    border-radius: 3px;
+  }
+  .skip-nav:focus {
+    top: 0 !important;
+  }
+  
+  /* Minimum font size for accessibility — WCAG 1.4.4 / Disability Gateway clear print */
+  body, p, li, td, .card-desc, .act-body p, .lesson-body, .phase-body {
+    font-size: max(var(--font-size, 0.9rem), 14px);
+  }
+  @media print {
+    body { font-size: max(10pt, 11pt); }
+  }
+  /* min-body-font */
+  </style>
+</head>
+<body>
+  <!-- Skip navigation — WCAG 2.4.1 -->
+  <a href="#main-content" class="skip-nav" style="
+    position:absolute;top:-100px;left:8px;
+    background:#003554;color:#fff;
+    padding:8px 18px;border-radius:0 0 8px 8px;
+    font-family:sans-serif;font-size:0.9rem;font-weight:700;
+    text-decoration:none;z-index:9999;
+    transition:top 0.2s;
+  " onFocus="this.style.top='0'" onBlur="this.style.top='-100px'">
+    Skip to main content
+  </a>
+
+<div class="header">
+  <div class="header-tag">Student Digital Portfolio</div>
+  <h1>💧 Swim &amp; Water Safety — Learning Portfolio</h1>
+  <p>Record your evidence, reflections, and assessment work across all 5 lessons. Your progress saves automatically to this browser.</p>
+</div>
+
+<div class="student-bar">
+  <div><label>Name&nbsp;</label><input type="text" id="s-name" placeholder="Full name"></div>
+  <div><label>Class&nbsp;</label><input type="text" id="s-class" placeholder="e.g. 7A"></div>
+  <div><label>Teacher&nbsp;</label><input type="text" id="s-teacher" placeholder="Teacher name"></div>
+  <div><label>Year&nbsp;</label><input type="text" id="s-year" placeholder="2026"></div>
+  <button type="button" class="save-btn" onclick="saveAll()">💾 Save</button>
+  <span class="save-status" id="save-status"></span>
+</div>
+
+<div class="main" id="main-content">
+
+  <div class="teacher-note">
+    <strong>📌 Teacher note:</strong> This portfolio uses your browser's local storage to save student work. Students should <strong>print to PDF or use the Print button</strong> to create a permanent record before closing the browser, clearing history, or switching devices. Works best in Chrome or Edge. For school-wide use, consider hosting on your school's LMS and having students copy their responses into a Google Doc or OneNote for permanent storage.
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-card">
+    <h3>📊 My Portfolio Progress</h3>
+    <div class="prog-row"><span class="prog-label">Lesson 1 — Statistics</span><div class="prog-track"><div class="prog-fill" id="pf1" style="width:0%"></div></div><span class="prog-pct" id="pp1">0%</span></div>
+    <div class="prog-row"><span class="prog-label">Lesson 2 — Flags &amp; Rips</span><div class="prog-track"><div class="prog-fill" id="pf2" style="width:0%"></div></div><span class="prog-pct" id="pp2">0%</span></div>
+    <div class="prog-row"><span class="prog-label">Lesson 3 — DRS ABCD</span><div class="prog-track"><div class="prog-fill" id="pf3" style="width:0%"></div></div><span class="prog-pct" id="pp3">0%</span></div>
+    <div class="prog-row"><span class="prog-label">Lesson 4 — Safe Decisions</span><div class="prog-track"><div class="prog-fill" id="pf4" style="width:0%"></div></div><span class="prog-pct" id="pp4">0%</span></div>
+    <div class="prog-row"><span class="prog-label">Lesson 5 — Campaign</span><div class="prog-track"><div class="prog-fill" id="pf5" style="width:0%"></div></div><span class="prog-pct" id="pp5">0%</span></div>
+  </div>
+
+  <!-- LESSON 1 -->
+  <div class="lesson-card">
+    <div class="lesson-head" onclick="toggleLesson(1)">
+      <div class="lesson-stripe l1-s"></div>
+      <div class="lesson-head-inner">
+        <div class="lesson-badge l1-b">1</div>
+        <h3>Victoria's Drowning Crisis — Why It Matters</h3>
+        <span class="lesson-status" id="ls1">Not started</span>
+        <span class="lesson-chevron" id="lc1">▾</span>
+      </div>
+    </div>
+    <div class="lesson-body" id="lb1">
+      <div class="ev-label">📋 Evidence</div>
+
+      <div class="field">
+        <label>Key statistic I found most surprising:</label>
+        <div class="hint">From the LSV 2023–24 data — which fact surprised you most and why?</div>
+        <textarea id="f-l1-stat" placeholder="e.g. I was surprised that ALL 54 deaths occurred at unpatrolled locations because…"></textarea>
+      </div>
+      <div class="field">
+        <label>My answer to Question 1.2a (two reasons teenagers face higher risk):</label>
+        <textarea id="f-l1-q1a" placeholder="1. …&#10;2. …"></textarea>
+      </div>
+      <div class="field">
+        <label>Exit ticket — one fact that surprised me + one question I still have:</label>
+        <textarea id="f-l1-exit" placeholder="Fact: …&#10;Question I still have: …" style="min-height:60px;"></textarea>
+      </div>
+
+      <div class="ev-label">✅ Self-Assessment</div>
+      <table role="table" class="sa-table">
+        <tr><td class="sa-desc">I can identify and interpret at least 4 key LSV drowning statistics</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(1,0,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(1,0,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(1,0,2,this)">Got it ✓</button></div></td></tr>
+        <tr><td class="sa-desc">I can explain TWO reasons teenagers face higher drowning risk using data</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(1,1,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(1,1,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(1,1,2,this)">Got it ✓</button></div></td></tr>
+        <tr><td class="sa-desc">I can explain why patrolled locations reduce drowning risk using evidence</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(1,2,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(1,2,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(1,2,2,this)">Got it ✓</button></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- LESSON 2 -->
+  <div class="lesson-card">
+    <div class="lesson-head" onclick="toggleLesson(2)">
+      <div class="lesson-stripe l2-s"></div>
+      <div class="lesson-head-inner">
+        <div class="lesson-badge l2-b">2</div>
+        <h3>Beach Flags, Signals &amp; Rip Current Survival</h3>
+        <span class="lesson-status" id="ls2">Not started</span>
+        <span class="lesson-chevron" id="lc2">▾</span>
+      </div>
+    </div>
+    <div class="lesson-body" id="lb2">
+      <div class="ev-label">📋 Evidence</div>
+
+      <div class="field">
+        <label>Flag I found hardest to remember — and my memory trick:</label>
+        <textarea id="f-l2-flag" placeholder="e.g. I kept mixing up the yellow + black ball with the orange windsock. Now I remember the yellow ball = basketball (yellow + black), orange = wind…"></textarea>
+      </div>
+      <div class="field">
+        <label>My 3 nearest patrolled beaches (BeachSafe research — beachsafe.org.au):</label>
+        <input type="text" id="f-l2-b1" placeholder="1. Beach name — patrol times:">
+        <input type="text" id="f-l2-b2" placeholder="2. Beach name — patrol times:">
+        <input type="text" id="f-l2-b3" placeholder="3. Beach name — patrol times:">
+      </div>
+      <div class="field">
+        <label>Rip current — the 5 survival steps in my own words:</label>
+        <textarea id="f-l2-rip" placeholder="Step 1: Stay calm and don't panic&#10;Step 2: Float and conserve energy&#10;Step 3: Swim parallel to shore&#10;Step 4: Angle back to beach&#10;Step 5: Raise ONE arm to signal for help" style="min-height:100px;font-family:'DM Mono',monospace;font-size:0.82rem;"></textarea>
+      </div>
+
+      <div class="ev-label">✅ Self-Assessment</div>
+      <table role="table" class="sa-table">
+        <tr><td class="sa-desc">I can name all 6 Australian beach flags and their meanings</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(2,0,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(2,0,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(2,0,2,this)">Got it ✓</button></div></td></tr>
+        <tr><td class="sa-desc">I can describe the 5 rip current survival steps in order from memory</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(2,1,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(2,1,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(2,1,2,this)">Got it ✓</button></div></td></tr>
+        <tr><td class="sa-desc">I know my 3 nearest patrolled beaches and can use the BeachSafe app</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(2,2,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(2,2,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(2,2,2,this)">Got it ✓</button></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- LESSON 3 -->
+  <div class="lesson-card">
+    <div class="lesson-head" onclick="toggleLesson(3)">
+      <div class="lesson-stripe l3-s"></div>
+      <div class="lesson-head-inner">
+        <div class="lesson-badge l3-b">3</div>
+        <h3>Emergency Response — DRS ABCD &amp; Rescue Skills</h3>
+        <span class="lesson-status" id="ls3">Not started</span>
+        <span class="lesson-chevron" id="lc3">▾</span>
+      </div>
+    </div>
+    <div class="lesson-body" id="lb3">
+      <div class="ev-label">📋 Evidence</div>
+
+      <div class="field">
+        <label>DRS ABCD — all 7 steps from memory:</label>
+        <textarea id="f-l3-drs" placeholder="D — Danger&#10;R — Response&#10;S — Send (call 000)&#10;A — Airway&#10;B — Breathing&#10;C — CPR (30:2)&#10;D — Defibrillation" style="min-height:110px;font-family:'DM Mono',monospace;font-size:0.84rem;"></textarea>
+      </div>
+      <div class="field">
+        <label>What I learned about throw rescue + why we throw PAST the person:</label>
+        <textarea id="f-l3-throw" placeholder="In the throw rescue activity I learned… We throw past the person because…"></textarea>
+      </div>
+      <div class="field">
+        <label>Calling 000 — what I would say in a water emergency:</label>
+        <textarea id="f-l3-000" placeholder="I'm at [location]… A person has been found unconscious in the water… They are/are not breathing… My name is… I will stay on the line." style="min-height:80px;"></textarea>
+      </div>
+
+      <div class="ev-label">✅ Self-Assessment</div>
+      <table role="table" class="sa-table">
+        <tr><td class="sa-desc">I can recall all 7 DRS ABCD steps in correct order from memory</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(3,0,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(3,0,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(3,0,2,this)">Got it ✓</button></div></td></tr>
+        <tr><td class="sa-desc">I can explain the "Throw, Don't Go" principle and why it saves lives</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(3,1,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(3,1,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(3,1,2,this)">Got it ✓</button></div></td></tr>
+        <tr><td class="sa-desc">I know exactly what information to give when calling 000</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(3,2,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(3,2,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(3,2,2,this)">Got it ✓</button></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- LESSON 4 -->
+  <div class="lesson-card">
+    <div class="lesson-head" onclick="toggleLesson(4)">
+      <div class="lesson-stripe l4-s"></div>
+      <div class="lesson-head-inner">
+        <div class="lesson-badge l4-b">4</div>
+        <h3>Hazard Mapping, Safe Decisions &amp; Inland Waterways</h3>
+        <span class="lesson-status" id="ls4">Not started</span>
+        <span class="lesson-chevron" id="lc4">▾</span>
+      </div>
+    </div>
+    <div class="lesson-body" id="lb4">
+      <div class="ev-label">📋 Evidence</div>
+
+      <div class="field">
+        <label>The 5 LSV SwimSafe rules from memory + which is most important for me:</label>
+        <textarea id="f-l4-ss" placeholder="1. Read signs&#10;2. Enter feet first&#10;3. Stay in depth&#10;4. Swim with a friend&#10;5. Signal for help&#10;&#10;Most important for me personally: Rule __ because…" style="min-height:110px;font-family:'DM Mono',monospace;font-size:0.84rem;"></textarea>
+      </div>
+      <div class="field">
+        <label>What I would say to friends pressuring me to swim somewhere unsafe:</label>
+        <textarea id="f-l4-peer" placeholder="If my friends dared me to swim at an unpatrolled river, I would say…"></textarea>
+      </div>
+      <div class="field">
+        <label>Research finding about Victorian inland waterways (with source URL):</label>
+        <div class="hint">Visit paddle.org.au, park.vic.gov.au, lsv.com.au or vic.gov.au/water-safety</div>
+        <input type="text" id="f-l4-fact" placeholder="Fact I found: …">
+        <input type="text" id="f-l4-url" placeholder="Source URL: https://…">
+      </div>
+
+      <div class="ev-label">✅ Self-Assessment</div>
+      <table role="table" class="sa-table">
+        <tr><td class="sa-desc">I can identify and rank hazards at a beach, river/dam, and pool</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(4,0,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(4,0,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(4,0,2,this)">Got it ✓</button></div></td></tr>
+        <tr><td class="sa-desc">I can recall all 5 SwimSafe rules and apply them to a real scenario</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(4,1,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(4,1,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(4,1,2,this)">Got it ✓</button></div></td></tr>
+        <tr><td class="sa-desc">I can explain cold water shock and why Victorian rivers are so dangerous</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(4,2,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(4,2,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(4,2,2,this)">Got it ✓</button></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- LESSON 5 -->
+  <div class="lesson-card">
+    <div class="lesson-head" onclick="toggleLesson(5)">
+      <div class="lesson-stripe l5-s"></div>
+      <div class="lesson-head-inner">
+        <div class="lesson-badge l5-b">5</div>
+        <h3>Personal Action Plan &amp; Communication Campaign</h3>
+        <span class="lesson-status" id="ls5">Not started</span>
+        <span class="lesson-chevron" id="lc5">▾</span>
+      </div>
+    </div>
+    <div class="lesson-body" id="lb5">
+      <div class="ev-label">📋 Assessment Task — Communication Campaign</div>
+
+      <div class="field">
+        <label>Choose your campaign option:</label>
+        <div class="camp-opts">
+          <button type="button" class="camp-opt" id="co-a" onclick="pickOpt('a')"><strong>Option A — Social Media</strong><span>Instagram/TikTok slides for teens. Statistic + visual + call to action.</span></button>
+          <button type="button" class="camp-opt" id="co-b" onclick="pickOpt('b')"><strong>Option B — Letter to Year 5</strong><span>~200 words explaining 3 key water safety facts before summer.</span></button>
+          <button type="button" class="camp-opt" id="co-c" onclick="pickOpt('c')"><strong>Option C — Fact Sheet ★</strong><span>Multilingual community fact sheet for someone new to Australia.</span></button>
+        </div>
+      </div>
+      <div class="field">
+        <label>Target audience:</label>
+        <input type="text" id="f-l5-aud" placeholder="e.g. Teenagers aged 13–17 who use Instagram">
+      </div>
+      <div class="field">
+        <label>Statistic I will use (with source URL):</label>
+        <input type="text" id="f-l5-stat" placeholder="e.g. 54 people drowned in Victoria in 2023–24 — source: lsv.com.au/research/victorian-drowning-reports/">
+      </div>
+      <div class="field">
+        <label>Key message and call to action:</label>
+        <input type="text" id="f-l5-cta" placeholder="e.g. Always swim between the flags — zero deaths at patrolled beaches in 2023–24">
+      </div>
+      <div class="field">
+        <label>My campaign draft (write text here, or describe / link your work):</label>
+        <textarea id="f-l5-draft" style="min-height:130px;" placeholder="Write your campaign content here. Or: describe what you created and how to access it (e.g. 'My Canva poster is at…', 'My letter begins…')"></textarea>
+      </div>
+
+      <div class="ev-label">✅ Self-Assessment</div>
+      <table role="table" class="sa-table">
+        <tr><td class="sa-desc">My campaign has a clear, specific safety message for my chosen audience</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(5,0,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(5,0,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(5,0,2,this)">Got it ✓</button></div></td></tr>
+        <tr><td class="sa-desc">I used at least one accurate statistic with a source URL</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(5,1,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(5,1,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(5,1,2,this)">Got it ✓</button></div></td></tr>
+        <tr><td class="sa-desc">My campaign includes a clear call to action</td><td><div class="sa-btns"><button type="button" class="sa-btn" onclick="setSA(5,2,0,this)">Not yet</button><button type="button" class="sa-btn" onclick="setSA(5,2,1,this)">Getting there</button><button type="button" class="sa-btn" onclick="setSA(5,2,2,this)">Got it ✓</button></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- UNIT REFLECTION -->
+  <div class="reflect-card">
+    <h4>✨ Unit Reflection — complete after all 5 lessons</h4>
+    <div class="field" style="margin-top:10px;">
+      <label>The most important thing I will do differently near water because of this unit:</label>
+      <textarea id="f-ref1" placeholder="Because of this unit, I will…"></textarea>
+    </div>
+    <div class="field">
+      <label>One thing I could teach a friend or family member right now:</label>
+      <textarea id="f-ref2" placeholder="I could teach them…" style="min-height:60px;"></textarea>
+    </div>
+    <div class="field">
+      <label>Overall unit rating:</label>
+      <div class="stars" id="star-row">
+        <button type="button" class="star-btn" onclick="setStars(1)">⭐</button>
+        <button type="button" class="star-btn" onclick="setStars(2)">⭐</button>
+        <button type="button" class="star-btn" onclick="setStars(3)">⭐</button>
+        <button type="button" class="star-btn" onclick="setStars(4)">⭐</button>
+        <button type="button" class="star-btn" onclick="setStars(5)">⭐</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="export-bar">
+    <button type="button" class="export-btn primary" onclick="window.print()">🖨 Print / Save as PDF</button>
+    <button type="button" class="export-btn outline" onclick="saveAll()">💾 Save Progress</button>
+    <button type="button" class="export-btn danger" onclick="clearAll()">🗑 Clear All Data</button>
+  </div>
+
+</div><!-- end main -->
+
+<footer>
+  <div>Swim &amp; Water Safety — Student Digital Portfolio · Victorian Curriculum F–10 Version 2.0 · HPE Year 7–8<br>
+  LSV: <a href="https://lsv.com.au">lsv.com.au</a> · BeachSafe: <a href="https://beachsafe.org.au">beachsafe.org.au</a> · Victorian Curriculum: <a href="https://f10.vcaa.vic.edu.au">victoriancurriculum.vcaa.vic.edu.au</a></div>
+  <div style="font-family:'DM Mono',monospace;font-size:0.7rem;text-align:right;">
+    Save your work by clicking Print → Save as PDF<br>or use the Save button before closing this tab
+  </div>
+</footer>
+
+<script>
+// ─── State ───────────────────────────────────────────────────────────
+const saState = {};   // saState[lesson][row] = 0|1|2
+let starVal = 0;
+let campOpt = '';
+
+// ─── Field IDs ───────────────────────────────────────────────────────
+const FIELDS = [
+  'f-l1-stat','f-l1-q1a','f-l1-exit',
+  'f-l2-flag','f-l2-b1','f-l2-b2','f-l2-b3','f-l2-rip',
+  'f-l3-drs','f-l3-throw','f-l3-000',
+  'f-l4-ss','f-l4-peer','f-l4-fact','f-l4-url',
+  'f-l5-aud','f-l5-stat','f-l5-cta','f-l5-draft',
+  'f-ref1','f-ref2',
+  's-name','s-class','s-teacher','s-year'
+];
+
+// ─── Save / Load ──────────────────────────────────────────────────────
+function saveAll() {
+  const data = { fields:{}, sa: saState, stars: starVal, camp: campOpt };
+  FIELDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) data.fields[id] = el.value;
+  });
+  // open lessons
+  data.open = [];
+  for (let i=1;i<=5;i++){
+    if (document.getElementById('lb'+i).classList.contains('open')) data.open.push(i);
+  }
+  try {
+    localStorage.setItem('ws_portfolio_v2', JSON.stringify(data));
+    const s = document.getElementById('save-status');
+    s.textContent = '✓ Saved ' + new Date().toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit'});
+    setTimeout(()=>{ s.textContent=''; }, 3000);
+  } catch(e) {
+    alert('Storage unavailable in this browser/mode. Use Print → Save as PDF to keep your work.');
+  }
+  updateProgress();
+}
+
+function loadAll() {
+  try {
+    const raw = localStorage.getItem('ws_portfolio_v2');
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    // fields
+    if (data.fields) {
+      FIELDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && data.fields[id] !== undefined) el.value = data.fields[id];
+      });
+    }
+    // sa
+    if (data.sa) {
+      Object.entries(data.sa).forEach(([les, rows]) => {
+        saState[les] = {};
+        Object.entries(rows).forEach(([row, val]) => {
+          saState[les][row] = val;
+          const btns = getSABtns(Number(les), Number(row));
+          if (btns) applySAStyle(btns, val);
+        });
+      });
+    }
+    // stars
+    if (data.stars) setStars(data.stars, true);
+    // camp option
+    if (data.camp) pickOpt(data.camp, true);
+    // open lessons
+    if (data.open) {
+      data.open.forEach(n => openLesson(n));
+    }
+    updateProgress();
+  } catch(e) {}
+}
+
+function clearAll() {
+  if (!confirm('Clear all saved data from this browser? This cannot be undone.')) return;
+  localStorage.removeItem('ws_portfolio_v2');
+  location.reload();
+}
+
+// ─── Lessons ─────────────────────────────────────────────────────────
+function toggleLesson(n) {
+  const lb = document.getElementById('lb'+n);
+  const ch = document.getElementById('lc'+n);
+  if (lb.classList.toggle('open')) {
+    ch.textContent = '▴';
+  } else {
+    ch.textContent = '▾';
+  }
+}
+
+function openLesson(n) {
+  const lb = document.getElementById('lb'+n);
+  const ch = document.getElementById('lc'+n);
+  lb.classList.add('open');
+  ch.textContent = '▴';
+}
+
+// ─── Self-Assessment ──────────────────────────────────────────────────
+function getSABtns(lesson, row) {
+  const lb = document.getElementById('lb'+lesson);
+  if (!lb) return null;
+  const rows = lb.querySelectorAll('.sa-table tr');
+  if (!rows[row]) return null;
+  return rows[row].querySelectorAll('.sa-btn');
+}
+
+function applySAStyle(btns, val) {
+  btns.forEach((b,i) => {
+    b.classList.remove('s0','s1','s2');
+    if (i === val) b.classList.add('s'+val);
+  });
+}
+
+function setSA(lesson, row, val, btn) {
+  saState[lesson] = saState[lesson] || {};
+  saState[lesson][row] = val;
+  const btns = getSABtns(lesson, row);
+  if (btns) applySAStyle(btns, val);
+  updateProgress();
+  // auto-save on SA change
+  setTimeout(saveAll, 300);
+}
+
+// ─── Stars ────────────────────────────────────────────────────────────
+function setStars(n, silent) {
+  starVal = n;
+  document.querySelectorAll('#star-row .star-btn').forEach((b,i) => {
+    b.classList.toggle('lit', i < n);
+  });
+  if (!silent) setTimeout(saveAll, 300);
+}
+
+// ─── Campaign option ─────────────────────────────────────────────────
+function pickOpt(opt, silent) {
+  campOpt = opt;
+  ['a','b','c'].forEach(o => {
+    document.getElementById('co-'+o).classList.toggle('selected', o===opt);
+  });
+  if (!silent) setTimeout(saveAll, 300);
+}
+
+// ─── Progress ────────────────────────────────────────────────────────
+function updateProgress() {
+  const lessonFields = {
+    1: ['f-l1-stat','f-l1-q1a','f-l1-exit'],
+    2: ['f-l2-flag','f-l2-b1','f-l2-rip'],
+    3: ['f-l3-drs','f-l3-throw','f-l3-000'],
+    4: ['f-l4-ss','f-l4-peer','f-l4-fact'],
+    5: ['f-l5-aud','f-l5-draft','f-l5-stat'],
+  };
+  for (let les=1; les<=5; les++) {
+    const fIds = lessonFields[les];
+    const filled = fIds.filter(id => {
+      const el = document.getElementById(id);
+      return el && el.value.trim().length > 10;
+    }).length;
+    const saRows = saState[les] ? Object.values(saState[les]).filter(v=>v===2).length : 0;
+    const total = fIds.length + 3; // 3 SA rows
+    const achieved = filled + saRows;
+    const pct = Math.round((achieved / total) * 100);
+
+    document.getElementById('pf'+les).style.width = pct+'%';
+    document.getElementById('pp'+les).textContent = pct+'%';
+
+    const st = document.getElementById('ls'+les);
+    if (pct === 0) st.textContent = 'Not started';
+    else if (pct < 50) st.textContent = 'In progress';
+    else if (pct < 100) st.textContent = 'Almost done';
+    else st.textContent = '✓ Complete';
+  }
+}
+
+// ─── Auto-save on typing ──────────────────────────────────────────────
+let autoSaveTimer;
+document.addEventListener('input', () => {
+  clearTimeout(autoSaveTimer);
+  autoSaveTimer = setTimeout(() => { saveAll(); }, 2000);
+});
+
+// ─── Init ─────────────────────────────────────────────────────────────
+window.addEventListener('load', loadAll);
+</script>
+</body>
+</html>
