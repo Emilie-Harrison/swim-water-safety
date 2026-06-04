@@ -1,0 +1,2945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="dXFxFFUjq2G-UG0uYeMtfJepYB8SzQkRUR8bzCPZFG4" />
+  <title>Swim & Water Safety Teaching Hub — Victorian HPE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & TOKENS ─────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --deep:    #020e1c;
+      --abyss:   #041628;
+      --navy:    #063152;
+      --ocean:   #0a4b78;
+      --mid:     #1275a8;
+      --sky:     #28a8d8;
+      --foam:    #6dd4f0;
+      --pale:    #c4eaf8;
+      --white:   #f0f8ff;
+      --sand:    #e8d5a3;
+      --gold:    #f4c842;
+      --coral:   #e8604c;
+      --surface: rgba(10, 75, 120, 0.35);
+      --glass:   rgba(255, 255, 255, 0.06);
+      --rule:    rgba(109, 212, 240, 0.18);
+
+      --r-card:  14px;
+      --ease:    cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--deep);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── ANIMATED OCEAN BACKGROUND ─────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 120% 80% at 10% 0%,   #0a3a60 0%, transparent 55%),
+        radial-gradient(ellipse 80%  60% at 90% 20%,  #062840 0%, transparent 50%),
+        radial-gradient(ellipse 100% 70% at 50% 100%, #020e1c 0%, #031624 100%);
+      z-index: -2;
+    }
+
+    /* subtle animated shimmer */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='800' height='800' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* ─── WAVE DIVIDER ───────────────────────────────── */
+    .wave-divider {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      margin-top: -2px;
+    }
+    .wave-divider svg { display: block; width: 100%; }
+
+    /* ─── LOGO ZONE ──────────────────────────────────── */
+    .logo-zone {
+      position: absolute;
+      top: 28px;
+      left: 40px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 10;
+    }
+    .logo-placeholder {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      border: 2px dashed rgba(109,212,240,0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      background: rgba(10,75,120,0.3);
+      backdrop-filter: blur(8px);
+      transition: border-color 0.3s;
+      cursor: default;
+    }
+    .logo-placeholder:hover { border-color: rgba(109,212,240,0.65); }
+    .logo-placeholder span {
+      font-family: 'DM Mono', monospace;
+      font-size: 6px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(109,212,240,0.55);
+      text-align: center;
+      line-height: 1.3;
+    }
+    .logo-placeholder .logo-icon { font-size: 18px; }
+
+    /* ─── HERO ───────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 32px 80px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* floating bubble decorations */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(109,212,240,0.12), rgba(10,75,120,0.04));
+      border: 1px solid rgba(109,212,240,0.08);
+      animation: drift linear infinite;
+      pointer-events: none;
+    }
+    .bubble:nth-child(1) { width:320px; height:320px; top: 5%;  left: -8%;  animation-duration: 22s; }
+    .bubble:nth-child(2) { width:200px; height:200px; top: 20%; right: 5%;  animation-duration: 18s; animation-delay: -6s; }
+    .bubble:nth-child(3) { width:140px; height:140px; top: 60%; left: 8%;   animation-duration: 28s; animation-delay: -11s; }
+    .bubble:nth-child(4) { width:260px; height:260px; bottom:5%;right:-5%;  animation-duration: 24s; animation-delay: -3s; }
+    .bubble:nth-child(5) { width: 90px; height: 90px; top: 40%; right: 18%; animation-duration: 16s; animation-delay: -8s; }
+
+    @keyframes drift {
+      0%   { transform: translateY(0) rotate(0deg); }
+      50%  { transform: translateY(-20px) rotate(3deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    /* curriculum badge */
+    .curriculum-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(109,212,240,0.1);
+      border: 1px solid rgba(109,212,240,0.25);
+      border-radius: 30px;
+      padding: 6px 18px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--foam);
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s var(--ease) both;
+    }
+    .curriculum-badge .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--foam);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.4; transform:scale(0.7); }
+    }
+
+    /* hero heading */
+    .hero-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      animation: fadeUp 0.9s var(--ease) 0.1s both;
+    }
+    .hero-heading .line1 { display: block; color: var(--white); }
+    .hero-heading .line2 {
+      display: block;
+      color: transparent;
+      background: linear-gradient(135deg, var(--foam) 0%, var(--sky) 50%, var(--pale) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      color: var(--pale);
+      opacity: 0.8;
+      margin-bottom: 30px;
+      animation: fadeUp 1s var(--ease) 0.2s both;
+    }
+
+    .hero-intro {
+      max-width: 640px;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(196,234,248,0.82);
+      margin-bottom: 44px;
+      animation: fadeUp 1s var(--ease) 0.3s both;
+    }
+    .hero-intro strong { color: var(--foam); font-weight: 600; }
+
+    /* stats row */
+    .hero-stats {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 0;
+      animation: fadeUp 1s var(--ease) 0.4s both;
+    }
+    .stat-chip {
+      background: var(--glass);
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      padding: 8px 18px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--pale);
+      backdrop-filter: blur(6px);
+    }
+    .stat-chip strong { color: var(--foam); }
+
+    /* download all button */
+    .download-all-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      animation: fadeUp 1s var(--ease) 0.6s both;
+    }
+    .download-all-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: #0a1a00;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(244,200,66,0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      letter-spacing: 0.01em;
+    }
+    .download-all-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(244,200,66,0.5);
+      background: #ffe066;
+    }
+    .download-all-btn .dl-icon {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    .download-all-btn .dl-sub {
+      font-size: 0.72rem;
+      font-weight: 500;
+      opacity: 0.7;
+      display: block;
+      line-height: 1;
+      margin-top: 1px;
+    }
+    /* feedback button */
+    .feedback-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 12px 26px;
+      border-radius: 40px;
+      border: 2px solid rgba(255,255,255,0.38);
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      letter-spacing: 0.01em;
+    }
+    .feedback-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.65);
+    }
+    .feedback-btn .dl-icon { font-size: 1.1rem; line-height: 1; }
+    .feedback-btn .dl-sub {
+      font-size: 0.72rem; font-weight: 500; opacity: 0.6;
+      display: block; line-height: 1; margin-top: 1px;
+    }
+    /* copyright button */
+    .copyright-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 40px;
+      border: 2px solid rgba(255,255,255,0.55);
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      letter-spacing: 0.01em;
+    }
+    .copyright-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.26);
+      border-color: rgba(255,255,255,0.85);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+    }
+    .copyright-btn .dl-icon { font-size: 1.1rem; line-height: 1; }
+    .copyright-btn .dl-sub {
+      font-size: 0.72rem;
+      font-weight: 500;
+      opacity: 0.75;
+      display: block;
+      line-height: 1;
+      margin-top: 1px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(22px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* scroll cue */
+    .scroll-cue {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.45;
+      animation: fadeUp 1s var(--ease) 1.2s both;
+    }
+    .scroll-cue span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--foam);
+    }
+    .scroll-arrow {
+      width: 20px; height: 20px;
+      border-right: 1.5px solid var(--foam);
+      border-bottom: 1.5px solid var(--foam);
+      transform: rotate(45deg);
+      animation: bounce 1.8s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%,100% { transform: rotate(45deg) translateY(0); }
+      50%      { transform: rotate(45deg) translateY(5px); }
+    }
+
+    /* ─── MAIN CONTENT ───────────────────────────────── */
+    .content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ─── SECTION HEADERS ────────────────────────────── */
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+      margin: 72px 0 28px;
+    }
+    .section-header-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--rule), transparent);
+    }
+    .section-title-block { flex-shrink: 0; }
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--foam);
+      opacity: 0.65;
+      margin-bottom: 3px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+    }
+    .section-title em {
+      font-style: italic;
+      color: var(--foam);
+    }
+
+    /* ─── RESOURCE GRID ──────────────────────────────── */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .resource-grid.two-col {
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    }
+
+    /* ─── RESOURCE CARD ──────────────────────────────── */
+    .card {
+      position: relative;
+      background: var(--glass);
+      border: 1px solid var(--rule);
+      border-radius: var(--r-card);
+      padding: 26px 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      backdrop-filter: blur(12px);
+      transition: transform 0.35s var(--ease),
+                  border-color 0.35s,
+                  box-shadow 0.35s var(--ease),
+                  background 0.35s;
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--r-card);
+      background: linear-gradient(135deg,
+        rgba(109,212,240,0.08) 0%,
+        transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(109,212,240,0.45);
+      box-shadow: 0 20px 50px rgba(2,14,28,0.6),
+                  0 0 0 1px rgba(109,212,240,0.12),
+                  inset 0 1px 0 rgba(255,255,255,0.08);
+      background: rgba(10,75,120,0.4);
+    }
+    .card:hover::before { opacity: 1; }
+
+    /* card accent top bar */
+    .card-accent {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: var(--r-card) var(--r-card) 0 0;
+      background: linear-gradient(90deg, var(--sky), var(--foam));
+      opacity: 0.6;
+      transition: opacity 0.35s;
+    }
+    .card:hover .card-accent { opacity: 1; }
+
+    .card-icon-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .card-icon {
+      width: 46px; height: 46px;
+      border-radius: 11px;
+      background: rgba(10,75,120,0.5);
+      border: 1px solid rgba(109,212,240,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .card:hover .card-icon {
+      background: rgba(18,117,168,0.6);
+      border-color: rgba(109,212,240,0.45);
+    }
+
+    .card-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid;
+    }
+    .badge-teacher  { color: #86efac; border-color: rgba(134,239,172,0.35); background: rgba(134,239,172,0.07); }
+    .badge-student  { color: var(--foam); border-color: rgba(109,212,240,0.35); background: rgba(109,212,240,0.07); }
+    .badge-print    { color: var(--sand); border-color: rgba(232,213,163,0.35); background: rgba(232,213,163,0.07); }
+    .badge-assess   { color: #fca5a5; border-color: rgba(252,165,165,0.35); background: rgba(252,165,165,0.07); }
+    .badge-plan     { color: #c4b5fd; border-color: rgba(196,181,253,0.35); background: rgba(196,181,253,0.07); }
+    .badge-pdf      { color: var(--gold); border-color: rgba(244,200,66,0.35); background: rgba(244,200,66,0.07); }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 0.875rem;
+      color: rgba(196,234,248,0.72);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 16px;
+    }
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: rgba(196,234,248,0.6);
+      background: rgba(10,75,120,0.4);
+      border: 1px solid rgba(109,212,240,0.12);
+      border-radius: 20px;
+      padding: 2px 10px;
+    }
+
+    .card-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: rgba(10,75,120,0.4);
+      border: 1px solid rgba(109,212,240,0.15);
+      border-radius: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--foam);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      transition: background 0.25s, border-color 0.25s;
+      margin-top: auto;
+    }
+    .card:hover .card-link {
+      background: rgba(18,117,168,0.5);
+      border-color: rgba(109,212,240,0.35);
+    }
+    .card-link-arrow {
+      flex-shrink: 0;
+      margin-left: 8px;
+      font-size: 0.9rem;
+      transition: transform 0.25s var(--ease);
+    }
+    .card:hover .card-link-arrow { transform: translateX(4px); }
+
+    /* ─── FEATURED CARD (wider) ──────────────────────── */
+    .card.featured {
+      border-color: rgba(244,200,66,0.3);
+      background: rgba(10,50,82,0.5);
+    }
+    .card.featured .card-accent {
+      background: linear-gradient(90deg, var(--gold), #f8a530);
+    }
+    .card.featured:hover {
+      border-color: rgba(244,200,66,0.6);
+    }
+
+    /* ─── CURRICULUM BANNER ──────────────────────────── */
+    .curriculum-banner {
+      margin: 64px 0 0;
+      background: linear-gradient(135deg,
+        rgba(10,75,120,0.5) 0%,
+        rgba(4,22,40,0.6) 100%);
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      padding: 32px 36px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+    .curriculum-banner::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(109,212,240,0.07), transparent 70%);
+    }
+    .cb-icon { font-size: 2.5rem; flex-shrink: 0; }
+    .cb-body { flex: 1; min-width: 200px; }
+    .cb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--foam);
+      opacity: 0.7;
+      margin-bottom: 4px;
+    }
+    .cb-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .cb-text {
+      font-size: 0.88rem;
+      color: rgba(196,234,248,0.72);
+      line-height: 1.6;
+    }
+    .cb-codes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .cb-code {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: rgba(109,212,240,0.1);
+      border: 1px solid rgba(109,212,240,0.25);
+      color: var(--foam);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    .footer {
+      margin-top: 80px;
+      border-top: 1px solid var(--rule);
+      background: rgba(2,14,28,0.7);
+      backdrop-filter: blur(10px);
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+    }
+    .footer-left .footer-logo-zone {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .footer-logo-placeholder {
+      width: 40px; height: 40px;
+      border-radius: 8px;
+      border: 1.5px dashed rgba(109,212,240,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      background: rgba(10,75,120,0.2);
+    }
+    .footer-site-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: rgba(196,234,248,0.55);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--foam);
+      opacity: 0.6;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .footer-link:hover { opacity: 1; }
+    .footer-link-sep { color: rgba(109,212,240,0.3); font-size: 0.7rem; }
+
+    .footer-right { text-align: right; }
+    .footer-credit-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(109,212,240,0.45);
+      margin-bottom: 6px;
+    }
+    .footer-credit-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .footer-credit-role {
+      font-size: 0.82rem;
+      color: rgba(196,234,248,0.55);
+      font-style: italic;
+    }
+    .footer-contact {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(109,212,240,0.1);
+      text-align: right;
+    }
+    .footer-contact-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.63rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(109,212,240,0.4);
+      margin-bottom: 6px;
+    }
+    .footer-email-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(10,75,120,0.4);
+      border: 1px solid rgba(109,212,240,0.2);
+      border-radius: 30px;
+      padding: 7px 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--foam);
+      text-decoration: none;
+      transition: background 0.25s, border-color 0.25s, color 0.25s;
+      cursor: pointer;
+    }
+    .footer-email-pill:hover {
+      background: rgba(18,117,168,0.5);
+      border-color: rgba(109,212,240,0.45);
+      color: var(--white);
+    }
+    .footer-email-icon { font-size: 0.9rem; }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      border-top: 1px solid rgba(109,212,240,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-bottom p {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: rgba(196,234,248,0.3);
+      letter-spacing: 0.5px;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 700px) {
+      .hero { padding: 100px 20px 70px; }
+      .logo-zone { left: 20px; top: 20px; }
+      .content { padding: 0 16px 60px; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-right { text-align: left; }
+      .resource-grid, .resource-grid.two-col { grid-template-columns: 1fr; }
+      .curriculum-banner { padding: 24px 20px; }
+      .section-header { margin: 52px 0 22px; }
+    }
+
+    /* ─── SCROLL REVEAL ──────────────────────────────── */
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+    }
+    .reveal.animate-in {
+      animation: revealUp 0.7s var(--ease) both;
+    }
+    @keyframes revealUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+    .reveal-delay-4 { transition-delay: 0.32s; }
+    .reveal-delay-5 { transition-delay: 0.40s; }
+    .reveal-delay-6 { transition-delay: 0.48s; }
+    .reveal-delay-7 { transition-delay: 0.56s; }
+    .reveal-delay-8 { transition-delay: 0.64s; }
+  
+  /* Focus-visible styles — WCAG 2.4.7 / 2.4.11 */
+  :focus-visible {
+    outline: 3px solid #0582CA !important;
+    outline-offset: 2px !important;
+    border-radius: 3px;
+  }
+  .skip-nav:focus {
+    top: 0 !important;
+  }
+  
+  /* Minimum font size for accessibility — WCAG 1.4.4 / Disability Gateway clear print */
+  body, p, li, td, .card-desc, .act-body p, .lesson-body, .phase-body {
+    font-size: max(var(--font-size, 0.9rem), 14px);
+  }
+  @media print {
+    body { font-size: max(10pt, 11pt); }
+  }
+  /* min-body-font */
+
+  /* ─── STICKY NAV BAR ─────────────────────────────── */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(4, 22, 40, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(109, 212, 240, 0.14);
+    padding: 0 24px;
+  }
+  .site-nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .site-nav-inner::-webkit-scrollbar { display: none; }
+  .site-nav-link {
+    display: inline-block;
+    padding: 14px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    color: rgba(196, 234, 248, 0.75);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .site-nav-link:hover,
+  .site-nav-link:focus {
+    color: var(--foam);
+    border-bottom-color: var(--sky);
+    outline: none;
+  }
+  .site-nav-link.nav-home {
+    color: var(--foam);
+    font-weight: 600;
+    margin-right: 8px;
+    border-right: 1px solid rgba(109,212,240,0.2);
+    padding-right: 20px;
+  }
+  @media (max-width: 600px) {
+    .site-nav { padding: 0 12px; }
+    .site-nav-link { padding: 12px 10px; font-size: 0.75rem; }
+  }
+
+  /* ─── BACK TO TOP BUTTON ─────────────────────────── */
+  #back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 28px;
+    z-index: 200;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(10, 75, 120, 0.85);
+    border: 1px solid rgba(109, 212, 240, 0.35);
+    color: var(--foam);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+  }
+  #back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  #back-to-top:hover {
+    background: rgba(18, 117, 168, 0.9);
+    border-color: var(--sky);
+  }
+
+  /* ─── SECTION SPACING INCREASE ──────────────────── */
+  .section-header {
+    margin-top: 96px !important;
+    margin-bottom: 36px !important;
+  }
+  @media (max-width: 600px) {
+    .section-header { margin-top: 64px !important; margin-bottom: 26px !important; }
+  }
+  </style>
+</head>
+<body>
+  <!-- Skip navigation — WCAG 2.4.1 -->
+  <a href="#main-content" class="skip-nav" style="
+    position:absolute;top:-100px;left:8px;
+    background:#003554;color:#fff;
+    padding:8px 18px;border-radius:0 0 8px 8px;
+    font-family:sans-serif;font-size:0.9rem;font-weight:700;
+    text-decoration:none;z-index:9999;
+    transition:top 0.2s;
+  " onFocus="this.style.top='0'" onBlur="this.style.top='-100px'">
+    Skip to main content
+  </a>
+
+  <!-- ═══ STICKY NAVIGATION ═══ -->
+  <nav class="site-nav" aria-label="Site sections">
+    <div class="site-nav-inner">
+      <a href="#main-content" class="site-nav-link nav-home">🌊 Hub</a>
+      <a href="#teacher-resources" class="site-nav-link">Teacher Resources</a>
+      <a href="#student-resources" class="site-nav-link">Student Resources</a>
+      <a href="#classroom-materials" class="site-nav-link">Classroom Materials</a>
+      <a href="#community-resources" class="site-nav-link">Community &amp; Ops</a>
+      <a href="#differentiated" class="site-nav-link">Differentiated</a>
+      <a href="#year910-advanced" class="site-nav-link">Yr 9–10 Advanced</a>
+      <a href="#australian-curriculum" class="site-nav-link">AC Alignment</a>
+    </div>
+  </nav>
+
+  <!-- ═══ LOGO ZONE ═══ -->
+  <div class="logo-zone">
+    <div class="logo-placeholder" title="Logo placeholder — add your school logo here">
+      <span class="logo-icon">🏫</span>
+      <span>Logo<br>here</span>
+    </div>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <!-- decorative bubbles -->
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+    <div class="curriculum-badge">
+      <span class="dot"></span>
+      Victorian Curriculum F–10 Version 2.0
+    </div>
+
+    <h1 class="hero-heading">
+      <span class="line1">Swim &amp; Water Safety</span>
+      <span class="line2">Teaching Hub</span>
+    </h1>
+
+    <p class="hero-sub">Victorian HPE · Year 7–8 &amp; Year 9–10 · Safety Focus Area</p>
+
+    <p class="hero-intro">
+      A complete, classroom-ready collection of water safety teaching resources for
+      <strong>Victorian secondary HPE</strong>. Fully aligned to the Victorian Curriculum
+      2.0, covering beach flags, rip currents, DRS&nbsp;ABCD emergency response, inland
+      waterway safety, and community health promotion — all deliverable as a
+      <strong>dry-land unit</strong>, no pool required.
+    </p>
+
+    <div class="hero-stats">
+      <span class="stat-chip"><strong>77</strong> resources</span>
+      <span class="stat-chip"><strong>5</strong> lesson plans</span>
+      <span class="stat-chip"><strong>14</strong> scenario cards</span>
+      <span class="stat-chip"><strong>4</strong> classroom posters</span>
+      <span class="stat-chip">Dry-land ready</span>
+      <span class="stat-chip">Yr 7–8: VC2HP8P08 · VC2HP8P09 · VC2HP8P10 · VC2HP8M01 &nbsp;|&nbsp; Yr 9–10: VC2HP10P02 · VC2HP10P08 · VC2HP10P09 · VC2HP10M01 &nbsp;|&nbsp; Cross-curricular English: VC2E8LY01 · VC2E9LY05 · VC2E9LY08</span>
+    </div>
+
+    <div class="download-all-wrap">
+      <a href="WaterSafety.zip" download="WaterSafety.zip" class="download-all-btn">
+        <span class="dl-icon">⬇</span>
+        <span>
+          Download All Resources
+          <span class="dl-sub">WaterSafety.zip · 86 files</span>
+        </span>
+      </a>
+      <a href="Copyright_Ownership_Licensing_Summary.html" target="_blank" rel="noopener" class="copyright-btn">
+        <span class="dl-icon">©</span>
+        <span>
+          Copyright Ownership &amp; Licensing
+          <span class="dl-sub">Swim &amp; Water Safety</span>
+        </span>
+      </a>
+      <a href="Copyright_Ownership_Licensing_Summary.pdf" download="Copyright_Ownership_Licensing_Summary.pdf" class="copyright-btn">
+        <span class="dl-icon">⬇</span>
+        <span>
+          Copyright Ownership &amp; Licensing
+          <span class="dl-sub">Download PDF</span>
+        </span>
+      </a>
+      <a href="water_safety_feedback_form.html" class="feedback-btn">
+        <span class="dl-icon">📨</span>
+        <span>
+          Provide Feedback
+          <span class="dl-sub">Resource evaluation form</span>
+        </span>
+      </a>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <span>Explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- wave into content -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z"
+            fill="rgba(10,75,120,0.18)"/>
+      <path d="M0,45 C360,15 720,55 1080,25 C1260,10 1380,40 1440,45 L1440,60 L0,60 Z"
+            fill="rgba(2,14,28,0.35)"/>
+    </svg>
+  </div>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <main class="content" id="main-content">
+
+    <!-- ── SECTION 1: TEACHER RESOURCES ── -->
+    <div class="section-header reveal" id="teacher-resources">
+      <div class="section-title-block">
+        <p class="section-label">01 — For the Teacher</p>
+        <h2 class="section-title">Teacher <em>Resources</em></h2>
+      </div>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="resource-grid">
+
+      <!-- Teacher Workbook HTML -->
+      <a href="swim_safety_teacher_workbook.html" target="_blank" rel="noopener" class="card reveal reveal-delay-1">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🍏</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Teacher Resource Guide</h3>
+        <p class="card-desc">
+          The complete teacher handbook — 5 fully structured lesson plans using the
+          Engage–Explore–Explain–Elaborate–Evaluate model, complete answer key,
+          organisation reference table, dry-land teaching approaches, and pastoral
+          care notes.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Lesson plans</span>
+          <span class="tag">Answer key</span>
+          <span class="tag">Teaching notes</span>
+          <span class="tag">VC2HP8P10</span>
+        </div>
+        <div class="card-link">
+          swim_safety_teacher_workbook.html
+          <span class="card-link-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Teacher Workbook PDF -->
+      <a href="swim_safety_teacher_workbook.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-2">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Teacher Resource Guide <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready PDF of the complete Teacher Resource Guide — 18 pages with
+          colour-coded lesson banners, formatted tables, curriculum codes, answer key,
+          rubrics, differentiation guidance, and a full resource directory. Ready to
+          print, file, or share with your HPE faculty.
+        </p>
+        <div class="card-tags">
+          <span class="tag">18 pages</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">A4 format</span>
+          <span class="tag">VIT evidence</span>
+        </div>
+        <div class="card-link">
+          swim_safety_teacher_workbook.pdf
+          <span class="card-link-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Y7-8 Teaching Deck PDF -->
+      <a href="Swim_Water_Safety_Year_7_8_HPE.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-3">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📋</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Year 7–8 Teaching Deck <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready PDF of the Year 7–8 HPE teaching slide deck. All 5 lessons in a single
+          document — Victorian drowning data, beach flags &amp; rip current survival, DRS ABCD
+          emergency response, hazard mapping, and personal action plan. Colour-coded by lesson.
+          Designed for projection or printing.
+        </p>
+        <div class="card-tags">
+          <span class="tag">5 lessons</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">Colour-coded</span>
+          <span class="tag">VC2HP8P08–VC2HP8P10</span>
+        </div>
+        <div class="card-link">Swim_Water_Safety_Year_7_8_HPE.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y7-8 Slide Deck PPTX -->
+      <a href="Swim_Water_Safety_Years_7-8.pptx" target="_blank" rel="noopener" class="card reveal reveal-delay-4">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🖥️</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Year 7–8 Classroom Slide Deck — PowerPoint</h3>
+        <p class="card-desc">
+          Editable PowerPoint slide deck for the full Year 7–8 Swim &amp; Water Safety unit.
+          Five lesson sequences covering Victoria's drowning data, beach flags, rip current survival
+          steps, DRS ABCD, inland waterway hazards, and the personal action plan assessment.
+          Includes exit tickets, scenario activities, and workbook prompts. Fully editable.
+        </p>
+        <div class="card-tags">
+          <span class="tag">5 lessons × 50 min</span>
+          <span class="tag">Editable PPTX</span>
+          <span class="tag">Scenarios &amp; exit tickets</span>
+          <span class="tag">VC2HP8P10 · VC2HP8P09</span>
+        </div>
+        <div class="card-link">Swim_Water_Safety_Years_7-8.pptx<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Slide Deck PPTX -->
+      <a href="Swim-Water-Safety_Years_9-10.pptx" target="_blank" rel="noopener" class="card reveal reveal-delay-5">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🖥️</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Year 9–10 Advanced Slide Deck — PowerPoint</h3>
+        <p class="card-desc">
+          Editable PowerPoint slide deck for the Year 9–10 Advanced Water Safety unit.
+          Six lesson sequences covering drowning rate calculations and global data trends,
+          physiology of drowning, social determinants of risk, prevention strategy evaluation,
+          diving and spinal injury content, and the assessed community project. Builds directly
+          on Year 7–8 knowledge. Fully editable.
+        </p>
+        <div class="card-tags">
+          <span class="tag">6 lessons × 50 min</span>
+          <span class="tag">Editable PPTX</span>
+          <span class="tag">Assessed unit</span>
+          <span class="tag">VC2HP10P02 · VC2HP10P08 · VC2HP10P09 · VC2HP10M01</span>
+        </div>
+        <div class="card-link">Swim-Water-Safety_Years_9-10.pptx<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Teaching Deck PDF -->
+      <a href="Advanced_Water_Safety_Year_9-10_HPE.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-6">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📋</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Year 9–10 Advanced Slide Deck <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready PDF of the Year 9–10 Advanced Water Safety teaching slide deck. All 6 lessons
+          in a single document — Victorian drowning data &amp; rate calculations, physiology of
+          drowning, social determinants of risk, prevention strategy evaluation, diving &amp; spinal
+          injury content, and the assessed community project. Designed for projection or printing.
+        </p>
+        <div class="card-tags">
+          <span class="tag">6 lessons</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">Assessed unit</span>
+          <span class="tag">VC2HP10P02 · VC2HP10P08 · VC2HP10P09 · VC2HP10M01</span>
+        </div>
+        <div class="card-link">Advanced_Water_Safety_Year_9-10_HPE.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Resource Directory -->
+      <a href="water_safety_resource_directory.html" target="_blank" rel="noopener" class="card reveal reveal-delay-6">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🗂</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Water Safety Resource Directory</h3>
+        <p class="card-desc">
+          A curated directory of all 11 key organisations — LSV, RLSSA, Paddle Australia,
+          Parks Victoria, VCAA, DE, AUSTSWIM, BeachSafe, Red Cross, CDC, and more —
+          with descriptions, dry-land applicability notes, and verified URLs.
+        </p>
+        <div class="card-tags">
+          <span class="tag">11 organisations</span>
+          <span class="tag">Verified URLs</span>
+          <span class="tag">Dry-land notes</span>
+        </div>
+        <div class="card-link">
+          water_safety_resource_directory.html
+          <span class="card-link-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Resource Directory PDF -->
+      <a href="water_safety_resource_directory.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-4">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Resource Directory <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready PDF of the complete resource directory. 28 organisations across
+          7 categories — Victorian Curriculum, Australian water safety, First Aid &amp;
+          Emergency, International, First Nations &amp; Cultural, Accessibility, and Typography.
+          Each entry includes role in the suite, URL, and curriculum relevance.
+        </p>
+        <div class="card-tags">
+          <span class="tag">28 organisations</span>
+          <span class="tag">7 categories</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+        </div>
+        <div class="card-link">water_safety_resource_directory.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+      <a href="water_safety_assessment_gradebook.html" target="_blank" rel="noopener" class="card reveal reveal-delay-4">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📊</div>
+          <span class="card-badge badge-assess">Assessment</span>
+        </div>
+        <h3 class="card-title">Assessment Gradebook</h3>
+        <p class="card-desc">
+          Interactive four-tab assessment tool: full A–E rubric across 7 criteria
+          mapped to curriculum codes, curriculum alignment table with cross-curricular
+          links, an editable class gradebook, and a report comment generator that
+          writes Victorian Curriculum-aligned report comments automatically.
+        </p>
+        <div class="card-tags">
+          <span class="tag">A–E rubric</span>
+          <span class="tag">Report comments</span>
+          <span class="tag">Class tracker</span>
+          <span class="tag">Interactive</span>
+        </div>
+        <div class="card-link">
+          water_safety_assessment_gradebook.html
+          <span class="card-link-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Quiz Question Bank -->
+      <a href="water_safety_quiz_question_bank.html" target="_blank" rel="noopener" class="card reveal reveal-delay-5">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📝</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Quiz Question Bank</h3>
+        <p class="card-desc">
+          30 ready-to-use questions across all 5 lessons — 21 multiple choice, 6 true/false,
+          3 image-based. Each question includes difficulty rating, correct answer highlighted,
+          teaching note, and instructions for loading into Kahoot or Quizlet.
+        </p>
+        <div class="card-tags">
+          <span class="tag">30 questions</span>
+          <span class="tag">Kahoot ready</span>
+          <span class="tag">Quizlet ready</span>
+          <span class="tag">Easy/Med/Hard</span>
+        </div>
+        <div class="card-link">water_safety_quiz_question_bank.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Relief Teacher Pack -->
+      <a href="water_safety_relief_teacher_pack.html" target="_blank" rel="noopener" class="card reveal reveal-delay-6">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🔄</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Relief / Substitute Teacher Pack</h3>
+        <p class="card-desc">
+          Fully self-contained 50-minute lesson requiring zero specialist HPE knowledge.
+          Includes a timed lesson script, 6 scenario cards for structured group activity,
+          facilitator prompts, a DRS ABCD quick-reference panel, and a recording sheet
+          to leave for the classroom teacher.
+        </p>
+        <div class="card-tags">
+          <span class="tag">50 min self-contained</span>
+          <span class="tag">6 scenario cards</span>
+          <span class="tag">No prep required</span>
+          <span class="tag">Recording sheet</span>
+        </div>
+        <div class="card-link">water_safety_relief_teacher_pack.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Relief Teacher Pack PDF -->
+      <a href="water_safety_relief_teacher_pack.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-7">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Relief / Substitute Teacher Pack <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready 7-page PDF of the self-contained relief teacher pack. Includes
+          navy cover with at-a-glance lesson timing, quick start guide, lesson plan with
+          5 timed phases, all 6 scenario cards, DRS ABCD reference strip, key facts
+          panel, and a fill-in recording sheet.
+        </p>
+        <div class="card-tags">
+          <span class="tag">7 pages</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">Recording sheet included</span>
+        </div>
+        <div class="card-link">water_safety_relief_teacher_pack.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Student Digital Portfolio -->
+      <a href="student_digital_portfolio.html" target="_blank" rel="noopener" class="card reveal reveal-delay-7">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">💻</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Student Digital Portfolio</h3>
+        <p class="card-desc">
+          Interactive auto-saving portfolio for all 5 lessons. Each lesson accordion
+          contains evidence collection fields, BeachSafe research recording, and
+          3-button self-assessment. Saves automatically every 2 seconds. Progress bars,
+          unit reflection, and star rating. Print-to-PDF for permanent records.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Auto-saves</span>
+          <span class="tag">5 lesson sections</span>
+          <span class="tag">Self-assessment</span>
+          <span class="tag">Print to PDF</span>
+        </div>
+        <div class="card-link">student_digital_portfolio.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <a href="water_safety_unit_overview.html" target="_blank" rel="noopener" class="card reveal reveal-delay-1">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🗺️</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Unit Overview &amp; Scope and Sequence</h3>
+        <p class="card-desc">Complete map of the 50+ resource suite across both year levels. Lesson-by-lesson resource map for Year 7–8 and Year 9–10, assessment touchpoints, curriculum alignment by code, and a full resource directory with every file listed.</p>
+        <div class="card-tags"><span class="tag">Year 7–8 &amp; 9–10</span><span class="tag">43+ resources mapped</span><span class="tag">Lesson plans</span><span class="tag">Curriculum codes</span></div>
+        <div class="card-link">water_safety_unit_overview.html<span class="card-link-arrow">→</span></div>
+      </a>
+      <a href="water_safety_unit_overview.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-2">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Unit Overview &amp; Scope and Sequence <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">Print-ready PDF of the unit overview. Year 7–8 and Year 9–10 lesson sequence tables, full curriculum alignment codes, and complete resource directory. Ideal for course planning and faculty review.</p>
+        <div class="card-tags"><span class="tag">A4 portrait</span><span class="tag">Print ready</span><span class="tag">Lesson maps</span><span class="tag">Curriculum codes</span></div>
+        <div class="card-link">water_safety_unit_overview.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+      <a href="water_safety_teacher_professional_learning.html" target="_blank" rel="noopener" class="card reveal reveal-delay-3">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📚</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Teacher Professional Learning Notes</h3>
+        <p class="card-desc">Background reading, research base, teacher content knowledge guide, common student misconceptions to address, first aid currency requirements by activity type, and professional learning pathways including LSV PD, AUSTSWIM, and culturally responsive practice.</p>
+        <div class="card-tags"><span class="tag">All year levels</span><span class="tag">Research base</span><span class="tag">First aid currency</span><span class="tag">PL pathways</span></div>
+        <div class="card-link">water_safety_teacher_professional_learning.html<span class="card-link-arrow">→</span></div>
+      </a>
+      <a href="water_safety_teacher_professional_learning.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-4">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Teacher Professional Learning Notes <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">Print-ready PDF of the teacher professional learning notes. Key statistics, content knowledge guide, misconceptions list, first aid certification requirements table, and PL pathway directory.</p>
+        <div class="card-tags"><span class="tag">A4 portrait</span><span class="tag">Print ready</span><span class="tag">Evidence base</span><span class="tag">PL pathways</span></div>
+        <div class="card-link">water_safety_teacher_professional_learning.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+      <a href="water_safety_cultural_considerations.html" target="_blank" rel="noopener" class="card reveal reveal-delay-5">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🌿</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Acknowledgement of Country &amp; Cultural Considerations</h3>
+        <p class="card-desc">Guidance for teaching water safety in a culturally responsive way. First Nations perspectives on waterways and Country, structural inequity framing for CALD drowning data, classroom do/avoid practice table, protocols for integrating First Nations knowledge, and a further resources directory.</p>
+        <div class="card-tags"><span class="tag">All year levels</span><span class="tag">First Nations perspectives</span><span class="tag">CALD responsive</span><span class="tag">Cross-curriculum priority</span></div>
+        <div class="card-link">water_safety_cultural_considerations.html<span class="card-link-arrow">→</span></div>
+      </a>
+      <a href="water_safety_cultural_considerations.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-6">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Acknowledgement of Country &amp; Cultural Considerations <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">Print-ready PDF of the cultural considerations resource. Includes the full Acknowledgement of Country, First Nations over-representation framing, classroom practice table, protocols, and further resources.</p>
+        <div class="card-tags"><span class="tag">A4 portrait</span><span class="tag">Print ready</span><span class="tag">ATSI cross-curriculum</span></div>
+        <div class="card-link">water_safety_cultural_considerations.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+    </div>
+
+    <!-- ── SECTION 2: STUDENT RESOURCES ── -->
+    <div class="section-header reveal" id="student-resources">
+      <div class="section-title-block">
+        <p class="section-label">02 — For the Student</p>
+        <h2 class="section-title">Student <em>Resources</em></h2>
+      </div>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="resource-grid">
+
+      <!-- Student Workbook -->
+      <a href="swim_safety_student_workbook.html" target="_blank" rel="noopener" class="card reveal reveal-delay-1">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📚</div>
+          <span class="card-badge badge-student">Student</span>
+        </div>
+        <h3 class="card-title">Student Workbook</h3>
+        <p class="card-desc">
+          Six-section interactive workbook covering Victorian drowning data analysis,
+          beach flag identification, rip current escape, DRS ABCD emergency response,
+          hazard mapping, SwimSafe rules, throw rescue ranking, and a communication
+          campaign assessment task.
+        </p>
+        <div class="card-tags">
+          <span class="tag">6 sections</span>
+          <span class="tag">~35 activities</span>
+          <span class="tag">Self-assessment</span>
+          <span class="tag">Year 7–8</span>
+        </div>
+        <div class="card-link">
+          swim_safety_student_workbook.html
+          <span class="card-link-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Student Workbook PDF -->
+      <a href="swim_safety_student_workbook.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-2">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Student Workbook <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready PDF of the complete Student Workbook — 15 pages, A4 portrait,
+          light blue cover. Black and white throughout for economical printing, with
+          colour preserved only where essential: the beach flag diagrams (Activity 2.1)
+          and rip current diagram (Activity 2.2). Suitable for printing as a class set.
+        </p>
+        <div class="card-tags">
+          <span class="tag">15 pages</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">B&amp;W + colour where needed</span>
+        </div>
+        <div class="card-link">
+          swim_safety_student_workbook.pdf
+          <span class="card-link-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Student Workbook Print -->
+      <a href="swim_safety_student_workbook_PRINT.html" target="_blank" rel="noopener" class="card reveal reveal-delay-3">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🖨</div>
+          <span class="card-badge badge-print">Print</span>
+        </div>
+        <h3 class="card-title">Student Workbook <span style="color:var(--sand);font-style:italic;">Print Version</span></h3>
+        <p class="card-desc">
+          Print-optimised, predominantly black-and-white version of the student workbook —
+          designed for economical photocopying as a class set. Colour is preserved only
+          where essential: the beach flag diagrams (Activity 2.1) and rip current SVG
+          diagram (Activity 2.2).
+        </p>
+        <div class="card-tags">
+          <span class="tag">B&amp;W photocopy friendly</span>
+          <span class="tag">Colour where needed</span>
+          <span class="tag">A4 portrait</span>
+        </div>
+        <div class="card-link">
+          swim_safety_student_workbook_PRINT.html
+          <span class="card-link-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Lesson Outline Year 7 -->
+      <a href="swim_safety_lesson_outline_year7.html" target="_blank" rel="noopener" class="card reveal reveal-delay-4">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🗓</div>
+          <span class="card-badge badge-plan">Lesson Plan</span>
+        </div>
+        <h3 class="card-title">Year 7 Lesson Outline</h3>
+        <p class="card-desc">
+          Student-facing lesson outline for all five lessons — colour-coded lesson cards,
+          Learning Intentions, Success Criteria (3 per lesson, aligned to curriculum codes),
+          lesson phase summaries with timings, key vocabulary lists, and end-of-lesson
+          reflection prompts. Distribute at unit start.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Success criteria</span>
+          <span class="tag">Learning intentions</span>
+          <span class="tag">Vocab lists</span>
+          <span class="tag">Self-assessment</span>
+        </div>
+        <div class="card-link">
+          swim_safety_lesson_outline_year7.html
+          <span class="card-link-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Year 7-8 Student Lesson Outline PDF -->
+      <a href="swim_safety_lesson_outline_year7.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-5">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Student Lesson Outline — Year 7–8 <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready PDF of the Year 7–8 student lesson outline. All 5 lessons with
+          learning intentions, success criteria with tick boxes, key vocabulary, and
+          end-of-lesson reflection prompts. Assessment overview table included.
+          Distribute to students at the start of the unit.
+        </p>
+        <div class="card-tags">
+          <span class="tag">5 lessons</span>
+          <span class="tag">Tick boxes</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+        </div>
+        <div class="card-link">swim_safety_lesson_outline_year7.pdf<span class="card-link-arrow">→</span></div>
+      </a>    </div>
+
+
+      <a href="water_safety_student_self_assessment.html" target="_blank" rel="noopener" class="card reveal reveal-delay-1">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📝</div>
+          <span class="card-badge badge-student">Student</span>
+        </div>
+        <h3 class="card-title">Student Self-Assessment &amp; Reflection Tool — Year 7–8</h3>
+        <p class="card-desc">Interactive self-assessment with smiley-face rating buttons across 4 sections: beach and water safety knowledge, emergency response, decision making, and practical skills. Includes 5 open reflection questions and a goal-setter for after the unit. Teacher feedback section included.</p>
+        <div class="card-tags"><span class="tag">Year 7–8</span><span class="tag">Interactive rating</span><span class="tag">Reflection questions</span><span class="tag">Goal setter</span></div>
+        <div class="card-link">water_safety_student_self_assessment.html<span class="card-link-arrow">→</span></div>
+      </a>
+      <a href="water_safety_student_self_assessment.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-2">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Student Self-Assessment Tool — Year 7–8 <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">Print-ready PDF of the Year 7–8 student self-assessment and reflection tool. All 4 checklist sections with tick-box rating scale, 5 open reflection questions with answer lines, and a goal-setter panel.</p>
+        <div class="card-tags"><span class="tag">4 pages</span><span class="tag">A4 portrait</span><span class="tag">Print ready</span><span class="tag">Tick boxes</span></div>
+        <div class="card-link">water_safety_student_self_assessment.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <a href="water_safety_interactive_quiz.html" target="_blank" rel="noopener" class="card reveal reveal-delay-3">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🎯</div>
+          <span class="card-badge badge-student">Student &amp; Teacher</span>
+        </div>
+        <h3 class="card-title">Interactive Self-Contained Quiz</h3>
+        <p class="card-desc">Browser-based quiz requiring no login, no Kahoot account, and no internet dependency. Four modes: Year 7–8 only (20 questions), Year 9–10 only (20 questions), Mixed all levels (25 questions), and Quick Fire (10 random). Instant feedback with explanation after each question. Results by topic with breakdown.</p>
+        <div class="card-tags"><span class="tag">No login required</span><span class="tag">40 questions total</span><span class="tag">4 quiz modes</span><span class="tag">Instant feedback</span></div>
+        <div class="card-link">water_safety_interactive_quiz.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Swimming Carnival Student Briefing HTML -->
+      <a href="swimming_carnival_student_briefing.html" target="_blank" rel="noopener" class="card reveal reveal-delay-3">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🏊</div>
+          <span class="card-badge badge-student">Student</span>
+        </div>
+        <h3 class="card-title">Swimming Carnival Student Briefing</h3>
+        <p class="card-desc">
+          Student-facing carnival briefing covering the six safety rules, distress signal,
+          what to bring checklist, location finder, medical conditions guidance, Throw Don't Go
+          do/don't table, DRS ABCD strip, behaviour expectations, and a student acknowledgement
+          sign-off. Designed to be distributed and read before carnival day.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Year 7–10</span>
+          <span class="tag">VC2HP8P08 · VC2HP8P09</span>
+          <span class="tag">VC2HP8M01</span>
+          <span class="tag">Carnival day</span>
+        </div>
+        <div class="card-link">swimming_carnival_student_briefing.html<span class="card-link-arrow">→</span></div>
+      </a>
+      <!-- Swimming Carnival Student Briefing PDF -->
+      <a href="swimming_carnival_student_briefing.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-4">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Swimming Carnival Student Briefing <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready 4-page PDF. Colour-coded rule cards, DRS ABCD strip with gold letter
+          badges, Do/Don't rescue table, and student acknowledgement sign-off block.
+          Distribute one per student before the carnival.
+        </p>
+        <div class="card-tags">
+          <span class="tag">4 pages</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">Sign-off block</span>
+        </div>
+        <div class="card-link">swimming_carnival_student_briefing.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+    </div>
+
+    <!-- ── SECTION 3: CLASSROOM MATERIALS ── -->
+    <div class="section-header reveal" id="classroom-materials">
+      <div class="section-title-block">
+        <p class="section-label">03 — Print &amp; Display</p>
+        <h2 class="section-title">Classroom <em>Materials</em></h2>
+      </div>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="resource-grid two-col">
+
+      <!-- Poster Pack -->
+      <a href="swim_safety_poster_pack.html" target="_blank" rel="noopener" class="card reveal reveal-delay-1">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🖼</div>
+          <span class="card-badge badge-print">Poster Pack</span>
+        </div>
+        <h3 class="card-title">Classroom Poster Pack</h3>
+        <p class="card-desc">
+          Four A3 colour posters for permanent classroom display throughout the unit —
+          Poster 1: DRS ABCD Emergency Response with Throw Don't Go rule; Poster 2: Beach
+          Flags &amp; Water Safety signals; Poster 3: Victorian Drowning Statistics (LSV 2023–24
+          data); Poster 4: LSV SwimSafe 5 Rules. Laminate for best results.
+        </p>
+        <div class="card-tags">
+          <span class="tag">4 posters</span>
+          <span class="tag">A3 colour</span>
+          <span class="tag">DRS ABCD</span>
+          <span class="tag">Beach flags</span>
+          <span class="tag">SwimSafe rules</span>
+          <span class="tag">LSV data</span>
+        </div>
+        <div class="card-link">
+          swim_safety_poster_pack.html
+          <span class="card-link-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Scenario Cards -->
+      <a href="water_safety_scenario_cards.html" target="_blank" rel="noopener" class="card reveal reveal-delay-2">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🎴</div>
+          <span class="card-badge badge-print">Activity Cards</span>
+        </div>
+        <h3 class="card-title">Scenario Activity Cards</h3>
+        <p class="card-desc">
+          14 printable scenario cards covering beach, river, pool, emergency response, and
+          decision-making situations — all set in realistic Victorian contexts. Includes
+          teacher answer reveals (screen-only), 3 extension research cards, and a peer
+          pressure/alcohol scenario. Print, laminate, and use as station rotations.
+        </p>
+        <div class="card-tags">
+          <span class="tag">14 scenario cards</span>
+          <span class="tag">3 extension cards</span>
+          <span class="tag">Station rotations</span>
+          <span class="tag">Answer reveals</span>
+          <span class="tag">Victorian contexts</span>
+        </div>
+        <div class="card-link">
+          water_safety_scenario_cards.html
+          <span class="card-link-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Glossary HTML -->
+      <a href="water_safety_glossary.html" target="_blank" rel="noopener" class="card reveal reveal-delay-3">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📖</div>
+          <span class="card-badge badge-student">Student &amp; Teacher</span>
+        </div>
+        <h3 class="card-title">Glossary of Terms &amp; Acronyms</h3>
+        <p class="card-desc">
+          Comprehensive alphabetical reference of every term, acronym, organisation,
+          and curriculum code used across the full resource suite — for Year 7–8 and
+          Year 9–10. Includes searchable live filter, colour-coded categories
+          (Organisation, Curriculum, Medical, Water Safety, Legal, General), and
+          source URLs for every entry.
+        </p>
+        <div class="card-tags">
+          <span class="tag">70+ terms</span>
+          <span class="tag">Searchable</span>
+          <span class="tag">Yr 7–8 &amp; 9–10</span>
+          <span class="tag">Source links</span>
+        </div>
+        <div class="card-link">water_safety_glossary.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Glossary PDF -->
+      <a href="water_safety_glossary.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-4">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Glossary of Terms &amp; Acronyms <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready PDF of the full glossary. Alphabetically ordered with letter
+          dividers, colour-coded category bars, and definition + source for every
+          entry. Ideal for student reference booklets or classroom display.
+        </p>
+        <div class="card-tags">
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">Colour-coded</span>
+          <span class="tag">Yr 7–8 &amp; 9–10</span>
+        </div>
+        <div class="card-link">water_safety_glossary.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <a href="water_safety_diverse_learners.html" target="_blank" rel="noopener" class="card reveal reveal-delay-5">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🌈</div>
+          <span class="card-badge badge-student">Student</span>
+        </div>
+        <h3 class="card-title">Adaptation for Diverse Learners — Visual Guide</h3>
+        <p class="card-desc">Heavily visual, low-text version of core Year 7–8 water safety content. Large emoji icons, simple language (approx. Year 4–5 reading level), colour-coded flag guide, step-by-step rip current escape, DRS ABCD visual strip, do/don't rescue comparison, and a quick-check question section. For EAL/D learners, students with learning difficulties, and low-literacy students.</p>
+        <div class="card-tags"><span class="tag">Large icons</span><span class="tag">Simple language</span><span class="tag">EAL/D friendly</span><span class="tag">Low literacy</span></div>
+        <div class="card-link">water_safety_diverse_learners.html<span class="card-link-arrow">→</span></div>
+      </a>
+      <a href="water_safety_diverse_learners.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-6">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Adaptation for Diverse Learners — Visual Guide <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">Print-ready PDF of the diverse learners visual guide. All core Year 7–8 water safety content with large icons and simple language. Ideal for laminating or inclusion in student workbooks.</p>
+        <div class="card-tags"><span class="tag">A4 portrait</span><span class="tag">Print ready</span><span class="tag">Large icons</span><span class="tag">EAL/D</span></div>
+        <div class="card-link">water_safety_diverse_learners.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Structured Debate Framework HTML -->
+      <a href="water_safety_debate_framework.html" target="_blank" rel="noopener" class="card reveal reveal-delay-5">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🗣</div>
+          <span class="card-badge badge-student">Student &amp; Teacher</span>
+        </div>
+        <h3 class="card-title">Structured Debate &amp; Persuasive Discussion Framework</h3>
+        <p class="card-desc">
+          Complete tabbed framework: overview and curriculum rationale, 12 debate motions
+          (6 × Year 7–8, 6 × Year 9–10), debate structure and speaker roles, 4-block argument
+          scaffold with sentence starters, AREA rebuttal method, assessment rubric (5 criteria
+          × 4 levels), and student self-assessment with outlined rating boxes.
+          Cross-curricular HPE + English (VC2E9LY05 · VC2E9LY08).
+        </p>
+        <div class="card-tags">
+          <span class="tag">Year 7–10</span>
+          <span class="tag">Cross-curricular</span>
+          <span class="tag">VC2HP8P10 · VC2HP10P08 · VC2E9LY05 · VC2E9LY08</span>
+          <span class="tag">12 motions</span>
+        </div>
+        <div class="card-link">water_safety_debate_framework.html<span class="card-link-arrow">→</span></div>
+      </a>
+      <!-- Structured Debate Framework PDF -->
+      <a href="water_safety_debate_framework.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-6">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Structured Debate &amp; Persuasive Discussion Framework <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready 5-page PDF. All 12 debate motions, debate structure and roles table,
+          4-block argument scaffold, AREA rebuttal method, 5-criterion assessment rubric,
+          and self-assessment with aligned outlined rating boxes.
+        </p>
+        <div class="card-tags">
+          <span class="tag">5 pages</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">Rubric included</span>
+        </div>
+        <div class="card-link">water_safety_debate_framework.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Myths vs Facts Poster -->
+      <a href="water_safety_myths_facts_poster.html" target="_blank" rel="noopener" class="card featured reveal reveal-delay-1">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🖼</div>
+          <span class="card-badge badge-student">Print &amp; Display</span>
+        </div>
+        <h3 class="card-title">Myths vs Facts — Diving &amp; Shallow Water Safety Poster</h3>
+        <p class="card-desc">
+          A3 landscape print-and-laminate poster covering 10 common student myths about
+          diving and shallow water — each paired with an evidence-based factual refutation.
+          Includes Australian statistics (10% of spinal injuries, 95% male, 66% permanent
+          disability), the 5 rules, and three real Australian case studies.
+          Optimised for classroom display and lamination. Year 7–8.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Year 7–8</span>
+          <span class="tag">A3 landscape</span>
+          <span class="tag">Print &amp; laminate</span>
+          <span class="tag">10 myth/fact pairs</span>
+        </div>
+        <div class="card-link">water_safety_myths_facts_poster.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Quiz Question Bank PDF -->
+      <a href="water_safety_quiz_question_bank.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-2">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Quiz Question Bank <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready 7-page PDF of all 38 quiz questions across 6 sections — Victorian drowning statistics,
+          beach flags &amp; rip currents, DRS ABCD, SwimSafe rules &amp; inland waterways, community responsibility,
+          and the new Section 6 covering diving, spinal injuries &amp; high-risk teenage behaviour.
+          Each question colour-coded by difficulty with full answer keys.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Year 7–10</span>
+          <span class="tag">38 questions</span>
+          <span class="tag">6 sections</span>
+          <span class="tag">Print ready</span>
+        </div>
+        <div class="card-link">water_safety_quiz_question_bank.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+    </div>
+
+<!-- ── SECTION 4: SUPPORT & COMMUNITY RESOURCES ── -->
+    <div class="section-header reveal" id="community-resources">
+      <div class="section-title-block">
+        <p class="section-label">04 — Support Resources</p>
+        <h2 class="section-title">Community, Family &amp; <em>Operational</em></h2>
+      </div>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="resource-grid">
+
+      <!-- Parent Info Multilingual -->
+      <a href="water_safety_parent_info_multilingual.html" target="_blank" rel="noopener" class="card reveal reveal-delay-1">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🌏</div>
+          <span class="card-badge badge-print">Family</span>
+        </div>
+        <h3 class="card-title">Parent Information Sheet — Multilingual</h3>
+        <p class="card-desc">
+          Print-ready A4 take-home flyer in four languages: English, Simplified Chinese,
+          Hindi, and Burmese. Covers SwimSafe rules, beach flags, rip current response,
+          family action tips, and the 000 emergency strip. Machine-translation caveat
+          included; links to LSV professional translations.
+        </p>
+        <div class="card-tags">
+          <span class="tag">English</span>
+          <span class="tag">中文</span>
+          <span class="tag">हिन्दी</span>
+          <span class="tag">မြန်မာ</span>
+          <span class="tag">Print A4</span>
+        </div>
+        <div class="card-link">water_safety_parent_info_multilingual.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Swimming Carnival Safety Briefing -->
+      <a href="swimming_carnival_safety_briefing.html" target="_blank" rel="noopener" class="card reveal reveal-delay-2">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🏊</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Swimming Carnival Safety Briefing</h3>
+        <p class="card-desc">
+          Three-tab document for carnival day: Student Briefing (with signature strip),
+          Teacher Checklist (pre-carnival and morning-of), and Emergency Reference Card
+          (laminate for poolside). DRS ABCD quick reference, AED guide, key contacts form,
+          and DE policy link included.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Student briefing</span>
+          <span class="tag">Teacher checklist</span>
+          <span class="tag">Emergency card</span>
+          <span class="tag">Laminate ready</span>
+        </div>
+        <div class="card-link">swimming_carnival_safety_briefing.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Swimming Carnival Safety Briefing PDF -->
+      <a href="swimming_carnival_safety_briefing.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-3">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Swimming Carnival Safety Briefing <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready PDF of the three-tab carnival day safety briefing. Includes the
+          student briefing with signature strip, teacher pre-carnival and morning-of
+          checklist, and the laminate-ready poolside emergency reference card with
+          DRS ABCD, AED guide, and key contacts form.
+        </p>
+        <div class="card-tags">
+          <span class="tag">3 sections</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">Laminate card included</span>
+        </div>
+        <div class="card-link">swimming_carnival_safety_briefing.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Excursion Risk Management HTML -->
+      <a href="water_safety_excursion_risk_management.html" target="_blank" rel="noopener" class="card reveal reveal-delay-3">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📋</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Excursion Risk Management Template</h3>
+        <p class="card-desc">
+          Complete water-based excursion risk management document aligned to DE policy.
+          Covers excursion details, supervision arrangements, student medical considerations,
+          a 12-row hazard register with pre-populated controls, emergency procedures,
+          pre-departure checklist, contingency plan, and principal sign-off.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Hazard register</span>
+          <span class="tag">DE policy aligned</span>
+          <span class="tag">Pre-populated</span>
+          <span class="tag">Sign-off included</span>
+        </div>
+        <div class="card-link">water_safety_excursion_risk_management.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Excursion Risk Management PDF -->
+      <a href="water_safety_excursion_risk_management.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-4">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Excursion Risk Management <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready 6-page PDF of the excursion risk management template. Includes
+          navy cover page with school/date/year level fields, colour-coded hazard register
+          (HIGH / MEDIUM / LOW), emergency procedures, 20-item pre-departure checklist,
+          contingency plan, and three-column signature sign-off.
+        </p>
+        <div class="card-tags">
+          <span class="tag">6 pages</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">Colour-coded risk levels</span>
+        </div>
+        <div class="card-link">water_safety_excursion_risk_management.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <a href="advanced_water_safety_year910_parent_info.html" target="_blank" rel="noopener" class="card reveal reveal-delay-5">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">👨‍👩‍👧</div>
+          <span class="card-badge badge-family">Family</span>
+        </div>
+        <h3 class="card-title">Parent &amp; Carer Information Sheet — Year 9–10</h3>
+        <p class="card-desc">One-page family communication resource for the Year 9–10 advanced unit. Explains what students are learning, how the summative assessment task works (all three options), how parents can support learning at home with conversation starters, and key research websites. Includes a returnable tear-off slip.</p>
+        <div class="card-tags"><span class="tag">Year 9–10</span><span class="tag">Family communication</span><span class="tag">Tear-off slip</span><span class="tag">Conversation starters</span></div>
+        <div class="card-link">advanced_water_safety_year910_parent_info.html<span class="card-link-arrow">→</span></div>
+      </a>
+      <a href="advanced_water_safety_year910_parent_info.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-6">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Parent &amp; Carer Information — Year 9–10 <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">Print-ready PDF of the Year 9–10 parent and carer information sheet. Ideal for distribution at the start of the unit. Includes school detail fields and returnable acknowledgement slip.</p>
+        <div class="card-tags"><span class="tag">A4 portrait</span><span class="tag">Print ready</span><span class="tag">Tear-off</span><span class="tag">3 pages</span></div>
+        <div class="card-link">advanced_water_safety_year910_parent_info.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Parent Info Sheet HTML -->
+      <a href="water_safety_parent_info_sheet.html" target="_blank" rel="noopener" class="card reveal reveal-delay-5">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">👨‍👩‍👧</div>
+          <span class="card-badge badge-family">Family</span>
+        </div>
+        <h3 class="card-title">Water Safety for Families — Parent Information Sheet</h3>
+        <p class="card-desc">
+          A concise single-page parent/guardian information sheet covering the key water safety
+          messages from the unit — beach flags, rip currents, DRS ABCD, inland waterway dangers,
+          and how to reinforce learning at home. Designed to accompany the unit overview and
+          parent permission information. Can be printed or sent home digitally.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Year 7–8</span>
+          <span class="tag">Family resource</span>
+          <span class="tag">Send home</span>
+          <span class="tag">Print or digital</span>
+        </div>
+        <div class="card-link">water_safety_parent_info_sheet.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+    </div>
+
+<!-- ── SECTION 5: DIFFERENTIATED WORKBOOKS ── -->
+    <div class="section-header reveal" id="differentiated">
+      <div class="section-title-block">
+        <p class="section-label">05 — Differentiated Resources · Year 7–8</p>
+        <h2 class="section-title">Differentiated <em>Workbooks</em></h2>
+      </div>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="resource-grid">
+
+      <!-- Simplified Workbook HTML -->
+      <a href="swim_safety_workbook_simplified.html" target="_blank" rel="noopener" class="card reveal reveal-delay-1">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📖</div>
+          <span class="card-badge badge-student">Student</span>
+        </div>
+        <h3 class="card-title">Simplified Workbook — Scaffolded</h3>
+        <p class="card-desc">
+          Scaffolded version of the Year 7–8 workbook for students with lower literacy,
+          EAL/D learners, or learning difficulties. Features word banks, sentence starters,
+          and circle-choice activities throughout. Same content coverage as the standard
+          workbook. Colour preserved for Activities 2.1 and 2.2.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Word banks</span>
+          <span class="tag">Sentence starters</span>
+          <span class="tag">Circle choices</span>
+          <span class="tag">EAL/D friendly</span>
+        </div>
+        <div class="card-link">swim_safety_workbook_simplified.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Simplified Workbook PDF -->
+      <a href="swim_safety_workbook_simplified.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-2">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Simplified Workbook <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready PDF of the simplified workbook. A4 portrait, B&amp;W throughout
+          for economical printing, with colour preserved for the beach flag diagram
+          (Activity 2.1) and rip current diagram (Activity 2.2).
+        </p>
+        <div class="card-tags">
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">B&amp;W + colour where needed</span>
+        </div>
+        <div class="card-link">swim_safety_workbook_simplified.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Extension Workbook HTML -->
+      <a href="swim_safety_workbook_extension.html" target="_blank" rel="noopener" class="card reveal reveal-delay-3">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🔬</div>
+          <span class="card-badge badge-student">Student</span>
+        </div>
+        <h3 class="card-title">Extension Workbook — Enrichment</h3>
+        <p class="card-desc">
+          Deeper analysis on all 6 Year 7–8 topics for high-ability students. Features
+          rate calculations, physics of rip currents, CPR physiology, social determinant
+          analysis, cold water shock sequence, and a sophisticated 3-option assessment
+          task. Research and evidence-based argument required throughout.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Data analysis</span>
+          <span class="tag">Physiological depth</span>
+          <span class="tag">Policy argument</span>
+          <span class="tag">Research required</span>
+        </div>
+        <div class="card-link">swim_safety_workbook_extension.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Extension Workbook PDF -->
+      <a href="swim_safety_workbook_extension.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-4">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Extension Workbook <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready PDF of the extension workbook. A4 portrait, dark-themed cover,
+          B&amp;W content with colour preserved for Activities 2.1 and 2.2.
+        </p>
+        <div class="card-tags">
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">Extension level</span>
+        </div>
+        <div class="card-link">swim_safety_workbook_extension.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <a href="advanced_water_safety_year910_extension.html" target="_blank" rel="noopener" class="card reveal reveal-delay-3">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">⭐</div>
+          <span class="card-badge badge-student">Student</span>
+        </div>
+        <h3 class="card-title">Extension Workbook — Year 9–10</h3>
+        <p class="card-desc">Differentiated extension workbook for high-achieving Year 9–10 students. Five sections requiring original research: statistical modelling (3-year trend with extrapolation), physiological mechanism analysis, intersectionality application, health equity argument (equality vs equity), cost-effectiveness analysis, and original WHO policy research. All questions require primary source citations.</p>
+        <div class="card-tags"><span class="tag">Year 9–10</span><span class="tag">Original research</span><span class="tag">Statistical modelling</span><span class="tag">Primary sources required</span></div>
+        <div class="card-link">advanced_water_safety_year910_extension.html<span class="card-link-arrow">→</span></div>
+      </a>
+      <a href="advanced_water_safety_year910_extension.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-4">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Extension Workbook — Year 9–10 <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">Print-ready PDF of the Year 9–10 extension workbook. All 5 sections with answer spaces, data tables, and an extension self-assessment checklist.</p>
+        <div class="card-tags"><span class="tag">7 pages</span><span class="tag">A4 portrait</span><span class="tag">Print ready</span><span class="tag">Answer spaces</span></div>
+        <div class="card-link">advanced_water_safety_year910_extension.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+    </div>
+
+    <!-- ── SECTION 6: YEAR 9-10 ADVANCED ── -->
+    <div class="section-header reveal" id="year910-advanced">
+      <div class="section-title-block">
+        <p class="section-label">06 — Advanced Unit · Year 9–10</p>
+        <h2 class="section-title">Year 9–10 <em>Advanced Resources</em></h2>
+        <p class="section-sub" style="font-size:0.8rem;color:var(--muted);margin-top:6px;font-family:'DM Mono',monospace;letter-spacing:0.5px;">VC2HP10P02 &nbsp;·&nbsp; VC2HP10P08 &nbsp;·&nbsp; VC2HP10P09 &nbsp;·&nbsp; VC2HP10M01 &nbsp;·&nbsp; VC2E9LY05 &nbsp;·&nbsp; VC2E9LY08</p>
+      </div>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="resource-grid">
+
+      <!-- Pool Practical Companion -->
+      <a href="pool_practical_companion_unit.html" target="_blank" rel="noopener" class="card reveal reveal-delay-4">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🏊</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Pool-Based Practical Companion</h3>
+        <p class="card-desc">
+          4-session practical unit pairing theory with poolside skills: survival float,
+          treading water, 50m distance swim, throw rescue, clothed float, and distress
+          signalling. Includes teacher lesson plans, student skills checklist with
+          self-assessment, and an E–A observation rubric with class record sheet.
+        </p>
+        <div class="card-tags">
+          <span class="tag">4 pool sessions</span>
+          <span class="tag">Skills checklist</span>
+          <span class="tag">Observation rubric</span>
+          <span class="tag">VC2HP8M01</span>
+        </div>
+        <div class="card-link">pool_practical_companion_unit.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Advanced Student Workbook HTML -->
+      <a href="advanced_water_safety_year910_workbook.html" target="_blank" rel="noopener" class="card reveal reveal-delay-5">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📚</div>
+          <span class="card-badge badge-student">Student</span>
+        </div>
+        <h3 class="card-title">Advanced Student Workbook — Year 9–10 <span style="color:var(--gold);font-size:0.75em;">+ NEW: Section 6</span></h3>
+        <p class="card-desc">
+          6-section advanced unit covering drowning rate calculations, physiology of
+          drowning, social determinants of risk, prevention strategy evaluation,
+          international comparison (RLSSA / RLSS UK / Red Cross), and a 3-option
+          summative assessment task. Research required throughout.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Year 9–10</span>
+          <span class="tag">Data analysis</span>
+          <span class="tag">Social determinants</span>
+          <span class="tag">VC2HP10P02 · VC2HP10P08 · VC2HP10P09</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_workbook.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Advanced Student Workbook PDF -->
+      <a href="advanced_water_safety_year910_workbook.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-6">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Advanced Student Workbook <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready 8-page PDF of the Year 9–10 advanced student workbook. All 6 sections
+          with answer spaces, data tables, and planning scaffolds. Dark navy cover page
+          with student detail fields.
+        </p>
+        <div class="card-tags">
+          <span class="tag">8 pages</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_workbook.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Teacher Resource Guide HTML -->
+      <a href="advanced_water_safety_year910_teacher.html" target="_blank" rel="noopener" class="card reveal reveal-delay-7">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🍏</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Teacher Resource Guide — Year 9–10</h3>
+        <p class="card-desc">
+          Complete teacher handbook: 5 lesson plans, complete answer key with A-standard
+          samples, A–E rubric across 6 criteria, summative task checklists for all 3
+          options, differentiation guidance, teacher background notes, and full
+          resource directory.
+        </p>
+        <div class="card-tags">
+          <span class="tag">5 lesson plans</span>
+          <span class="tag">Answer key</span>
+          <span class="tag">A–E rubric</span>
+          <span class="tag">Checklists</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_teacher.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Teacher Guide PDF -->
+      <a href="advanced_water_safety_year910_teacher.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-8">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Teacher Guide Year 9–10 <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready PDF of the Year 9–10 teacher resource guide. Includes the full
+          A–E rubric with colour-coded grade bands, assessment checklists for all three
+          task options, and report comment stems.
+        </p>
+        <div class="card-tags">
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Colour rubric</span>
+          <span class="tag">Print ready</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_teacher.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Lesson Outline HTML -->
+      <a href="advanced_water_safety_year910_lesson_outline.html" target="_blank" rel="noopener" class="card reveal reveal-delay-1">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🗓</div>
+          <span class="card-badge badge-student">Student</span>
+        </div>
+        <h3 class="card-title">Student Lesson Outline — Year 9–10</h3>
+        <p class="card-desc">
+          Student-facing overview of all 5 lessons with colour-coded cards, learning
+          intentions, 3 success criteria per lesson with curriculum codes, key vocabulary
+          lists, and end-of-lesson reflection prompts. Assessment overview with
+          A-standard indicators included.
+        </p>
+        <div class="card-tags">
+          <span class="tag">5 colour-coded lessons</span>
+          <span class="tag">Success criteria</span>
+          <span class="tag">Vocabulary</span>
+          <span class="tag">VC2HP10P02 · VC2HP10P08 · VC2HP10P09</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_lesson_outline.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Lesson Outline PDF -->
+      <a href="advanced_water_safety_year910_lesson_outline.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-2">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Lesson Outline Year 9–10 <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready 5-page PDF of the Year 9–10 student lesson outline. All 5 lessons
+          with success criteria, vocabulary, and reflection spaces. Ideal for student
+          workbooks or distribution at the start of the unit.
+        </p>
+        <div class="card-tags">
+          <span class="tag">5 pages</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_lesson_outline.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Standalone Rubric -->
+      <a href="advanced_water_safety_year910_rubric.html" target="_blank" rel="noopener" class="card reveal reveal-delay-3">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📊</div>
+          <span class="card-badge badge-assess">Assessment</span>
+        </div>
+        <h3 class="card-title">Standalone Assessment Rubric — Year 9–10</h3>
+        <p class="card-desc">
+          Printable A4 landscape rubric with 6 criteria, E–A descriptors, and a
+          student self-assessment column. Includes grade explanation, student
+          self-reflection fields, teacher comment areas, and dual signature sign-off.
+          Distribute to students at the start of the unit.
+        </p>
+        <div class="card-tags">
+          <span class="tag">6 criteria</span>
+          <span class="tag">A4 landscape</span>
+          <span class="tag">Self-assessment</span>
+          <span class="tag">Print ready</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_rubric.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Assessment Rubric PDF -->
+      <a href="advanced_water_safety_year910_rubric.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-4">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Assessment Rubric Year 9–10 <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready A4 landscape PDF of the standalone assessment rubric. 6 criteria with
+          E–A descriptors, colour-coded grade columns (red through blue), and a student
+          self-assessment circle column. Includes student detail bar and teacher sign-off row.
+        </p>
+        <div class="card-tags">
+          <span class="tag">A4 landscape</span>
+          <span class="tag">Colour-coded grades</span>
+          <span class="tag">Self-assessment</span>
+          <span class="tag">Print ready</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_rubric.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Quiz Question Bank -->
+      <a href="advanced_water_safety_year910_quiz_bank.html" target="_blank" rel="noopener" class="card reveal reveal-delay-4">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📝</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Quiz Question Bank — Year 9–10</h3>
+        <p class="card-desc">
+          30 higher-order questions across all 5 lessons — 18 multiple choice, 6 true/false,
+          6 short answer. Medium to Extension difficulty only. Every question includes
+          an answer with teaching notes. Ready for Kahoot, Quizlet, Google Forms,
+          or written assessment.
+        </p>
+        <div class="card-tags">
+          <span class="tag">30 questions</span>
+          <span class="tag">Med/Hard/Extension</span>
+          <span class="tag">Kahoot ready</span>
+          <span class="tag">Teaching notes</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_quiz_bank.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Quiz Bank PDF -->
+      <a href="advanced_water_safety_year910_quiz_bank.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-5">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Quiz Question Bank — Year 9–10 <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready PDF of the Year 9–10 quiz question bank. All 30 higher-order
+          questions with answers and teaching notes — suitable for photocopying as
+          a standalone written quiz or using alongside Kahoot/Quizlet entry.
+        </p>
+        <div class="card-tags">
+          <span class="tag">30 questions</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">Answers included</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_quiz_bank.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Scaffolded Workbook HTML -->
+      <a href="advanced_water_safety_year910_scaffolded.html" target="_blank" rel="noopener" class="card reveal reveal-delay-5">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📖</div>
+          <span class="card-badge badge-student">Student</span>
+        </div>
+        <h3 class="card-title">Scaffolded / Simplified Workbook — Year 9–10</h3>
+        <p class="card-desc">
+          Scaffolded version of the Year 9–10 advanced workbook for EAL/D learners
+          and students requiring additional support. Features calculation guides with
+          formulas, argument frameworks, sentence starters, and word banks throughout
+          all 6 sections.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Calculation guides</span>
+          <span class="tag">Argument frameworks</span>
+          <span class="tag">Word banks</span>
+          <span class="tag">EAL/D friendly</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_scaffolded.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Scaffolded Workbook PDF -->
+      <a href="advanced_water_safety_year910_scaffolded.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-6">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Scaffolded Workbook Year 9–10 <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready 7-page PDF of the Year 9–10 scaffolded workbook. All argument
+          frameworks, word banks, and sentence starters included. Ideal for students
+          who benefit from additional structure.
+        </p>
+        <div class="card-tags">
+          <span class="tag">7 pages</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_scaffolded.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 WebQuest -->
+      <a href="advanced_water_safety_year910_webquest.html" target="_blank" rel="noopener" class="card reveal reveal-delay-7">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🌐</div>
+          <span class="card-badge badge-student">Student</span>
+        </div>
+        <h3 class="card-title">Digital Investigation WebQuest — Year 9–10</h3>
+        <p class="card-desc">
+          Guided 50-minute online investigation across 5 research stations: Victorian
+          LSV data, physiology and emergency response, social determinants, prevention
+          strategies, and international comparison. Each station specifies the site
+          to visit and asks targeted questions. Ends with a synthesis task.
+        </p>
+        <div class="card-tags">
+          <span class="tag">5 stations</span>
+          <span class="tag">Devices required</span>
+          <span class="tag">~50 min</span>
+          <span class="tag">Homework-ready</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_webquest.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Data Analysis Pack -->
+      <a href="advanced_water_safety_year910_data_pack.html" target="_blank" rel="noopener" class="card reveal reveal-delay-8">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📈</div>
+          <span class="card-badge badge-assess">Assessment</span>
+        </div>
+        <h3 class="card-title">Data Analysis Activity Pack — Year 9–10</h3>
+        <p class="card-desc">
+          Three standalone data activities using real Victorian and global drowning
+          statistics: Activity A — 5-year trend analysis with line graph; Activity B —
+          CALD over-representation structured argument; Activity C — international
+          country comparison. Each ~15 minutes with worked examples.
+        </p>
+        <div class="card-tags">
+          <span class="tag">3 activities</span>
+          <span class="tag">Real data</span>
+          <span class="tag">Worked examples</span>
+          <span class="tag">~15 min each</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_data_pack.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Data Pack PDF -->
+      <a href="advanced_water_safety_year910_data_pack.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-3">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Year 9–10 Data Analysis Pack <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready 5-page PDF of all four data analysis activities — Victorian drowning rate trend
+          calculations (Activity A), CALD over-representation argument analysis (Activity B),
+          global comparison research task (Activity C), and the new Activity D covering diving
+          and spinal injury statistics with post-COVID youth drowning trend data.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Year 9–10</span>
+          <span class="tag">5 pages</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_data_pack.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Community Action Project HTML -->
+      <a href="advanced_water_safety_year910_community_project.html" target="_blank" rel="noopener" class="card reveal reveal-delay-1">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🌱</div>
+          <span class="card-badge badge-student">Student</span>
+        </div>
+        <h3 class="card-title">Community Action Project Guide — Year 9–10</h3>
+        <p class="card-desc">
+          Five-phase project guide: needs analysis, design, implementation plan,
+          evaluation design, and reflection. Includes priority matrix, SMART success
+          metric framework, and completion checklist. Aligned to VC2HP10P08
+          community support services evaluation.
+        </p>
+        <div class="card-tags">
+          <span class="tag">5 phases</span>
+          <span class="tag">VC2HP10P08</span>
+          <span class="tag">Priority matrix</span>
+          <span class="tag">SMART metrics</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_community_project.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Community Action Project PDF -->
+      <a href="advanced_water_safety_year910_community_project.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-2">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Community Action Project <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready 5-page PDF of the community action project guide. All five phases
+          with planning tables, the priority matrix, SMART metric framework, and
+          completion checklist. Ideal for student workbooks.
+        </p>
+        <div class="card-tags">
+          <span class="tag">5 pages</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_community_project.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Guest Speaker Resource -->
+      <a href="advanced_water_safety_year910_guest_speaker.html" target="_blank" rel="noopener" class="card reveal reveal-delay-3">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🎤</div>
+          <span class="card-badge badge-teacher">Teacher</span>
+        </div>
+        <h3 class="card-title">Guest Speaker Preparation Resource — Year 9–10</h3>
+        <p class="card-desc">
+          Four-tab resource: Before the Visit (background reading, 12-question bank by
+          category), During the Visit (structured note-taking), After the Visit
+          (reflection tasks linking to assessment), Teacher Notes (speaker contacts,
+          briefing template, preparation checklist).
+        </p>
+        <div class="card-tags">
+          <span class="tag">Pre/during/post</span>
+          <span class="tag">12 questions</span>
+          <span class="tag">Speaker briefing</span>
+          <span class="tag">Assessment link</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_guest_speaker.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Literacy Unit -->
+      <a href="advanced_water_safety_year910_literacy_unit.html" target="_blank" rel="noopener" class="card reveal reveal-delay-4">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📰</div>
+          <span class="card-badge badge-student">Student</span>
+        </div>
+        <h3 class="card-title">Cross-Curricular Literacy Unit — HPE &amp; English/Media</h3>
+        <p class="card-desc">
+          Five-lesson unit connecting HPE water safety content with English and Media
+          literacy. Students analyse real LSV, SLSA, and RLSS UK campaigns using the
+          AAPPC framework, then produce an original evidence-based campaign product
+          with written justification. Aligned to Victorian Curriculum F–10 HPE and English (VC2E8LY01 · VC2E9LY01).
+        </p>
+        <div class="card-tags">
+          <span class="tag">5 lessons</span>
+          <span class="tag">AAPPC framework</span>
+          <span class="tag">Campaign analysis</span>
+          <span class="tag">VC2HP10P08 · VC2E8LY01 · VC2E9LY01</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_literacy_unit.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Literacy Unit PDF -->
+      <a href="advanced_water_safety_year910_literacy unit.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-5">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Cross-Curricular Literacy Unit <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready PDF of the Year 9–10 cross-curricular literacy unit. Five-lesson
+          unit bridging HPE and English/Media literacy, including the AAPPC campaign
+          analysis framework, student workbook pages, and assessment rubric.
+          Aligned to VC2HP10P08, VC2E8LY01, and VC2E9LY01.
+        </p>
+        <div class="card-tags">
+          <span class="tag">5 lessons</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">VC2E8LY01 · VC2E9LY01</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_literacy unit.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- Y9-10 Practical Integration Sheet -->
+      <a href="advanced_water_safety_year910_practical_integration.html" target="_blank" rel="noopener" class="card reveal reveal-delay-5">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🏊</div>
+          <span class="card-badge badge-assess">Assessment</span>
+        </div>
+        <h3 class="card-title">Practical Assessment Integration Sheet — Year 9–10</h3>
+        <p class="card-desc">
+          Theory-to-pool bridge document. Maps each practical skill to its workbook
+          theory concept, includes a 4-session self-assessment rating table, theory-informed
+          reflective questions, and an assessment connection section. Designed for use
+          across 4 pool sessions. VC2HP10M01 aligned.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Theory-practice map</span>
+          <span class="tag">4 sessions</span>
+          <span class="tag">VC2HP10M01</span>
+          <span class="tag">Pool-ready</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_practical_integration.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+    </div>
+
+    <!-- ── SECTION 7: AUSTRALIAN CURRICULUM ALIGNMENT ── -->
+    <div class="section-header reveal" id="australian-curriculum">
+      <div class="section-title-block">
+        <p class="section-label">07 — National Curriculum · All States &amp; Territories</p>
+        <h2 class="section-title">Australian Curriculum <em>Alignment Guide</em></h2>
+      </div>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="resource-grid two-col">
+
+      <!-- AC Alignment HTML -->
+      <a href="swim_water_safety_australian_curriculum_alignment.html" target="_blank" rel="noopener" class="card reveal reveal-delay-1">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">🗺️</div>
+          <span class="card-badge badge-teacher">Teacher · Reference</span>
+        </div>
+        <h3 class="card-title">Australian Curriculum V9.0 Alignment Guide</h3>
+        <p class="card-desc">
+          For HPE teachers outside Victoria. Maps the full resource suite to Australian
+          Curriculum Version 9.0 content descriptions (AC9HP8P/M and AC9HP10P/M codes)
+          for Years 7–8 and 9–10. Covers state-by-state V9.0 adoption status (QLD, NSW,
+          WA, SA, ACT, TAS, NT), content description alignment tables with strength
+          ratings, and a localisation guide for swapping Victorian-specific elements
+          (LSV, state statistics, legislation, curriculum codes) with state equivalents.
+          23 organisations summarised across 7 categories.
+        </p>
+        <div class="card-tags">
+          <span class="tag">AC V9.0 · Years 7–10</span>
+          <span class="tag">All states &amp; territories</span>
+          <span class="tag">Localisation guide</span>
+          <span class="tag">State adoption table</span>
+        </div>
+        <div class="card-link">swim_water_safety_australian_curriculum_alignment.html<span class="card-link-arrow">→</span></div>
+      </a>
+
+      <!-- AC Alignment PDF -->
+      <a href="swim_water_safety_australian_curriculum_alignment.pdf" target="_blank" rel="noopener" class="card featured reveal reveal-delay-2">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📄</div>
+          <span class="card-badge badge-pdf">PDF</span>
+        </div>
+        <h3 class="card-title">Australian Curriculum Alignment Guide <span style="color:var(--gold);font-style:italic;">PDF Version</span></h3>
+        <p class="card-desc">
+          Print-ready 8-page PDF of the Australian Curriculum V9.0 alignment guide.
+          Includes the full Years 7–8 and 9–10 content description mapping tables,
+          state adoption summary, complete localisation guide (keep / swap / check),
+          resource suite overview, and step-by-step getting started guide for
+          non-Victorian schools. Suitable for faculty planning and sharing with
+          curriculum coordinators in other states.
+        </p>
+        <div class="card-tags">
+          <span class="tag">8 pages</span>
+          <span class="tag">A4 portrait</span>
+          <span class="tag">Print ready</span>
+          <span class="tag">AC9HP codes</span>
+        </div>
+        <div class="card-link">swim_water_safety_australian_curriculum_alignment.pdf<span class="card-link-arrow">→</span></div>
+      </a>
+
+
+      <!-- HPE Secondary Resource Directory -->
+      <a href="HPE_Secondary_Resource_Directory_V7.docx" target="_blank" rel="noopener" class="card featured reveal reveal-delay-3">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📚</div>
+          <span class="card-badge badge-teacher">Teacher · Reference</span>
+          <span class="card-badge" style="background:rgba(59,130,246,0.15);color:#3b82f6;border:1px solid rgba(59,130,246,0.3);margin-left:6px;">Word Doc</span>
+        </div>
+        <h3 class="card-title">HPE Secondary Resource Directory <span style="color:var(--gold);font-style:italic;">V7 — 48 Sections</span></h3>
+        <p class="card-desc">
+          Comprehensive teaching and assessment resource directory for Victorian secondary
+          HPE teachers — Years 7–10. Covers 48 topic sections including water safety,
+          invasion games, athletics, gymnastics, health topics (mental health, nutrition,
+          first aid, vaping, sexual health), inclusive practice, cultural competency,
+          assessment frameworks, and 20+ sport-specific school programs. All URLs verified
+          May 2026. Fully aligned to Victorian Curriculum F–10 Version 2.0.
+        </p>
+        <div class="card-tags">
+          <span class="tag">48 sections</span>
+          <span class="tag">Years 7–10</span>
+          <span class="tag">Curriculum 2.0 Aligned</span>
+          <span class="tag">Links verified May 2026</span>
+        </div>
+        <div class="card-link">HPE_Secondary_Resource_Directory_V7.docx<span class="card-link-arrow">→</span></div>
+      </a>
+    </div>
+
+    <!-- ── CURRICULUM BANNER ── -->
+    <div class="curriculum-banner reveal">
+      <div class="cb-icon">📋</div>
+      <div class="cb-body">
+        <p class="cb-label">Curriculum Alignment</p>
+        <p class="cb-title">Victorian Curriculum F–10 Version 2.0</p>
+        <p class="cb-text">
+          All resources are fully aligned to the Victorian Curriculum Version 2.0 HPE
+          strand. Mandatory for all Victorian government and Catholic schools from 2026.
+          Swimming and water safety is a mandated priority area in the Safety (S) and
+          Lifelong Physical Activities (LPA) focus areas.
+        </p>
+      </div>
+      <div class="cb-codes">
+        <span class="cb-code">VC2HP8P08</span>
+        <span class="cb-code">VC2HP8P10</span>
+        <span class="cb-code">VC2HP8P09</span>
+        <span class="cb-code">VC2HP8P10</span>
+        <span class="cb-code">VC2HP8M01</span>
+        <span class="cb-code">VC2HP10P02</span>
+        <span class="cb-code">VC2HP10P08</span>
+        <span class="cb-code">VC2HP10P08</span>
+        <span class="cb-code">VC2HP10P09</span>
+        <span class="cb-code">VC2HP10M01</span>
+      </div>
+
+      <!-- Y9-10 Workbook Section 6 Update Note -->
+      <a href="advanced_water_safety_year910_workbook.html#section6" target="_blank" rel="noopener" class="card reveal reveal-delay-2">
+        <div class="card-accent"></div>
+        <div class="card-icon-row">
+          <div class="card-icon">📗</div>
+          <span class="card-badge" style="background:rgba(220,38,38,0.15);color:#dc2626;border:1px solid rgba(220,38,38,0.3);">Updated</span>
+        </div>
+        <h3 class="card-title">Year 9–10 Workbook — Section 6 <span style="color:var(--gold);font-style:italic;">Now includes diving &amp; spinal injury content</span></h3>
+        <p class="card-desc">
+          The Year 9–10 Advanced Workbook now includes Section 6: Diving, Spinal Injuries
+          &amp; High-Risk Teenage Behaviour. Covers Australian statistics, three 2024–25
+          case studies (Terrigal, Torquay, Bawley Beach), inland waterway risk factors,
+          myth vs evidence analysis activity, case study questions, and prevention strategy
+          design task. Existing Section 6 (Assessment Task) renumbered to Section 7.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Year 9–10</span>
+          <span class="tag">VC2HP10P02 · VC2HP10P08</span>
+          <span class="tag">3 case studies</span>
+          <span class="tag">New Section 6</span>
+        </div>
+        <div class="card-link">advanced_water_safety_year910_workbook.html<span class="card-link-arrow">→</span></div>
+      </a>
+    </div>
+
+  
+  
+
+</main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-logo-zone">
+          <div class="footer-logo-placeholder" title="Logo placeholder">🏫</div>
+          <span class="footer-site-name">Swim &amp; Water Safety Teaching Hub</span>
+        </div>
+        <p class="footer-tagline">
+          A complete water safety teaching resource suite for Victorian secondary HPE —<br>
+          aligned to Curriculum 2.0, covering Year 7–8 and Year 9–10.<br>Year 9–10 advanced resources available below.
+        </p>
+        <div class="footer-links">
+          <a href="https://lsv.com.au" class="footer-link" target="_blank" rel="noopener">Life Saving Victoria</a>
+          <span class="footer-link-sep">·</span>
+          <a href="https://f10.vcaa.vic.edu.au" class="footer-link" target="_blank" rel="noopener">Victorian Curriculum</a>
+          <span class="footer-link-sep">·</span>
+          <a href="https://beachsafe.org.au" class="footer-link" target="_blank" rel="noopener">BeachSafe</a>
+          <span class="footer-link-sep">·</span>
+          <a href="https://www.royallifesaving.com.au" class="footer-link" target="_blank" rel="noopener">RLSSA</a>
+          <span class="footer-link-sep">·</span>
+          <a href="https://paddle.org.au" class="footer-link" target="_blank" rel="noopener">Paddle Australia</a>
+        </div>
+      </div>
+      <div class="footer-right">
+        <p class="footer-credit-label">Created by</p>
+        <p class="footer-credit-name">Emilie Harrison</p>
+        <div class="footer-contact">
+          <p class="footer-contact-label">Contact</p>
+          <a href="mailto:swimwater.safety@gmail.com" class="footer-email-pill"
+             title="Contact Emilie Harrison">
+            <span class="footer-email-icon">✉</span>
+            swimwater.safety@gmail.com
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Victorian Curriculum F–10 Version 2.0 · HPE · Year 7–8 &amp; Year 9–10 · Safety Focus Area · All resources developed for classroom use</p>
+      <p>Resources generated with assistance from Claude (Anthropic) · Sources: LSV, RLSSA, VCAA, DE Victoria</p>
+    </div>
+  </footer>
+
+  <!-- ═══ BACK TO TOP ═══ -->
+  <button id="back-to-top" aria-label="Back to top" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <!-- ═══ SCROLL REVEAL SCRIPT ═══ -->
+  <script>
+    // Reveal all elements already in view on load, then observe the rest
+    function revealAll() {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }
+
+    // Back to top button visibility
+    const btt = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) { btt.classList.add('visible'); }
+      else { btt.classList.remove('visible'); }
+    }, { passive: true });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Fallback: reveal everything after 1.5s in case observer doesn't fire
+    setTimeout(revealAll, 1500);
+
+    // Also reveal on DOMContentLoaded for anything already in viewport
+    document.addEventListener('DOMContentLoaded', () => {
+      reveals.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          el.classList.add('visible');
+        }
+      });
+    });
+  </script>
+  <noscript>
+    <style>.reveal { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
+
+</body>
+</html>
