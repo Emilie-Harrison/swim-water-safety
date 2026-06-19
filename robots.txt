@@ -1,0 +1,8 @@
+# robots.txt — Swim & Water Safety Teaching Hub
+# https://emilie-harrison.github.io/swim-water-safety/
+# Last updated: 2026-06-19
+
+User-agent: *
+Allow: /
+
+Sitemap: https://emilie-harrison.github.io/swim-water-safety/sitemap.xml
