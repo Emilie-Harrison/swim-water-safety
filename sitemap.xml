@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- ═══ ROOT ═══ -->
   <url>
     <loc>https://emilie-harrison.github.io/swim-water-safety/</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- ═══ YEAR 7–8 CORE RESOURCES ═══ -->
   <url>
     <loc>https://emilie-harrison.github.io/swim-water-safety/swim_safety_teacher_workbook.html</loc>
     <lastmod>2026-05-01</lastmod>
@@ -58,8 +54,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- ═══ YEAR 9–10 ADVANCED RESOURCES ═══ -->
   <url>
     <loc>https://emilie-harrison.github.io/swim-water-safety/advanced_water_safety_year910_teacher.html</loc>
     <lastmod>2026-06-19</lastmod>
@@ -144,8 +138,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
-  <!-- ═══ STUDENT TOOLS ═══ -->
   <url>
     <loc>https://emilie-harrison.github.io/swim-water-safety/student_digital_portfolio.html</loc>
     <lastmod>2026-05-01</lastmod>
@@ -164,8 +156,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- ═══ CLASSROOM MATERIALS ═══ -->
   <url>
     <loc>https://emilie-harrison.github.io/swim-water-safety/water_safety_scenario_cards.html</loc>
     <lastmod>2026-05-01</lastmod>
@@ -202,8 +192,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- ═══ COMMUNITY & OPERATIONS ═══ -->
   <url>
     <loc>https://emilie-harrison.github.io/swim-water-safety/water_safety_parent_info_sheet.html</loc>
     <lastmod>2026-05-01</lastmod>
@@ -240,8 +228,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- ═══ TEACHER PLANNING & REFERENCE ═══ -->
   <url>
     <loc>https://emilie-harrison.github.io/swim-water-safety/water_safety_unit_overview.html</loc>
     <lastmod>2026-05-01</lastmod>
@@ -278,21 +264,16 @@
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
-
-  <!-- ═══ CURRICULUM ALIGNMENT ═══ -->
   <url>
     <loc>https://emilie-harrison.github.io/swim-water-safety/swim_water_safety_australian_curriculum_alignment.html</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- ═══ LEGAL ═══ -->
   <url>
     <loc>https://emilie-harrison.github.io/swim-water-safety/Copyright_Ownership_Licensing_Summary.html</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
-
 </urlset>
