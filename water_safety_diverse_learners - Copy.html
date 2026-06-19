@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO meta -->
+  <meta name="description" content="Water safety visual guide for diverse learners — low-text, large-icon version of core Year 7–8 content at approximately Year 4–5 reading level. Covers beach flags, rip current escape, DRS ABCD, SwimSafe rules, and rescue comparison. For EAL/D learners, students with learning difficulties, and low-literacy students." />
+  <meta name="keywords" content="diverse learners, EAL/D, low literacy, visual guide, water safety, Year 7 8, HPE, beach flags, DRS ABCD, differentiation, Victorian Curriculum" />
+  <meta name="author" content="Emilie Harrison" />
+  <link rel="canonical" href="https://emilie-harrison.github.io/swim-water-safety/water_safety_diverse_learners.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Water Safety Visual Guide for Diverse Learners — EAL/D & Low Literacy" />
+  <meta property="og:description" content="Water safety visual guide for diverse learners — low-text, large-icon version of core Year 7–8 content at approximately Year 4–5 reading level. Covers beach flags, rip current escape, DRS ABCD, SwimSafe rules, and rescue comparison. For EAL/D learners, students with learning difficulties, and low-literacy students." />
+  <meta property="og:url"         content="https://emilie-harrison.github.io/swim-water-safety/water_safety_diverse_learners.html" />
+  <meta property="og:image"       content="https://emilie-harrison.github.io/swim-water-safety/og-image.png" />
+  <meta property="og:site_name"   content="Swim & Water Safety Teaching Hub — Victorian HPE" />
+  <meta property="og:locale"      content="en_AU" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Water Safety Visual Guide for Diverse Learners — EAL/D & Low Literacy" />
+  <meta name="twitter:description" content="Water safety visual guide for diverse learners — low-text, large-icon version of core Year 7–8 content at approximately Year 4–5 reading level. Covers beach flags, rip current escape, DRS ABCD, SwimSafe rules, and rescue comparison. For EAL/D learners, students with learning difficulties, and low-literacy students." />
+  <meta name="twitter:image"       content="https://emilie-harrison.github.io/swim-water-safety/og-image.png" />
+  <!-- Schema.org EducationalResource structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Water Safety Visual Guide for Diverse Learners — EAL/D & Low Literacy",
+    "description": "Water safety visual guide for diverse learners — low-text, large-icon version of core Year 7–8 content at approximately Year 4–5 reading level. Covers beach flags, rip current escape, DRS ABCD, SwimSafe rules, and rescue comparison. For EAL/D learners, students with learning difficulties, and low-literacy students.",
+    "url": "https://emilie-harrison.github.io/swim-water-safety/water_safety_diverse_learners.html",
+    "educationalLevel": "Secondary",
+    "learningResourceType": "Teaching Resource",
+    "teaches": "Water Safety, Health and Physical Education",
+    "inLanguage": "en-AU",
+    "isAccessibleForFree": true,
+    "publisher": {
+      "@type": "Person",
+      "name": "Emilie Harrison",
+      "email": "swimwater.safety@gmail.com"
+    },
+    "educationalAlignment": {
+      "@type": "AlignmentObject",
+      "alignmentType": "educationalFramework",
+      "educationFramework": "Victorian Curriculum F-10 Version 2.0",
+      "targetName": "Health and Physical Education"
+    }
+  }
+  </script>
+<title>Water Safety — Accessible Visual Guide | Year 7–8 HPE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=DM+Mono:wght@400&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#003554;--ocean:#006494;--sky:#0582CA;
+    --teal:#00695c;--amber:#b45309;--alert:#c62828;--sage:#2e7d32;--gold:#f4c842;
+    --bg:#f0f7ff;--card:#fff;--border:#c0d8ee;--text:#003554;
+  }
+  body{background:var(--bg);font-family:'Nunito',sans-serif;color:var(--text);line-height:1.5;}
+  .skip-nav{position:absolute;top:-100px;left:8px;background:var(--navy);color:#fff;padding:8px 18px;border-radius:0 0 8px 8px;font-size:1rem;font-weight:700;text-decoration:none;z-index:9999;transition:top 0.2s;}
+  .skip-nav:focus{top:0;}
+  :focus-visible{outline:3px solid var(--sky);outline-offset:2px;border-radius:3px;}
+
+  .header{background:linear-gradient(135deg,#002030,#003554,#006494);color:#fff;padding:32px 44px 44px;position:relative;overflow:hidden;text-align:center;}
+  .header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:36px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 36'%3E%3Cpath fill='%23f0f7ff' d='M0,18 Q360,36 720,18 Q1080,0 1440,18 L1440,36 L0,36Z'/%3E%3C/svg%3E") bottom/cover no-repeat;}
+  .header .emoji-big{font-size:3rem;display:block;margin-bottom:8px;}
+  .header h1{font-size:2rem;font-weight:900;margin-bottom:6px;}
+  .header p{font-size:1rem;opacity:0.85;max-width:500px;margin:0 auto;}
+
+  .body{max-width:960px;margin:0 auto;padding:30px 22px 60px;}
+
+  /* INTRO NOTE */
+  .teacher-note{background:#fffbeb;border:2px solid #fbc02d;border-radius:10px;padding:13px 18px;margin-bottom:28px;font-size:0.88rem;color:#78350f;}
+  .teacher-note strong{color:#92400e;}
+
+  /* RULE CARDS — big, visual, accessible */
+  .rules-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;margin-bottom:36px;}
+  .rule-card{background:var(--card);border:2px solid var(--border);border-radius:16px;padding:20px 14px;text-align:center;box-shadow:0 3px 10px rgba(0,50,100,0.07);}
+  .rule-card .rule-emoji{font-size:2.8rem;display:block;margin-bottom:8px;}
+  .rule-card .rule-num{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--ocean);margin-bottom:4px;display:block;}
+  .rule-card h3{font-size:1rem;font-weight:900;color:var(--navy);margin-bottom:5px;line-height:1.2;}
+  .rule-card p{font-size:0.82rem;color:#3a6a8a;line-height:1.4;}
+
+  /* FLAGS SECTION */
+  .flags-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin-bottom:32px;}
+  .flag-card{border-radius:14px;padding:18px 14px;text-align:center;}
+  .flag-card .flag-visual{font-size:2.2rem;margin-bottom:8px;display:block;}
+  .flag-card h3{font-size:0.95rem;font-weight:900;margin-bottom:5px;}
+  .flag-card p{font-size:0.82rem;line-height:1.4;}
+  .flag-ry{background:#fff3e0;border:2px solid #e65100;}
+  .flag-r{background:#fde8e8;border:2px solid var(--alert);}
+  .flag-o{background:#fff8e1;border:2px solid #f9a825;}
+  .flag-p{background:#f3e5f5;border:2px solid #7b1fa2;}
+  .flag-ry h3{color:#e65100;}
+  .flag-r h3{color:var(--alert);}
+  .flag-o h3{color:#f57f17;}
+  .flag-p h3{color:#7b1fa2;}
+
+  /* RIP CURRENT STEPS */
+  .steps-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;}
+  .step-box{flex:1;min-width:110px;background:var(--card);border:2px solid var(--border);border-radius:12px;padding:14px 10px;text-align:center;}
+  .step-box .step-num{background:var(--ocean);color:#fff;width:28px;height:28px;border-radius:50%;font-weight:900;font-size:0.9rem;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;}
+  .step-box .step-emoji{font-size:1.8rem;display:block;margin-bottom:6px;}
+  .step-box p{font-size:0.82rem;font-weight:700;color:var(--navy);line-height:1.3;}
+
+  /* DRS ABCD */
+  .drs-row{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:32px;}
+  .drs-cell{background:var(--navy);border-radius:10px;padding:12px 4px;text-align:center;}
+  .drs-cell .dc-ltr{font-size:1.8rem;font-weight:900;color:var(--gold);line-height:1;}
+  .drs-cell .dc-emoji{font-size:1.2rem;display:block;margin:4px 0;}
+  .drs-cell .dc-word{font-size:0.6rem;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,0.75);letter-spacing:0.5px;line-height:1.2;}
+  .drs-cell .dc-desc{font-size:0.62rem;color:rgba(255,255,255,0.55);margin-top:3px;line-height:1.3;}
+
+  /* SECTION LABELS */
+  .section-label{display:flex;align-items:center;gap:10px;margin:28px 0 14px;padding-bottom:8px;border-bottom:3px solid var(--ocean);}
+  .section-label h2{font-size:1.2rem;font-weight:900;color:var(--navy);}
+
+  /* DO / DON'T */
+  .dos-donts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px;}
+  .do-col{background:#e8f5e9;border:2px solid #a5d6a7;border-radius:12px;padding:16px;}
+  .dont-col{background:#fde8e8;border:2px solid #ef9a9a;border-radius:12px;padding:16px;}
+  .do-col h3{color:var(--sage);font-size:0.95rem;font-weight:900;margin-bottom:10px;}
+  .dont-col h3{color:var(--alert);font-size:0.95rem;font-weight:900;margin-bottom:10px;}
+  .do-item,.dont-item{display:flex;gap:8px;align-items:flex-start;padding:5px 0;font-size:0.88rem;border-bottom:1px solid rgba(0,0,0,0.06);line-height:1.4;}
+  .do-item:last-child,.dont-item:last-child{border-bottom:none;}
+  .do-icon{color:var(--sage);font-size:1rem;flex-shrink:0;}
+  .dont-icon{color:var(--alert);font-size:1rem;flex-shrink:0;}
+
+  /* QUICK QUIZ */
+  .quiz-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px;}
+  .quiz-q{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;}
+  .quiz-q .qq-num{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--ocean);margin-bottom:5px;}
+  .quiz-q p{font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:8px;}
+  .quiz-q .ans-line{border-bottom:1.5px solid var(--border);min-height:26px;display:block;}
+
+  footer{background:var(--navy);color:rgba(255,255,255,0.65);padding:14px 44px;font-size:0.74rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-top:20px;}
+  @media(max-width:600px){.header{padding:26px 18px 40px;}.body{padding:20px 14px 40px;}.drs-row{grid-template-columns:repeat(4,1fr);}.dos-donts,.quiz-grid{grid-template-columns:1fr;}}
+  @media print{body{background:#fff;}.teacher-note{display:block;}.rule-card,.flag-card,.step-box,.drs-cell,.quiz-q{break-inside:avoid;}@page{size:A4;margin:13mm;}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<header class="header">
+  <span class="emoji-big">💧</span>
+  <h1>Water Safety — Visual Guide</h1>
+  <p>Year 7–8 Health &amp; Physical Education · Big pictures · Clear words · Key ideas</p>
+</header>
+
+<div id="main-content" tabindex="-1" style="outline:none;"></div>
+<div class="body">
+
+  <div class="teacher-note">
+    <strong>📌 Teacher note:</strong> This resource uses large icons, simple language (approx. Year 4–5 reading level), and high visual content to make core Year 7–8 water safety concepts accessible for students with learning difficulties, EAL/D learners, and low-literacy students. Pair with oral explanation and the scenario activity cards for best results.
+  </div>
+
+  <!-- SWIMSAFE 5 RULES -->
+  <div class="section-label">
+    <span style="font-size:1.3rem;">🏄</span>
+    <h2>The 5 Water Safety Rules</h2>
+  </div>
+
+  <div class="rules-grid" role="list">
+    <div class="rule-card" role="listitem">
+      <span class="rule-emoji">🚩</span>
+      <span class="rule-num">Rule 1</span>
+      <h3>Read the signs</h3>
+      <p>Always check flags and warning signs before you swim.</p>
+    </div>
+    <div class="rule-card" role="listitem">
+      <span class="rule-emoji">🦶</span>
+      <span class="rule-num">Rule 2</span>
+      <h3>Feet first</h3>
+      <p>Never dive into water you don't know. Always enter feet first.</p>
+    </div>
+    <div class="rule-card" role="listitem">
+      <span class="rule-emoji">📏</span>
+      <span class="rule-num">Rule 3</span>
+      <h3>Stay in your depth</h3>
+      <p>Only swim where you can touch the bottom if you need to.</p>
+    </div>
+    <div class="rule-card" role="listitem">
+      <span class="rule-emoji">👫</span>
+      <span class="rule-num">Rule 4</span>
+      <h3>Swim with a friend</h3>
+      <p>Never swim alone. Always have someone with you.</p>
+    </div>
+    <div class="rule-card" role="listitem">
+      <span class="rule-emoji">🙋</span>
+      <span class="rule-num">Rule 5</span>
+      <h3>Signal for help</h3>
+      <p>If you need help, raise ONE arm up high and keep it there.</p>
+    </div>
+  </div>
+
+  <!-- BEACH FLAGS -->
+  <div class="section-label">
+    <span style="font-size:1.3rem;">🏁</span>
+    <h2>Beach Flags — What Do They Mean?</h2>
+  </div>
+
+  <div class="flags-grid" role="list">
+    <div class="flag-card flag-ry" role="listitem">
+      <span class="flag-visual">🟥🟨</span>
+      <h3>Red &amp; Yellow Flags</h3>
+      <p><strong>SWIM HERE.</strong> A lifeguard is watching. This is the safest spot. Always swim between these flags.</p>
+    </div>
+    <div class="flag-card flag-r" role="listitem">
+      <span class="flag-visual">🟥</span>
+      <h3>Single Red Flag</h3>
+      <p><strong>DANGER.</strong> Conditions are very bad. Do NOT swim here. Expert swimmers only with extreme care.</p>
+    </div>
+    <div class="flag-card flag-o" role="listitem">
+      <span class="flag-visual">🟧</span>
+      <h3>Orange Windsock</h3>
+      <p><strong>NO INFLATABLES.</strong> Strong wind is blowing out to sea. Inflatables will blow away and can't come back.</p>
+    </div>
+    <div class="flag-card flag-p" role="listitem">
+      <span class="flag-visual">🟪</span>
+      <h3>Purple Flag</h3>
+      <p><strong>MARINE DANGER.</strong> Dangerous sea creatures are in the water. Do NOT enter.</p>
+    </div>
+  </div>
+
+  <!-- RIP CURRENTS -->
+  <div class="section-label">
+    <span style="font-size:1.3rem;">🌊</span>
+    <h2>Caught in a Rip? What to Do</h2>
+  </div>
+
+  <div style="background:#e3f2fd;border:2px solid #90caf9;border-radius:12px;padding:12px 18px;margin-bottom:14px;font-size:0.9rem;color:var(--navy);">
+    A rip is a fast stream of water pulling out to sea. <strong>Don't fight it!</strong> If you swim against it, you will get too tired to survive.
+  </div>
+
+  <div class="steps-row" role="list">
+    <div class="step-box" role="listitem">
+      <div class="step-num">1</div>
+      <span class="step-emoji">😌</span>
+      <p>Stay calm. Don't panic.</p>
+    </div>
+    <div class="step-box" role="listitem">
+      <div class="step-num">2</div>
+      <span class="step-emoji">🛟</span>
+      <p>Float. Save your energy.</p>
+    </div>
+    <div class="step-box" role="listitem">
+      <div class="step-num">3</div>
+      <span class="step-emoji">↔️</span>
+      <p>Swim sideways — not back to shore.</p>
+    </div>
+    <div class="step-box" role="listitem">
+      <div class="step-num">4</div>
+      <span class="step-emoji">↗️</span>
+      <p>Angle back in when out of the rip.</p>
+    </div>
+    <div class="step-box" role="listitem">
+      <div class="step-num">5</div>
+      <span class="step-emoji">🙋</span>
+      <p>Raise ONE arm to signal for help.</p>
+    </div>
+  </div>
+
+  <!-- DRS ABCD -->
+  <div class="section-label">
+    <span style="font-size:1.3rem;">🩺</span>
+    <h2>Emergency — DRS ABCD</h2>
+  </div>
+
+  <div style="background:#fffbeb;border:2px solid #fbc02d;border-radius:10px;padding:10px 16px;margin-bottom:12px;font-size:0.88rem;color:#78350f;">
+    <strong>Someone is hurt near water?</strong> Use DRS ABCD — in this order, every time.
+  </div>
+
+  <div class="drs-row" role="list">
+    <div class="drs-cell" role="listitem">
+      <div class="dc-ltr">D</div>
+      <span class="dc-emoji">⚠️</span>
+      <div class="dc-word">Danger</div>
+      <div class="dc-desc">Is it safe for you to help?</div>
+    </div>
+    <div class="drs-cell" role="listitem">
+      <div class="dc-ltr">R</div>
+      <span class="dc-emoji">🤚</span>
+      <div class="dc-word">Response</div>
+      <div class="dc-desc">Tap &amp; call their name</div>
+    </div>
+    <div class="drs-cell" role="listitem">
+      <div class="dc-ltr">S</div>
+      <span class="dc-emoji">📞</span>
+      <div class="dc-word">Send 000</div>
+      <div class="dc-desc">Call for help NOW</div>
+    </div>
+    <div class="drs-cell" role="listitem">
+      <div class="dc-ltr">A</div>
+      <span class="dc-emoji">🫁</span>
+      <div class="dc-word">Airway</div>
+      <div class="dc-desc">Tilt head back</div>
+    </div>
+    <div class="drs-cell" role="listitem">
+      <div class="dc-ltr">B</div>
+      <span class="dc-emoji">💨</span>
+      <div class="dc-word">Breathing</div>
+      <div class="dc-desc">Look, listen, feel</div>
+    </div>
+    <div class="drs-cell" role="listitem">
+      <div class="dc-ltr">C</div>
+      <span class="dc-emoji">💓</span>
+      <div class="dc-word">CPR</div>
+      <div class="dc-desc">30 pushes + 2 breaths</div>
+    </div>
+    <div class="drs-cell" role="listitem">
+      <div class="dc-ltr">D</div>
+      <span class="dc-emoji">⚡</span>
+      <div class="dc-word">Defib</div>
+      <div class="dc-desc">Use AED if available</div>
+    </div>
+  </div>
+
+  <!-- THROW DON'T GO -->
+  <div class="section-label">
+    <span style="font-size:1.3rem;">🪢</span>
+    <h2>Rescuing Someone — Throw, Don't Go</h2>
+  </div>
+
+  <div class="dos-donts">
+    <div class="do-col">
+      <h3>✅ DO THIS</h3>
+      <div class="do-item"><span class="do-icon">✔</span><span>Call 000 first</span></div>
+      <div class="do-item"><span class="do-icon">✔</span><span>Throw a rope, towel, pool noodle, or anything that floats</span></div>
+      <div class="do-item"><span class="do-icon">✔</span><span>Talk to them — keep them calm</span></div>
+      <div class="do-item"><span class="do-icon">✔</span><span>Pull them in using what you threw</span></div>
+      <div class="do-item"><span class="do-icon">✔</span><span>Stay on the edge — don't go in</span></div>
+    </div>
+    <div class="dont-col">
+      <h3>❌ DON'T DO THIS</h3>
+      <div class="dont-item"><span class="dont-icon">✗</span><span>Jump in after them if you're not trained</span></div>
+      <div class="dont-item"><span class="dont-icon">✗</span><span>Panic — panicking wastes time</span></div>
+      <div class="dont-item"><span class="dont-icon">✗</span><span>Try to grab their hand by leaning over</span></div>
+      <div class="dont-item"><span class="dont-icon">✗</span><span>Assume someone else will help</span></div>
+    </div>
+  </div>
+
+  <!-- KNOW / STAY AWAY -->
+  <div class="section-label">
+    <span style="font-size:1.3rem;">⚠️</span>
+    <h2>Hidden Dangers — Inland Waterways</h2>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:28px;">
+    <div style="background:#fde8e8;border:2px solid #ef9a9a;border-radius:12px;padding:12px;text-align:center;">
+      <div style="font-size:1.8rem;margin-bottom:5px;">🌿</div>
+      <p style="font-size:0.82rem;font-weight:700;color:var(--alert);">Hidden weeds trap legs</p>
+    </div>
+    <div style="background:#fde8e8;border:2px solid #ef9a9a;border-radius:12px;padding:12px;text-align:center;">
+      <div style="font-size:1.8rem;margin-bottom:5px;">🥶</div>
+      <p style="font-size:0.82rem;font-weight:700;color:var(--alert);">Cold water shocks the body</p>
+    </div>
+    <div style="background:#fde8e8;border:2px solid #ef9a9a;border-radius:12px;padding:12px;text-align:center;">
+      <div style="font-size:1.8rem;margin-bottom:5px;">🪨</div>
+      <p style="font-size:0.82rem;font-weight:700;color:var(--alert);">Rocks &amp; logs under the surface</p>
+    </div>
+    <div style="background:#fde8e8;border:2px solid #ef9a9a;border-radius:12px;padding:12px;text-align:center;">
+      <div style="font-size:1.8rem;margin-bottom:5px;">🌊</div>
+      <p style="font-size:0.82rem;font-weight:700;color:var(--alert);">Fast currents after rain</p>
+    </div>
+    <div style="background:#fde8e8;border:2px solid #ef9a9a;border-radius:12px;padding:12px;text-align:center;">
+      <div style="font-size:1.8rem;margin-bottom:5px;">👁️</div>
+      <p style="font-size:0.82rem;font-weight:700;color:var(--alert);">No lifeguard watching</p>
+    </div>
+    <div style="background:#fde8e8;border:2px solid #ef9a9a;border-radius:12px;padding:12px;text-align:center;">
+      <div style="font-size:1.8rem;margin-bottom:5px;">📡</div>
+      <p style="font-size:0.82rem;font-weight:700;color:var(--alert);">No phone signal for 000</p>
+    </div>
+  </div>
+
+  <!-- QUICK CHECK QUESTIONS -->
+  <div class="section-label">
+    <span style="font-size:1.3rem;">✏️</span>
+    <h2>Quick Check — What Do You Remember?</h2>
+  </div>
+
+  <div class="quiz-grid">
+    <div class="quiz-q">
+      <div class="qq-num">Question 1</div>
+      <p>Name the 5 SwimSafe rules in order:</p>
+      <span class="ans-line"></span>
+      <span class="ans-line"></span>
+      <span class="ans-line"></span>
+    </div>
+    <div class="quiz-q">
+      <div class="qq-num">Question 2</div>
+      <p>What do red and yellow flags mean?</p>
+      <span class="ans-line"></span>
+      <span class="ans-line"></span>
+    </div>
+    <div class="quiz-q">
+      <div class="qq-num">Question 3</div>
+      <p>If you're caught in a rip — what should you do FIRST?</p>
+      <span class="ans-line"></span>
+      <span class="ans-line"></span>
+    </div>
+    <div class="quiz-q">
+      <div class="qq-num">Question 4</div>
+      <p>What does DRS stand for in DRS ABCD?</p>
+      <span class="ans-line"></span>
+      <span class="ans-line"></span>
+    </div>
+    <div class="quiz-q">
+      <div class="qq-num">Question 5</div>
+      <p>Why should you NOT jump in to rescue someone if you're not trained?</p>
+      <span class="ans-line"></span>
+      <span class="ans-line"></span>
+    </div>
+    <div class="quiz-q">
+      <div class="qq-num">Question 6</div>
+      <p>Name ONE hidden danger at a river or dam:</p>
+      <span class="ans-line"></span>
+      <span class="ans-line"></span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>Swim &amp; Water Safety — Accessible Visual Guide · Year 7–8 HPE · Adapted for diverse learners</div>
+  <div style="font-family:'DM Mono',monospace;font-size:0.7rem;">lsv.com.au · stjohnvic.com.au · beachsafe.org.au</div>
+</footer>
+</body>
+</html>

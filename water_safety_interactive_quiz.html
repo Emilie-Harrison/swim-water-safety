@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO meta -->
+  <meta name="description" content="Browser-based interactive water safety quiz for Years 7–10 HPE — no login required. Four modes: Year 7–8 only (20 questions), Year 9–10 only (20 questions), Mixed all levels (25 questions), and Quick Fire (10 random). Instant feedback with explanation after each question." />
+  <meta name="keywords" content="interactive quiz, water safety, Year 7 8 9 10, HPE, no login, instant feedback, Kahoot alternative, Victorian Curriculum, beach flags, DRS ABCD" />
+  <meta name="author" content="Emilie Harrison" />
+  <link rel="canonical" href="https://emilie-harrison.github.io/swim-water-safety/water_safety_interactive_quiz.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Interactive Water Safety Quiz — Year 7–10 HPE (No Login Required)" />
+  <meta property="og:description" content="Browser-based interactive water safety quiz for Years 7–10 HPE — no login required. Four modes: Year 7–8 only (20 questions), Year 9–10 only (20 questions), Mixed all levels (25 questions), and Quick Fire (10 random). Instant feedback with explanation after each question." />
+  <meta property="og:url"         content="https://emilie-harrison.github.io/swim-water-safety/water_safety_interactive_quiz.html" />
+  <meta property="og:image"       content="https://emilie-harrison.github.io/swim-water-safety/og-image.png" />
+  <meta property="og:site_name"   content="Swim & Water Safety Teaching Hub — Victorian HPE" />
+  <meta property="og:locale"      content="en_AU" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Interactive Water Safety Quiz — Year 7–10 HPE (No Login Required)" />
+  <meta name="twitter:description" content="Browser-based interactive water safety quiz for Years 7–10 HPE — no login required. Four modes: Year 7–8 only (20 questions), Year 9–10 only (20 questions), Mixed all levels (25 questions), and Quick Fire (10 random). Instant feedback with explanation after each question." />
+  <meta name="twitter:image"       content="https://emilie-harrison.github.io/swim-water-safety/og-image.png" />
+  <!-- Schema.org EducationalResource structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Interactive Water Safety Quiz — Year 7–10 HPE (No Login Required)",
+    "description": "Browser-based interactive water safety quiz for Years 7–10 HPE — no login required. Four modes: Year 7–8 only (20 questions), Year 9–10 only (20 questions), Mixed all levels (25 questions), and Quick Fire (10 random). Instant feedback with explanation after each question.",
+    "url": "https://emilie-harrison.github.io/swim-water-safety/water_safety_interactive_quiz.html",
+    "educationalLevel": "Secondary",
+    "learningResourceType": "Teaching Resource",
+    "teaches": "Water Safety, Health and Physical Education",
+    "inLanguage": "en-AU",
+    "isAccessibleForFree": true,
+    "publisher": {
+      "@type": "Person",
+      "name": "Emilie Harrison",
+      "email": "swimwater.safety@gmail.com"
+    },
+    "educationalAlignment": {
+      "@type": "AlignmentObject",
+      "alignmentType": "educationalFramework",
+      "educationFramework": "Victorian Curriculum F-10 Version 2.0",
+      "targetName": "Health and Physical Education"
+    }
+  }
+  </script>
+<title>Water Safety Interactive Quiz | Year 7–8 &amp; 9–10 HPE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#003554;--ocean:#006494;--sky:#0582CA;--foam:#00A6FB;
+    --teal:#00695c;--amber:#b45309;--sage:#2e7d32;--alert:#c62828;--purple:#6a1b9a;
+    --gold:#f4c842;--bg:#f0f7ff;--card:#fff;--border:#c0d8ee;--text:#003554;--muted:#3a6a8a;
+  }
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min-height:100vh;}
+  .skip-nav{position:absolute;top:-100px;left:8px;background:var(--navy);color:#fff;padding:8px 18px;border-radius:0 0 8px 8px;font-size:0.9rem;font-weight:700;text-decoration:none;z-index:9999;transition:top 0.2s;}
+  .skip-nav:focus{top:0;}
+  :focus-visible{outline:3px solid var(--sky);outline-offset:2px;border-radius:3px;}
+
+  /* HEADER */
+  .header{background:linear-gradient(135deg,#002030,#003554,#006494);color:#fff;padding:28px 44px 36px;position:relative;overflow:hidden;text-align:center;}
+  .header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:32px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 32'%3E%3Cpath fill='%23f0f7ff' d='M0,16 Q360,32 720,16 Q1080,0 1440,16 L1440,32 L0,32Z'/%3E%3C/svg%3E") bottom/cover no-repeat;}
+  .header h1{font-family:'Poppins',sans-serif;font-size:1.9rem;font-weight:800;margin-bottom:5px;}
+  .header p{font-size:0.88rem;opacity:0.82;}
+
+  /* QUIZ CONTAINER */
+  .quiz-wrap{max-width:780px;margin:0 auto;padding:24px 22px 60px;}
+
+  /* SETUP SCREEN */
+  #setup-screen{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 30px;box-shadow:0 4px 18px rgba(0,50,100,0.08);}
+  #setup-screen h2{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:18px;text-align:center;}
+  .setup-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+  .opt-card{border:2px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:all 0.2s;text-align:center;}
+  .opt-card:hover,.opt-card.selected{border-color:var(--ocean);background:#e3f2fd;}
+  .opt-card .oc-icon{font-size:2rem;margin-bottom:6px;}
+  .opt-card h3{font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:3px;}
+  .opt-card p{font-size:0.78rem;color:var(--muted);}
+  .start-btn{width:100%;padding:14px;background:var(--ocean);color:#fff;border:none;border-radius:40px;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.2s;}
+  .start-btn:hover{background:var(--sky);transform:translateY(-1px);}
+
+  /* QUIZ SCREEN */
+  #quiz-screen{display:none;}
+  .quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;}
+  .q-count{font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--muted);}
+  .score-chip{background:var(--ocean);color:#fff;border-radius:20px;padding:4px 14px;font-family:'DM Mono',monospace;font-size:0.8rem;font-weight:700;}
+  .progress-bar{height:6px;background:#d0e8f5;border-radius:3px;margin-bottom:20px;overflow:hidden;}
+  .progress-fill{height:100%;background:linear-gradient(to right,var(--ocean),var(--foam));border-radius:3px;transition:width 0.4s ease;}
+
+  .q-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 24px;box-shadow:0 3px 14px rgba(0,50,100,0.06);margin-bottom:16px;}
+  .q-meta{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+  .q-level{font-size:0.7rem;font-weight:700;border-radius:6px;padding:2px 9px;font-family:'DM Mono',monospace;}
+  .lv-78{background:#e3f2fd;color:var(--ocean);}
+  .lv-910{background:#f3e5f5;color:var(--purple);}
+  .q-topic{font-size:0.72rem;color:var(--muted);}
+  .q-text{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.45;}
+
+  .options-grid{display:flex;flex-direction:column;gap:8px;}
+  .opt-btn{padding:11px 16px;border:2px solid var(--border);border-radius:10px;background:var(--bg);font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--text);cursor:pointer;text-align:left;transition:all 0.15s;line-height:1.35;}
+  .opt-btn:hover:not(:disabled){border-color:var(--sky);background:#e3f2fd;}
+  .opt-btn.correct{background:#e8f5e9;border-color:var(--sage);color:var(--sage);}
+  .opt-btn.correct::before{content:'✓  ';}
+  .opt-btn.wrong{background:#fde8e8;border-color:var(--alert);color:var(--alert);}
+  .opt-btn.wrong::before{content:'✗  ';}
+  .opt-btn.reveal-correct{background:#e8f5e9;border-color:var(--sage);}
+  .opt-btn:disabled{cursor:default;}
+
+  .feedback-box{border-radius:10px;padding:12px 16px;margin-top:12px;font-size:0.88rem;line-height:1.55;display:none;}
+  .feedback-box.correct{background:#e8f5e9;border:1px solid #a5d6a7;color:#1a3a22;}
+  .feedback-box.wrong{background:#fde8e8;border:1px solid #f09090;color:#5a1010;}
+  .feedback-box strong{display:block;font-size:0.9rem;margin-bottom:3px;}
+
+  .next-btn{margin-top:14px;padding:12px 28px;background:var(--navy);color:#fff;border:none;border-radius:40px;font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;display:none;transition:all 0.15s;}
+  .next-btn:hover{background:var(--ocean);}
+
+  /* RESULTS SCREEN */
+  #results-screen{display:none;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 30px;text-align:center;box-shadow:0 4px 18px rgba(0,50,100,0.08);}
+  .score-big{font-family:'Poppins',sans-serif;font-size:3.5rem;font-weight:900;color:var(--ocean);line-height:1;}
+  .score-label{font-size:1rem;color:var(--muted);margin-bottom:20px;}
+  .medal{font-size:3rem;margin-bottom:8px;display:block;}
+  .result-msg{font-size:1rem;color:var(--text);margin-bottom:20px;line-height:1.6;}
+  .result-breakdown{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:20px;text-align:left;}
+  .rb-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:0.88rem;}
+  .rb-row:last-child{border-bottom:none;}
+  .rb-label{color:var(--muted);}
+  .rb-val{font-weight:700;color:var(--ocean);}
+  .play-again-btn{padding:13px 32px;background:var(--ocean);color:#fff;border:none;border-radius:40px;font-family:'Poppins',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.15s;margin-right:8px;}
+  .play-again-btn:hover{background:var(--sky);}
+  .change-mode-btn{padding:12px 24px;background:transparent;color:var(--ocean);border:2px solid var(--ocean);border-radius:40px;font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;transition:all 0.15s;}
+  .change-mode-btn:hover{background:#e3f2fd;}
+
+  footer{background:var(--navy);color:rgba(255,255,255,0.65);padding:14px 44px;font-size:0.74rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-top:20px;}
+  @media(max-width:600px){.header{padding:22px 18px 34px;}.quiz-wrap{padding:18px 14px 40px;}.setup-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<header class="header">
+  <h1>💧 Water Safety Interactive Quiz</h1>
+  <p>Swim &amp; Water Safety Teaching Resource Suite · Year 7–8 and Year 9–10 · No login required</p>
+</header>
+
+<div id="main-content" tabindex="-1" style="outline:none;"></div>
+<div class="quiz-wrap">
+
+  <!-- SETUP -->
+  <div id="setup-screen">
+    <h2>Choose your quiz mode</h2>
+    <div class="setup-options" role="group" aria-label="Quiz mode selection">
+      <div class="opt-card" id="opt-78" onclick="selectMode('78')" tabindex="0" role="button" aria-pressed="false">
+        <div class="oc-icon">🏖</div>
+        <h3>Year 7–8</h3>
+        <p>Beach flags, SwimSafe rules, DRS ABCD, rip currents, hazards</p>
+        <p style="margin-top:4px;font-weight:700;color:var(--ocean);">20 questions</p>
+      </div>
+      <div class="opt-card" id="opt-910" onclick="selectMode('910')" tabindex="0" role="button" aria-pressed="false">
+        <div class="oc-icon">📊</div>
+        <h3>Year 9–10</h3>
+        <p>Data analysis, physiology, social determinants, prevention, international</p>
+        <p style="margin-top:4px;font-weight:700;color:var(--purple);">20 questions</p>
+      </div>
+      <div class="opt-card" id="opt-mix" onclick="selectMode('mix')" tabindex="0" role="button" aria-pressed="false">
+        <div class="oc-icon">🌊</div>
+        <h3>Mixed — All Levels</h3>
+        <p>A mix of Year 7–8 and Year 9–10 questions for full-unit revision</p>
+        <p style="margin-top:4px;font-weight:700;color:var(--teal);">25 questions</p>
+      </div>
+      <div class="opt-card" id="opt-quick" onclick="selectMode('quick')" tabindex="0" role="button" aria-pressed="false">
+        <div class="oc-icon">⚡</div>
+        <h3>Quick Fire</h3>
+        <p>10 random questions from across both year levels — fast revision</p>
+        <p style="margin-top:4px;font-weight:700;color:var(--amber);">10 questions</p>
+      </div>
+    </div>
+    <button class="start-btn" onclick="startQuiz()" id="start-btn" disabled>Select a mode to begin</button>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz-screen">
+    <div class="quiz-header">
+      <span class="q-count" id="q-count">Question 1 of 20</span>
+      <span class="score-chip" id="score-chip">Score: 0</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div class="q-card">
+      <div class="q-meta">
+        <span class="q-level" id="q-level">Y7-8</span>
+        <span class="q-topic" id="q-topic"></span>
+      </div>
+      <p class="q-text" id="q-text"></p>
+      <div class="options-grid" id="options-grid" role="group" aria-label="Answer options"></div>
+      <div class="feedback-box" id="feedback-box"></div>
+      <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next question →</button>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results-screen">
+    <span class="medal" id="medal">🏅</span>
+    <div class="score-big" id="final-score">0/0</div>
+    <div class="score-label" id="score-pct">— %</div>
+    <p class="result-msg" id="result-msg"></p>
+    <div class="result-breakdown" id="result-breakdown"></div>
+    <button class="play-again-btn" onclick="playAgain()">Play again</button>
+    <button class="change-mode-btn" onclick="changeMode()">Change mode</button>
+  </div>
+
+</div>
+
+<footer>
+  <div>Swim &amp; Water Safety — Interactive Quiz · Year 7–8 &amp; 9–10 HPE · Victorian Curriculum F–10 Version 2.0 · No login required</div>
+  <div style="font-family:'DM Mono',monospace;font-size:0.7rem;">lsv.com.au · royallifesaving.com.au · victoriancurriculum.vcaa.vic.edu.au</div>
+</footer>
+
+<script>
+// ── QUESTION BANK ──────────────────────────────────────────────────────────
+const QUESTIONS = {
+  y78: [
+    {q:'What should you always do before entering the water at a beach?',
+     opts:['Jump straight in — the water looks fine','Check the flags and any posted warning signs','Ask a friend if they think it\'s safe','Look at the colour of the water'],
+     ans:1, topic:'SwimSafe Rules',
+     fb:'The first SwimSafe rule: Read signs — always check flags and warning signs before entering the water.'},
+    {q:'What do red and yellow flags at a patrolled beach mean?',
+     opts:['No swimming allowed today','Swim here — lifeguards are on duty, this is the safest zone','Warning: dangerous conditions','Strong current — experienced swimmers only'],
+     ans:1, topic:'Beach Flags',
+     fb:'Red and yellow flags mark the safe swimming zone under lifeguard supervision. Always swim between the flags.'},
+    {q:'What does a single red flag at a beach mean?',
+     opts:['Lifeguards are on duty','Swim here only if you are confident','Dangerous conditions — do not swim','Jellyfish or other marine danger'],
+     ans:2, topic:'Beach Flags',
+     fb:'A single red flag means dangerous conditions. Only experienced swimmers should enter, with extreme caution. Do not swim here if you are not a highly skilled swimmer.'},
+    {q:'What does an orange windsock flag at a beach mean?',
+     opts:['No inflatables — offshore winds will blow them out to sea','Strong rip current — stay out','Lifeguards off duty for the day','Shark alert'],
+     ans:0, topic:'Beach Flags',
+     fb:'The orange windsock flag means strong offshore winds. NO inflatables — they will be blown out to sea and cannot be retrieved without a boat.'},
+    {q:'You are caught in a rip current. What should you do FIRST?',
+     opts:['Swim as hard as you can directly back to shore','Panic and scream for help immediately','Stay calm and float to conserve your energy','Dive under the waves to escape'],
+     ans:2, topic:'Rip Currents',
+     fb:'Stay calm and float first. Panicking and swimming against a rip will exhaust you. Float, then swim parallel to shore (sideways) once you have conserved energy.'},
+    {q:'If caught in a rip, which direction should you swim to escape?',
+     opts:['Straight back toward shore','Directly out to sea','Parallel to shore (sideways)','Underwater along the sea floor'],
+     ans:2, topic:'Rip Currents',
+     fb:'Swim parallel to shore — sideways — not against the rip (which will exhaust you) and not straight to shore. Once you are out of the rip, angle back to shore.'},
+    {q:'What is the correct distress signal if you need help in the water?',
+     opts:['Wave both arms wildly','Raise ONE arm straight up and hold it there','Splash the water loudly','Blow a whistle three times'],
+     ans:1, topic:'SwimSafe Rules',
+     fb:'Raise ONE arm straight up. Two arms waving can look like playing. One arm held up is the internationally recognised swimmer distress signal.'},
+    {q:'What does "Throw, Don\'t Go" mean?',
+     opts:['Throw your towel on the beach before you swim','Never enter the water to rescue someone unless trained — throw something to them instead','Throw a ball to attract a lifeguard\'s attention','Go get help before throwing anything'],
+     ans:1, topic:'Rescue Principles',
+     fb:'Throw, Don\'t Go: never enter the water to rescue a drowning person unless you are trained in water rescue. A panicking person can pull an untrained rescuer underwater. Throw a rope, towel, pool noodle, or anything that floats.'},
+    {q:'What is the first step of DRS ABCD?',
+     opts:['Response — tap the person\'s shoulder','Send — call 000 immediately','Danger — check it is safe before approaching','Airway — tilt the head back'],
+     ans:2, topic:'DRS ABCD',
+     fb:'D is for DANGER — the very first step. Check it is safe before approaching. In a water emergency: check for rip currents, unstable banks, or other hazards that could endanger you.'},
+    {q:'What does the S in DRS ABCD stand for?',
+     opts:['Safe','Send for help (call 000)','Stroke — begin CPR','Spine check'],
+     ans:1, topic:'DRS ABCD',
+     fb:'S = Send for help. Call 000 immediately — or direct a specific person: "You — call 000 right now." Give your exact location to the operator.'},
+    {q:'What is the correct CPR ratio for adults?',
+     opts:['15 compressions and 2 breaths','30 compressions and 2 breaths','100 compressions and no breaths','20 compressions and 1 breath'],
+     ans:1, topic:'CPR',
+     fb:'30 compressions : 2 rescue breaths (30:2). Rate: 100–120 beats per minute. Depth: 5–6cm. Allow full chest recoil between compressions.'},
+    {q:'Why should you enter water feet first?',
+     opts:['It is faster than diving','Diving looks dangerous to others','You cannot know the depth or what is underneath — entering feet first prevents head and neck injury','It is the most efficient swimming technique'],
+     ans:2, topic:'SwimSafe Rules',
+     fb:'SwimSafe Rule 2: Enter feet first. You can never know the exact depth of unknown water or what is beneath the surface (rocks, weeds, submerged logs). Diving into shallow or unknown water can cause fatal head and spinal injuries.'},
+    {q:'Which of the following is a HIDDEN hazard at inland waterways (rivers, dams, lakes) that is NOT visible from the surface?',
+     opts:['The colour of the water','Underwater weeds that can trap legs and feet','The sound of flowing water','The presence of birds nearby'],
+     ans:1, topic:'Inland Waterways',
+     fb:'Underwater weeds are a major hidden hazard at inland waterways — they can trap legs and prevent you from swimming to safety. Other hidden hazards include submerged rocks/logs, fast currents below the surface, and cold water deeper down.'},
+    {q:'What is secondary drowning?',
+     opts:['Drowning in a shallow pool rather than the ocean','Pulmonary oedema (fluid in the lungs) that develops hours after a non-fatal submersion incident','A second drowning attempt after surviving the first','The psychological effects of a near-drowning experience'],
+     ans:1, topic:'Physiology',
+     fb:'Secondary drowning is fluid in the lungs (pulmonary oedema) that develops hours after a near-drowning event. It is rare but potentially fatal. Anyone involved in a submersion incident should receive medical review — even if they feel fine immediately afterward.'},
+    {q:'How many SwimSafe rules are there?',
+     opts:['3','7','5','4'],
+     ans:2, topic:'SwimSafe Rules',
+     fb:'There are 5 SwimSafe rules: 1. Read signs; 2. Enter feet first; 3. Stay in depth; 4. Swim with a friend; 5. Signal for help.'},
+    {q:'What is the bystander effect?',
+     opts:['When a crowd of people watch someone swim in a dangerous area','When individuals are less likely to help in an emergency because they assume someone else will act','When spectators on a beach spot a rip current and alert swimmers','When a single person standing by can rescue a drowning victim'],
+     ans:1, topic:'Decision Making',
+     fb:'The bystander effect: when others are present, individuals are less likely to help because they assume someone else will act. Overcome it by giving direct, named instructions: "You — in the red shirt — call 000 right now."'},
+    {q:'What should you do if a friend dares you to jump off a jetty into a dam you\'ve never swum in before?',
+     opts:['Jump — it\'s probably fine if others have done it before','Refuse — you cannot see what is under the surface and it breaks two SwimSafe rules','Jump from a slightly lower spot to be safer','Only agree if two friends will jump with you'],
+     ans:1, topic:'Decision Making',
+     fb:'Refuse. This breaks SwimSafe rules 1 (Read signs), 2 (Enter feet first), and 3 (Stay in depth). Hidden hazards — rocks, logs, debris, and cold water — are invisible from above. Prior experience at the same spot does not guarantee safety today.'},
+    {q:'An AED (Automated External Defibrillator) is used when:',
+     opts:['The person is breathing normally but unconscious','The person has broken bones from a fall near water','The person is in cardiac arrest — their heart has stopped','The person has inhaled water but is conscious'],
+     ans:2, topic:'DRS ABCD',
+     fb:'An AED is used when a person is in cardiac arrest. The device analyses heart rhythm and delivers a shock if appropriate to restore normal heartbeat. AEDs are safe for untrained bystanders to use — they provide audio and visual instructions.'},
+    {q:'Which of the following best describes why most adult drowning victims in Victoria could swim?',
+     opts:['Drowning statistics in Victoria must be incorrect','Drowning is usually caused by situational and behavioural factors — not inability to swim','Most Victorians overestimate their swimming ability','Older adults lose swimming skills over time'],
+     ans:1, topic:'Water Safety Context',
+     fb:'Most Victorian adult drowning victims could swim. Drowning is primarily caused by situational and behavioural factors: swimming at unpatrolled locations, alcohol, risk-taking, cold water shock, and rip currents — not simply inability to swim.'},
+    {q:'What is the 1-10-1 rule for cold water immersion?',
+     opts:['1 hour before cardiac arrest; 10 minutes to be rescued; 1 kilometre swim limit','Approximately 1 minute to control breathing; 10 minutes of useful swimming; up to 1 hour before hypothermia incapacitates','1 metre deep is safe; 10 metres is dangerous; 1 kilometre is fatal','Swim 1 lap; rest 10 minutes; swim 1 more'],
+     ans:1, topic:'Cold Water Safety',
+     fb:'The 1-10-1 cold water rule: ~1 minute to control the gasping reflex and breathing; ~10 minutes of useful swimming before muscles fail due to cold; up to ~1 hour before hypothermia causes unconsciousness (varies with water temperature, clothing, and body composition).'},
+  ],
+  y910: [
+    {q:'Victoria had 54 drowning deaths in 2023–24 with a population of approximately 6.9 million. What is the correct drowning rate per 100,000 population?',
+     opts:['1.2 per 100,000','0.78 per 100,000','0.54 per 100,000','2.1 per 100,000'],
+     ans:1, topic:'Data Analysis',
+     fb:'Rate = 54 ÷ (6,900,000 ÷ 100,000) = 54 ÷ 69 = 0.78 per 100,000. This is actually BELOW the Australian national average of 1.2 per 100,000 — though specific sub-populations (CALD, males) remain significantly over-represented.'},
+    {q:'CALD communities account for approximately 40% of Victorian drowning deaths but approximately 28% of the population. What is their over-representation ratio?',
+     opts:['0.7','1.0 (proportional)','1.43','2.8'],
+     ans:2, topic:'Data Analysis',
+     fb:'Over-representation ratio = deaths% ÷ population% = 40 ÷ 28 = 1.43. A ratio of 1.0 means proportional representation. 1.43 means CALD Victorians are drowning at 1.43 times the rate their population share would predict.'},
+    {q:'What is the correct physiological sequence of drowning?',
+     opts:['Submersion → cardiac arrest → hypoxia → laryngospasm → cerebral hypoxia','Submersion → laryngospasm → hypoxia → cardiac arrest → cerebral hypoxia','Laryngospasm → submersion → hypoxia → cerebral hypoxia → cardiac arrest','Submersion → cerebral hypoxia → laryngospasm → hypoxia → cardiac arrest'],
+     ans:1, topic:'Physiology',
+     fb:'Correct order: Submersion → laryngospasm (airway closes) → hypoxia (oxygen depletion) → cardiac arrest → cerebral hypoxia (brain cell death). Cardiac arrest follows hypoxia — not the other way around.'},
+    {q:'CPR chest compressions generate approximately what percentage of normal resting cardiac output?',
+     opts:['10–15%','25–30%','50–60%','75–80%'],
+     ans:1, topic:'Physiology',
+     fb:'Standard CPR generates approximately 25–30% of normal resting cardiac output. This is sufficient to maintain minimum brain perfusion while waiting for defibrillation or return of spontaneous circulation (ROSC). It explains why bystander CPR buys critical time even before paramedics arrive.'},
+    {q:'Which of the following best explains why males account for approximately 85% of Victorian drowning deaths from a social determinants perspective?',
+     opts:['Males are biologically weaker swimmers than females','Masculinity norms — social expectations that males should take risks and not back down from dares — lead to higher risk-taking behaviour near water','Males spend more time near water than females','Males are less likely to have completed formal swimming lessons'],
+     ans:1, topic:'Social Determinants',
+     fb:'Masculinity norms are the key social determinant. The 85% male figure reflects social expectations around risk-taking, not biological factors or swim ability. Prevention strategies targeting this demographic often reframe water safety as intelligence, not weakness.'},
+    {q:'Which of the following is a STRUCTURAL explanation (rather than an individual explanation) for CALD community over-representation in Victorian drowning deaths?',
+     opts:['CALD community members make poor decisions near water','CALD families don\'t value water safety education','Many CALD community members grew up in countries without access to swimming lessons or public pools — a historical skill gap','CALD community members are more likely to swim in cold water'],
+     ans:2, topic:'Social Determinants',
+     fb:'Historical limited swim access is structural — it is not a personal choice but a systemic consequence of limited infrastructure in countries of origin. Other structural factors: language barriers to safety messaging, occupational water exposure (fishing), and limited access to community swim programs.'},
+    {q:'Which prevention strategy has the strongest evidence base for reducing child drowning in home pools?',
+     opts:['Warning signs at pool gates','Parent supervision during all pool use','Four-sided pool isolation fencing','Mandatory swimming lessons for children'],
+     ans:2, topic:'Prevention Strategies',
+     fb:'Four-sided isolation fencing has the strongest evidence — reducing child drowning in home pools by approximately 83%. Three-sided fencing (using the house wall as one side) is significantly less effective. Victorian legislation mandates four-sided fencing for new pool installations.'},
+    {q:'Warning signs at unpatrolled beaches have the same evidence strength as lifeguard supervision for preventing adult drowning deaths. True or false?',
+     opts:['True','False'],
+     ans:1, topic:'Prevention Strategies',
+     fb:'False. Warning signs have limited evidence — they raise awareness but don\'t prevent people from swimming at unpatrolled locations. Lifeguard supervision is the strongest intervention: in 2023–24, there were zero deaths at patrolled locations in Victoria versus 54 at unpatrolled locations.'},
+    {q:'The RLSS UK "Float to Live" campaign teaches what as the PRIMARY response to a water emergency?',
+     opts:['Swim immediately and as fast as possible to shore','Float first to conserve energy and control breathing before attempting to swim','Call 000 before entering the water','Dive under the waves to avoid being pulled further out'],
+     ans:1, topic:'International Comparison',
+     fb:'Float to Live (RLSS UK) argues that floating first conserves energy, prevents panic, and allows the body to overcome cold water shock before attempting to swim. This differs from traditional "swim to safety" messaging and is particularly relevant for cold water immersion.'},
+    {q:'WHO reports that approximately what percentage of global drowning deaths occur in low- and middle-income countries?',
+     opts:['40%','60%','75%','90%'],
+     ans:3, topic:'Global Data',
+     fb:'WHO reports approximately 90% of global drowning deaths occur in low- and middle-income countries — reflecting structural factors: limited lifeguard infrastructure, no mandatory pool fencing laws, limited swim education, and higher rates of open-water occupational activities.'},
+    {q:'What is health inequity (as distinct from health inequality)?',
+     opts:['Any difference in health outcomes between two population groups','A health difference that is unfair, avoidable, and rooted in unjust social conditions','A difference caused by genetic or biological variation between groups','A statistical difference in disease rates between regions'],
+     ans:1, topic:'Social Determinants',
+     fb:'Health inequity is specifically a health difference that is unfair, avoidable, and caused by unjust social conditions — not natural variation. The CALD over-representation in Victorian drowning deaths is a health inequity because it results from structural barriers (limited swim access, language barriers) that are avoidable with targeted intervention.'},
+    {q:'Which Victorian Government body publishes the annual Victorian Drowning Report?',
+     opts:['Victorian Curriculum and Assessment Authority (VCAA)','Department of Health Victoria','Life Saving Victoria (LSV)','Department of Education Victoria (DE)'],
+     ans:2, topic:'Organisations',
+     fb:'Life Saving Victoria (LSV) publishes the annual Victorian Drowning Report. It is available free at lsv.com.au/research/victorian-drowning-reports/ and is the primary data source for Victorian drowning statistics.'},
+    {q:'In 2023–24, how many Victorian drowning deaths occurred at patrolled locations (supervised by lifeguards)?',
+     opts:['54','12','3','0'],
+     ans:3, topic:'Data Analysis',
+     fb:'Zero. All 54 Victorian drowning deaths in 2023–24 occurred at unpatrolled locations. This is the single most powerful argument for swimming at lifeguard-supervised locations.'},
+    {q:'What does "disaggregating data" mean in the context of Victorian drowning statistics?',
+     opts:['Removing unreliable data from the annual report','Breaking down the overall drowning rate into specific demographic sub-groups to reveal patterns hidden in aggregate statistics','Comparing Victorian data with international data','Removing outlier years from the trend analysis'],
+     ans:1, topic:'Data Analysis',
+     fb:'Disaggregation means breaking aggregate data down into sub-groups. Victoria\'s overall rate of 0.78 per 100,000 hides enormous variation: the male rate is approximately 1.36, and the CALD rate is approximately 1.43 times higher than their population share. Aggregate statistics can obscure significant inequities.'},
+    {q:'Which curriculum code relates to Year 9–10 HPE specialised movement concepts in aquatic contexts?',
+     opts:['VC2HP10P02','VC2HP8M01','VC2HP10M01','VC2HP8P10'],
+     ans:2, topic:'Curriculum',
+     fb:'VC2HP10M01 is the Year 9–10 code for specialised movement concepts in aquatic contexts — covering survival swimming, rescue techniques, and advanced water safety skills. VC2HP8M01 is the equivalent Year 7–8 code.'},
+    {q:'A student argues: "Victoria should be proud — our drowning rate is well below the national average." What is the most significant limitation of this argument?',
+     opts:['The national average is calculated incorrectly','The overall rate hides significant internal inequities — particularly CALD over-representation — and the 2023–24 total was the highest in over a decade','Victoria\'s rate is actually higher than the national average','The national average includes non-fatal drownings but Victorian figures do not'],
+     ans:1, topic:'Critical Thinking',
+     fb:'The overall rate hides internal disparities: CALD communities drown at 1.43 times expected rates; males at nearly twice the female rate; inland waterway deaths are rising. Furthermore, 54 deaths in 2023–24 was the highest Victorian toll in over a decade. "Below average" does not mean "under control."'},
+    {q:'What does the AAPPC framework stand for in the Cross-Curricular Literacy Unit?',
+     opts:['Audience, Aim, Persuasion, Platform, Credibility','Awareness, Action, Prevention, Protection, Community','Analysis, Argument, Position, Policy, Communication','Accuracy, Appropriateness, Purpose, Presentation, Context'],
+     ans:0, topic:'Health Communication',
+     fb:'AAPPC: Audience (who is the campaign targeting?), Aim/Purpose (what does it want the audience to know/think/do?), Persuasion technique (fear appeal, reframing, social proof?), Platform/Form (medium and delivery channel), and Credibility (evidence and authority behind the message).'},
+    {q:'Which of the following best describes why adult mandatory swim lessons have weaker evidence for reducing drowning than child swim lessons?',
+     opts:['Adults learn less effectively than children in general','Most Victorian adult drowning victims could swim — adult drowning is more strongly associated with risk-taking behaviour, alcohol, and structural barriers than swim inability','Adult swim lessons are too expensive to be practical','There is no evidence that swim lessons work for anyone'],
+     ans:1, topic:'Prevention Strategies',
+     fb:'Adult drowning is primarily caused by situational and behavioural factors, not inability to swim. Most Victorian adult drowning victims could swim. Adult prevention strategies need to address the root causes — behavioural, structural, and situational — rather than assuming skill deficit.'},
+    {q:'What is the primary difference between VC2HP10P10 and VC2HP10P02 at Year 9–10?',
+     opts:['VC2HP10P10 is a Year 7–8 code; VC2HP10P02 is a Year 9–10 code','VC2HP10P10 focuses on planning, justifying and critiquing community health strategies; VC2HP10P02 focuses on refining, evaluating and adapting strategies for managing changes and transitions','VC2HP10P10 covers physical skills; VC2HP10P02 covers health knowledge','They are identical codes — the number difference is administrative'],
+     ans:1, topic:'Curriculum',
+     fb:'VC2HP10P02 — refine, evaluate and adapt strategies for managing changes and transitions (including changes related to health, relationships and circumstances). VC2HP10P10 — plan, justify and critique strategies to enhance their own, others\'  and community\'s health, safety, relationships and wellbeing. The Community Action Project Guide in this suite directly addresses VC2HP10P10.'},
+    {q:'What is a SMART success metric in the context of a water safety campaign evaluation?',
+     opts:['A clever, attention-grabbing campaign message','A goal that is Specific, Measurable, Achievable, Relevant, and Time-bound — allowing the campaign\'s impact to be objectively assessed','A rapid assessment tool completed within 24 hours of the campaign launch','A marketing term for campaigns that use social media platforms effectively'],
+     ans:1, topic:'Health Communication',
+     fb:'SMART: Specific (clearly defined outcome), Measurable (can be quantified), Achievable (realistic), Relevant (connected to the goal), Time-bound (has a deadline). Example: "A 15% reduction in 15–24 year old male unpatrolled location drowning deaths in Victoria within 3 years of campaign launch."'},
+  ],
+};
+
+// ── QUIZ STATE ──────────────────────────────────────────────────────────────
+let mode = null, questions = [], currentIndex = 0, score = 0;
+let answered = false;
+let categoryScores = {};
+
+function selectMode(m) {
+  mode = m;
+  document.querySelectorAll('.opt-card').forEach(c => { c.classList.remove('selected'); c.setAttribute('aria-pressed','false'); });
+  document.getElementById('opt-' + m).classList.add('selected');
+  document.getElementById('opt-' + m).setAttribute('aria-pressed','true');
+  const btn = document.getElementById('start-btn');
+  btn.disabled = false;
+  btn.textContent = 'Start Quiz →';
+}
+
+document.querySelectorAll('.opt-card').forEach(card => {
+  card.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); card.click(); }});
+});
+
+function buildQuestions() {
+  const pool78  = shuffle([...QUESTIONS.y78]);
+  const pool910 = shuffle([...QUESTIONS.y910]);
+  if (mode === '78')    return pool78.slice(0, 20).map(q => ({...q, level:'Y7-8'}));
+  if (mode === '910')   return pool910.slice(0, 20).map(q => ({...q, level:'Y9-10'}));
+  if (mode === 'mix')   return shuffle([...pool78.slice(0,12),...pool910.slice(0,13)]).slice(0,25).map((q,i) => ({...q, level: QUESTIONS.y78.includes(q)?'Y7-8':'Y9-10'}));
+  if (mode === 'quick') return shuffle([...pool78.slice(0,5),...pool910.slice(0,5)]).slice(0,10).map(q => ({...q, level: QUESTIONS.y78.includes(q)?'Y7-8':'Y9-10'}));
+  return [];
+}
+
+function shuffle(arr) {
+  for (let i=arr.length-1;i>0;i--) { const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; }
+  return arr;
+}
+
+function startQuiz() {
+  questions = buildQuestions();
+  currentIndex = 0; score = 0; categoryScores = {};
+  document.getElementById('setup-screen').style.display = 'none';
+  document.getElementById('quiz-screen').style.display = 'block';
+  document.getElementById('results-screen').style.display = 'none';
+  renderQuestion();
+}
+
+function renderQuestion() {
+  answered = false;
+  const q = questions[currentIndex];
+  const total = questions.length;
+  document.getElementById('q-count').textContent = `Question ${currentIndex+1} of ${total}`;
+  document.getElementById('score-chip').textContent = `Score: ${score}`;
+  document.getElementById('progress-fill').style.width = `${(currentIndex/total)*100}%`;
+  document.getElementById('q-level').textContent = q.level;
+  document.getElementById('q-level').className = 'q-level ' + (q.level==='Y7-8'?'lv-78':'lv-910');
+  document.getElementById('q-topic').textContent = q.topic;
+  document.getElementById('q-text').textContent = q.q;
+  const grid = document.getElementById('options-grid');
+  grid.innerHTML = '';
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.textContent = opt;
+    btn.setAttribute('aria-label', `Option ${i+1}: ${opt}`);
+    btn.onclick = () => selectAnswer(i);
+    grid.appendChild(btn);
+  });
+  const fb = document.getElementById('feedback-box');
+  fb.style.display = 'none'; fb.className = 'feedback-box';
+  document.getElementById('next-btn').style.display = 'none';
+}
+
+function selectAnswer(idx) {
+  if (answered) return;
+  answered = true;
+  const q = questions[currentIndex];
+  const isCorrect = idx === q.ans;
+  if (isCorrect) score++;
+  // Track by topic
+  if (!categoryScores[q.topic]) categoryScores[q.topic] = {correct:0, total:0};
+  categoryScores[q.topic].total++;
+  if (isCorrect) categoryScores[q.topic].correct++;
+
+  const btns = document.querySelectorAll('.opt-btn');
+  btns.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === q.ans) btn.classList.add(isCorrect ? 'correct' : 'reveal-correct');
+    if (i === idx && !isCorrect) btn.classList.add('wrong');
+  });
+  const fb = document.getElementById('feedback-box');
+  fb.className = 'feedback-box ' + (isCorrect ? 'correct' : 'wrong');
+  fb.innerHTML = `<strong>${isCorrect ? '✓ Correct!' : '✗ Not quite.'}</strong>${q.fb}`;
+  fb.style.display = 'block';
+  document.getElementById('next-btn').style.display = 'inline-block';
+  document.getElementById('score-chip').textContent = `Score: ${score}`;
+}
+
+function nextQuestion() {
+  currentIndex++;
+  if (currentIndex >= questions.length) { showResults(); return; }
+  renderQuestion();
+}
+
+function showResults() {
+  document.getElementById('quiz-screen').style.display = 'none';
+  document.getElementById('results-screen').style.display = 'block';
+  const total = questions.length;
+  const pct = Math.round((score/total)*100);
+  document.getElementById('final-score').textContent = `${score}/${total}`;
+  document.getElementById('score-pct').textContent = `${pct}%`;
+  const medals = [[90,'🥇'],[70,'🥈'],[50,'🥉'],[0,'💪']];
+  document.getElementById('medal').textContent = medals.find(([t])=>pct>=t)[1];
+  const msgs = [[90,'Outstanding! You\'ve mastered water safety knowledge at an advanced level.'],[70,'Great work! Strong understanding of water safety principles with a few areas to revisit.'],[50,'Good effort — you\'re developing solid water safety knowledge. Review the topics you missed.'],[0,'Keep working at it — water safety knowledge builds with practice. Review the topics marked wrong.']];
+  document.getElementById('result-msg').textContent = msgs.find(([t])=>pct>=t)[1];
+  let bd = '';
+  Object.entries(categoryScores).sort((a,b)=>b[1].total-a[1].total).forEach(([topic,{correct,total:t}]) => {
+    const pct2 = Math.round((correct/t)*100);
+    const indicator = pct2>=80?'✓':pct2>=50?'~':'✗';
+    bd += `<div class="rb-row"><span class="rb-label">${indicator} ${topic}</span><span class="rb-val">${correct}/${t}</span></div>`;
+  });
+  document.getElementById('result-breakdown').innerHTML = `<p style="font-size:0.82rem;font-weight:700;color:var(--muted);margin-bottom:8px;">Results by topic:</p>${bd}`;
+}
+
+function playAgain() {
+  startQuiz();
+  document.getElementById('results-screen').style.display='none';
+  document.getElementById('quiz-screen').style.display='block';
+}
+
+function changeMode() {
+  mode = null;
+  document.querySelectorAll('.opt-card').forEach(c => { c.classList.remove('selected'); c.setAttribute('aria-pressed','false'); });
+  document.getElementById('start-btn').disabled=true;
+  document.getElementById('start-btn').textContent='Select a mode to begin';
+  document.getElementById('results-screen').style.display='none';
+  document.getElementById('setup-screen').style.display='block';
+}
+</script>
+</body>
+</html>
