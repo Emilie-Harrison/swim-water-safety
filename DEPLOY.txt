@@ -1,0 +1,38 @@
+DEPLOY NOTES - swim-water-safety, September 2026 release
+========================================================
+
+1. Copy every file in this folder over your local repo working copy.
+   Same-named files are overwritten. Nothing needs deleting first.
+
+2. TWO files must be deleted explicitly - copying will NOT remove them:
+
+     git rm HPE_Secondary_Resource_Directory_V7.docx
+     git rm Copyright_Ownership_Licensing_Summary.pdf
+
+   V7 is superseded by V8 and contains incorrect curriculum codes.
+   The old copyright PDF is superseded by copyright_licensing.pdf.
+
+   Copyright_Ownership_Licensing_Summary.html is KEPT deliberately - it is
+   now a redirect stub pointing at copyright_licensing.html, so existing
+   inbound links and search results still resolve. Do not delete it.
+
+3. RESOLVED: student_digital_portfolio.html is now included. It was
+   advertised on the homepage and listed in sitemap.xml but had never been
+   committed, so it was a live 404 being actively crawled. The recovered
+   file has been brought up to suite standard - statistics migrated to the
+   LSV 2024-25 report, the dead LSV drowning-report URL repointed, and CC
+   BY 4.0 licence metadata plus the data-source citation added.
+
+4. Full sequence:
+
+     cd <your repo>
+     git checkout -b sep-2026-release
+     cp -r <unzipped repo-update>/* .
+     git rm HPE_Secondary_Resource_Directory_V7.docx
+     git rm Copyright_Ownership_Licensing_Summary.pdf
+     git status
+     git add -A
+     git commit -m "Sep 2026: CC BY 4.0, LSV 2024-25 data, statistics reconciled, V8 directory"
+     git push -u origin sep-2026-release
+
+5. After merging: resubmit sitemap.xml in Google Search Console (47 URLs).

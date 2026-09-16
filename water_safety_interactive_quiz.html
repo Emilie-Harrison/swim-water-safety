@@ -8,6 +8,7 @@
   <meta name="keywords" content="interactive quiz, water safety, Year 7 8 9 10, HPE, no login, instant feedback, Kahoot alternative, Victorian Curriculum, beach flags, DRS ABCD" />
   <meta name="author" content="Emilie Harrison" />
   <link rel="canonical" href="https://emilie-harrison.github.io/swim-water-safety/water_safety_interactive_quiz.html" />
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
@@ -36,6 +37,13 @@
     "teaches": "Water Safety, Health and Physical Education",
     "inLanguage": "en-AU",
     "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "copyrightHolder": {
+      "@type": "Person",
+      "name": "Emilie Harrison"
+    },
+    "copyrightYear": 2026,
+    "creditText": "Swim & Water Safety Teaching Hub by Emilie Harrison, licensed CC BY 4.0",
     "publisher": {
       "@type": "Person",
       "name": "Emilie Harrison",
@@ -304,14 +312,14 @@ const QUESTIONS = {
      fb:'The 1-10-1 cold water rule: ~1 minute to control the gasping reflex and breathing; ~10 minutes of useful swimming before muscles fail due to cold; up to ~1 hour before hypothermia causes unconsciousness (varies with water temperature, clothing, and body composition).'},
   ],
   y910: [
-    {q:'Victoria had 54 drowning deaths in 2023–24 with a population of approximately 6.9 million. What is the correct drowning rate per 100,000 population?',
-     opts:['1.2 per 100,000','0.78 per 100,000','0.54 per 100,000','2.1 per 100,000'],
+    {q:'Victoria had 52 drowning deaths in 2024–25 with a population of approximately 6.9 million. What is the correct drowning rate per 100,000 population?',
+     opts:['1.31 per 100,000','0.75 per 100,000','0.54 per 100,000','2.1 per 100,000'],
      ans:1, topic:'Data Analysis',
-     fb:'Rate = 54 ÷ (6,900,000 ÷ 100,000) = 54 ÷ 69 = 0.78 per 100,000. This is actually BELOW the Australian national average of 1.2 per 100,000 — though specific sub-populations (CALD, males) remain significantly over-represented.'},
-    {q:'CALD communities account for approximately 40% of Victorian drowning deaths but approximately 28% of the population. What is their over-representation ratio?',
-     opts:['0.7','1.0 (proportional)','1.43','2.8'],
-     ans:2, topic:'Data Analysis',
-     fb:'Over-representation ratio = deaths% ÷ population% = 40 ÷ 28 = 1.43. A ratio of 1.0 means proportional representation. 1.43 means CALD Victorians are drowning at 1.43 times the rate their population share would predict.'},
+     fb:'Rate = 52 ÷ (6,900,000 ÷ 100,000) = 52 ÷ 69 = 0.75 per 100,000. This is actually BELOW the Australian national rate of 1.31 per 100,000 (2024/25) — though specific sub-populations (CALD, males) remain significantly over-represented.'},
+    {q:'Life Saving Victoria records country of birth as unknown in 22% of Victorian drowning deaths since 2015\u201316. What does this mean for the reported figure that 37% of deaths were people from multicultural backgrounds?',
+     opts:['The 37% figure is too high and should be reduced','The 37% figure is a lower bound \u2014 the real share could be higher','The unknown cases can be ignored','It makes the figure meaningless'],
+     ans:1, topic:'Data Analysis',
+     fb:'It is a lower bound. If country of birth is unknown for 22% of cases, some of those people may also have been from multicultural backgrounds, so the true share could exceed 37%. Recognising what a dataset does not capture is as important as reading what it does.'},
     {q:'What is the correct physiological sequence of drowning?',
      opts:['Submersion → cardiac arrest → hypoxia → laryngospasm → cerebral hypoxia','Submersion → laryngospasm → hypoxia → cardiac arrest → cerebral hypoxia','Laryngospasm → submersion → hypoxia → cerebral hypoxia → cardiac arrest','Submersion → cerebral hypoxia → laryngospasm → hypoxia → cardiac arrest'],
      ans:1, topic:'Physiology',
@@ -320,10 +328,10 @@ const QUESTIONS = {
      opts:['10–15%','25–30%','50–60%','75–80%'],
      ans:1, topic:'Physiology',
      fb:'Standard CPR generates approximately 25–30% of normal resting cardiac output. This is sufficient to maintain minimum brain perfusion while waiting for defibrillation or return of spontaneous circulation (ROSC). It explains why bystander CPR buys critical time even before paramedics arrive.'},
-    {q:'Which of the following best explains why males account for approximately 85% of Victorian drowning deaths from a social determinants perspective?',
+    {q:'Which of the following best explains why males account for approximately 73% of Victorian drowning deaths from a social determinants perspective?',
      opts:['Males are biologically weaker swimmers than females','Masculinity norms — social expectations that males should take risks and not back down from dares — lead to higher risk-taking behaviour near water','Males spend more time near water than females','Males are less likely to have completed formal swimming lessons'],
      ans:1, topic:'Social Determinants',
-     fb:'Masculinity norms are the key social determinant. The 85% male figure reflects social expectations around risk-taking, not biological factors or swim ability. Prevention strategies targeting this demographic often reframe water safety as intelligence, not weakness.'},
+     fb:'Masculinity norms are the key social determinant. The 73% male figure reflects social expectations around risk-taking, not biological factors or swim ability. Prevention strategies targeting this demographic often reframe water safety as intelligence, not weakness.'},
     {q:'Which of the following is a STRUCTURAL explanation (rather than an individual explanation) for CALD community over-representation in Victorian drowning deaths?',
      opts:['CALD community members make poor decisions near water','CALD families don\'t value water safety education','Many CALD community members grew up in countries without access to swimming lessons or public pools — a historical skill gap','CALD community members are more likely to swim in cold water'],
      ans:2, topic:'Social Determinants',
@@ -335,15 +343,15 @@ const QUESTIONS = {
     {q:'Warning signs at unpatrolled beaches have the same evidence strength as lifeguard supervision for preventing adult drowning deaths. True or false?',
      opts:['True','False'],
      ans:1, topic:'Prevention Strategies',
-     fb:'False. Warning signs have limited evidence — they raise awareness but don\'t prevent people from swimming at unpatrolled locations. Lifeguard supervision is the strongest intervention: in 2023–24, there were zero deaths at patrolled locations in Victoria versus 54 at unpatrolled locations.'},
+     fb:'False. Warning signs have limited evidence — they raise awareness but don\'t prevent people from swimming at unpatrolled locations. Lifeguard supervision is the strongest intervention: in 2024–25, there were zero deaths at patrolled locations in Victoria versus 54 at unpatrolled locations.'},
     {q:'The RLSS UK "Float to Live" campaign teaches what as the PRIMARY response to a water emergency?',
      opts:['Swim immediately and as fast as possible to shore','Float first to conserve energy and control breathing before attempting to swim','Call 000 before entering the water','Dive under the waves to avoid being pulled further out'],
      ans:1, topic:'International Comparison',
      fb:'Float to Live (RLSS UK) argues that floating first conserves energy, prevents panic, and allows the body to overcome cold water shock before attempting to swim. This differs from traditional "swim to safety" messaging and is particularly relevant for cold water immersion.'},
     {q:'WHO reports that approximately what percentage of global drowning deaths occur in low- and middle-income countries?',
-     opts:['40%','60%','75%','90%'],
+     opts:['52%','75%','85%','92%'],
      ans:3, topic:'Global Data',
-     fb:'WHO reports approximately 90% of global drowning deaths occur in low- and middle-income countries — reflecting structural factors: limited lifeguard infrastructure, no mandatory pool fencing laws, limited swim education, and higher rates of open-water occupational activities.'},
+     fb:'WHO reports 92% of global drowning deaths occur in low- and middle-income countries — reflecting structural factors: limited lifeguard infrastructure, no mandatory pool fencing laws, limited swim education, and higher rates of open-water occupational activities.'},
     {q:'What is health inequity (as distinct from health inequality)?',
      opts:['Any difference in health outcomes between two population groups','A health difference that is unfair, avoidable, and rooted in unjust social conditions','A difference caused by genetic or biological variation between groups','A statistical difference in disease rates between regions'],
      ans:1, topic:'Social Determinants',
@@ -351,23 +359,23 @@ const QUESTIONS = {
     {q:'Which Victorian Government body publishes the annual Victorian Drowning Report?',
      opts:['Victorian Curriculum and Assessment Authority (VCAA)','Department of Health Victoria','Life Saving Victoria (LSV)','Department of Education Victoria (DE)'],
      ans:2, topic:'Organisations',
-     fb:'Life Saving Victoria (LSV) publishes the annual Victorian Drowning Report. It is available free at lsv.com.au/research/victorian-drowning-reports/ and is the primary data source for Victorian drowning statistics.'},
-    {q:'In 2023–24, how many Victorian drowning deaths occurred at patrolled locations (supervised by lifeguards)?',
+     fb:'Life Saving Victoria (LSV) publishes the annual Victorian Drowning Report. It is available free at lsv.com.au/what-we-do/research-advocacy and is the primary data source for Victorian drowning statistics.'},
+    {q:'In 2024–25, how many Victorian drowning deaths occurred at patrolled locations (supervised by lifeguards)?',
      opts:['54','12','3','0'],
      ans:3, topic:'Data Analysis',
-     fb:'Zero. All 54 Victorian drowning deaths in 2023–24 occurred at unpatrolled locations. This is the single most powerful argument for swimming at lifeguard-supervised locations.'},
+     fb:'Zero. Victoria recorded no drowning deaths in public swimming pools in 2024–25, the first time since 2019–20 — a strong argument for swimming where lifeguards are present. A quarter of deaths still occurred in home environments.'},
     {q:'What does "disaggregating data" mean in the context of Victorian drowning statistics?',
      opts:['Removing unreliable data from the annual report','Breaking down the overall drowning rate into specific demographic sub-groups to reveal patterns hidden in aggregate statistics','Comparing Victorian data with international data','Removing outlier years from the trend analysis'],
      ans:1, topic:'Data Analysis',
-     fb:'Disaggregation means breaking aggregate data down into sub-groups. Victoria\'s overall rate of 0.78 per 100,000 hides enormous variation: the male rate is approximately 1.36, and the CALD rate is approximately 1.43 times higher than their population share. Aggregate statistics can obscure significant inequities.'},
+     fb:'Disaggregation means breaking aggregate data down into sub-groups. Victoria\'s overall rate of 0.75 per 100,000 hides enormous variation: the male rate is 1.11 per 100,000 against a female rate of 0.40 (LSV 2024–25), and people from multicultural backgrounds account for 37% of deaths since 2015–16. Aggregate statistics can obscure significant inequities.'},
     {q:'Which curriculum code relates to Year 9–10 HPE specialised movement concepts in aquatic contexts?',
      opts:['VC2HP10P02','VC2HP8M01','VC2HP10M01','VC2HP8P10'],
      ans:2, topic:'Curriculum',
      fb:'VC2HP10M01 is the Year 9–10 code for specialised movement concepts in aquatic contexts — covering survival swimming, rescue techniques, and advanced water safety skills. VC2HP8M01 is the equivalent Year 7–8 code.'},
     {q:'A student argues: "Victoria should be proud — our drowning rate is well below the national average." What is the most significant limitation of this argument?',
-     opts:['The national average is calculated incorrectly','The overall rate hides significant internal inequities — particularly CALD over-representation — and the 2023–24 total was the highest in over a decade','Victoria\'s rate is actually higher than the national average','The national average includes non-fatal drownings but Victorian figures do not'],
+     opts:['The national average is calculated incorrectly','The overall rate hides significant internal inequities — particularly CALD over-representation — and the 2023–24 total still sat above the ten-year average','Victoria\'s rate is actually higher than the national average','The national average includes non-fatal drownings but Victorian figures do not'],
      ans:1, topic:'Critical Thinking',
-     fb:'The overall rate hides internal disparities: CALD communities drown at 1.43 times expected rates; males at nearly twice the female rate; inland waterway deaths are rising. Furthermore, 54 deaths in 2023–24 was the highest Victorian toll in over a decade. "Below average" does not mean "under control."'},
+     fb:'The overall rate hides internal disparities: people from multicultural backgrounds account for 37% of deaths since 2015–16; the male rate is 1.11 per 100,000 against 0.40 for females; inland waterway deaths are rising. Furthermore, 52 deaths in 2024–25 was the highest Victorian toll in over a decade. "Below average" does not mean "under control."'},
     {q:'What does the AAPPC framework stand for in the Cross-Curricular Literacy Unit?',
      opts:['Audience, Aim, Persuasion, Platform, Credibility','Awareness, Action, Prevention, Protection, Community','Analysis, Argument, Position, Policy, Communication','Accuracy, Appropriateness, Purpose, Presentation, Context'],
      ans:0, topic:'Health Communication',
@@ -522,5 +530,7 @@ function changeMode() {
   document.getElementById('setup-screen').style.display='block';
 }
 </script>
+
+<div class="cc-licence" style="max-width:1000px;margin:34px auto 0;padding:16px 20px;border-top:1px solid #dde6f0;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-size:0.76rem;line-height:1.6;color:#5a6e8a;"><p style="margin:0 0 6px;"><strong style="color:#0a1e3d;">&copy; 2026 Emilie Harrison.</strong> This resource is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" style="color:#1565c0;">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>. You are free to copy, share, adapt and build on it — including for commercial purposes — provided you give appropriate credit and indicate any changes.</p><p style="margin:0 0 6px;"><strong style="color:#0a1e3d;">Suggested attribution:</strong> &ldquo;Swim &amp; Water Safety Teaching Hub&rdquo; by Emilie Harrison, licensed CC BY 4.0. Source: emilie-harrison.github.io/swim-water-safety</p><p style="margin:0;"><strong style="color:#0a1e3d;">Third-party material is not covered.</strong> Content owned by Life Saving Victoria, Royal Life Saving Australia, Surf Life Saving Australia, VCAA, ACARA, AIATSIS, the Australian Resuscitation Council and other organisations — including data, guidelines, logos and program names — remains the property of those owners and is used here for educational purposes. Check directly with the owner before reproducing it elsewhere.</p><p style="margin:10px 0 0;padding-top:8px;border-top:1px dotted #ccd8e6;"><strong style="color:#0a1e3d;">Data sources cited in this resource.</strong> Drowning statistics are reproduced with attribution from: Life Saving Victoria. (2025). <em>Victorian Drowning Report 2024–25</em>. Life Saving Victoria: Melbourne. Royal Life Saving Australia (2026). <em>National Drowning Report 2026</em>. RLSSA: Sydney. Royal Life Saving Australia (2025). <em>National Drowning Report 2025</em>. RLSSA: Sydney. World Health Organization (2024). <em>Drowning — fact sheet</em>. WHO: Geneva. Surf Life Saving Australia (2026). <em>Summer Coastal Drowning Report 2025/26</em>. SLSA: Sydney. These figures remain the property of the publishing organisations. If you adapt this resource, retain these citations.</p></div>
 </body>
 </html>
