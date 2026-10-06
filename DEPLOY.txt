@@ -1,38 +1,120 @@
-DEPLOY NOTES - swim-water-safety, September 2026 release
-========================================================
+DEPLOY NOTES - swim-water-safety, October 2026
+===============================================
+For updating via the GitHub website (no git, no command line).
 
-1. Copy every file in this folder over your local repo working copy.
-   Same-named files are overwritten. Nothing needs deleting first.
+THIS PACKAGE SUPERSEDES THE EARLIER OCTOBER PACKAGE.
+Your live repository still shows September - the National Drowning Report
+2026 update was never uploaded. This package contains that update PLUS the
+new Aquatic Injury Prevention Agenda work. Deploy this one; discard the
+earlier October zip.
 
-2. TWO files must be deleted explicitly - copying will NOT remove them:
+-----------------------------------------------------------------
+STEP 1 - Put the new files into your local folder
+-----------------------------------------------------------------
+Your working folder is:
+    C:\Users\Harry 25\Documents\swim-water-safety
 
-     git rm HPE_Secondary_Resource_Directory_V7.docx
-     git rm Copyright_Ownership_Licensing_Summary.pdf
+Unzip both packages, then copy the CONTENTS of each into that folder,
+choosing "Replace the files in the destination" when Windows asks:
+    swim-water-safety-Oct2026-1of2-source.zip  (HTML, sitemap, docs)
+    swim-water-safety-Oct2026-2of2-pdfs.zip    (the 39 PDFs)
 
-   V7 is superseded by V8 and contains incorrect curriculum codes.
-   The old copyright PDF is superseded by copyright_licensing.pdf.
+Two files are new; everything else replaces an existing file.
+Nothing needs deleting.
 
-   Copyright_Ownership_Licensing_Summary.html is KEPT deliberately - it is
-   now a redirect stub pointing at copyright_licensing.html, so existing
-   inbound links and search results still resolve. Do not delete it.
+-----------------------------------------------------------------
+STEP 2 - Rebuild WaterSafety.zip
+-----------------------------------------------------------------
+This is the "Download All Resources" bundle on the homepage. It must be
+rebuilt so teachers get the updated content.
 
-3. RESOLVED: student_digital_portfolio.html is now included. It was
-   advertised on the homepage and listed in sitemap.xml but had never been
-   committed, so it was a live 404 being actively crawled. The recovered
-   file has been brought up to suite standard - statistics migrated to the
-   LSV 2024-25 report, the dead LSV drowning-report URL repointed, and CC
-   BY 4.0 licence metadata plus the data-source citation added.
+Open PowerShell in that folder (Shift + right-click inside the folder in
+File Explorer, then "Open PowerShell window here") and paste:
 
-4. Full sequence:
+    Remove-Item WaterSafety.zip -Force -ErrorAction SilentlyContinue
+    $files = Get-ChildItem -File | Where-Object {
+      ($_.Extension -in '.html','.pdf','.pptx','.docx' -or
+       $_.Name -in 'LICENSE','README.md','DATA_PROVENANCE.md') -and
+      $_.Name -notlike 'google*' -and $_.Name -notlike 'yandex*'
+    }
+    Compress-Archive -Path $files.FullName -DestinationPath WaterSafety.zip
+    "{0} files, {1:N1} MB" -f $files.Count, ((Get-Item WaterSafety.zip).Length/1MB)
 
-     cd <your repo>
-     git checkout -b sep-2026-release
-     cp -r <unzipped repo-update>/* .
-     git rm HPE_Secondary_Resource_Directory_V7.docx
-     git rm Copyright_Ownership_Licensing_Summary.pdf
-     git status
-     git add -A
-     git commit -m "Sep 2026: CC BY 4.0, LSV 2024-25 data, statistics reconciled, V8 directory"
-     git push -u origin sep-2026-release
+It should report 96 files and about 17.8 MB. If it reports fewer than 96,
+the copy in Step 1 was incomplete.
 
-5. After merging: resubmit sitemap.xml in Google Search Console (47 URLs).
+The google... and yandex... files are deliberately excluded - they are
+search engine verification files and should not go to teachers.
+
+-----------------------------------------------------------------
+STEP 3 - Upload to GitHub
+-----------------------------------------------------------------
+1. Go to https://github.com/emilie-harrison/swim-water-safety
+2. Click "Add file" then "Upload files"
+3. Select ALL files in your local folder and drag them into the browser
+   (Ctrl+A in the folder, then drag). Roughly 103 files.
+4. Commit message:
+      Oct 2026: NDR 2026 national figures; LSV prevention agenda
+5. Click "Commit changes"
+
+Uploading replaces same-named files and adds new ones. It does not delete
+anything, which is correct for this release.
+
+GitHub's browser uploader rejects any single file over 25 MB.
+WaterSafety.zip at 17.8 MB is under that. If you ever see it refused,
+the zip was built wrongly - recheck Step 2.
+
+-----------------------------------------------------------------
+STEP 4 - After uploading
+-----------------------------------------------------------------
+- Wait 2-3 minutes, then check the site has rebuilt:
+  https://emilie-harrison.github.io/swim-water-safety/
+- The homepage "What's New" panel should show two October entries.
+- Resubmit sitemap.xml in Google Search Console (48 URLs, one new).
+
+-----------------------------------------------------------------
+WHAT CHANGED - National Drowning Report 2026
+-----------------------------------------------------------------
+- National fatal drowning rate 1.31 -> 1.13 per 100,000 (2025/26).
+- 313 deaths nationally, 10% above the ten-year average of 284.
+- Born overseas 32% -> 39% (from 61% of known cases, up from 53%).
+- Location split added: coastal 151 (48%), inland 90 (29%),
+  swimming pools 41 (13%).
+- Dependent arithmetic, worked examples and quiz answer keys recalculated.
+
+-----------------------------------------------------------------
+WHAT CHANGED - LSV Aquatic Injury Prevention Agenda 2026-27
+-----------------------------------------------------------------
+NEW FILE: water_safety_prevention_priorities.html (+ matching PDF)
+  Year 9-10 evidence brief, six critique tasks. Linked from the homepage
+  Year 9-10 section and added to sitemap.xml.
+
+- Cultural considerations now carries the finding that 86% of surveyed
+  international students misread the 'swim between the flags' symbol.
+  This reframes multicultural over-representation as a signage design
+  failure rather than a knowledge gap in those communities. Read that
+  section before teaching it.
+- Year 9-10 workbook: 46% multicultural share among 15-24 year olds
+  added to social determinants; the 67% alcohol-related reduction and
+  63% pool fencing reduction added to prevention strategies.
+- Teacher professional learning: research on why awareness campaigns
+  under-perform (optimism bias, masculine norms, peer dynamics).
+- Debate framework: two new Year 9-10 motions on alcohol advertising
+  and signage redesign. Now 8 motions at that level.
+
+-----------------------------------------------------------------
+ONE FIGURE TO HANDLE CAREFULLY
+-----------------------------------------------------------------
+The Aquatic Injury Prevention Agenda reports 35 Victorian drowning
+deaths. That is YEAR TO DATE - eight months, 1 Jul 2025 to 28 Feb 2026.
+The Victorian Drowning Report's 52 is a full financial year. They cannot
+be compared directly; doing so invents a 33% decline that did not happen.
+Section 6 of the new brief teaches this as a data-literacy task.
+See DATA_PROVENANCE.md section 2b.
+
+-----------------------------------------------------------------
+STILL PENDING
+-----------------------------------------------------------------
+The LSV Victorian Drowning Report 2025-26 is due around now. When it
+lands, migrate the Victorian figures using DATA_PROVENANCE.md section 1,
+and re-check the interim AIPA figures in section 2b.
