@@ -2,8 +2,8 @@
 
 **Purpose.** Every published statistic in the Swim & Water Safety Teaching Hub, where it came from, and exactly which files carry it. Written so the annual data refresh is a checklist rather than a re-audit.
 
-**Last verified:** September 2026 (figures reconciled against source reports)
-**Current data year:** LSV Victorian Drowning Report 2024–25
+**Last verified:** October 2026 (national figures from NDR 2026; Victorian interim figures from AIPA 2026–27)
+**Current data year:** Victoria — LSV Victorian Drowning Report 2024–25 (full year) plus LSV Aquatic Injury Prevention Agenda 2026–27 (interim, year-to-date) · National — RLSSA National Drowning Report 2026 (2025/26)
 
 ---
 
@@ -12,6 +12,7 @@
 | Report | Publisher | Typically released | Covers |
 |---|---|---|---|
 | Victorian Drowning Report | Life Saving Victoria | Oct–Dec | Previous financial year (1 Jul – 30 Jun) |
+| Aquatic Injury Prevention Agenda | Life Saving Victoria | Interim, mid-year | Year-to-date (1 Jul – 28 Feb) plus prevention priorities |
 | National Drowning Report | Royal Life Saving Australia | Late August | Previous financial year |
 | Summer Coastal Drowning Report | Surf Life Saving Australia | March | Dec–Feb summer just ended |
 | National Coastal Safety Report | Surf Life Saving Australia | October | Previous financial year |
@@ -43,34 +44,71 @@ These change every year. This is the core update list.
 
 ## 2. National and global figures
 
-Reconciled September 2026. These were previously unsourced or contradicted by the current reports.
+Updated October 2026 to the National Drowning Report 2026 (covering 1 July 2025 – 30 June 2026).
 
 | ID | Figure | Current value | Source | Files |
 |---|---|---|---|---|
-| NAT-01 | Australian fatal drowning rate | **1.31 per 100,000** (2024/25); ten-year average **1.12** | RLSSA National Drowning Report 2025, p.2 | 8 |
-| NAT-02 | National drowning deaths | **313** (2025/26), 12% down on 357, still 10% above the ten-year average | RLSSA National Drowning Report 2026 | directory only |
-| NAT-03 | Born overseas, nationally | **32%** of those who drowned, from the 53% of cases where country of birth was known | RLSSA NDR 2025, p.2 | reference only |
-| GLOB-01 | Global drowning deaths | **~300,000** a year; **92%** in low- and middle-income countries; global rate 3.8 per 100,000, down 38% since 2000 | WHO drowning fact sheet (Dec 2024) | 10 |
+| NAT-01 | Australian fatal drowning rate | **1.13 per 100,000** (2025/26); ten-year average **1.12** (a 0.9% increase) | RLSSA National Drowning Report 2026, p.6 | 10 |
+| NAT-02 | National drowning deaths | **313** (2025/26), 10% above the ten-year average of **284** | RLSSA NDR 2026, p.6 | 3 |
+| NAT-03 | Born overseas, nationally | **39%** of those who drowned, from the **61%** of cases where country of birth was known | RLSSA NDR 2026, p.6 | 1 |
+| NAT-04 | National location split | Coastal **151 (48%)**, up 16% on the ten-year average of 130; inland waterways **90 (29%)**, down 8% on 98; swimming pools **41 (13%)**, up 24% on 33 | RLSSA NDR 2026, p.34–35 | 3 |
+| NAT-05 | Top locations / activities | River–creek 22%, beach 21%, ocean–harbour 20% · swimming and recreating 28%, unintentional fall 13%, boating 10% | RLSSA NDR 2026, p.6 | reference |
+| NAT-06 | Children aged 0–4 | **11 deaths**, 39% below the ten-year average of 18; 4% of all cases | RLSSA NDR 2026, p.14 | reference |
+| NAT-07 | Young people aged 15–24 | **34 deaths** (11% of cases); rate 0.97 per 100,000, down 5% on the ten-year average of 1.02 | RLSSA NDR 2026, p.16 | reference |
+| NAT-08 | Older adults | 65+ account for **30%** of deaths; the 65–74 cohort has the highest rate of any group at **2.33 per 100,000**, 54% above its ten-year average | RLSSA NDR 2026, p.4–6 | reference |
+| NAT-09 | National summer toll | **81 deaths** (1 Dec 2025 – 28 Feb 2026), down 22% on the previous summer; 91% male; 57% aged over 55 | RLSSA NDR 2026, p.105 | reference |
+| GLOB-01 | Global drowning deaths | **~300,000** a year; **92%** in low- and middle-income countries; global rate 3.8 per 100,000, down 38% since 2000 | WHO drowning fact sheet (Dec 2024) | 9 |
 | VIC-11 | Multicultural communities, Victoria | **185 deaths since 2015–16 = 37%** of all drowning deaths; country of birth unknown in 22% of cases; 12 deaths in 2024–25 | LSV 2024–25, p.20 | 14 |
 | VIC-12 | Fishing-related deaths, multicultural | **58%** since 2015–16 | LSV 2024–25, p.20 | 4 |
 | VIC-13 | Male / female rate | **1.11** vs **0.40** per 100,000 | LSV 2024–25, p.6 | 2 |
+| VIC-14 | Victoria cross-check (national source) | **53 deaths** in 2025/26 at **0.75 per 100,000** — no change against Victoria’s own ten-year average of 0.75; 83% male; ocean–harbour 28%, rivers–creeks 23%, pools 21% | RLSSA NDR 2026, p.88 | 2 |
 
 > **Caution when quoting VIC-11.** Country of birth was unknown in 22% of cases over the decade, and in 75% of 2024–25 cases specifically. The 37% is a lower bound, not a point estimate. Always state the limitation — it is stronger teaching material than the number alone.
 
+> **On the two Victorian sources.** The suite’s Victorian spine is the LSV *Victorian Drowning Report 2024–25* (52 deaths, 2024–25), because LSV publishes Victorian detail the national report does not carry — non-fatal drownings, home environments, public pools, multicultural breakdowns. VIC-14 is the *national* report’s independent Victorian figure for the following year (53 deaths, 2025/26). The two are different years from different publishers using different methods, so they are not in conflict. They agree exactly on the rate, 0.75 per 100,000, which is why rate comparisons against the national figure remain valid even though the underlying years differ. When the LSV 2025–26 report lands, migrate the Victorian spine to it and re-check VIC-14 against it.
+
 ---
 
-## 3. Figures removed in September 2026 — do not reinstate
+---
 
-These appeared in teaching content without a source and could not be traced to any current report. All four have been replaced.
+## 2b. Interim Victorian figures — Aquatic Injury Prevention Agenda 2026–27
+
+LSV publishes an interim agenda between annual drowning reports. It sets prevention priorities and carries **year-to-date** surveillance, not full-year totals.
+
+| ID | Figure | Current value | Source | Files |
+|---|---|---|---|---|
+| AIPA-01 | Victorian deaths, year-to-date | **35** (1 Jul 2025 – 28 Feb 2026), a 14% decrease on the five-year average for the same eight-month period | AIPA 2026–27, p.4 | 1 |
+| AIPA-02 | Summer deaths | **18** (1 Dec 2025 – 28 Feb 2026), down 20% on the five-year average for that period | AIPA 2026–27, p.4 | 1 |
+| AIPA-03 | 15–24 cohort, five-year average | **5 deaths/year**; 81% male; 50% weekends or public holidays; 65% swimming, paddling or wading; 46% coastal, 42% inland | AIPA 2026–27, p.36 | 0 |
+| AIPA-04 | 15–24 multicultural share | **46%** of drownings in that age group over the past five years — against 37% across all ages | AIPA 2026–27, p.4, 36 | 4 |
+| AIPA-05 | High-risk populations, five-year average | **13 deaths/year**; 74% male; 35% aged 25–44; 58% coastal, 29% inland | AIPA 2026–27, p.41 | reference |
+| AIPA-06 | Alcohol / drug reduction | **67%** fall in fatal drownings involving alcohol or drugs against the Victorian Water Safety Strategy baseline | AIPA 2026–27, p.4 | 2 |
+| AIPA-07 | Coastal increase | **37%** rise in coastal fatal drownings against baseline; Mornington Peninsula the LGA with the most coastal incidents year-to-date | AIPA 2026–27, p.4 | 3 |
+| AIPA-08 | Signage comprehension | **86%** of 163 surveyed South Korean students misread the ‘swim between the flags’ symbol as a danger zone, sports area or private zone; 91% said they would obey a ‘dangerous currents’ sign but became more likely to enter the water when others were already in it | Shibata et al. (2026b), in AIPA 2026–27, p.42 | 3 |
+| AIPA-09 | Alcohol and risk perception | 23 males aged 18–30 knew drinking raised their risk but believed they could judge their own intoxication, the conditions and their ability; described others doing the same as reckless and themselves as sensible. Drivers: optimism bias, masculine norms, peer dynamics | Smith et al. (2025), in AIPA 2026–27, p.36–37 | 2 |
+| AIPA-10 | Social media campaign | Instagram campaign reached 960,000+ users; 32% of surveyed visitors recognised a post, 20% found it useful, **20% found the tone condescending** | Cornell et al. (2025), in AIPA 2026–27, p.37 | 1 |
+
+> **AIPA-01 is the single most dangerous figure in this document to quote carelessly.** 35 covers eight months. The Victorian Drowning Report's 52 covers a full financial year. Setting them side by side produces a 33% "decline" that does not exist. The AIPA compares each period against the five-year average *for the same period*, and so must any teaching resource using it. Section 6 of `water_safety_prevention_priorities.html` teaches this explicitly as a data-literacy task — keep it.
+
+> **AIPA-08 reframes the multicultural over-representation content.** Before this research the suite implicitly treated over-representation as a knowledge gap in the affected communities. A symbol that 86% of a surveyed group reads as meaning the opposite of its intent is a design failure. Where the suite discusses over-representation, it should carry the structural framing, not a deficit one.
+
+> **The AIPA is interim, superseded annually.** When the LSV Victorian Drowning Report 2025–26 is published, re-check every AIPA figure against it and migrate the Victorian spine per section 1. The AIPA’s own year-to-date numbers become obsolete at that point.
+
+
+## 3. Figures removed — do not reinstate
 
 | Removed | Why | Replaced with |
 |---|---|---|
-| National rate "1.2 per 100,000" | Unsourced; the documented 2024/25 rate is 1.31 | NAT-01 |
+| National rate "1.2 per 100,000" | Unsourced | NAT-01 |
+| National rate "1.31 per 100,000" | Correct for 2024/25 but superseded; the 2025/26 rate is 1.13 | NAT-01 |
 | "1.43:1 CALD over-representation" | Derived from two unsourced inputs (40% of deaths, 28% of population); LSV publishes no such ratio | VIC-11, with the data limitation stated |
 | "~40% of deaths were CALD — highest ever recorded" | Contradicts LSV, which reports 37% since 2015–16; the "highest ever recorded" claim was unsupported | VIC-11 |
 | WHO "90%" and "320,000" | WHO's current fact sheet states 92% and around 300,000 | GLOB-01 |
+| "32% born overseas, from 53% of cases" | Correct for NDR 2025 but superseded | NAT-03 |
 
-One further correction: a Year 9–10 extension task asked students to calculate how many Victorian lives "would be SAVED if Victoria's rate dropped to match the national average". Victoria's rate is *below* the national rate, so the task was logically incoherent. It now asks students to compute the expected deaths at the national rate, compare with the 52 actually recorded, and interpret the direction of the difference.
+One further correction, made in September 2026: a Year 9–10 extension task asked students to calculate how many Victorian lives "would be SAVED if Victoria's rate dropped to match the national average". Victoria's rate is *below* the national rate, so the task was logically incoherent. It now asks students to compute the expected deaths at the national rate, compare with the 52 actually recorded, and interpret the direction of the difference.
+
+> **The national rate moves a lot year to year.** It was 1.31 in 2024/25 and 1.13 in 2025/26. Any task that hard-codes "Victoria is X% below the national rate" will go stale annually. Prefer tasks that ask students to compute the gap from two stated figures over tasks that state the gap.
 
 ---
 
@@ -108,7 +146,7 @@ Run from the repo root after any data update. Returns 0 on every line when clean
 ```python
 import glob, re, subprocess
 html = [f for f in glob.glob('*.html') if not f.startswith(('google','yandex'))]
-OLD = r'54 fatal|54 drowning|0\.78 per|46 of 54|highest in over a decade'   # update each year
+OLD = r'54 fatal|54 drowning|0\.78 per|46 of 54|1\.31 per 100,000'   # update each year
 checks = {
   'stale figures': OLD,
   'false unpatrolled claim': r'[Aa]ll \d+ (?:Victorian )?(?:drowning )?deaths.{0,95}unpatrolled',

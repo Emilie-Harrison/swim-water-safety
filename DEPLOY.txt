@@ -1,35 +1,92 @@
-DEPLOY NOTES - swim-water-safety, October 2026
-===============================================
-For updating via the GitHub website (no git, no command line).
+DEPLOY NOTES - emilie-harrison/swim-water-safety, October 2026 (VTLM revision)
+==============================================================================
+Upload via the GitHub website. No git, no command line.
 
-THIS PACKAGE SUPERSEDES THE EARLIER OCTOBER PACKAGE.
-Your live repository still shows September - the National Drowning Report
-2026 update was never uploaded. This package contains that update PLUS the
-new Aquatic Injury Prevention Agenda work. Deploy this one; discard the
-earlier October zip.
+THIS PACKAGE SUPERSEDES ALL EARLIER OCTOBER PACKAGES.
+It contains everything from them plus the VTLM 2.0 work.
 
------------------------------------------------------------------
-STEP 1 - Put the new files into your local folder
------------------------------------------------------------------
-Your working folder is:
-    C:\Users\Harry 25\Documents\swim-water-safety
+WHAT THIS RELEASE DOES
+----------------------
+1. Everything from the earlier October packages that was never uploaded:
+   corrected statistics, CC BY 4.0 licensing, the SEO and navigation fixes,
+   og-image.png, and the prevention priorities brief.
+2. Resequences all five Year 7-8 lessons to the Victorian Teaching and
+   Learning Model 2.0.
+3. Adds retrieval practice, which the unit did not have.
+4. Adds two faculty reference documents.
 
-Unzip both packages, then copy the CONTENTS of each into that folder,
-choosing "Replace the files in the destination" when Windows asks:
-    swim-water-safety-Oct2026-1of2-source.zip  (HTML, sitemap, docs)
-    swim-water-safety-Oct2026-2of2-pdfs.zip    (the 39 PDFs)
+THE PEDAGOGICAL CHANGE - READ THIS
+-----------------------------------
+The Year 7-8 lessons were built on the 5E model: Engage, Explore, Explain,
+Elaborate, Evaluate. 5E is an inquiry model in which students explore BEFORE
+the teacher explains.
 
-Two files are new; everything else replaces an existing file.
-Nothing needs deleting.
+VTLM 2.0 asks for the reverse. Explicit teaching sits at its core and the
+department states it is the most effective approach for most students,
+including priority cohorts.
 
------------------------------------------------------------------
+Three of the five lessons genuinely ran Explore before Explain. Those have
+been resequenced. The activities themselves barely changed - they were
+already directed tasks with set timings, not open investigation. What
+changed is the order, the phase names, and a new retrieval phase.
+
+New lesson sequence, every lesson:
+   1. Review - retrieval practice        3 min   (NEW)
+   2. Focus the learning                 5-10 min (was Engage)
+   3. Explicit teaching - I do           8-15 min (was Explain, moved earlier)
+   4. Guided practice - we do            12-15 min (was Explore)
+   5. Independent application - you do   8-30 min (was Elaborate)
+   6. Monitor progress                   5-12 min (was Evaluate)
+
+Lesson 3 was left in its original content order: the CPR demonstration
+still comes before throw rescue, because both were already teacher-led
+demonstrations and reversing them would have broken the teaching sequence.
+
+The Year 9-10 teacher guide was never built on 5E - it uses Know /
+Understand / Do, which already sits within the model. It was not changed.
+
+RETRIEVAL PRACTICE - THE REAL GAP
+----------------------------------
+Across five sequential lessons the unit had no retrieval practice, no
+spaced review and no lesson-opening recap of prior learning. "Retention and
+recall" is one of VTLM 2.0's four elements of learning.
+
+Lessons 2-5 now open with a three-minute cumulative retrieval starter -
+questions from earlier lessons, no notes, self-marked, ungraded. Each
+carries a short note explaining to the teacher why it is there.
+
+TWO NEW DOCUMENTS
+-----------------
+water_safety_vtlm_alignment.html (+ PDF)
+   Maps the suite to the four elements of learning and four elements of
+   teaching, documents the phase-by-phase lesson sequence, and states
+   honestly where the evidence stops. Written for a faculty leader
+   documenting VTLM implementation in an Annual Implementation Plan.
+
+water_safety_curriculum_coverage.html (+ PDF)
+   Resource by resource: which Victorian Curriculum 2.0 content
+   description each one teaches, and the Australian Curriculum 9.0
+   equivalent. States plainly that the unit covers 10 of the 40 content
+   descriptions and lists the 30 it does not, so program planning can
+   place them elsewhere.
+
+STEP 1 - Upload
+---------------
+1. Unzip both packages into one folder.
+2. Go to https://github.com/emilie-harrison/swim-water-safety
+3. Add file > Upload files
+4. Select ALL files (Ctrl+A) and drag them in. About 108 files.
+   This includes the hidden .nojekyll file - if Windows is not showing it,
+   turn on View > Hidden items first. The site will not build without it.
+5. Commit message:
+      Oct 2026: VTLM 2.0 alignment, corrected statistics, SEO and licensing
+6. Commit changes.
+
 STEP 2 - Rebuild WaterSafety.zip
------------------------------------------------------------------
-This is the "Download All Resources" bundle on the homepage. It must be
-rebuilt so teachers get the updated content.
-
-Open PowerShell in that folder (Shift + right-click inside the folder in
-File Explorer, then "Open PowerShell window here") and paste:
+--------------------------------
+Not included - the combined download would exceed the transfer limit.
+After copying both folders into one, Shift + right-click inside it, choose
+"Open PowerShell window here", and paste:
 
     Remove-Item WaterSafety.zip -Force -ErrorAction SilentlyContinue
     $files = Get-ChildItem -File | Where-Object {
@@ -40,81 +97,24 @@ File Explorer, then "Open PowerShell window here") and paste:
     Compress-Archive -Path $files.FullName -DestinationPath WaterSafety.zip
     "{0} files, {1:N1} MB" -f $files.Count, ((Get-Item WaterSafety.zip).Length/1MB)
 
-It should report 96 files and about 17.8 MB. If it reports fewer than 96,
-the copy in Step 1 was incomplete.
+Expect 100 files and about 18.3 MB. Upload it with everything else.
 
-The google... and yandex... files are deliberately excluded - they are
-search engine verification files and should not go to teachers.
+STEP 3 - Confirm and resubmit
+-----------------------------
+Wait 2-3 minutes, then load the live site. The What's New panel should show
+the VTLM entry at the top. Open the Teacher Resource Guide and confirm
+Lesson 1 opens with FOCUS THE LEARNING and that Lesson 2 opens with a
+retrieval starter.
 
------------------------------------------------------------------
-STEP 3 - Upload to GitHub
------------------------------------------------------------------
-1. Go to https://github.com/emilie-harrison/swim-water-safety
-2. Click "Add file" then "Upload files"
-3. Select ALL files in your local folder and drag them into the browser
-   (Ctrl+A in the folder, then drag). Roughly 103 files.
-4. Commit message:
-      Oct 2026: NDR 2026 national figures; LSV prevention agenda
-5. Click "Commit changes"
+Then resubmit sitemap.xml in Google Search Console - 50 URLs, two new.
 
-Uploading replaces same-named files and adds new ones. It does not delete
-anything, which is correct for this release.
+A LIMIT WORTH KNOWING
+---------------------
+The department publicly names the four practices within Explicit teaching.
+The sub-strategies for Planning, Enabling learning and Supported
+application sit in the VTLM 2.0 guides on Arc, which need a departmental
+login. The alignment guide maps against the four elements and the named
+explicit teaching practices, and does not invent names for the rest.
 
-GitHub's browser uploader rejects any single file over 25 MB.
-WaterSafety.zip at 17.8 MB is under that. If you ever see it refused,
-the zip was built wrongly - recheck Step 2.
-
------------------------------------------------------------------
-STEP 4 - After uploading
------------------------------------------------------------------
-- Wait 2-3 minutes, then check the site has rebuilt:
-  https://emilie-harrison.github.io/swim-water-safety/
-- The homepage "What's New" panel should show two October entries.
-- Resubmit sitemap.xml in Google Search Console (48 URLs, one new).
-
------------------------------------------------------------------
-WHAT CHANGED - National Drowning Report 2026
------------------------------------------------------------------
-- National fatal drowning rate 1.31 -> 1.13 per 100,000 (2025/26).
-- 313 deaths nationally, 10% above the ten-year average of 284.
-- Born overseas 32% -> 39% (from 61% of known cases, up from 53%).
-- Location split added: coastal 151 (48%), inland 90 (29%),
-  swimming pools 41 (13%).
-- Dependent arithmetic, worked examples and quiz answer keys recalculated.
-
------------------------------------------------------------------
-WHAT CHANGED - LSV Aquatic Injury Prevention Agenda 2026-27
------------------------------------------------------------------
-NEW FILE: water_safety_prevention_priorities.html (+ matching PDF)
-  Year 9-10 evidence brief, six critique tasks. Linked from the homepage
-  Year 9-10 section and added to sitemap.xml.
-
-- Cultural considerations now carries the finding that 86% of surveyed
-  international students misread the 'swim between the flags' symbol.
-  This reframes multicultural over-representation as a signage design
-  failure rather than a knowledge gap in those communities. Read that
-  section before teaching it.
-- Year 9-10 workbook: 46% multicultural share among 15-24 year olds
-  added to social determinants; the 67% alcohol-related reduction and
-  63% pool fencing reduction added to prevention strategies.
-- Teacher professional learning: research on why awareness campaigns
-  under-perform (optimism bias, masculine norms, peer dynamics).
-- Debate framework: two new Year 9-10 motions on alcohol advertising
-  and signage redesign. Now 8 motions at that level.
-
------------------------------------------------------------------
-ONE FIGURE TO HANDLE CAREFULLY
------------------------------------------------------------------
-The Aquatic Injury Prevention Agenda reports 35 Victorian drowning
-deaths. That is YEAR TO DATE - eight months, 1 Jul 2025 to 28 Feb 2026.
-The Victorian Drowning Report's 52 is a full financial year. They cannot
-be compared directly; doing so invents a 33% decline that did not happen.
-Section 6 of the new brief teaches this as a data-literacy task.
-See DATA_PROVENANCE.md section 2b.
-
------------------------------------------------------------------
-STILL PENDING
------------------------------------------------------------------
-The LSV Victorian Drowning Report 2025-26 is due around now. When it
-lands, migrate the Victorian figures using DATA_PROVENANCE.md section 1,
-and re-check the interim AIPA figures in section 2b.
+If Emilie has Arc access, the Elements of Teaching Reflection Tool and the
+VTLM 2.0 Implementation Rubric are the right instruments for a finer audit.
