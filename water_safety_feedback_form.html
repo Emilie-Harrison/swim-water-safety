@@ -672,84 +672,122 @@
 
     <div class="card">
       <div class="field">
+          <label for="f-resource-band">Which part of the suite was it from?</label>
+          <select id="f-resource-band" name="resource_band">
+            <option value="">— Select a band —</option>
+            <option data-key="y78" value="Year 7&ndash;8">Year 7&ndash;8</option>
+            <option data-key="y910" value="Year 9&ndash;10">Year 9&ndash;10</option>
+            <option data-key="both" value="Used across both bands">Used across both bands (practical, digital, family)</option>
+            <option data-key="ref" value="Faculty reference &amp; planning documents">Faculty reference &amp; planning documents</option>
+            <option data-key="all" value="Not sure">Not sure &mdash; show me everything</option>
+          </select>
+          <p class="hint" id="band-hint">Pick a band first and the list below narrows to it. Resources used in both bands &mdash; the pool companion, the quiz, the family sheets &mdash; appear under either band; planning and alignment documents have their own option.</p>
+        </div>
+        <div class="field">
         <label for="f-resource-name">Which resource(s) are you providing feedback on?</label>
         <span class="hint">Select a specific resource, or choose "General feedback — whole suite" to comment on the package overall. You can name a specific file or describe which resource you used.</span>
         <select id="f-resource-name" name="resource_name">
           <option value="">— Select a resource —</option>
           <optgroup label="Year 7–8 — Core Resources">
-            <option>Student Workbook (swim_safety_student_workbook.html / .pdf)</option>
-            <option>Teacher Workbook &amp; Resource Guide (swim_safety_teacher_workbook.html / .pdf)</option>
-            <option>Simplified / Scaffolded Student Workbook (swim_safety_workbook_simplified.html / .pdf)</option>
-            <option>Extension / Enrichment Student Workbook (swim_safety_workbook_extension.html / .pdf)</option>
-            <option>Student Lesson Outline — Year 7–8 HTML (swim_safety_lesson_outline_year7.html)</option>
-            <option>Student Lesson Outline — Year 7–8 PDF (swim_safety_lesson_outline_year7.pdf)</option>
-            <option>Print-Optimised Student Workbook (swim_safety_student_workbook_PRINT.html)</option>
-            <option>Student Self-Assessment &amp; Reflection Tool HTML (water_safety_student_self_assessment.html)</option>
-            <option>Student Self-Assessment &amp; Reflection Tool PDF (water_safety_student_self_assessment.pdf)</option>
+            <option data-band="y78">Student Workbook (swim_safety_student_workbook.html / .pdf)</option>
+            <option data-band="y78">Teacher Workbook &amp; Resource Guide (swim_safety_teacher_workbook.html / .pdf)</option>
+            <option data-band="y78">Simplified / Scaffolded Student Workbook (swim_safety_workbook_simplified.html / .pdf)</option>
+            <option data-band="y78">Extension / Enrichment Student Workbook (swim_safety_workbook_extension.html / .pdf)</option>
+            <option data-band="y78">Student Lesson Outline — Year 7–8 HTML (swim_safety_lesson_outline_year7.html)</option>
+            <option data-band="y78">Student Lesson Outline — Year 7–8 PDF (swim_safety_lesson_outline_year7.pdf)</option>
+            <option data-band="y78">Print-Optimised Student Workbook (swim_safety_student_workbook_PRINT.html)</option>
+            <option data-band="y78">Student Self-Assessment &amp; Reflection Tool HTML (water_safety_student_self_assessment.html)</option>
+            <option data-band="y78">Student Self-Assessment &amp; Reflection Tool PDF (water_safety_student_self_assessment.pdf)</option>
           </optgroup>
           <optgroup label="Year 7–8 — Classroom Materials">
-            <option>Poster Pack — 4 A3 Posters (swim_safety_poster_pack.html)</option>
-            <option>Scenario Activity Cards (water_safety_scenario_cards.html)</option>
-            <option>Quiz Question Bank — Kahoot / Quizlet (water_safety_quiz_question_bank.html)</option>
-            <option>Glossary of Terms &amp; Acronyms HTML — Updated Edition (water_safety_glossary.html)</option>
-            <option>Glossary of Terms &amp; Acronyms PDF — Updated Edition (water_safety_glossary.pdf)</option>
-            <option>Adaptation for Diverse Learners — Visual Guide HTML (water_safety_diverse_learners.html)</option>
-            <option>Adaptation for Diverse Learners — Visual Guide PDF (water_safety_diverse_learners.pdf)</option>
-            <option>Swimming Carnival Student Briefing HTML (swimming_carnival_student_briefing.html)</option>
-            <option>Swimming Carnival Student Briefing PDF (swimming_carnival_student_briefing.pdf)</option>
+            <option data-band="y78">Poster Pack — 4 A3 Posters (swim_safety_poster_pack.html)</option>
+            <option data-band="y78">Scenario Activity Cards (water_safety_scenario_cards.html)</option>
+            <option data-band="y78">Quiz Question Bank — Kahoot / Quizlet (water_safety_quiz_question_bank.html)</option>
+            <option data-band="y78">Glossary of Terms &amp; Acronyms HTML — Updated Edition (water_safety_glossary.html)</option>
+            <option data-band="y78">Glossary of Terms &amp; Acronyms PDF — Updated Edition (water_safety_glossary.pdf)</option>
+            <option data-band="y78">Adaptation for Diverse Learners — Visual Guide HTML (water_safety_diverse_learners.html)</option>
+            <option data-band="y78">Adaptation for Diverse Learners — Visual Guide PDF (water_safety_diverse_learners.pdf)</option>
+            <option data-band="y78">Swimming Carnival Student Briefing HTML (swimming_carnival_student_briefing.html)</option>
+            <option data-band="y78">Swimming Carnival Student Briefing PDF (swimming_carnival_student_briefing.pdf)</option>
+                      <option data-band="y78">Myths vs Facts Poster (water_safety_myths_facts_poster.html)</option>
           </optgroup>
           <optgroup label="Year 7–8 — Teacher Tools">
-            <option>Assessment Gradebook (water_safety_assessment_gradebook.html)</option>
-            <option>Resource Directory HTML (water_safety_resource_directory.html)</option>
-            <option>Resource Directory PDF (water_safety_resource_directory.pdf)</option>
-            <option>Relief / Substitute Teacher Pack HTML (water_safety_relief_teacher_pack.html)</option>
-            <option>Relief / Substitute Teacher Pack PDF (water_safety_relief_teacher_pack.pdf)</option>
-            <option>Swimming Carnival Safety Briefing (swimming_carnival_safety_briefing.html)</option>
-            <option>Excursion Risk Management Template (water_safety_excursion_risk_management.html)</option>
-            <option>Unit Overview &amp; Scope and Sequence HTML (water_safety_unit_overview.html)</option>
-            <option>Unit Overview &amp; Scope and Sequence PDF (water_safety_unit_overview.pdf)</option>
-            <option>Teacher Professional Learning Notes HTML (water_safety_teacher_professional_learning.html)</option>
-            <option>Teacher Professional Learning Notes PDF (water_safety_teacher_professional_learning.pdf)</option>
-            <option>Acknowledgement of Country &amp; Cultural Considerations HTML (water_safety_cultural_considerations.html)</option>
-            <option>Acknowledgement of Country &amp; Cultural Considerations PDF (water_safety_cultural_considerations.pdf)</option>
+            <option data-band="y78">Assessment Gradebook (water_safety_assessment_gradebook.html)</option>
+            <option data-band="y78">Resource Directory HTML (water_safety_resource_directory.html)</option>
+            <option data-band="y78">Resource Directory PDF (water_safety_resource_directory.pdf)</option>
+            <option data-band="y78">Relief / Substitute Teacher Pack HTML (water_safety_relief_teacher_pack.html)</option>
+            <option data-band="y78">Relief / Substitute Teacher Pack PDF (water_safety_relief_teacher_pack.pdf)</option>
+            <option data-band="y78">Swimming Carnival Safety Briefing (swimming_carnival_safety_briefing.html)</option>
+            <option data-band="y78">Excursion Risk Management Template (water_safety_excursion_risk_management.html)</option>
+            <option data-band="y78">Unit Overview &amp; Scope and Sequence HTML (water_safety_unit_overview.html)</option>
+            <option data-band="y78">Unit Overview &amp; Scope and Sequence PDF (water_safety_unit_overview.pdf)</option>
+            <option data-band="y78">Teacher Professional Learning Notes HTML (water_safety_teacher_professional_learning.html)</option>
+            <option data-band="y78">Teacher Professional Learning Notes PDF (water_safety_teacher_professional_learning.pdf)</option>
+            <option data-band="y78">Acknowledgement of Country &amp; Cultural Considerations HTML (water_safety_cultural_considerations.html)</option>
+            <option data-band="y78">Acknowledgement of Country &amp; Cultural Considerations PDF (water_safety_cultural_considerations.pdf)</option>
+                      <option data-band="y78">Print-Optimised Student Workbook PDF (swim_safety_student_workbook_PRINT.pdf)</option>
           </optgroup>
           <optgroup label="Year 9–10 — Advanced Unit">
-            <option>Year 9–10 Advanced Student Workbook HTML (advanced_water_safety_year910_workbook.html)</option>
-            <option>Year 9–10 Advanced Student Workbook PDF (advanced_water_safety_year910_workbook.pdf)</option>
-            <option>Year 9–10 Teacher Resource Guide HTML (advanced_water_safety_year910_teacher.html)</option>
-            <option>Year 9–10 Teacher Resource Guide PDF (advanced_water_safety_year910_teacher.pdf)</option>
-            <option>Year 9–10 Student Lesson Outline HTML (advanced_water_safety_year910_lesson_outline.html)</option>
-            <option>Year 9–10 Student Lesson Outline PDF (advanced_water_safety_year910_lesson_outline.pdf)</option>
-            <option>Year 9–10 Standalone Assessment Rubric HTML (advanced_water_safety_year910_rubric.html)</option>
-            <option>Year 9–10 Standalone Assessment Rubric PDF (advanced_water_safety_year910_rubric.pdf)</option>
-            <option>Year 9–10 Quiz Question Bank (advanced_water_safety_year910_quiz_bank.html)</option>
-            <option>Year 9–10 Scaffolded / Simplified Workbook HTML (advanced_water_safety_year910_scaffolded.html)</option>
-            <option>Year 9–10 Scaffolded / Simplified Workbook PDF (advanced_water_safety_year910_scaffolded.pdf)</option>
-            <option>Year 9–10 Digital Investigation WebQuest (advanced_water_safety_year910_webquest.html)</option>
-            <option>Year 9–10 Data Analysis Activity Pack (advanced_water_safety_year910_data_pack.html)</option>
-            <option>Year 9–10 Community Action Project Guide HTML (advanced_water_safety_year910_community_project.html)</option>
-            <option>Year 9–10 Community Action Project Guide PDF (advanced_water_safety_year910_community_project.pdf)</option>
-            <option>Year 9–10 Guest Speaker Preparation Resource (advanced_water_safety_year910_guest_speaker.html)</option>
-            <option>Year 9–10 Cross-Curricular Literacy Unit — HPE &amp; English/Media (advanced_water_safety_year910_literacy_unit.html)</option>
-            <option>Year 9–10 Practical Assessment Integration Sheet (advanced_water_safety_year910_practical_integration.html)</option>
-            <option>Year 9–10 Extension Workbook HTML (advanced_water_safety_year910_extension.html)</option>
-            <option>Year 9–10 Extension Workbook PDF (advanced_water_safety_year910_extension.pdf)</option>
-            <option>Year 9–10 Parent &amp; Carer Information Sheet HTML (advanced_water_safety_year910_parent_info.html)</option>
-            <option>Year 9–10 Parent &amp; Carer Information Sheet PDF (advanced_water_safety_year910_parent_info.pdf)</option>
+            <option data-band="y910">Year 9–10 Advanced Student Workbook HTML (advanced_water_safety_year910_workbook.html)</option>
+            <option data-band="y910">Year 9–10 Advanced Student Workbook PDF (advanced_water_safety_year910_workbook.pdf)</option>
+            <option data-band="y910">Year 9–10 Teacher Resource Guide HTML (advanced_water_safety_year910_teacher.html)</option>
+            <option data-band="y910">Year 9–10 Teacher Resource Guide PDF (advanced_water_safety_year910_teacher.pdf)</option>
+            <option data-band="y910">Year 9–10 Student Lesson Outline HTML (advanced_water_safety_year910_lesson_outline.html)</option>
+            <option data-band="y910">Year 9–10 Student Lesson Outline PDF (advanced_water_safety_year910_lesson_outline.pdf)</option>
+            <option data-band="y910">Year 9–10 Standalone Assessment Rubric HTML (advanced_water_safety_year910_rubric.html)</option>
+            <option data-band="y910">Year 9–10 Standalone Assessment Rubric PDF (advanced_water_safety_year910_rubric.pdf)</option>
+            <option data-band="y910">Year 9–10 Quiz Question Bank (advanced_water_safety_year910_quiz_bank.html)</option>
+            <option data-band="y910">Year 9–10 Scaffolded / Simplified Workbook HTML (advanced_water_safety_year910_scaffolded.html)</option>
+            <option data-band="y910">Year 9–10 Scaffolded / Simplified Workbook PDF (advanced_water_safety_year910_scaffolded.pdf)</option>
+            <option data-band="y910">Year 9–10 Digital Investigation WebQuest (advanced_water_safety_year910_webquest.html)</option>
+            <option data-band="y910">Year 9–10 Data Analysis Activity Pack (advanced_water_safety_year910_data_pack.html)</option>
+            <option data-band="y910">Year 9–10 Community Action Project Guide HTML (advanced_water_safety_year910_community_project.html)</option>
+            <option data-band="y910">Year 9–10 Community Action Project Guide PDF (advanced_water_safety_year910_community_project.pdf)</option>
+            <option data-band="y910">Year 9–10 Guest Speaker Preparation Resource (advanced_water_safety_year910_guest_speaker.html)</option>
+            <option data-band="y910">Year 9–10 Cross-Curricular Literacy Unit — HPE &amp; English/Media (advanced_water_safety_year910_literacy_unit.html)</option>
+            <option data-band="y910">Year 9–10 Practical Assessment Integration Sheet (advanced_water_safety_year910_practical_integration.html)</option>
+            <option data-band="y910">Year 9–10 Extension Workbook HTML (advanced_water_safety_year910_extension.html)</option>
+            <option data-band="y910">Year 9–10 Extension Workbook PDF (advanced_water_safety_year910_extension.pdf)</option>
+            <option data-band="y910">Year 9–10 Parent &amp; Carer Information Sheet HTML (advanced_water_safety_year910_parent_info.html)</option>
+            <option data-band="y910">Year 9–10 Parent &amp; Carer Information Sheet PDF (advanced_water_safety_year910_parent_info.pdf)</option>
+                      <option data-band="y910">Year 9–10 Prevention Strategies &amp; Priority Populations Brief HTML (water_safety_prevention_priorities.html)</option>
+            <option data-band="y910">Year 9–10 Prevention Strategies &amp; Priority Populations Brief PDF (water_safety_prevention_priorities.pdf)</option>
           </optgroup>
           <optgroup label="Practical &amp; Digital">
-            <option>Pool-Based Practical Companion Unit (pool_practical_companion_unit.html)</option>
-            <option>Student Digital Portfolio (student_digital_portfolio.html)</option>
-            <option>Interactive Self-Contained Quiz HTML (water_safety_interactive_quiz.html)</option>
-            <option>Structured Debate &amp; Persuasive Discussion Framework HTML (water_safety_debate_framework.html)</option>
-            <option>Structured Debate &amp; Persuasive Discussion Framework PDF (water_safety_debate_framework.pdf)</option>
+            <option data-band="both">Pool-Based Practical Companion Unit (pool_practical_companion_unit.html)</option>
+            <option data-band="both">Student Digital Portfolio (student_digital_portfolio.html)</option>
+            <option data-band="both">Interactive Self-Contained Quiz HTML (water_safety_interactive_quiz.html)</option>
+            <option data-band="both">Structured Debate &amp; Persuasive Discussion Framework HTML (water_safety_debate_framework.html)</option>
+            <option data-band="both">Structured Debate &amp; Persuasive Discussion Framework PDF (water_safety_debate_framework.pdf)</option>
+                      <option data-band="y78">Slide Deck — Year 7–8 (Swim_Water_Safety_Years_7-8.pptx)</option>
+            <option data-band="y910">Slide Deck — Year 9–10 (Swim-Water-Safety_Years_9-10.pptx)</option>
+            <option data-band="y78">Slide Deck PDF — Year 7–8 (Swim_Water_Safety_Year_7_8_HPE.pdf)</option>
+            <option data-band="y910">Slide Deck PDF — Year 9–10 (Advanced_Water_Safety_Year_9-10_HPE.pdf)</option>
           </optgroup>
           <optgroup label="Community &amp; Family">
-            <option>Parent / Family Information Sheet — Multilingual (water_safety_parent_info_multilingual.html)</option>
+            <option data-band="both">Parent / Family Information Sheet — Multilingual (water_safety_parent_info_multilingual.html)</option>
+                      <option data-band="both">Parent / Family Information Sheet — English (water_safety_parent_info_sheet.html)</option>
           </optgroup>
           <optgroup label="General">
-            <option>General feedback — whole suite / multiple resources</option>
-            <option>Other (describe below)</option>
+            <option data-band="any">General feedback — whole suite / multiple resources</option>
+            <option data-band="any">Other (describe below)</option>
+                      <option data-band="ref">How to Revise Water Safety — Student Revision Guide HTML (water_safety_revision_guide.html)</option>
+            <option data-band="ref">How to Revise Water Safety — Student Revision Guide PDF (water_safety_revision_guide.pdf)</option>
+            <option data-band="ref">What This Suite Is — and What It Is Not HTML (water_safety_what_this_is.html)</option>
+            <option data-band="ref">What This Suite Is — and What It Is Not PDF (water_safety_what_this_is.pdf)</option>
+            <option data-band="ref">VTLM 2.0 Alignment Guide HTML (water_safety_vtlm_alignment.html)</option>
+            <option data-band="ref">VTLM 2.0 Alignment Guide PDF (water_safety_vtlm_alignment.pdf)</option>
+            <option data-band="ref">Curriculum Coverage Map HTML (water_safety_curriculum_coverage.html)</option>
+            <option data-band="ref">Curriculum Coverage Map PDF (water_safety_curriculum_coverage.pdf)</option>
+            <option data-band="ref">Victorian 2.0 vs Australian Curriculum 9.0 Comparison HTML (hpe_curriculum_comparison.html)</option>
+            <option data-band="ref">Victorian 2.0 vs Australian Curriculum 9.0 Comparison PDF (hpe_curriculum_comparison.pdf)</option>
+            <option data-band="ref">Victorian 2.0 vs Australian Curriculum 9.0 Comparison — Word (HPE_Curriculum_Comparison_VIC_AC.docx)</option>
+            <option data-band="ref">Australian Curriculum Alignment &amp; Localisation Guide HTML (swim_water_safety_australian_curriculum_alignment.html)</option>
+            <option data-band="ref">Australian Curriculum Alignment &amp; Localisation Guide PDF (swim_water_safety_australian_curriculum_alignment.pdf)</option>
+            <option data-band="ref">Copyright, Ownership &amp; Licensing HTML (copyright_licensing.html)</option>
+            <option data-band="ref">Copyright, Ownership &amp; Licensing PDF (copyright_licensing.pdf)</option>
+            <option data-band="ref">Copyright, Ownership &amp; Licensing — Word (Copyright_Ownership_Licensing.docx)</option>
+            <option data-band="ref">HPE Secondary Resource Directory — Word (HPE_Secondary_Resource_Directory_V8.docx)</option>
           </optgroup>
         </select>
       </div>
@@ -1185,6 +1223,74 @@ buildLikert('both-print-likerts', PRINT_ITEMS, 'bp');
 buildLikert('impact-likerts', IMPACT_ITEMS, '');
 buildLikert('teacher-likerts', TEACHER_ITEMS, '');
 updateProgress();
+
+// ── BAND -> RESOURCE CASCADE ───────────────────────────────────────────────
+// Every option is present in the HTML, so the list still works with JS off.
+// Options are removed and re-added rather than hidden: display:none on an
+// <option> is ignored by Safari and some mobile browsers.
+(function () {
+  const bandSel = document.getElementById('f-resource-band');
+  const resSel  = document.getElementById('f-resource-name');
+  const hint    = document.getElementById('band-hint');
+  if (!bandSel || !resSel) return;
+
+  // snapshot the full list before anything is removed
+  const MASTER = Array.from(resSel.children).map(node => ({
+    tag: node.tagName,
+    label: node.getAttribute('label'),
+    opts: node.tagName === 'OPTGROUP'
+      ? Array.from(node.children).map(o => ({ text: o.textContent, band: o.dataset.band || 'both' }))
+      : [{ text: node.textContent, band: node.dataset.band || 'both', value: node.value }]
+  }));
+
+  function render(band) {
+    const keep = o => {
+      if (!band || band === 'all') return true;          // show the lot
+      if (o.band === 'any') return true;                 // the two catch-alls
+      if (o.band === band) return true;                  // exact band match
+      // "both bands" means both YEAR bands - not the reference documents
+      return o.band === 'both' && (band === 'y78' || band === 'y910');
+    };
+    const prev = resSel.value;
+    resSel.innerHTML = '';
+    let shown = 0;
+    MASTER.forEach(node => {
+      if (node.tag !== 'OPTGROUP') {
+        const o = node.opts[0];
+        const el = document.createElement('option');
+        el.textContent = o.text;
+        if (o.value !== undefined) el.value = o.value;
+        resSel.appendChild(el);
+        return;
+      }
+      const matches = node.opts.filter(keep);
+      if (!matches.length) return;
+      const g = document.createElement('optgroup');
+      g.label = node.label;
+      matches.forEach(o => {
+        const el = document.createElement('option');
+        el.textContent = o.text;
+        el.dataset.band = o.band;
+        g.appendChild(el);
+        shown++;
+      });
+      resSel.appendChild(g);
+    });
+    // keep the previous choice if it survived the filter
+    if (prev && Array.from(resSel.options).some(o => o.textContent === prev)) resSel.value = prev;
+    if (hint) {
+      hint.textContent = (!band)
+        ? 'Pick a band first and the list below narrows to it. Resources used in both bands appear under either band; planning and alignment documents have their own option.'
+        : shown + ' resource' + (shown === 1 ? '' : 's') + ' listed. Change the band above to see others.';
+    }
+  }
+
+  bandSel.addEventListener('change', () => {
+    const o = bandSel.selectedOptions[0];
+    render(o ? (o.dataset.key || '') : '');
+  });
+  render('');
+})();
 </script>
 
 
