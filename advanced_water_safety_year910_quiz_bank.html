@@ -134,6 +134,16 @@
   footer{background:var(--navy);color:rgba(255,255,255,0.65);padding:16px 44px;font-size:0.74rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:20px;}
   @media(max-width:600px){.options{grid-template-columns:1fr;}.header{padding:26px 18px 40px;}.body{padding:20px 14px 40px;}}
   @media print{body{background:#fff;}.q-card{page-break-inside:avoid;}@page{size:A4;margin:15mm;}}
+    .il-sec{background:#fff7ed;border:1px solid #f0d4ac;border-radius:14px;padding:22px 26px;margin:30px 0;}
+    .il-sec > h2{margin:0 0 6px;}
+    .il-why{font-size:.88rem;line-height:1.65;color:#6b4f24;background:#fffdf7;border:1px dashed #e2c38f;
+      border-radius:8px;padding:12px 15px;margin:12px 0 20px;}
+    .il-why strong{color:#4a3613;}
+    .q-card.il .q-num{background:#b45309;}
+    .il-tag{display:inline-block;font-size:.66rem;font-family:'JetBrains Mono',ui-monospace,monospace;
+      letter-spacing:.04em;text-transform:uppercase;color:#92400e;background:#fef3c7;border:1px solid #f0d4ac;
+      border-radius:4px;padding:2px 6px;margin-left:6px;}
+    
 </style>
 <script type="application/ld+json">
 {
@@ -576,6 +586,194 @@
 </footer>
 
 
+
+  <!-- INTERLEAVED RETRIEVAL SET -->
+  <div class="il-sec">
+    <h2>Interleaved Retrieval Set &mdash; Years 9&ndash;10</h2>
+    <span class="q-count">IL1&ndash;IL12 &middot; 12 questions &middot; mixed topics</span>
+    <div class="il-why"><strong>Why this set is different.</strong> Every other section of this bank groups questions by lesson. That is useful while a topic is being taught and close to useless afterwards, because the student always knows which knowledge the question wants &mdash; the hardest part of the job is done for them before they start. This set mixes topics deliberately and in no stated order, so the student has to work out <em>which</em> knowledge applies before retrieving it. That decision is the skill that transfers to a real waterway.<br><br><strong>How to use it.</strong> After the unit, not during. Do not tell students which topic each question comes from, and do not reorder them into topic groups &mdash; that undoes the whole point. Expect scores to drop against the blocked sections; that drop is the measure of how much of their earlier confidence came from context rather than knowledge. VTLM 2.0: <em>Vary practice</em>, Practice 2 (interleaving) and <em>Revisit and review</em>.</div>
+
+    <div class="q-card il">
+      <div class="q-meta">
+        <span class="q-num">IL1</span>
+        <span class="q-diff diff-hard">Hard</span>
+        <span class="q-type">Discrimination</span><span class="il-tag">inference vs data</span>
+      </div>
+      <p class="q-text">Victoria's fatal drowning rate was 0.75 per 100,000 and the national rate was 1.13 per 100,000. A student concludes that Victoria's prevention programs are working better than other states'. What is the strongest objection?</p>
+      <div class="options">
+        <div class="option wrong">A. The rates are too close to compare</div>
+        <div class="option correct">B. Rate differences can reflect geography, climate and exposure, not just program quality</div>
+        <div class="option wrong">C. Victoria has a larger population so its rate is always lower</div>
+        <div class="option wrong">D. The national figure covers a different year, so no comparison is possible</div>
+      </div>
+      <div class="answer-reveal"><strong>Answer: B</strong> &mdash; Confounding. States differ in coastline, inland waterways, climate and participation, all of which affect exposure independently of prevention. Option D is a real caution but weaker &mdash; the two figures are comparable in direction; the issue is what causes the difference.</div>
+    </div>
+    <div class="q-card il">
+      <div class="q-meta">
+        <span class="q-num">IL2</span>
+        <span class="q-diff diff-med">Medium</span>
+        <span class="q-type">Recall</span>
+      </div>
+      <p class="q-text">What is laryngospasm, and roughly what share of drowning deaths does it account for?</p>
+      <div class="options">
+        <div class="option wrong">A. Fluid in the lungs hours later; about 25%</div>
+        <div class="option correct">B. Involuntary closure of the vocal cords; about 10&ndash;15%</div>
+        <div class="option wrong">C. Cardiac arrhythmia from cold; about 40%</div>
+        <div class="option wrong">D. Loss of consciousness from hypoxia; about 60%</div>
+      </div>
+      <div class="answer-reveal"><strong>Answer: B</strong> &mdash; Involuntary closure of the vocal cords on water contact, roughly 10&ndash;15% of drowning deaths. Water never enters the lungs, and the person still asphyxiates &mdash; which is why absence of water in the lungs does not rule out drowning.</div>
+    </div>
+    <div class="q-card il">
+      <div class="q-meta">
+        <span class="q-num">IL3</span>
+        <span class="q-diff diff-hard">Hard</span>
+        <span class="q-type">Discrimination</span><span class="il-tag">structural vs stereotype</span>
+      </div>
+      <p class="q-text">Which of these is a <em>structural</em> explanation rather than a stereotype?</p>
+      <div class="options">
+        <div class="option wrong">A. Some communities are simply not water people</div>
+        <div class="option correct">B. Swimming lessons cost money and are rarely offered in community languages</div>
+        <div class="option wrong">C. Young men do not listen to safety advice</div>
+        <div class="option wrong">D. Migrants are less confident around water</div>
+      </div>
+      <div class="answer-reveal"><strong>Answer: B</strong> &mdash; Only B names a condition that could be changed by a decision. The others attribute the outcome to the group itself. This distinction is the whole of the social determinants lesson and the most common place Year 9&ndash;10 answers fall down.</div>
+    </div>
+    <div class="q-card il">
+      <div class="q-meta">
+        <span class="q-num">IL4</span>
+        <span class="q-diff diff-med">Medium</span>
+        <span class="q-type">Recall</span>
+      </div>
+      <p class="q-text">Standard chest compressions generate roughly what proportion of normal resting cardiac output?</p>
+      <div class="options">
+        <div class="option wrong">A. About 5%</div>
+        <div class="option correct">B. About 25&ndash;30%</div>
+        <div class="option wrong">C. About 60%</div>
+        <div class="option wrong">D. About 90%</div>
+      </div>
+      <div class="answer-reveal"><strong>Answer: B</strong> &mdash; About 25&ndash;30% &mdash; enough to prevent brain death for roughly 10 to 15 minutes pending defibrillation. The point is that partial perfusion buys time; it does not restore normal function.</div>
+    </div>
+    <div class="q-card il">
+      <div class="q-meta">
+        <span class="q-num">IL5</span>
+        <span class="q-diff diff-hard">Hard</span>
+        <span class="q-type">Discrimination</span><span class="il-tag">evidence hierarchy</span>
+      </div>
+      <p class="q-text">Four prevention strategies. Which would you expect to have the <em>strongest</em> evidence base, and why?</p>
+      <div class="options">
+        <div class="option wrong">A. A social media awareness campaign &mdash; it reaches the most people</div>
+        <div class="option correct">B. Four-sided pool fencing &mdash; it works whether or not anyone is paying attention</div>
+        <div class="option wrong">C. Warning signage at unpatrolled beaches &mdash; it is present at the point of risk</div>
+        <div class="option wrong">D. A school talk by a guest speaker &mdash; it is memorable</div>
+      </div>
+      <div class="answer-reveal"><strong>Answer: B</strong> &mdash; Engineering and legislation generally outperform education, which outperforms awareness, because the first group does not depend on a person making the right decision in the moment. The reasoning matters more than the ranking.</div>
+    </div>
+    <div class="q-card il">
+      <div class="q-meta">
+        <span class="q-num">IL6</span>
+        <span class="q-diff diff-med">Medium</span>
+        <span class="q-type">Recall</span>
+      </div>
+      <p class="q-text">Country of birth was unknown in what share of Victorian drowning cases over the past decade &mdash; and what does that do to the 37% multicultural figure?</p>
+      <div class="options">
+        <div class="option wrong">A. 5%; it makes the figure precise</div>
+        <div class="option correct">B. 22%; it makes 37% a lower bound rather than a point estimate</div>
+        <div class="option wrong">C. 50%; it makes the figure unusable</div>
+        <div class="option wrong">D. 0%; the figure is complete</div>
+      </div>
+      <div class="answer-reveal"><strong>Answer: B</strong> &mdash; 22% unknown, so 37% is a floor. Stating the limitation alongside the number is what separates a Year 9&ndash;10 answer from a Year 7&ndash;8 one.</div>
+    </div>
+    <div class="q-card il">
+      <div class="q-meta">
+        <span class="q-num">IL7</span>
+        <span class="q-diff diff-hard">Hard</span>
+        <span class="q-type">Discrimination</span><span class="il-tag">explanation shapes response</span>
+      </div>
+      <p class="q-text">95% of diving-related spinal injury patients in Australia are male. A student writes that this shows men are biologically more reckless. What is wrong with that?</p>
+      <div class="options">
+        <div class="option wrong">A. The statistic is incorrect</div>
+        <div class="option wrong">B. Nothing &mdash; it is a reasonable inference</div>
+        <div class="option correct">C. It treats a socially produced pattern as a fixed biological trait, which also makes it unchangeable</div>
+        <div class="option wrong">D. 95% is too high to be meaningful</div>
+      </div>
+      <div class="answer-reveal"><strong>Answer: C</strong> &mdash; The analytical error and the practical cost are the same thing: a biological account implies nothing can be done, while a social-norms account identifies something that can be changed. 'Feet First, First Time' addresses knowledge; the norms are what the structural explanation targets.</div>
+    </div>
+    <div class="q-card il">
+      <div class="q-meta">
+        <span class="q-num">IL8</span>
+        <span class="q-diff diff-med">Medium</span>
+        <span class="q-type">Recall</span>
+      </div>
+      <p class="q-text">What is secondary drowning, and what is the appropriate response to a near-miss?</p>
+      <div class="options">
+        <div class="option wrong">A. Drowning on a second attempt at rescue; no action needed</div>
+        <div class="option correct">B. Pulmonary oedema developing hours later; seek medical review after any submersion incident</div>
+        <div class="option wrong">C. Cold water shock on re-entry; warm the person up</div>
+        <div class="option wrong">D. A second cardiac arrest; repeat CPR</div>
+      </div>
+      <div class="answer-reveal"><strong>Answer: B</strong> &mdash; Fluid in the lungs developing hours after the event &mdash; coughing, laboured breathing, fatigue, chest pain. Rare but potentially fatal, and the reason a person who 'seems fine' after a submersion still needs review.</div>
+    </div>
+    <div class="q-card il">
+      <div class="q-meta">
+        <span class="q-num">IL9</span>
+        <span class="q-diff diff-hard">Hard</span>
+        <span class="q-type">Discrimination</span><span class="il-tag">evidence quality</span>
+      </div>
+      <p class="q-text">Which question would produce the <em>strongest</em> evidence for a policy brief?</p>
+      <div class="options">
+        <div class="option wrong">A. Do people think signage works?</div>
+        <div class="option correct">B. What happened to drowning rates where four-sided fencing was made mandatory, compared with where it was not?</div>
+        <div class="option wrong">C. How many people have seen the current campaign?</div>
+        <div class="option wrong">D. Do lifeguards believe their work is effective?</div>
+      </div>
+      <div class="answer-reveal"><strong>Answer: B</strong> &mdash; B compares an intervention against a counterfactual. The others measure awareness, reach or opinion &mdash; all easier to collect and none of which establish that the intervention changed outcomes.</div>
+    </div>
+    <div class="q-card il">
+      <div class="q-meta">
+        <span class="q-num">IL10</span>
+        <span class="q-diff diff-med">Medium</span>
+        <span class="q-type">Recall</span>
+      </div>
+      <p class="q-text">Below what water temperature does cold water shock typically begin, and how fast can it incapacitate?</p>
+      <div class="options">
+        <div class="option wrong">A. Below 20&deg;C; within 10 minutes</div>
+        <div class="option correct">B. Below about 15&deg;C; within about 1 minute</div>
+        <div class="option wrong">C. Below 5&deg;C; within 30 seconds</div>
+        <div class="option wrong">D. Below 10&deg;C; within an hour</div>
+      </div>
+      <div class="answer-reveal"><strong>Answer: B</strong> &mdash; Below roughly 15&deg;C, with incapacity possible inside a minute &mdash; involuntary gasp, hyperventilation, peripheral vasoconstriction and possible arrhythmia. Victorian inland waterways sit in this range for much of the year, including on warm days.</div>
+    </div>
+    <div class="q-card il">
+      <div class="q-meta">
+        <span class="q-num">IL11</span>
+        <span class="q-diff diff-hard">Hard</span>
+        <span class="q-type">Discrimination</span><span class="il-tag">data literacy</span>
+      </div>
+      <p class="q-text">You have data showing drowning deaths rose 37% at coastal locations against baseline. Before using it in an argument, what must you check first?</p>
+      <div class="options">
+        <div class="option wrong">A. Whether the figure is from a government source</div>
+        <div class="option correct">B. Whether the comparison period is the same length and season as the baseline</div>
+        <div class="option wrong">C. Whether the increase is statistically significant at p &lt; 0.05</div>
+        <div class="option wrong">D. Whether other states had the same increase</div>
+      </div>
+      <div class="answer-reveal"><strong>Answer: B</strong> &mdash; Period matching. An eight-month figure set against a twelve-month baseline manufactures a change that is not there. The other checks matter, but this one invalidates the comparison outright if it fails.</div>
+    </div>
+    <div class="q-card il">
+      <div class="q-meta">
+        <span class="q-num">IL12</span>
+        <span class="q-diff diff-hard">Hard</span>
+        <span class="q-type">Discrimination</span><span class="il-tag">transfer</span>
+      </div>
+      <p class="q-text">Which of these is the clearest example of applying knowledge from one part of the unit to a problem in another?</p>
+      <div class="options">
+        <div class="option wrong">A. Reciting the four prevention criteria from memory</div>
+        <div class="option correct">B. Using the social determinants framework to explain why a signage campaign under-performs in a multilingual suburb</div>
+        <div class="option wrong">C. Listing the physiological stages of drowning in order</div>
+        <div class="option wrong">D. Calculating a rate per 100,000</div>
+      </div>
+      <div class="answer-reveal"><strong>Answer: B</strong> &mdash; Transfer is combining frameworks across lessons to explain something neither covers on its own. The other three are retrieval within one topic &mdash; necessary, but not the same skill.</div>
+    </div>
+  </div>
 <nav class="hub-nav" aria-label="Site" style="max-width:1000px;margin:30px auto 0;padding:0 20px;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-size:0.85rem;"><a href="index.html" style="display:inline-flex;align-items:center;gap:7px;color:#1565c0;text-decoration:none;font-weight:600;border:1px solid #cfe0f2;background:#f2f8fe;border-radius:7px;padding:9px 15px;">&#8592; All teaching resources &mdash; Swim &amp; Water Safety Teaching Hub</a></nav>
 <style>@media print{.hub-nav{display:none!important}}</style>
 <div class="cc-licence" style="max-width:1000px;margin:34px auto 0;padding:16px 20px;border-top:1px solid #dde6f0;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-size:0.76rem;line-height:1.6;color:#5a6e8a;"><p style="margin:0 0 6px;"><strong style="color:#0a1e3d;">&copy; 2026 Emilie Harrison.</strong> This resource is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" style="color:#1565c0;">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>. You are free to copy, share, adapt and build on it — including for commercial purposes — provided you give appropriate credit and indicate any changes.</p><p style="margin:0 0 6px;"><strong style="color:#0a1e3d;">Suggested attribution:</strong> &ldquo;Swim &amp; Water Safety Teaching Hub&rdquo; by Emilie Harrison, licensed CC BY 4.0. Source: emilie-harrison.github.io/swim-water-safety</p><p style="margin:0;"><strong style="color:#0a1e3d;">Third-party material is not covered.</strong> Content owned by Life Saving Victoria, Royal Life Saving Australia, Surf Life Saving Australia, VCAA, ACARA, AIATSIS, the Australian Resuscitation Council and other organisations — including data, guidelines, logos and program names — remains the property of those owners and is used here for educational purposes. Check directly with the owner before reproducing it elsewhere.</p><p style="margin:10px 0 0;padding-top:8px;border-top:1px dotted #ccd8e6;"><strong style="color:#0a1e3d;">Data sources cited in this resource.</strong> Drowning statistics are reproduced with attribution from: Life Saving Victoria. (2025). <em>Victorian Drowning Report 2024–25</em>. Life Saving Victoria: Melbourne. Royal Life Saving Australia (2026). <em>National Drowning Report 2026</em>. RLSSA: Sydney. World Health Organization (2024). <em>Drowning — fact sheet</em>. WHO: Geneva. Surf Life Saving Australia (2026). <em>Summer Coastal Drowning Report 2025/26</em>. SLSA: Sydney. These figures remain the property of the publishing organisations. If you adapt this resource, retain these citations.</p></div>

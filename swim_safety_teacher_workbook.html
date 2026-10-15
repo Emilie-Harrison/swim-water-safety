@@ -308,7 +308,36 @@
 .lesson-phase.review{border-left-color:#0f766e;background:#ecfdf5;}
     .phase-label.review{color:#0f766e;}
     .retrieval-note{font-size:.82rem;color:#4b5563;background:#fff;border:1px dashed #a7d3c9;border-radius:6px;padding:8px 11px;margin-top:7px;}
-      .lesson-phase.engage { border-left-color: #F59E0B; background: #fffbeb; }
+.lo-sc{background:#fff;border:1px solid #c3d9ef;border-left:4px solid #1565c0;border-radius:7px;
+      padding:12px 15px;margin:0 0 13px;}
+    .lo-sc .lo{font-size:.9rem;color:#0a1e3d;margin:0 0 9px;}
+    .lo-sc .lo b{font-family:'Syne',sans-serif;display:block;font-size:.72rem;letter-spacing:.08em;
+      text-transform:uppercase;color:#1565c0;margin-bottom:3px;}
+    .lo-sc .sc{margin:0;padding:0;list-style:none;}
+    .lo-sc .sc > b{font-family:'Syne',sans-serif;display:block;font-size:.72rem;letter-spacing:.08em;
+      text-transform:uppercase;color:#1565c0;margin-bottom:4px;}
+    .lo-sc .sc li{font-size:.86rem;color:#243b55;line-height:1.5;padding:3px 0 3px 22px;position:relative;}
+    .lo-sc .sc li::before{content:"\2610";position:absolute;left:0;top:2px;color:#1565c0;font-size:1rem;}
+    .sc-check{font-size:.84rem;background:#f2f8fe;border:1px dashed #a8c8e8;border-radius:6px;
+      padding:8px 11px;margin-top:8px;color:#243b55;}
+.vt{background:#fff;border:1px solid #d6e3ef;border-radius:8px;padding:0;margin:0 0 16px;overflow:hidden;}
+    .vt > h4{margin:0;padding:11px 15px;background:#f2f8fe;border-bottom:1px solid #d6e3ef;
+      font-family:'Syne',sans-serif;font-size:.95rem;color:#0a1e3d;}
+    .vt > div{padding:13px 15px;}
+    .vt-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.67rem;letter-spacing:.03em;
+      background:#0a1e3d;color:#fff;border-radius:4px;padding:3px 7px;margin-left:7px;vertical-align:2px;}
+    .ta{background:#fffdf5;border:1px solid #e8dcae;border-left:4px solid #c9a227;border-radius:7px;
+      padding:12px 15px;margin:11px 0;font-size:.88rem;line-height:1.6;color:#4a3d13;}
+    .ta b{display:block;font-family:'Syne',sans-serif;font-size:.74rem;letter-spacing:.07em;
+      text-transform:uppercase;color:#8a6d1a;margin-bottom:5px;}
+    table.vtt{width:100%;border-collapse:collapse;font-size:.83rem;margin:4px 0 0;}
+    table.vtt th{background:#0a1e3d;color:#fff;text-align:left;padding:8px 10px;font-family:'Syne',sans-serif;
+      font-size:.76rem;letter-spacing:.04em;}
+    table.vtt td{border-bottom:1px solid #e3ebf3;padding:8px 10px;vertical-align:top;line-height:1.5;}
+    table.vtt tr:nth-child(even) td{background:#fafcfe;}
+    table.vtt td.no{color:#b02a20;}
+    table.vtt td.yes{color:#1b6b3a;}
+              .lesson-phase.engage { border-left-color: #F59E0B; background: #fffbeb; }
   .lesson-phase.explore { border-left-color: var(--sky); background: #e0f2fe; }
   .lesson-phase.explain { border-left-color: var(--leaf); background: #f0f7f2; }
   .lesson-phase.elaborate { border-left-color: #9c27b0; background: #f3e5f5; }
@@ -561,6 +590,40 @@
     body { font-size: max(10pt, 11pt); }
   }
   /* min-body-font */
+    .iep{background:#f6fbf8;border:1px solid #bfe0cd;border-left:4px solid #1b6b3a;border-radius:9px;
+      padding:16px 19px;margin:0 0 20px;}
+    .iep h4{margin:0 0 9px;font-size:1rem;color:#0f3d22;}
+    .iep p{font-size:.88rem;line-height:1.62;color:#2b4a37;margin:0 0 10px;}
+    .iep table{width:100%;border-collapse:collapse;font-size:.83rem;margin:10px 0 4px;}
+    .iep th{background:#1b6b3a;color:#fff;text-align:left;padding:7px 9px;font-size:.76rem;letter-spacing:.03em;}
+    .iep td{border-bottom:1px solid #d8ebe0;padding:7px 9px;vertical-align:top;line-height:1.5;color:#2b4a37;}
+    .iep tr:nth-child(even) td{background:#fbfefc;}
+    .iep .fine{font-size:.8rem;color:#4d6b59;font-style:italic;margin:9px 0 0;}
+    .ps4{background:#fdf6ff;border:1px solid #e0cdf0;border-left:4px solid #7c3aed;border-radius:9px;
+      padding:16px 19px;margin:0 0 20px;}
+    .ps4 h4{margin:0 0 9px;font-size:1rem;color:#3b1261;}
+    .ps4 p{font-size:.88rem;line-height:1.62;color:#45305c;margin:0 0 10px;}
+    .ps4 table{width:100%;border-collapse:collapse;font-size:.83rem;margin:10px 0 4px;}
+    .ps4 th{background:#5b21b6;color:#fff;text-align:left;padding:7px 9px;font-size:.76rem;letter-spacing:.03em;}
+    .ps4 td{border-bottom:1px solid #ead9f6;padding:7px 9px;vertical-align:top;line-height:1.5;color:#45305c;}
+    .ps4 tr:nth-child(even) td{background:#fefaff;}
+    .ps4 .warn{background:#fff;border:1px dashed #d4b8ea;border-radius:7px;padding:10px 13px;margin-top:11px;
+      font-size:.85rem;line-height:1.58;color:#45305c;}
+    .lim{background:#fbfbfd;border:1px solid #d7d9e3;border-left:4px solid #475569;border-radius:10px;
+      padding:19px 22px;margin:26px 0;}
+    .lim h3{margin:0 0 7px;color:#1e293b;}
+    .lim > p{font-size:.89rem;line-height:1.64;color:#3f4a5c;margin:0 0 13px;}
+    .lim table{width:100%;border-collapse:collapse;font-size:.84rem;margin:11px 0;}
+    .lim th{background:#334155;color:#fff;text-align:left;padding:8px 10px;font-size:.77rem;letter-spacing:.03em;}
+    .lim td{border-bottom:1px solid #e3e5ec;padding:8px 10px;vertical-align:top;line-height:1.55;color:#3f4a5c;}
+    .lim tr:nth-child(even) td{background:#fdfdfe;}
+    .lim .k{font-weight:700;color:#1e293b;}
+    .lim .why{font-size:.85rem;line-height:1.6;color:#3f4a5c;background:#fff;border:1px dashed #cbd2de;
+      border-radius:7px;padding:11px 14px;margin-top:12px;}
+    .lim .why strong{color:#1e293b;}
+    
+    
+    
   </style>
 <script type="application/ld+json">
 {
@@ -620,12 +683,13 @@
     <h2>📋 Contents</h2>
     <div class="toc-item"><span class="toc-num">1.</span> Curriculum Alignment &amp; Overview<div class="toc-dots"></div></div>
     <div class="toc-item"><span class="toc-num">2.</span> Unit Overview &amp; Learning Intentions<div class="toc-dots"></div></div>
-    <div class="toc-item"><span class="toc-num">3.</span> Lesson Plans (Lessons 1–5)<div class="toc-dots"></div></div>
-    <div class="toc-item"><span class="toc-num">4.</span> Student Workbook — Answer Key<div class="toc-dots"></div></div>
-    <div class="toc-item"><span class="toc-num">5.</span> Assessment Rubric &amp; Strategies<div class="toc-dots"></div></div>
-    <div class="toc-item"><span class="toc-num">6.</span> Differentiation &amp; Inclusion Notes<div class="toc-dots"></div></div>
-    <div class="toc-item"><span class="toc-num">7.</span> Teacher Background Knowledge<div class="toc-dots"></div></div>
-    <div class="toc-item"><span class="toc-num">8.</span> Links to Resources &amp; Sources<div class="toc-dots"></div></div>
+    <div class="toc-item"><span class="toc-num">3.</span> VTLM 2.0 Teaching Techniques<div class="toc-dots"></div></div>
+    <div class="toc-item"><span class="toc-num">4.</span> Lesson Plans (Lessons 1–5)<div class="toc-dots"></div></div>
+    <div class="toc-item"><span class="toc-num">5.</span> Student Workbook — Answer Key<div class="toc-dots"></div></div>
+    <div class="toc-item"><span class="toc-num">6.</span> Assessment Rubric &amp; Strategies<div class="toc-dots"></div></div>
+    <div class="toc-item"><span class="toc-num">7.</span> Differentiation &amp; Inclusion Notes<div class="toc-dots"></div></div>
+    <div class="toc-item"><span class="toc-num">8.</span> Teacher Background Knowledge<div class="toc-dots"></div></div>
+    <div class="toc-item"><span class="toc-num">9.</span> Links to Resources &amp; Sources<div class="toc-dots"></div></div>
   </div>
 
   <!-- ===== SECTION 1: CURRICULUM ALIGNMENT ===== -->
@@ -702,6 +766,60 @@
   <!-- ===== SECTION 2: UNIT OVERVIEW ===== -->
   <div class="section">
     <div class="section-title"><div class="s-icon">🗺</div>2. Unit Overview &amp; Learning Intentions</div>
+
+    <div class="lim">
+      <h3>&#128269; What this unit does not do, and why</h3>
+      <p>Most teaching resources list what they cover. This lists what they do not, because a limit you know
+      about is something you can plan around and a limit you discover in week three is a problem. Three of
+      these are deliberate scope decisions; one is genuinely undone; one is not something any document can
+      supply.</p>
+
+      <table>
+        <tr><th style="width:27%">What is missing</th><th style="width:34%">What that means for you</th>
+        <th style="width:39%">Why it is like that</th></tr>
+
+        <tr><td class="k">Most of the HPE curriculum</td>
+        <td>This unit addresses 10 of the 40 Victorian content descriptions. It services <em>Safety</em>
+        substantially and contributes to three other focus areas. It does not touch the other eight.</td>
+        <td><strong>Deliberate.</strong> It is a water safety unit, not a program. The
+        <a href="water_safety_curriculum_coverage.html">Curriculum Coverage Map</a> lists every code it does
+        not address so your planning can place them elsewhere.</td></tr>
+
+        <tr><td class="k">Evidence of student achievement</td>
+        <td>The curriculum codes record what was <em>taught</em>. They are not, by themselves, evidence that
+        students achieved anything.</td>
+        <td><strong>Deliberate.</strong> Victorian Curriculum 2.0 reports against achievement standards.
+        Evidence comes from the rubrics, work samples and your moderation &mdash; not from a coverage map.</td></tr>
+
+        <tr><td class="k">Tiered intervention</td>
+        <td>The scaffolded and simplified versions are Tier 1 differentiation. They are not a Tier 2 or 3
+        intervention program and should not be counted as one.</td>
+        <td><strong>Deliberate.</strong> Intervention is designed around a student, by your school, on data
+        this unit does not hold.</td></tr>
+
+        <tr><td class="k">Flexible grouping on evidence</td>
+        <td>The lessons use whole-class and fixed-pair structures. They do not tell you to form and re-form
+        groups during a lesson based on what you are seeing.</td>
+        <td><strong>Genuinely open, and the one gap left.</strong> VTLM 2.0 asks for groups formed on evidence
+        of learning. That decision depends on what is in front of you, so the materials prompt it (see the
+        checks-for-understanding repertoire) but cannot script it. Worth adding to your own lesson notes.</td></tr>
+
+        <tr><td class="k">Everything that happens in the room</td>
+        <td>Classroom rules and routines, active supervision, how you respond to a student in the moment, the
+        relationships you build with students and families.</td>
+        <td><strong>Not a document&rsquo;s job.</strong> A resource can prompt these; it cannot evidence them.
+        An alignment document that claimed otherwise would be worth less than this one.</td></tr>
+      </table>
+
+      <div class="why"><strong>Why this section exists at all.</strong> This unit was audited in October 2026
+      against all 14 teaching strategies of the Victorian Teaching and Learning Model 2.0. Twenty
+      technique-level gaps were found; nineteen were closed, and the one that was not is in the table above.
+      The full audit, including what was changed and what the model asks that a resource suite structurally
+      cannot deliver, is in the
+      <a href="water_safety_vtlm_alignment.html">VTLM 2.0 Alignment Guide</a>. If you are documenting VTLM
+      implementation for an Annual Implementation Plan, read that rather than this summary.</div>
+    </div>
+
 
     <div class="card">
       <h3>📐 Unit Overview</h3>
@@ -848,7 +966,7 @@
         <tr><th>Approach</th><th>How It's Used in This Unit</th><th>Key Resource</th></tr>
         <tr>
           <td><strong>Scenario-Based Learning</strong></td>
-          <td>14 printable Scenario Cards covering beach, river, pool, emergency, and decision-making contexts. All Victorian settings.</td>
+          <td>12 printable scenario cards covering beach, river, pool, emergency, and decision-making contexts. All Victorian settings.</td>
           <td>Scenario Activity Cards (separate file)</td>
         </tr>
         <tr>
@@ -883,9 +1001,345 @@
       </div>
     </div>
 
-  <!-- ===== SECTION 3: LESSON PLANS ===== -->
+
+  <!-- ===== SECTION 3: VTLM 2.0 TEACHING TECHNIQUES ===== -->
   <div class="section">
-    <div class="section-title"><div class="s-icon">📋</div>3. Lesson Plans</div>
+    <div class="section-title"><div class="s-icon">🧭</div>3. VTLM 2.0 Teaching Techniques for This Unit</div>
+
+    <p>The Victorian Teaching and Learning Model 2.0 names specific techniques within each of its 14 teaching
+    strategies. This section supplies them for this unit &mdash; the actual scripts, tables and schedules, not a
+    restatement of the model. Each block is tagged with the strategy it serves so you can cite it in an
+    Annual Implementation Plan or a VTLM reflection session.</p>
+
+    <div class="vt">
+      <h4>3.1 Advance organiser &mdash; the unit in one picture<span class="vt-tag">FOCUS THE LEARNING &middot; P2</span></h4>
+      <div>
+        <p>Display this at the start of Lesson 1, then return to it at the start of every lesson and point to
+        where the class now is. An advance organiser is not a summary: it is shown <em>before</em> the content,
+        so students can hang new knowledge on a structure they already hold.</p>
+        <table class="vtt">
+          <thead><tr><th style="width:17%">Lesson</th><th style="width:30%">The question it answers</th>
+          <th style="width:53%">What it connects to</th></tr></thead>
+          <tbody>
+          <tr><td><strong>1. The problem</strong></td><td>Who drowns in Victoria, and why them?</td>
+          <td>Students&rsquo; own local waterways, named in the opening hook. Nothing precedes this lesson.</td></tr>
+          <tr><td><strong>2. Reading the water</strong></td><td>How do I tell safe water from dangerous water?</td>
+          <td>Builds on L1&rsquo;s &ldquo;where&rdquo; &mdash; the coastal share of deaths becomes a reason to read a beach.</td></tr>
+          <tr><td><strong>3. When it goes wrong</strong></td><td>What do I actually do?</td>
+          <td>Needs L2: you cannot decide on a rescue without knowing what a rip is doing to the person.</td></tr>
+          <tr><td><strong>4. Inland and alcohol</strong></td><td>Why are rivers and lakes different?</td>
+          <td>Applies L2&rsquo;s hazard-reading to water with no flags, no patrol and no visibility.</td></tr>
+          <tr><td><strong>5. Telling other people</strong></td><td>How do I get this to someone who needs it?</td>
+          <td>Requires all four: the campaign has to carry accurate content from each lesson.</td></tr>
+          </tbody>
+        </table>
+        <p class="note" style="margin-top:10px">Say the dependency aloud each lesson &mdash; &ldquo;you cannot do today
+        without last lesson, and here is why.&rdquo; That sentence is the organiser doing its work.</p>
+      </div>
+    </div>
+
+    <div class="vt">
+      <h4>3.2 Checks for understanding &mdash; the repertoire<span class="vt-tag">MONITOR PROGRESS &middot; P1</span></h4>
+      <div>
+        <p>Every lesson in this unit ends with an exit ticket. That is one technique at one moment. VTLM 2.0 asks
+        for frequent checks <em>during</em> explanation and practice, with every student responding rather than
+        volunteers. Use these inside the <strong>I do</strong> and <strong>we do</strong> phases.</p>
+        <table class="vtt">
+          <thead><tr><th style="width:21%">Technique</th><th style="width:44%">Use it here</th>
+          <th style="width:35%">What it tells you</th></tr></thead>
+          <tbody>
+          <tr><td><strong>Hand signals</strong></td>
+          <td>&ldquo;Thumb up if it is safe to swim here, down if it is not, sideways if you need more
+          information&rdquo; &mdash; over four beach photographs in L2.</td>
+          <td>Whole-class read in five seconds. Sideways thumbs are the useful ones; ask one of them what
+          information they want.</td></tr>
+          <tr><td><strong>Mini-whiteboards</strong></td>
+          <td>&ldquo;Write the next letter of DRS ABCD&rdquo; &mdash; six quick rounds in L3, all boards up at once.</td>
+          <td>Shows you who is sequencing and who is guessing from the person beside them.</td></tr>
+          <tr><td><strong>Cold call</strong></td>
+          <td>After the rip explanation in L2: &ldquo;Mia, what are you swimming towards, and why not the beach?&rdquo;
+          Name first, question second, no hands.</td>
+          <td>Keeps every student ready to answer, not just the three who always volunteer.</td></tr>
+          <tr><td><strong>Hinge question</strong></td>
+          <td>Mid-L3, before practice: &ldquo;You find someone face-down in a pool. You are alone. First action:
+          (a) start compressions (b) call 000 (c) check for danger (d) pull them out.&rdquo;</td>
+          <td>A deliberate fork. If more than a few pick (a) or (d), re-teach Danger before any practice begins.</td></tr>
+          <tr><td><strong>Turn-and-talk</strong></td>
+          <td>Already used in L1 and L4. Follow it with a cold call on what their <em>partner</em> said.</td>
+          <td>Makes the pair talk accountable instead of social.</td></tr>
+          <tr><td><strong>Exit ticket</strong></td>
+          <td>In place at the end of all five lessons.</td>
+          <td>Retrospective. Good for planning the next lesson, too late to change this one.</td></tr>
+          </tbody>
+        </table>
+        <p class="note" style="margin-top:10px">The point of the first five is that they happen while you can still
+        change what you do. Choose two per lesson and plan where they land, rather than improvising.</p>
+
+        <p style="margin-top:14px"><strong>Peer review needs a frame.</strong> This unit asks students to peer
+        review in several places &mdash; the campaign, the debate, the portfolio. Unframed peer review produces
+        &ldquo;good job, maybe add more colour.&rdquo; Give students three slots and require all three:</p>
+        <table class="vtt">
+          <thead><tr><th style="width:17%">Slot</th><th style="width:36%">Sentence stem</th>
+          <th style="width:47%">Applied to the Lesson 5 campaign</th></tr></thead>
+          <tbody>
+          <tr><td><strong>Kind</strong></td><td>&ldquo;The strongest part is&hellip; because&hellip;&rdquo;</td>
+          <td class="note">Forces a reason, so it cannot be &ldquo;it looks good.&rdquo;</td></tr>
+          <tr><td><strong>Specific</strong></td><td>&ldquo;In the [name the part], I noticed&hellip;&rdquo;</td>
+          <td class="note">Must point at one element &mdash; the headline, the statistic, the image choice.</td></tr>
+          <tr><td><strong>Helpful</strong></td><td>&ldquo;One change that would meet criterion [X] is&hellip;&rdquo;</td>
+          <td class="note">Ties the suggestion to a success criterion, not to personal taste.</td></tr>
+          </tbody>
+        </table>
+        <p class="note" style="margin-top:10px">Then leave class time for the author to act on it. Feedback
+        students have no time to use is feedback that teaches them feedback does not matter.</p>
+      </div>
+    </div>
+
+    <div class="vt">
+      <h4>3.3 Think-aloud scripts<span class="vt-tag">EXPLICIT EXPLANATION AND MODELLING &middot; P2</span></h4>
+      <div>
+        <p>Demonstrating a skill shows students the actions. Thinking aloud shows them the decisions &mdash; which
+        is the part they have to reproduce when no teacher is present. Use these close to verbatim the first time.</p>
+
+        <div class="ta"><b>Lesson 2 &middot; reading a beach photograph</b>
+        &ldquo;Right &mdash; before I decide anything, I am looking for the flags. I can see red and yellow on the
+        left, so that is where the patrol wants me. Now I am looking at the water <em>between</em> them &hellip;
+        it is choppy, breaking white. Good. Now I look right, past the flags, and that is where I slow down:
+        that patch is darker and it looks calmer. My instinct says calm means safe, and that instinct is exactly
+        wrong here &mdash; calm, dark and no breaking waves is water moving <em>out</em>. I can also see a bit of
+        foam trailing seaward. So: I swim on the left, between the flags, and I would not put a toe in that
+        darker channel. Notice what I did &mdash; I did not look for danger first, I looked for the flags first,
+        then checked my own instinct against what the water was doing.&rdquo;</div>
+
+        <div class="ta"><b>Lesson 3 &middot; deciding on a rescue</b>
+        &ldquo;Someone is in trouble ten metres off the bank. I can swim &mdash; I am a good swimmer, and that is the
+        thought I have to argue with, because the statistics are full of good swimmers. So I run the order.
+        Danger first: is it safe for <em>me</em>? No &mdash; that is moving water and I would be in it with a panicking
+        person. So I am not going in. What can I reach them with? I am looking around &mdash; there is a branch,
+        there is my jumper, there is an esky lid. The esky lid floats and I can throw it. So: I call out to them
+        to float, I throw the lid, I phone 000, and I stay on the bank talking to them. I have done more for
+        them from here than I would have done as a second person in the water.&rdquo;</div>
+
+        <p class="note">Both scripts deliberately name a wrong instinct and then argue with it. That is the move
+        worth copying: students hold the misconception, so model overriding it rather than pretending it is absent.</p>
+      </div>
+    </div>
+
+    <div class="vt">
+      <h4>3.4 Examples and non-examples<span class="vt-tag">EXPLICIT EXPLANATION AND MODELLING &middot; P2</span></h4>
+      <div>
+        <p>Water safety is full of concepts students half-hold. A non-example marks the boundary of a concept and
+        pre-empts the misconception. Present them in pairs and ask what changed.</p>
+        <table class="vtt">
+          <thead><tr><th style="width:18%">Concept</th><th style="width:27%">Example</th>
+          <th style="width:27%">Non-example</th><th style="width:28%">The misconception it heads off</th></tr></thead>
+          <tbody>
+          <tr><td><strong>Patrolled location</strong></td>
+          <td class="yes">A surf beach between the red-and-yellow flags, 1pm on a January Sunday.</td>
+          <td class="no">The same beach, same flags still in the sand, 7pm after the patrol has gone.</td>
+          <td>That &ldquo;patrolled&rdquo; describes the place rather than the hours.</td></tr>
+          <tr><td><strong>Rip current</strong></td>
+          <td class="yes">A darker, calmer channel with foam trailing seaward and no breaking waves.</td>
+          <td class="no">A wide area of white, broken, choppy water.</td>
+          <td>That calm water is safe water.</td></tr>
+          <tr><td><strong>A rescue you can attempt</strong></td>
+          <td class="yes">Throwing a boogie board from the bank and talking the person into floating.</td>
+          <td class="no">Swimming out to tow a panicking person back, because you made the swim team.</td>
+          <td>That being a strong swimmer makes a swim rescue safe.</td></tr>
+          <tr><td><strong>What drowning looks like</strong></td>
+          <td class="yes">Silent, upright, mouth at water level, no arm waving, under in 20&ndash;60 seconds.</td>
+          <td class="no">Shouting for help and waving both arms above the head.</td>
+          <td>The film version &mdash; which is why bystanders miss it happening metres away.</td></tr>
+          <tr><td><strong>Supervising a child</strong></td>
+          <td class="yes">An adult within arm&rsquo;s reach, eyes on the child, phone down.</td>
+          <td class="no">An adult in the same backyard, reading, while the child is in the pool.</td>
+          <td>That being nearby is the same as supervising. This one matters: a quarter of Victoria&rsquo;s
+          2024&ndash;25 drowning deaths were in home environments.</td></tr>
+          <tr><td><strong>Cold water shock</strong></td>
+          <td class="yes">Jumping into a 13&deg;C Victorian river in October &mdash; involuntary gasp, then
+          hyperventilation, within the first minute.</td>
+          <td class="no">A cold shower, which is unpleasant but does not take breathing control away.</td>
+          <td>That cold water is a comfort problem rather than a breathing problem.</td></tr>
+          <tr><td><strong>Wearing a life jacket</strong></td>
+          <td class="yes">Correct size, buckled, crotch strap done up, worn before leaving the ramp.</td>
+          <td class="no">Two jackets stowed under the seat of the boat, as the law requires them to be carried.</td>
+          <td>That carrying one is being protected by one.</td></tr>
+          </tbody>
+        </table>
+        <p class="note" style="margin-top:10px">After each pair, ask the question that does the teaching:
+        <em>&ldquo;What exactly changed between these two?&rdquo;</em> Students who can answer that hold the concept;
+        students who cannot are recognising pictures.</p>
+      </div>
+    </div>
+
+    <div class="vt">
+      <h4>3.5 Scaffolds, and when to take them away<span class="vt-tag">SCAFFOLD PRACTICE &middot; P1&ndash;P3</span></h4>
+      <div>
+        <p>This unit is well supplied with scaffolds &mdash; word banks, sentence starters, scaffolded and simplified
+        workbooks, answer keys. What it has not previously stated is when to <em>withdraw</em> them. A scaffold left
+        in place past proficiency stops being support and starts being a ceiling.</p>
+        <table class="vtt">
+          <thead><tr><th style="width:26%">Scaffold</th><th style="width:37%">Fade it when the student&hellip;</th>
+          <th style="width:37%">Fade it to&hellip;</th></tr></thead>
+          <tbody>
+          <tr><td>Sentence starters in the written responses</td>
+          <td>completes two responses using the starter without re-reading it.</td>
+          <td>a bare prompt word, then nothing.</td></tr>
+          <tr><td>Word bank for the glossary terms</td>
+          <td>uses three of the terms unprompted in discussion.</td>
+          <td>a bank with the terms removed but the definitions left, then self-recall.</td></tr>
+          <tr><td>Hazard table with categories pre-filled</td>
+          <td>adds a hazard you did not list.</td>
+          <td>an empty table with the column headings only.</td></tr>
+          <tr><td>DRS ABCD prompt card during role-play</td>
+          <td>runs the sequence twice without glancing at the card.</td>
+          <td>card face down on the mat, available but not in view, then away.</td></tr>
+          <tr><td>Scaffolded workbook version</td>
+          <td>finishes a scaffolded section early and accurately.</td>
+          <td>the standard version for the next section, not the next unit.</td></tr>
+          </tbody>
+        </table>
+        <p class="note" style="margin-top:10px">Fade per student and per task, not per class. The scaffolded workbook
+        is a response to a current need, not a label &mdash; a student can be on the scaffolded version for the data
+        section and the standard version for the rescue section in the same lesson.</p>
+      </div>
+    </div>
+
+    <div class="vt">
+      <h4>3.6 Review schedule<span class="vt-tag">REVISIT AND REVIEW &middot; P1&ndash;P2 &middot; VARY PRACTICE &middot; P2</span></h4>
+      <div>
+        <p>The retrieval starters in Lessons 2&ndash;5 are daily review. VTLM 2.0 also asks for weekly and monthly
+        routines, because the drop in retention is steepest soon after learning. This unit has an advantage most
+        units do not: there is a real external deadline. The knowledge has to be available in January, not in the
+        week of the assessment.</p>
+        <table class="vtt">
+          <thead><tr><th style="width:17%">Interval</th><th style="width:28%">When</th>
+          <th style="width:55%">What to retrieve, and how</th></tr></thead>
+          <tbody>
+          <tr><td><strong>Daily</strong></td><td>Start of Lessons 2&ndash;5</td>
+          <td>Three or four questions from prior lessons, no notes, self-marked, ungraded. Already built in.</td></tr>
+          <tr><td><strong>Weekly</strong></td><td>End of the unit week</td>
+          <td>Brain dump: five minutes, blank page, everything you can recall about keeping yourself alive in water.
+          Then compare against the glossary and add what was missed in a different colour. The gaps are the review list.</td></tr>
+          <tr><td><strong>Monthly</strong></td><td>One starter in each of the next two HPE units</td>
+          <td>Four interleaved questions mixing water safety with the current unit&rsquo;s content, so students have
+          to work out which knowledge applies before they answer. Interleaving is the point &mdash; do not label
+          which question is which.</td></tr>
+          <tr><td><strong>Pre-summer</strong></td><td>Final HPE lesson before the summer holidays</td>
+          <td>Fifteen minutes. Scenario cards, cold-called, no notes: a river in January, a backyard pool with a
+          toddler, an unpatrolled beach at dusk. Hand out <a href="water_safety_revision_guide.html">How to Revise
+          Water Safety</a> at the start of this session &mdash; its 20 no-notes questions are built for it. This is the retrieval that matters &mdash; Victorian drowning
+          deaths peak over summer, and this is the last time you will have these students before then.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="vt">
+      <h4>3.7 Group work protocols<span class="vt-tag">APPLY LEARNING AND BUILD MASTERY &middot; P2</span></h4>
+      <div>
+        <p>The Lesson 5 communication campaign and the Year 9&ndash;10 community action project are both group
+        tasks. VTLM 2.0 asks that group work protocols be explicitly taught, not assumed, and that participation
+        be accountable. Teach this once, in four minutes, before the campaign begins.</p>
+        <table class="vtt">
+          <thead><tr><th style="width:22%">Role</th><th style="width:40%">Does</th>
+          <th style="width:38%">Is accountable for</th></tr></thead>
+          <tbody>
+          <tr><td><strong>Evidence keeper</strong></td>
+          <td>Finds and records every statistic used, with its source and year.</td>
+          <td>Reporting to the group if a figure cannot be sourced &mdash; and the group dropping it.</td></tr>
+          <tr><td><strong>Audience advocate</strong></td>
+          <td>Asks, at each decision, whether the chosen audience would actually read this.</td>
+          <td>Naming the audience in one sentence at the start and holding the group to it.</td></tr>
+          <tr><td><strong>Message editor</strong></td>
+          <td>Cuts the wording down and checks it against the success criteria.</td>
+          <td>The final text being shorter than the first draft.</td></tr>
+          <tr><td><strong>Designer</strong></td>
+          <td>Decides format, layout and how the message is seen.</td>
+          <td>The format matching where the audience is, not personal preference.</td></tr>
+          </tbody>
+        </table>
+        <p class="note" style="margin-top:10px">Two rules, stated before groups form. <strong>One:</strong> the task
+        is deliberately too large for one student, so a group that splits into one worker and three spectators will
+        not finish &mdash; that is the design, not an accident. <strong>Two:</strong> each student writes one line at
+        the end naming what they personally contributed, and the group signs off on it. That line is what makes
+        the roles real.</p>
+      </div>
+    </div>
+
+    <div class="vt">
+      <h4>3.8 Metacognitive prompts<span class="vt-tag">SELF-REGULATION &middot; P2 &middot; APPLY LEARNING &middot; P2</span></h4>
+      <div>
+        <p>VTLM 2.0 asks that students be taught to plan, monitor and evaluate their own learning, and that
+        teachers model self-questioning aloud. Four prompts, used in this order, cover the cycle. They are worth
+        putting on the wall for the duration of the unit.</p>
+        <table class="vtt">
+          <thead><tr><th style="width:20%">Stage</th><th style="width:38%">Prompt</th>
+          <th style="width:42%">Where it lands in this unit</th></tr></thead>
+          <tbody>
+          <tr><td><strong>Comprehension</strong></td><td>&ldquo;What is this situation actually asking of me?&rdquo;</td>
+          <td>Scenario cards. Most wrong answers are students solving a different scenario.</td></tr>
+          <tr><td><strong>Connection</strong></td><td>&ldquo;Have I seen something like this before?&rdquo;</td>
+          <td>Lesson 4&rsquo;s inland hazards &mdash; the reading-the-water skill transfers from Lesson 2.</td></tr>
+          <tr><td><strong>Strategy</strong></td><td>&ldquo;What did I use last time, and does it apply here?&rdquo;</td>
+          <td>Rescue decisions. The DRS order is the strategy; the question is whether they reach for it.</td></tr>
+          <tr><td><strong>Reflection</strong></td><td>&ldquo;Was that the best choice? What would I change?&rdquo;</td>
+          <td>After the role-play check and after the campaign self-assessment.</td></tr>
+          </tbody>
+        </table>
+        <p class="note" style="margin-top:10px">Model them on yourself first. In the Lesson 3 think-aloud above,
+        &ldquo;I am a good swimmer, and that is the thought I have to argue with&rdquo; is a strategy prompt being
+        used out loud. Students copy what they hear you do, not what they read on a wall.</p>
+      </div>
+    </div>
+
+    <div class="ps4">
+      <h4>3.9 A named process for analysis tasks &mdash; Read, Risk, Respond, Review <span class="vt-tag">APPLY LEARNING AND BUILD MASTERY &middot; P2</span></h4>
+      <p>This unit asks students to analyse scenarios, case studies and hazard maps repeatedly, and until now
+      it never told them <em>how</em>. &ldquo;Analyse this scenario&rdquo; is an instruction to produce an
+      output, not a method for producing it, and students without a method default to narrating what happened.
+      Four steps, taught once and then named every time:</p>
+      <table>
+        <tr><th style="width:15%">Step</th><th style="width:38%">The question students ask themselves</th>
+        <th style="width:47%">What it stops them doing</th></tr>
+        <tr><td><strong>Read</strong></td>
+        <td>What is actually happening here, and what do I already know that fits?</td>
+        <td>Answering a scenario they have half-invented. Most wrong answers are a correct response to a
+        different situation.</td></tr>
+        <tr><td><strong>Risk</strong></td>
+        <td>What is the hazard, who is exposed to it, and what makes it dangerous?</td>
+        <td>Jumping to a response before naming what the danger actually is.</td></tr>
+        <tr><td><strong>Respond</strong></td>
+        <td>What are my options, and which is safest for me <em>and</em> for them?</td>
+        <td>Offering the first idea. &ldquo;Safest for me as well&rdquo; is the clause that rules out the swim
+        rescue.</td></tr>
+        <tr><td><strong>Review</strong></td>
+        <td>Would that have worked? What would I change?</td>
+        <td>Treating the first answer as the final one.</td></tr>
+      </table>
+      <div class="warn"><strong>Say this out loud, or it will cause confusion.</strong> This unit now contains
+      two four-part frameworks and students will conflate them. <strong>DRS ABCD is what you do in the water,
+      in an emergency, in that order.</strong> <strong>Read&ndash;Risk&ndash;Respond&ndash;Review is how you
+      think about a situation on paper</strong>, in class, when there is time. One is an action sequence; the
+      other is an analysis method. Teach the distinction explicitly the first time you use the second one, and
+      do not introduce them in the same lesson.</div>
+      <p style="margin-top:11px">Model it on one scenario card with a think-aloud, then name the steps each
+      time students use it. The point is that they can say which step they are on &mdash; a process students
+      cannot name is not a process they can transfer.</p>
+    </div>
+
+
+    <div class="card">
+      <p><strong>Where this sits.</strong> These are techniques, not a separate programme &mdash; each one is used
+      inside the lesson plans that follow. The strategy-by-strategy audit of the whole suite, including what it
+      still does not do, is in the
+      <a href="water_safety_vtlm_alignment.html">VTLM 2.0 Alignment Guide</a>.</p>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: LESSON PLANS ===== -->
+  <div class="section">
+    <div class="section-title"><div class="s-icon">📋</div>4. Lesson Plans</div>
 
     <!-- LESSON 1 -->
     <div class="lesson-plan">
@@ -904,6 +1358,14 @@
       <div class="lesson-body">
         <div class="lesson-phase engage">
           <div class="phase-label engage">🎯 FOCUS THE LEARNING <span class="phase-time">10 min</span></div>
+          <div class="lo-sc">
+            <p class="lo"><b>Learning objective</b>Understand who drowns in Victoria, where it happens and why, and explain why 15&ndash;24-year-olds are over-represented.</p>
+            <ul class="sc"><b>Success criteria &mdash; share these with students</b>
+              <li>I can state how many people drowned in Victoria in the most recent reporting year and name the two most common locations.</li>
+              <li>I can describe at least three reasons why 15&ndash;24-year-olds are over-represented in the statistics.</li>
+              <li>I can explain the difference between a number of deaths and a rate per 100,000 people, and say why the rate matters when comparing groups.</li>
+            </ul>
+          </div>
           <h4>Opening Hook — "Could This Be You?"</h4>
           <ul>
             <li>Begin with the question on the board: <em>"Name the THREE closest bodies of water to where you live."</em></li>
@@ -945,6 +1407,7 @@
             <li>On a sticky note or scrap of paper: <em>"Write ONE fact from today that surprised you and ONE question you still have."</em></li>
             <li>Collect at the door. Use questions to guide Lesson 2 content.</li>
           </ul>
+          <div class="sc-check"><strong>Review the success criteria.</strong> Return to the three success criteria on the board. Ask students to self-rate each one with a thumb (up / sideways / down). Any criterion with a spread of sideways and down thumbs is the one to re-teach at the start of Lesson 2.</div>
         </div>
         <div class="teacher-note">
           <div class="tn-label">📌 Pedagogical Notes</div>
@@ -955,7 +1418,7 @@
           </ul>
         </div>
         <div class="safety-note">
-          <p><strong>⚠️ Pastoral Care Note:</strong> If any student discloses distress related to a drowning incident in their family or community, follow your school's wellbeing support protocols immediately. Have wellbeing referral information available before running this lesson.</p>
+          <p><strong>⚠️ Pastoral Care Note:</strong> If any student discloses distress related to a drowning incident in their family or community, follow your school's wellbeing support protocols immediately.  Before teaching this unit, read the <a href="water_safety_cultural_considerations.html">cultural safety protocol</a> &mdash; advance notice, opt-outs, First Nations protocols around deceased persons, and what to do if a student discloses. Have wellbeing referral information available before running this lesson.</p>
         </div>
       </div>
     </div>
@@ -984,6 +1447,14 @@
 
         <div class="lesson-phase engage">
           <div class="phase-label engage">🎯 FOCUS THE LEARNING <span class="phase-time">8 min</span></div>
+          <div class="lo-sc">
+            <p class="lo"><b>Learning objective</b>Interpret beach safety signage, identify a rip current, and explain how to survive one.</p>
+            <ul class="sc"><b>Success criteria &mdash; share these with students</b>
+              <li>I can explain what the red and yellow flags mean and say exactly where it is safe to swim.</li>
+              <li>I can identify a rip current in a photograph and name two visual signs I used.</li>
+              <li>I can describe the three steps to take if caught in a rip, and explain why swimming straight for shore fails.</li>
+            </ul>
+          </div>
           <h4>Flag Quiz — Prior Knowledge Probe</h4>
           <ul>
             <li>Show images of 6 beach flags (from Poster 2 or online) on the projector — no labels.</li>
@@ -1027,6 +1498,7 @@
             <li>Task: <em>"Find the three nearest patrolled beaches to your home using BeachSafe."</em> (homework or now if devices available)</li>
             <li>Preview next lesson: display <strong>Poster 4 (SwimSafe Rules)</strong> on projector. Quick verbal run-through of the 5 rules — students will do the full activity next lesson.</li>
           </ul>
+          <div class="sc-check"><strong>Review the success criteria.</strong> Re-read the success criteria aloud. Cold call three students, one per criterion, to answer it in a sentence. If the rip criterion is shaky, it carries directly into the Lesson 3 rescue content &mdash; re-teach rather than move on.</div>
         </div>
         <div class="teacher-note">
           <div class="tn-label">📌 Extension Activity</div>
@@ -1059,6 +1531,14 @@
 
         <div class="lesson-phase engage">
           <div class="phase-label engage">🎯 FOCUS THE LEARNING <span class="phase-time">5 min</span></div>
+          <div class="lo-sc">
+            <p class="lo"><b>Learning objective</b>Apply the DRS ABCD action plan, and explain how to attempt a rescue without entering the water.</p>
+            <ul class="sc"><b>Success criteria &mdash; share these with students</b>
+              <li>I can recite DRS ABCD in order and say what each letter stands for.</li>
+              <li>I can demonstrate correct hand position, depth and rate for CPR compressions.</li>
+              <li>I can explain why a throw rescue is safer than a swim rescue, and name two objects I could use.</li>
+            </ul>
+          </div>
           <h4>DRS ABCD — Reveal Game</h4>
           <ul>
             <li>7 chairs at the front, numbered 1–7. Each chair has a letter card face down (D, R, S, A, B, C, D).</li>
@@ -1101,6 +1581,7 @@
             <li>One pair at a time (or selected pairs) role-play calling 000 using the DRS ABCD sequence.</li>
             <li>One person is the caller; teacher plays dispatcher. Other students observe and provide feedback.</li>
           </ul>
+          <div class="sc-check"><strong>Review the success criteria.</strong> Check the success criteria against what you observed in the role-play. CPR technique is the criterion students most often over-rate in self-assessment, so judge it on what you saw, not on what they report.</div>
         </div>
         <div class="safety-note">
           <p><strong>⚠️ Practical Safety:</strong> Ensure CPR practice surfaces are appropriate. Students with known cardiac conditions or injuries should be excused from physical compression practice but can observe and answer theory questions. Do not allow students to perform actual mouth-to-mouth on each other — use manikins or hands-only CPR for this lesson.</p>
@@ -1140,6 +1621,14 @@
 
         <div class="lesson-phase engage">
           <div class="phase-label engage">🎯 FOCUS THE LEARNING <span class="phase-time">8 min</span></div>
+          <div class="lo-sc">
+            <p class="lo"><b>Learning objective</b>Assess the hazards of Victorian inland waterways, and explain how cold water and alcohol increase drowning risk.</p>
+            <ul class="sc"><b>Success criteria &mdash; share these with students</b>
+              <li>I can identify at least four hazards on an inland waterway hazard map and say why each one is a hazard.</li>
+              <li>I can explain what cold water shock does to the body in the first minute of immersion.</li>
+              <li>I can describe two ways alcohol increases drowning risk, and apply the SwimSafe rules to a real decision.</li>
+            </ul>
+          </div>
           <h4>"Would You?" — Values Clarification</h4>
           <ul>
             <li>Read out scenarios. Students stand on one side of the room for "I would do it" and the other for "I wouldn't."</li>
@@ -1207,6 +1696,7 @@
             <li>Students share the SwimSafe rule they identified as most important for them (Workbook 6.1b) with a partner and explain their reasoning.</li>
             <li>Optional: post sticky notes on a class board under each of the 5 SwimSafe rules — which rule does the class think is most critical?</li>
           </ul>
+          <div class="sc-check"><strong>Review the success criteria.</strong> Students tick the success criteria in their workbook and write one sentence on the criterion they found hardest. Collect these &mdash; they tell you what to put in the Lesson 5 retrieval starter.</div>
         </div>
         <div class="teacher-note">
           <div class="tn-label">📌 Paddle Australia — Classroom Application</div>
@@ -1239,6 +1729,14 @@
 
         <div class="lesson-phase engage">
           <div class="phase-label engage">🎯 FOCUS THE LEARNING <span class="phase-time">8 min</span></div>
+          <div class="lo-sc">
+            <p class="lo"><b>Learning objective</b>Communicate accurate water safety information to a specific Victorian audience, and justify the choices I made.</p>
+            <ul class="sc"><b>Success criteria &mdash; share these with students</b>
+              <li>I can select water safety messages that match the audience I have chosen.</li>
+              <li>I can use at least two accurate Victorian statistics, each with its source and year.</li>
+              <li>I can justify my design and message choices against the assessment criteria.</li>
+            </ul>
+          </div>
           <h4>Scenario Card Showdown + Assessment Briefing</h4>
           <ul>
             <li>Quick Kahoot or Quizlet revision quiz (5 min) covering beach flags, DRS ABCD, SwimSafe rules, rip current escape, and Victorian statistics.</li>
@@ -1264,6 +1762,7 @@
             <li>Optional: students share their campaign product with a partner — 2 min each. Partner gives one piece of feedback: <em>"One thing that would make this more persuasive is…"</em></li>
             <li>Collect completed workbooks for teacher marking using the Assessment Gradebook rubric.</li>
           </ul>
+          <div class="sc-check"><strong>Review the success criteria.</strong> Students rate themselves against the three success criteria before handing in, then name the criterion their campaign evidences most strongly. This is the self-regulation step: they judge their own work against stated criteria before you do.</div>
         </div>
         <div class="teacher-note">
           <div class="tn-label">📌 Cross-Curricular Opportunities</div>
@@ -1280,7 +1779,7 @@
 
   <!-- ===== SECTION 4: ANSWER KEY ===== -->
   <div class="section">
-    <div class="section-title"><div class="s-icon">🔑</div>4. Student Workbook — Answer Key</div>
+    <div class="section-title"><div class="s-icon">🔑</div>5. Student Workbook — Answer Key</div>
 
     <div class="answer-key">
       <h3>🔑 Section 1: Victorian Drowning Statistics</h3>
@@ -1433,7 +1932,7 @@
 
   <!-- ===== SECTION 5: ASSESSMENT ===== -->
   <div class="section">
-    <div class="section-title"><div class="s-icon">📊</div>5. Assessment Strategies &amp; Rubric</div>
+    <div class="section-title"><div class="s-icon">📊</div>6. Assessment Strategies &amp; Rubric</div>
 
     <div class="card">
       <h3>📐 Assessment Overview — Formative &amp; Summative</h3>
@@ -1532,7 +2031,56 @@
 
   <!-- ===== SECTION 6: DIFFERENTIATION ===== -->
   <div class="section">
-    <div class="section-title"><div class="s-icon">♿</div>6. Differentiation &amp; Inclusion</div>
+    <div class="section-title"><div class="s-icon">♿</div>7. Differentiation &amp; Inclusion</div>
+
+    <div class="iep">
+      <h4>Where this sits in your planning &mdash; reasonable adjustments and IEPs</h4>
+      <p>Everything in this section is provision you can record as a <strong>reasonable adjustment</strong>.
+      It is written here as teaching advice, but it maps directly onto the language of an Individual Education
+      Plan or student profile, so it can be lifted into planning you are already doing rather than sitting
+      alongside it as a separate thing.</p>
+      <table>
+        <tr><th style="width:27%">Adjustment type</th><th style="width:40%">What this unit already supplies</th>
+        <th style="width:33%">Record it as</th></tr>
+        <tr><td><strong>Presentation of content</strong></td>
+        <td>Simplified and scaffolded workbook versions; visual guides and posters; the glossary;
+        multilingual parent information.</td>
+        <td>Modified text complexity; visual and first-language support.</td></tr>
+        <tr><td><strong>Student response</strong></td>
+        <td>Sentence starters and word banks; oral alternatives to written responses; three assessment task
+        options; choice of campaign format.</td>
+        <td>Alternative response mode; scaffolded written output.</td></tr>
+        <tr><td><strong>Participation</strong></td>
+        <td>The non-swimmer pathway and the dry-land delivery of the whole unit; buddy pairing in practical
+        sessions; the option to step out of content that touches personal loss.</td>
+        <td>Adjusted participation with equivalent learning outcomes.</td></tr>
+        <tr><td><strong>Time and pacing</strong></td>
+        <td>Stated phase timings you can extend; activities that can be split across lessons; Activity 6.3 able
+        to run as homework.</td>
+        <td>Extended time; reduced task volume at the same standard.</td></tr>
+        <tr><td><strong>Extension</strong></td>
+        <td>Extension workbook versions; primary-source tasks; the evidence-hierarchy and transfer questions in
+        the interleaved retrieval set.</td>
+        <td>Extension against the same content descriptions.</td></tr>
+      </table>
+      <p style="margin-top:12px"><strong>Two things worth saying plainly.</strong> First, an adjustment is
+      about access, not about lowering the standard &mdash; a student using a scaffolded workbook is working
+      towards the same content descriptions as everyone else, and should be assessed against them. Second,
+      adjust per task and per student, not per label: the same student may need the scaffolded version for the
+      data activities and the standard version for the rescue content, in the same lesson.</p>
+      <p>For a student working towards the Foundation achievement standard, the Victorian Curriculum
+      <strong>Levels A&ndash;D</strong> are the planning reference rather than the Levels 7&ndash;10 content
+      descriptions &mdash; the water safety content still applies, sequenced differently.</p>
+      <p>Pair high expectations with the support that makes them reachable. The department&rsquo;s framing is
+      worth saying out loud to students: <em>&ldquo;I know you can do this&rdquo;</em> together with
+      <em>&ldquo;I&rsquo;ll help you learn how.&rdquo;</em> Water safety is an area where low expectations do
+      measurable harm &mdash; a student written off as a non-swimmer is a student who leaves school without the
+      content most likely to save their life.</p>
+      <p class="fine">VTLM 2.0: <em>Inclusive learning</em>, Practice 1 &mdash; maintain high expectations,
+      enable full participation. Departmental supports: the Diverse Learners Hub, Disability Inclusion funding,
+      and your school&rsquo;s wellbeing team for IEP processes.</p>
+    </div>
+
 
     <div class="card">
       <h3>🌐 CALD (Culturally and Linguistically Diverse) Students</h3>
@@ -1556,7 +2104,7 @@
         <li>Design a school swim safety awareness week proposal, including activities, Poster 4 (SwimSafe) display, guest speakers from LSV, and RLSSA resources.</li>
         <li>Investigate the physiology of cold water shock using the 1-10-1 rule — write a summary for the school LMS or health notice board.</li>
         <li>Compare dry-land water safety education approaches between Australia (LSV/RLSSA), UK (RLSS UK), and USA (Red Cross). What are the key differences? Which approach do you think is most effective for teenagers? Cite sources from all three organisations.</li>
-        <li><strong>Gamification extension:</strong> Run <strong>all 14 Scenario Cards</strong> as a timed group challenge — groups compete to correctly answer the most scenarios. Teacher uses the on-screen answer reveals. Works well as an end-of-unit review or for a double lesson.</li>
+        <li><strong>Gamification extension:</strong> Run <strong>all 12 scenario cards</strong> as a timed group challenge — groups compete to correctly answer the most scenarios. Teacher uses the on-screen answer reveals. Works well as an end-of-unit review or for a double lesson.</li>
       </ul>
     </div>
 
@@ -1586,7 +2134,7 @@
 
   <!-- ===== SECTION 7: TEACHER BACKGROUND ===== -->
   <div class="section">
-    <div class="section-title"><div class="s-icon">🎓</div>7. Teacher Background Knowledge</div>
+    <div class="section-title"><div class="s-icon">🎓</div>8. Teacher Background Knowledge</div>
 
     <div class="card">
       <h3>🌊 Key Water Safety Facts for Teachers</h3>
@@ -1607,7 +2155,7 @@
 
   <!-- ===== SECTION 8: RESOURCES ===== -->
   <div class="section">
-    <div class="section-title"><div class="s-icon">🔗</div>8. Resources &amp; Sources</div>
+    <div class="section-title"><div class="s-icon">🔗</div>9. Resources &amp; Sources</div>
 
     <div class="resource-grid">
       <div class="resource-card">
@@ -1725,7 +2273,7 @@
         <tr><td>swim_safety_student_workbook</td><td>6-section student workbook with ~35 activities</td><td>Distributed to students; used across all 5 lessons; collected as summative evidence</td></tr>
         <tr><td>swim_safety_teacher_workbook</td><td>This document — lesson plans, answer key, rubric, differentiation, resources</td><td>Teacher planning and delivery reference; not for student distribution</td></tr>
         <tr><td>water_safety_resource_directory</td><td>11 organisations with descriptions, dry-land applicability notes, and verified URLs</td><td>Teacher reference; share with HPE faculty; use for planning additional units</td></tr>
-        <tr><td>water_safety_scenario_cards</td><td>14 printable scenario cards (Beach, River, Pool, Emergency, Decision-Making) + 3 extension cards</td><td>Print and laminate; use as station activities, pair tasks, or quick-fire review games</td></tr>
+        <tr><td>water_safety_scenario_cards</td><td>12 printable scenario cards (Beach, River, Pool, Emergency, Decision-Making) + 3 extension cards</td><td>Print and laminate; use as station activities, pair tasks, or quick-fire review games</td></tr>
         <tr><td>water_safety_assessment_gradebook</td><td>4-tab interactive tool: full A–E rubric, curriculum alignment, class tracker, report comment generator</td><td>Assessment and reporting; generate Victorian Curriculum-aligned report comments</td></tr>
       </table>
     </div>
@@ -1749,6 +2297,7 @@
 
 
 
+</div><!-- /teacher-body -->
 <nav class="hub-nav" aria-label="Site" style="max-width:1000px;margin:30px auto 0;padding:0 20px;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-size:0.85rem;"><a href="index.html" style="display:inline-flex;align-items:center;gap:7px;color:#1565c0;text-decoration:none;font-weight:600;border:1px solid #cfe0f2;background:#f2f8fe;border-radius:7px;padding:9px 15px;">&#8592; All teaching resources &mdash; Swim &amp; Water Safety Teaching Hub</a></nav>
 <style>@media print{.hub-nav{display:none!important}}</style>
 <div class="cc-licence" style="max-width:1000px;margin:34px auto 0;padding:16px 20px;border-top:1px solid #dde6f0;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-size:0.76rem;line-height:1.6;color:#5a6e8a;"><p style="margin:0 0 6px;"><strong style="color:#0a1e3d;">&copy; 2026 Emilie Harrison.</strong> This resource is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" style="color:#1565c0;">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>. You are free to copy, share, adapt and build on it — including for commercial purposes — provided you give appropriate credit and indicate any changes.</p><p style="margin:0 0 6px;"><strong style="color:#0a1e3d;">Suggested attribution:</strong> &ldquo;Swim &amp; Water Safety Teaching Hub&rdquo; by Emilie Harrison, licensed CC BY 4.0. Source: emilie-harrison.github.io/swim-water-safety</p><p style="margin:0;"><strong style="color:#0a1e3d;">Third-party material is not covered.</strong> Content owned by Life Saving Victoria, Royal Life Saving Australia, Surf Life Saving Australia, VCAA, ACARA, AIATSIS, the Australian Resuscitation Council and other organisations — including data, guidelines, logos and program names — remains the property of those owners and is used here for educational purposes. Check directly with the owner before reproducing it elsewhere.</p><p style="margin:10px 0 0;padding-top:8px;border-top:1px dotted #ccd8e6;"><strong style="color:#0a1e3d;">Data sources cited in this resource.</strong> Drowning statistics are reproduced with attribution from: Life Saving Victoria. (2025). <em>Victorian Drowning Report 2024–25</em>. Life Saving Victoria: Melbourne. Royal Life Saving Australia (2026). <em>National Drowning Report 2026</em>. RLSSA: Sydney. World Health Organization (2024). <em>Drowning — fact sheet</em>. WHO: Geneva. Surf Life Saving Australia (2026). <em>Summer Coastal Drowning Report 2025/26</em>. SLSA: Sydney. These figures remain the property of the publishing organisations. If you adapt this resource, retain these citations.</p></div>

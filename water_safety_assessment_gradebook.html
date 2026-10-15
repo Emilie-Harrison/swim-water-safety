@@ -147,8 +147,11 @@
 
   /* Print */
   @media print{
-    .tabs, .tab-panel:not(.active){display:none;}
-    .tab-panel.active{display:block;}
+    .tabs{display:none;}
+      /* print every panel, not just the open one - a printed gradebook that
+         silently contains one of four sections is worse than no printed gradebook */
+      .tab-panel{display:block!important;page-break-before:always;}
+      .tab-panel:first-of-type{page-break-before:auto;}
     body{background:#fff;}
   }
 

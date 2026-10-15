@@ -136,7 +136,22 @@
   .phase-head{padding:7px 14px;font-family:'DM Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;display:flex;justify-content:space-between;}
   .phase-body{padding:10px 14px;}
   .phase-body ul{padding-left:16px;font-size:0.88rem;color:var(--muted);line-height:1.6;}
-  .ph-engage .phase-head{background:#fffbeb;color:var(--amber);}  .ph-engage .phase-body{background:#fffef8;}
+.ph-review .phase-head{background:#ecfdf5;color:#0f766e;}
+    .ph-review .phase-body{background:#f6fffb;}
+    .losc{background:#fff;border:1px solid #c3d9ef;border-left:4px solid #1565c0;border-radius:7px;
+      padding:12px 15px;margin:0 0 12px;}
+    .losc .lo{font-size:.9rem;color:#0a1e3d;margin:0 0 9px;line-height:1.55;}
+    .losc .lo b,.losc .scw b{font-family:inherit;display:block;font-size:.7rem;letter-spacing:.08em;
+      text-transform:uppercase;color:#1565c0;font-weight:700;margin-bottom:3px;}
+    .losc .scw{margin:0;}
+    .losc .scw ul{margin:4px 0 0;padding:0;list-style:none;}
+    .losc .scw li{font-size:.86rem;color:#243b55;line-height:1.5;padding:3px 0 3px 22px;position:relative;}
+    .losc .scw li::before{content:"\2610";position:absolute;left:0;top:2px;color:#1565c0;font-size:1rem;}
+    .screv{font-size:.85rem;background:#f2f8fe;border:1px dashed #a8c8e8;border-radius:6px;
+      padding:9px 12px;margin-top:9px;color:#243b55;line-height:1.55;}
+    .retr{font-size:.84rem;color:#39544a;background:#fff;border:1px dashed #a7d3c9;border-radius:6px;
+      padding:9px 12px;margin-top:8px;line-height:1.55;}
+      .ph-engage .phase-head{background:#fffbeb;color:var(--amber);}  .ph-engage .phase-body{background:#fffef8;}
   .ph-explore .phase-head{background:#e3f2fd;color:var(--ocean);}  .ph-explore .phase-body{background:#f0f7ff;}
   .ph-explain .phase-head{background:#e8f5e9;color:var(--sage);}  .ph-explain .phase-body{background:#f5faf5;}
   .ph-elaborate .phase-head{background:#f3e5f5;color:var(--purple);}  .ph-elaborate .phase-body{background:#faf5ff;}
@@ -206,6 +221,40 @@
     body { font-size: max(10pt, 11pt); }
   }
   /* min-body-font */
+    .iep{background:#f6fbf8;border:1px solid #bfe0cd;border-left:4px solid #1b6b3a;border-radius:9px;
+      padding:16px 19px;margin:0 0 20px;}
+    .iep h4{margin:0 0 9px;font-size:1rem;color:#0f3d22;}
+    .iep p{font-size:.88rem;line-height:1.62;color:#2b4a37;margin:0 0 10px;}
+    .iep table{width:100%;border-collapse:collapse;font-size:.83rem;margin:10px 0 4px;}
+    .iep th{background:#1b6b3a;color:#fff;text-align:left;padding:7px 9px;font-size:.76rem;letter-spacing:.03em;}
+    .iep td{border-bottom:1px solid #d8ebe0;padding:7px 9px;vertical-align:top;line-height:1.5;color:#2b4a37;}
+    .iep tr:nth-child(even) td{background:#fbfefc;}
+    .iep .fine{font-size:.8rem;color:#4d6b59;font-style:italic;margin:9px 0 0;}
+    .ps4{background:#fdf6ff;border:1px solid #e0cdf0;border-left:4px solid #7c3aed;border-radius:9px;
+      padding:16px 19px;margin:0 0 20px;}
+    .ps4 h4{margin:0 0 9px;font-size:1rem;color:#3b1261;}
+    .ps4 p{font-size:.88rem;line-height:1.62;color:#45305c;margin:0 0 10px;}
+    .ps4 table{width:100%;border-collapse:collapse;font-size:.83rem;margin:10px 0 4px;}
+    .ps4 th{background:#5b21b6;color:#fff;text-align:left;padding:7px 9px;font-size:.76rem;letter-spacing:.03em;}
+    .ps4 td{border-bottom:1px solid #ead9f6;padding:7px 9px;vertical-align:top;line-height:1.5;color:#45305c;}
+    .ps4 tr:nth-child(even) td{background:#fefaff;}
+    .ps4 .warn{background:#fff;border:1px dashed #d4b8ea;border-radius:7px;padding:10px 13px;margin-top:11px;
+      font-size:.85rem;line-height:1.58;color:#45305c;}
+    .lim{background:#fbfbfd;border:1px solid #d7d9e3;border-left:4px solid #475569;border-radius:10px;
+      padding:19px 22px;margin:26px 0;}
+    .lim h3{margin:0 0 7px;color:#1e293b;}
+    .lim > p{font-size:.89rem;line-height:1.64;color:#3f4a5c;margin:0 0 13px;}
+    .lim table{width:100%;border-collapse:collapse;font-size:.84rem;margin:11px 0;}
+    .lim th{background:#334155;color:#fff;text-align:left;padding:8px 10px;font-size:.77rem;letter-spacing:.03em;}
+    .lim td{border-bottom:1px solid #e3e5ec;padding:8px 10px;vertical-align:top;line-height:1.55;color:#3f4a5c;}
+    .lim tr:nth-child(even) td{background:#fdfdfe;}
+    .lim .k{font-weight:700;color:#1e293b;}
+    .lim .why{font-size:.85rem;line-height:1.6;color:#3f4a5c;background:#fff;border:1px dashed #cbd2de;
+      border-radius:7px;padding:11px 14px;margin-top:12px;}
+    .lim .why strong{color:#1e293b;}
+    
+    
+    
   </style>
 <script type="application/ld+json">
 {
@@ -372,6 +421,60 @@
   </div>
 
   <!-- ═══════════════ SECTION 3: LESSONS ═══════════════ -->
+  
+  <div class="lim">
+      <h3>&#128269; What this unit does not do, and why</h3>
+      <p>Most teaching resources list what they cover. This lists what they do not, because a limit you know
+      about is something you can plan around and a limit you discover in week three is a problem. Three of
+      these are deliberate scope decisions; one is genuinely undone; one is not something any document can
+      supply.</p>
+
+      <table>
+        <tr><th style="width:27%">What is missing</th><th style="width:34%">What that means for you</th>
+        <th style="width:39%">Why it is like that</th></tr>
+
+        <tr><td class="k">Most of the HPE curriculum</td>
+        <td>This unit addresses 10 of the 40 Victorian content descriptions. It services <em>Safety</em>
+        substantially and contributes to three other focus areas. It does not touch the other eight.</td>
+        <td><strong>Deliberate.</strong> It is a water safety unit, not a program. The
+        <a href="water_safety_curriculum_coverage.html">Curriculum Coverage Map</a> lists every code it does
+        not address so your planning can place them elsewhere.</td></tr>
+
+        <tr><td class="k">Evidence of student achievement</td>
+        <td>The curriculum codes record what was <em>taught</em>. They are not, by themselves, evidence that
+        students achieved anything.</td>
+        <td><strong>Deliberate.</strong> Victorian Curriculum 2.0 reports against achievement standards.
+        Evidence comes from the rubrics, work samples and your moderation &mdash; not from a coverage map.</td></tr>
+
+        <tr><td class="k">Tiered intervention</td>
+        <td>The scaffolded and simplified versions are Tier 1 differentiation. They are not a Tier 2 or 3
+        intervention program and should not be counted as one.</td>
+        <td><strong>Deliberate.</strong> Intervention is designed around a student, by your school, on data
+        this unit does not hold.</td></tr>
+
+        <tr><td class="k">Flexible grouping on evidence</td>
+        <td>The lessons use whole-class and fixed-pair structures. They do not tell you to form and re-form
+        groups during a lesson based on what you are seeing.</td>
+        <td><strong>Genuinely open, and the one gap left.</strong> VTLM 2.0 asks for groups formed on evidence
+        of learning. That decision depends on what is in front of you, so the materials prompt it (see the
+        checks-for-understanding repertoire) but cannot script it. Worth adding to your own lesson notes.</td></tr>
+
+        <tr><td class="k">Everything that happens in the room</td>
+        <td>Classroom rules and routines, active supervision, how you respond to a student in the moment, the
+        relationships you build with students and families.</td>
+        <td><strong>Not a document&rsquo;s job.</strong> A resource can prompt these; it cannot evidence them.
+        An alignment document that claimed otherwise would be worth less than this one.</td></tr>
+      </table>
+
+      <div class="why"><strong>Why this section exists at all.</strong> This unit was audited in October 2026
+      against all 14 teaching strategies of the Victorian Teaching and Learning Model 2.0. Twenty
+      technique-level gaps were found; nineteen were closed, and the one that was not is in the table above.
+      The full audit, including what was changed and what the model asks that a resource suite structurally
+      cannot deliver, is in the
+      <a href="water_safety_vtlm_alignment.html">VTLM 2.0 Alignment Guide</a>. If you are documenting VTLM
+      implementation for an Annual Implementation Plan, read that rather than this summary.</div>
+    </div>
+
   <div id="lessons" class="sec-banner"><div class="sn">3</div><h2>Lesson Plans — 6 × 50 Minutes</h2></div>
 
   <!-- LESSON 1 -->
@@ -388,41 +491,51 @@
     </div>
     <div class="lesson-body">
       <div class="phase ph-engage">
-        <div class="phase-head"><span>🔥 ENGAGE</span><span>8 min</span></div>
-        <div class="phase-body"><ul>
+        <div class="phase-head"><span>🎯 FOCUS THE LEARNING</span><span>5 min</span></div>
+        <div class="phase-body">
+          <div class="losc">
+            <p class="lo"><b>Learning objective</b>Analyse Victorian and national drowning data, and evaluate what over-representation in a population does and does not tell you.</p>
+            <div class="scw"><b>Success criteria &mdash; share these with students</b>
+            <ul>
+            <li>I can calculate a rate per 100,000 and explain why it is not the same as a count.</li>
+            <li>I can explain what over-representation means, and state one limitation of the Victorian multicultural figure.</li>
+            <li>I can present data in a graph that is labelled well enough for someone else to interpret without me.</li>
+            </ul></div>
+          </div><ul>
           <li>Open with: "Victoria had 52 drowning deaths in 2024–25. That's 0.75 per 100,000. Australia's national rate was 1.13 per 100,000 in 2025/26. Should we be proud of this, or worried by it? Discuss." Pair discussion (2 min) → class share.</li>
           <li>Ask: "What social factors might explain why Victoria is BELOW the national rate on some metrics yet has particular problems with CALD communities and inland waterways?"</li>
           <li>Distribute workbooks — introduce the expectation shift: "At Year 9–10, describe is not enough. We analyse, evaluate, and justify."</li>
         </ul></div>
       </div>
-      <div class="phase ph-explore">
-        <div class="phase-head"><span>🔍 EXPLORE</span><span>15 min</span></div>
-        <div class="phase-body"><ul>
-          <li>Students complete Workbook Activity 1.1 calculations independently: percentage calculation (Q1.1a), rate comparison (Q1.1b), and CALD over-representation analysis (Q1.1c).</li>
-          <li>Circulate and prompt: "Show your working. What does the number MEAN, not just what it is?"</li>
-          <li>If devices available: students access LSV Drowning Report to verify their figures and source their graph data for Q1.1d.</li>
-        </ul></div>
-      </div>
       <div class="phase ph-explain">
-        <div class="phase-head"><span>📣 EXPLAIN</span><span>12 min</span></div>
+        <div class="phase-head"><span>📣 EXPLICIT TEACHING — I DO</span><span>13 min</span></div>
         <div class="phase-body"><ul>
           <li>Teacher-led discussion: "People from multicultural backgrounds account for 37% of Victorian drowning deaths since 2015–16, and country of birth is unknown in another 22% of cases. What does over-representation mean here, how confident can we be in the figure, and how do we explain it without stereotyping?"</li>
           <li>Introduce the concept of social determinants: access to swimming lessons, cultural norms around water, fishing risk, language barriers to safety messaging.</li>
           <li>Reference the LSV multicultural safety page (lsv.com.au/community/multicultural-safety/) as evidence that LSV is specifically trying to address this.</li>
         </ul></div>
       </div>
+      <div class="phase ph-explore">
+        <div class="phase-head"><span>🤝 GUIDED PRACTICE — WE DO</span><span>15 min</span></div>
+        <div class="phase-body"><ul>
+          <li>Students complete Workbook Activity 1.1 calculations independently: percentage calculation (Q1.1a), rate comparison (Q1.1b), and CALD over-representation analysis (Q1.1c).</li>
+          <li>Circulate and prompt: &ldquo;Show your working. What does the number MEAN, not just what it is?&rdquo; Students have the over-representation concept from the explanation — hold them to using it, not restating the percentage.</li>
+          <li>If devices available: students access LSV Drowning Report to verify their figures and source their graph data for Q1.1d.</li>
+        </ul></div>
+      </div>
       <div class="phase ph-elaborate">
-        <div class="phase-head"><span>✏️ ELABORATE</span><span>10 min</span></div>
+        <div class="phase-head"><span>✏️ INDEPENDENT APPLICATION — YOU DO</span><span>12 min</span></div>
         <div class="phase-body"><ul>
           <li>Students complete data visualisation task (Q1.1d): bar graph of deaths by location type. Emphasise: labels, title, axes, interpretation — not just drawing bars.</li>
           <li>Pair check: swap workbooks and verify each other's calculations for Questions 1.1a–c.</li>
         </ul></div>
       </div>
       <div class="phase ph-evaluate">
-        <div class="phase-head"><span>📝 EVALUATE</span><span>5 min</span></div>
+        <div class="phase-head"><span>📝 MONITOR PROGRESS</span><span>5 min</span></div>
         <div class="phase-body"><ul>
           <li>Exit ticket: "In one sentence: what is the SINGLE most important data insight from today's lesson, and why?"</li>
-        </ul></div>
+        </ul>
+          <div class="screv"><strong>Review the success criteria.</strong> Return to the three criteria. The second is the one students most often answer with the statistic rather than the limitation &mdash; cold call two students on the 22% unknown figure before you accept it.</div></div>
       </div>
       <div class="note-card" style="margin-top:14px;">
         <h3>📌 Teacher Note — CALD Discussion</h3>
@@ -444,15 +557,41 @@
       </div>
     </div>
     <div class="lesson-body">
-      <div class="phase ph-engage">
-        <div class="phase-head"><span>🔥 ENGAGE</span><span>8 min</span></div>
+      <div class="phase ph-review">
+        <div class="phase-head"><span>🔁 REVIEW — RETRIEVAL PRACTICE</span><span>3 min</span></div>
         <div class="phase-body"><ul>
+          <li><strong>Retrieval starter &mdash; Lesson 1.</strong> No notes, individually, then self-mark (2 min). <strong>1.</strong> What was Victoria&rsquo;s drowning rate per 100,000 in 2024&ndash;25? <strong>2.</strong> Why is a rate more useful than a count when comparing two populations? <strong>3.</strong> What share of Victorian drowning deaths since 2015&ndash;16 involved people from multicultural backgrounds &mdash; and what is the catch with that figure?</li>
+        </ul>
+          <div class="retr"><strong>Why this is here.</strong> Retrieving prior learning from memory, rather than re-reading it, is what moves it into long-term memory. Low-stakes and ungraded &mdash; the act of recall is the point, not the score. VTLM 2.0: <em>Retention and recall</em>, <em>Revisit and review</em>.</div></div>
+      </div>
+      <div class="phase ph-engage">
+        <div class="phase-head"><span>🎯 FOCUS THE LEARNING</span><span>5 min</span></div>
+        <div class="phase-body">
+          <div class="losc">
+            <p class="lo"><b>Learning objective</b>Explain the physiological sequence of drowning and why CPR works, using the correct terminology.</p>
+            <div class="scw"><b>Success criteria &mdash; share these with students</b>
+            <ul>
+            <li>I can describe, in order, what happens physiologically from submersion to cardiac arrest.</li>
+            <li>I can use hypoxia, laryngospasm and cardiac output correctly in a sentence of my own.</li>
+            <li>I can explain why ~25&ndash;30% of normal cardiac output is enough to matter, and what the 4-minute window refers to.</li>
+            </ul></div>
+          </div><ul>
           <li>Open with: "CPR generates only 25–30% of normal cardiac output. If normal output keeps you conscious and alive, why is 25–30% enough to bridge survival until an ambulance arrives?"</li>
           <li>Think-pair-share. Draw on whiteboard: normal cardiac cycle vs CPR cycle. Establish prior knowledge baseline.</li>
         </ul></div>
       </div>
+      <div class="phase ph-explain">
+        <div class="phase-head"><span>📣 EXPLICIT TEACHING — I DO</span><span>8 min</span></div>
+        <div class="phase-body"><ul>
+          <li>Teach the physiological sequence <em>before</em> students use the terminology. Build it on the board one step at a time, naming each term as you add it: submersion &rarr; breath-hold &rarr; <strong>laryngospasm</strong> (involuntary closure of the vocal cords on water contact) &rarr; hypoxaemia &rarr; loss of consciousness &rarr; <strong>cerebral hypoxia</strong> &rarr; cardiac arrest.</li>
+          <li>Pre-teach the six terms students will need: <strong>hypoxia</strong>, <strong>laryngospasm</strong>, <strong>cardiac arrest</strong>, <strong>cerebral hypoxia</strong>, <strong>cardiac output</strong>, <strong>oxygenation</strong>. One sentence each, with an example &mdash; not a definition to copy down. Full wording is in Section 9, Physiology Quick Reference.</li>
+          <li>Name the misconception explicitly: laryngospasm means water never reaches the lungs in roughly 10&ndash;15% of drowning deaths, so <em>no water in the lungs does not mean the person did not drown</em>. Students who miss this read the case studies wrongly later.</li>
+          <li>Check for understanding before moving on: thumbs up / down on three statements &mdash; &ldquo;Laryngospasm lets water into the lungs&rdquo; (down), &ldquo;Cerebral hypoxia is the critical mechanism in drowning death&rdquo; (up), &ldquo;Cardiac arrest comes before loss of consciousness&rdquo; (down).</li>
+        </ul>
+          <div class="retr"><strong>Why this phase was added.</strong> Students previously met six technical terms for the first time inside an independent workbook activity. That is a cognitive-load failure, not a difficulty problem: the vocabulary has to be explained before it is used. VTLM 2.0: <em>Explicit explanation and modelling</em>, Practice 1.</div></div>
+      </div>
       <div class="phase ph-explore">
-        <div class="phase-head"><span>🔍 EXPLORE</span><span>15 min</span></div>
+        <div class="phase-head"><span>🤝 GUIDED PRACTICE — WE DO</span><span>12 min</span></div>
         <div class="phase-body"><ul>
           <li>Students complete Workbook Activity 2.1a (physiological sequence of drowning) and 2.1b (CPR physiology and 4-minute window).</li>
           <li>Key vocabulary to reinforce: hypoxia, laryngospasm, cardiac arrest, cerebral hypoxia, cardiac output, oxygenation.</li>
@@ -460,24 +599,25 @@
         </ul></div>
       </div>
       <div class="phase ph-explain">
-        <div class="phase-head"><span>📣 EXPLAIN</span><span>12 min</span></div>
+        <div class="phase-head"><span>📣 EXPLICIT TEACHING — I DO (PART 2)</span><span>8 min</span></div>
         <div class="phase-body"><ul>
           <li>Explain secondary drowning — a real but rare risk. Symptoms appear hours after a near-drowning event: coughing, laboured breathing, fatigue, chest pain. Always seek medical review after any submersion incident, even if the person appears fine.</li>
           <li>Walk through the 1-10-1 cold water survival rule with reference to Lake Eildon context. Ask: "Why does the same water temperature affect a 14-year-old vs a 45-year-old differently?" (Body composition, fitness level, clothing.)</li>
         </ul></div>
       </div>
       <div class="phase ph-elaborate">
-        <div class="phase-head"><span>✏️ ELABORATE</span><span>10 min</span></div>
+        <div class="phase-head"><span>✏️ INDEPENDENT APPLICATION — YOU DO</span><span>9 min</span></div>
         <div class="phase-body"><ul>
           <li>Students complete Q2.1c (secondary drowning research) — requires device access.</li>
           <li>Class discussion: "What is the implication for parents, teachers, and coaches who supervise water activities? What should happen AFTER a near-miss?"</li>
         </ul></div>
       </div>
       <div class="phase ph-evaluate">
-        <div class="phase-head"><span>📝 EVALUATE</span><span>5 min</span></div>
+        <div class="phase-head"><span>📝 MONITOR PROGRESS</span><span>5 min</span></div>
         <div class="phase-body"><ul>
           <li>Exit ticket: "Explain the 4-minute window to someone who has never heard of it — in plain language, not medical jargon."</li>
-        </ul></div>
+        </ul>
+          <div class="screv"><strong>Review the success criteria.</strong> Check criterion two by asking for a sentence, not a definition. Students who can recite &ldquo;laryngospasm is involuntary closure of the vocal cords&rdquo; but cannot use it in a sentence have the words without the concept.</div></div>
       </div>
     </div>
   </div>
@@ -495,39 +635,67 @@
       </div>
     </div>
     <div class="lesson-body">
-      <div class="phase ph-engage">
-        <div class="phase-head"><span>🔥 ENGAGE</span><span>8 min</span></div>
+      <div class="phase ph-review">
+        <div class="phase-head"><span>🔁 REVIEW — RETRIEVAL PRACTICE</span><span>3 min</span></div>
         <div class="phase-body"><ul>
+          <li><strong>Retrieval starter &mdash; Lessons 1&ndash;2.</strong> No notes, 2 min. <strong>1.</strong> Define hypoxia. <strong>2.</strong> What is laryngospasm, and roughly what share of drowning deaths does it account for? <strong>3.</strong> From Lesson 1: state one limitation of the multicultural drowning figure.</li>
+        </ul>
+          <div class="retr"><strong>Why this is here.</strong> Retrieving prior learning from memory, rather than re-reading it, is what moves it into long-term memory. Low-stakes and ungraded &mdash; the act of recall is the point, not the score. VTLM 2.0: <em>Retention and recall</em>, <em>Revisit and review</em>.</div></div>
+      </div>
+      <div class="phase ph-engage">
+        <div class="phase-head"><span>🎯 FOCUS THE LEARNING</span><span>6 min</span></div>
+        <div class="phase-body">
+          <div class="losc">
+            <p class="lo"><b>Learning objective</b>Evaluate how social determinants shape drowning risk, and distinguish structural explanation from stereotyping.</p>
+            <div class="scw"><b>Success criteria &mdash; share these with students</b>
+            <ul>
+            <li>I can name four social determinants and explain the mechanism by which each raises risk.</li>
+            <li>I can explain the difference between correlation and causation using a water safety example.</li>
+            <li>I can propose a school action that addresses a determinant, and say why it would work.</li>
+            </ul></div>
+          </div><ul>
           <li>Open with the "Values Clarification" exercise: post four corners with signs — "Strongly Agree," "Agree," "Disagree," "Strongly Disagree." Read statements: "Males drown more because they're less careful than females." "CALD communities drown more because of language barriers."</li>
           <li>Students move to their corner and defend. Teacher challenges each position. Point: these are over-simplifications of a complex social issue. Introduce the concept of structural vs individual explanations.</li>
         </ul></div>
       </div>
+      <div class="phase ph-explain">
+        <div class="phase-head"><span>📣 EXPLICIT TEACHING — I DO</span><span>7 min</span></div>
+        <div class="phase-body"><ul>
+          <li>Teach the framework <em>before</em> the table, not after it. Introduce the WHO Social Determinants of Health framework: health outcomes are shaped by the conditions in which people are born, grow, live, work and age.</li>
+          <li>Name the four determinants students will meet in the table and give one water safety mechanism for each: <strong>access</strong> (cost and availability of swimming lessons), <strong>language</strong> (safety messaging that does not reach you), <strong>occupation and recreation</strong> (rock fishing, inland work and travel), <strong>social norms</strong> (what a group treats as normal risk).</li>
+          <li>Teach the distinction the whole lesson turns on, explicitly and with an example: a structural explanation names a condition that can be changed (&ldquo;lessons cost money and are not offered in community languages&rdquo;); a stereotype names a group and stops there (&ldquo;they are not water people&rdquo;). Students will produce the second unless you teach the first.</li>
+          <li>Teach correlation and causation here too, because the table will produce both and the success criteria ask for the difference. Worked example: people from multicultural backgrounds are over-represented in Victorian drowning deaths &mdash; that is a <em>correlation</em>. The causal claim is about mechanism: cost and language barriers reduce access to swimming lessons, which reduces competence, which raises risk. Background is not the cause; the barriers are. Ask students for the mechanism every time they offer a determinant.</li>
+          <li>Check for understanding before releasing them to the table: give one statement of each kind and have the class signal which is which.</li>
+        </ul>
+          <div class="retr"><strong>Why this phase moved.</strong> The WHO framework and the correlation/causation distinction previously sat in the Explain phase <em>after</em> students had filled in the determinants table. The framework is what makes the table analysable, so it now precedes it. The jigsaw itself is unchanged &mdash; it follows as guided practice.</div></div>
+      </div>
       <div class="phase ph-explore">
-        <div class="phase-head"><span>🔍 EXPLORE</span><span>15 min</span></div>
+        <div class="phase-head"><span>🤝 GUIDED PRACTICE — WE DO</span><span>12 min</span></div>
         <div class="phase-body"><ul>
           <li>Students complete Workbook Activity 3.1a (social determinants table). Pairs — assign different determinants to each pair for jigsaw reporting later.</li>
-          <li>Prompt: "What does the research actually say? What's the difference between correlation and causation?"</li>
+          <li>Prompt: &ldquo;Which of the four determinants is this? What is the mechanism?&rdquo; The correlation/causation distinction was taught in the previous phase — require them to apply it rather than arrive at it.</li>
         </ul></div>
       </div>
-      <div class="phase ph-explain">
-        <div class="phase-head"><span>📣 EXPLAIN</span><span>12 min</span></div>
+      <div class="phase ph-explore">
+        <div class="phase-head"><span>🤝 GUIDED PRACTICE — WE DO (JIGSAW SHARE)</span><span>8 min</span></div>
         <div class="phase-body"><ul>
           <li>Jigsaw sharing: each pair reports on their assigned determinant (5 min). Teacher synthesises.</li>
-          <li>Introduce the WHO Social Determinants of Health Framework: "Health outcomes are shaped by the conditions in which people are born, grow, live, work, and age."</li>
+          <li>Do not re-introduce the WHO framework here &mdash; it was taught in the explicit teaching phase. Instead, synthesise against it: as each pair reports, ask which of the four determinants their finding belongs to and name the mechanism.</li>
           <li>Connect to Victorian data: CALD over-representation, male risk-taking, rural/regional inland waterway risk.</li>
         </ul></div>
       </div>
       <div class="phase ph-elaborate">
-        <div class="phase-head"><span>✏️ ELABORATE</span><span>12 min</span></div>
+        <div class="phase-head"><span>✏️ INDEPENDENT APPLICATION — YOU DO</span><span>9 min</span></div>
         <div class="phase-body"><ul>
           <li>Students complete Q3.1b (3 school actions to reduce CALD disproportionality). Encourage specificity: "Not just 'translate resources' — WHERE would you distribute them? WHEN? WHO would deliver them?"</li>
         </ul></div>
       </div>
       <div class="phase ph-evaluate">
-        <div class="phase-head"><span>📝 EVALUATE</span><span>3 min</span></div>
+        <div class="phase-head"><span>📝 MONITOR PROGRESS</span><span>5 min</span></div>
         <div class="phase-body"><ul>
           <li>Exit: "Name ONE social determinant that a school can address and ONE that it cannot. Why is that distinction important?"</li>
-        </ul></div>
+        </ul>
+          <div class="screv"><strong>Review the success criteria.</strong> The distinction between structural explanation and stereotyping is the whole lesson. Ask one student to restate the difference in their own words before anyone leaves.</div></div>
       </div>
     </div>
   </div>
@@ -545,39 +713,66 @@
       </div>
     </div>
     <div class="lesson-body">
-      <div class="phase ph-engage">
-        <div class="phase-head"><span>🔥 ENGAGE</span><span>6 min</span></div>
+      <div class="phase ph-review">
+        <div class="phase-head"><span>🔁 REVIEW — RETRIEVAL PRACTICE</span><span>3 min</span></div>
         <div class="phase-body"><ul>
+          <li><strong>Retrieval starter &mdash; Lessons 1&ndash;3.</strong> No notes, 2 min. <strong>1.</strong> Name three social determinants of drowning risk. <strong>2.</strong> What is the difference between correlation and causation? <strong>3.</strong> From Lesson 2: what does the 4-minute window refer to?</li>
+        </ul>
+          <div class="retr"><strong>Why this is here.</strong> Retrieving prior learning from memory, rather than re-reading it, is what moves it into long-term memory. Low-stakes and ungraded &mdash; the act of recall is the point, not the score. VTLM 2.0: <em>Retention and recall</em>, <em>Revisit and review</em>.</div></div>
+      </div>
+      <div class="phase ph-engage">
+        <div class="phase-head"><span>🎯 FOCUS THE LEARNING</span><span>5 min</span></div>
+        <div class="phase-body">
+          <div class="losc">
+            <p class="lo"><b>Learning objective</b>Evaluate prevention strategies against evidence, and justify how limited resources should be allocated.</p>
+            <div class="scw"><b>Success criteria &mdash; share these with students</b>
+            <ul>
+            <li>I can rate a prevention strategy on evidence strength, target population, limitations and cost.</li>
+            <li>I can identify one element of an international approach that Victoria has not adopted.</li>
+            <li>I can justify a funding decision by citing evidence, not preference.</li>
+            </ul></div>
+          </div><ul>
           <li>Open with: "The government has $5 million to spend on drowning prevention. You have 60 seconds to decide how to spend it. Go." Quick-fire round — write answer on a piece of paper, then reveal and discuss.</li>
           <li>This primes Activity 4.1 (prevention strategy evaluation table and Q4.1a justification).</li>
         </ul></div>
       </div>
-      <div class="phase ph-explore">
-        <div class="phase-head"><span>🔍 EXPLORE</span><span>18 min</span></div>
+      <div class="phase ph-explain">
+        <div class="phase-head"><span>📣 EXPLICIT TEACHING — I DO</span><span>7 min</span></div>
         <div class="phase-body"><ul>
-          <li>Students complete Workbook Activity 4.1 (prevention strategy evaluation) — requires research and judgement, not just description.</li>
+          <li>Teach the evaluation framework before students apply it. The workbook uses four criteria &mdash; <strong>evidence strength</strong>, <strong>target population</strong>, <strong>limitations</strong>, <strong>cost</strong> &mdash; and students will otherwise rate strategies on how sensible each one sounds.</li>
+          <li>Model it once, out loud, on a strategy that is <em>not</em> in the activity so you are not giving away an answer. Suggested: public rock-fishing signage. &ldquo;Evidence strength &mdash; limited; signage changes knowledge more reliably than it changes behaviour. Target population &mdash; narrow, and many at-risk anglers do not read English signage. Limitations &mdash; it addresses what to do, not why people do not. Cost &mdash; low. So: cheap, weak, and worth keeping only alongside something stronger.&rdquo;</li>
+          <li>Make the evidence hierarchy explicit: engineering and legislation (pool fencing, mandatory life jackets) generally outperform education, which outperforms awareness campaigns &mdash; because the first group works whether or not a person is paying attention. This is the distinction the A-standard in the rubric asks for.</li>
+          <li>Check for understanding: &ldquo;Which is likely to have stronger evidence &mdash; four-sided pool fencing or a social media campaign? Why?&rdquo; Cold call, do not take hands.</li>
+        </ul>
+          <div class="retr"><strong>Why this phase was added.</strong> Activity 4.1 asks for &ldquo;research and judgement, not just description&rdquo; against a four-criterion framework students had never been taught. The criteria are the workbook&rsquo;s own; this phase teaches them before they are used.</div></div>
+      </div>
+      <div class="phase ph-explore">
+        <div class="phase-head"><span>🤝 GUIDED PRACTICE — WE DO</span><span>14 min</span></div>
+        <div class="phase-body"><ul>
+          <li>Students complete Workbook Activity 4.1 (prevention strategy evaluation), applying the four criteria modelled in the previous phase — evidence strength, target population, limitations, cost. Requires research and judgement, not just description.</li>
           <li>Students research for Activity 5.1 (international comparison table) using three organisation websites: royallifesaving.com.au, rlss.org.uk/education, redcross.org/take-a-class/water-safety.</li>
         </ul></div>
       </div>
-      <div class="phase ph-explain">
-        <div class="phase-head"><span>📣 EXPLAIN</span><span>10 min</span></div>
+      <div class="phase ph-explore">
+        <div class="phase-head"><span>🤝 GUIDED PRACTICE — WE DO (SHARE &amp; SYNTHESISE)</span><span>8 min</span></div>
         <div class="phase-body"><ul>
           <li>Class share: What did students find about international approaches? Key comparison points: UK uses "Float to Live" campaign; Red Cross uses "Think So You Don't Sink" decision framework; RLSSA uses the "Water Safety Framework."</li>
           <li>Teacher highlights: what Australia does well (lifeguard system at patrolled beaches) vs areas for improvement (pool fencing compliance, CALD engagement).</li>
         </ul></div>
       </div>
       <div class="phase ph-elaborate">
-        <div class="phase-head"><span>✏️ ELABORATE</span><span>12 min</span></div>
+        <div class="phase-head"><span>✏️ INDEPENDENT APPLICATION — YOU DO</span><span>9 min</span></div>
         <div class="phase-body"><ul>
           <li>Students complete Q5.1a (identify one unadopted international element — argue whether Victoria should adopt it).</li>
           <li>Prompt: "Evidence-based argument means citing the organisation, not just saying 'I think this is good.'"</li>
         </ul></div>
       </div>
       <div class="phase ph-evaluate">
-        <div class="phase-head"><span>📝 EVALUATE</span><span>4 min</span></div>
+        <div class="phase-head"><span>📝 MONITOR PROGRESS</span><span>4 min</span></div>
         <div class="phase-body"><ul>
           <li>Think-pair-share: "Which ONE prevention strategy has the strongest evidence, and which has the weakest? Defend your answer."</li>
-        </ul></div>
+        </ul>
+          <div class="screv"><strong>Review the success criteria.</strong> Criterion three is the Year 9&ndash;10 standard. &ldquo;I think this one is good&rdquo; does not meet it; name the organisation and the evidence.</div></div>
       </div>
     </div>
   </div>
@@ -598,32 +793,48 @@
       </div>
     </div>
     <div class="lesson-body">
-      <div class="phase ph-engage">
-        <div class="phase-head"><span>🔥 ENGAGE</span><span>7 min</span></div>
+      <div class="phase ph-review">
+        <div class="phase-head"><span>🔁 REVIEW — RETRIEVAL PRACTICE</span><span>3 min</span></div>
         <div class="phase-body"><ul>
+          <li><strong>Retrieval starter &mdash; Lessons 1&ndash;4.</strong> No notes, 2 min. <strong>1.</strong> Name the four criteria used to evaluate a prevention strategy. <strong>2.</strong> From Lesson 3: name one determinant a school can act on and one it cannot. <strong>3.</strong> From Lesson 1: Victoria&rsquo;s rate and the national rate &mdash; which is higher?</li>
+        </ul>
+          <div class="retr"><strong>Why this is here.</strong> Retrieving prior learning from memory, rather than re-reading it, is what moves it into long-term memory. Low-stakes and ungraded &mdash; the act of recall is the point, not the score. VTLM 2.0: <em>Retention and recall</em>, <em>Revisit and review</em>.</div></div>
+      </div>
+      <div class="phase ph-engage">
+        <div class="phase-head"><span>🎯 FOCUS THE LEARNING</span><span>6 min</span></div>
+        <div class="phase-body">
+          <div class="losc">
+            <p class="lo"><b>Learning objective</b>Explain why diving injuries concentrate in young males, using a structural rather than an individual account.</p>
+            <div class="scw"><b>Success criteria &mdash; share these with students</b>
+            <ul>
+            <li>I can explain why the cervical spine is the vulnerable region in a diving injury.</li>
+            <li>I can explain the 95% male statistic without saying that males are simply more careless.</li>
+            <li>I can identify what the three case studies have in common and why that factor is dangerous.</li>
+            </ul></div>
+          </div><ul>
           <li>Display the six-stat data grid (10%, 20%, 95%, 75%+, 66%, +34%) with no context. Ask: <em>"What do you think these numbers describe?"</em> Take 4–5 responses before revealing the topic.</li>
           <li>This cold-open approach consistently produces high engagement — students are surprised the topic is not drowning.</li>
           <li>Key question to pose: <em>"If 95% of patients are male — is that a biology fact or a social fact? What's the difference?"</em></li>
         </ul></div>
       </div>
-      <div class="phase ph-explore">
-        <div class="phase-head"><span>🔍 EXPLORE</span><span>18 min</span></div>
-        <div class="phase-body"><ul>
-          <li>Students read the three Australian case studies (Terrigal Wharf NSW 2025, Torquay Front Beach Vic 2025, Bawley Beach NSW 2024) individually — 5 minutes.</li>
-          <li>Pair discussion (4 min): <em>"What single factor appears in all three cases? Why is that factor particularly dangerous?"</em> Lead students toward false confidence and depth variation — not just 'they dived into shallow water.'</li>
-          <li>Class discussion (4 min): Draw out the cervical spine mechanism. If you have a foam spine model or skeleton, this is the ideal time to use it. The key physiological point: C4–C6 compression → instant permanent quadriplegia.</li>
-          <li>Introduce inland waterway risk factors using the five-factor framework. Students add notes to their workbook.</li>
-        </ul></div>
-      </div>
       <div class="phase ph-explain">
-        <div class="phase-head"><span>📖 EXPLAIN</span><span>8 min</span></div>
+        <div class="phase-head"><span>📣 EXPLICIT TEACHING — I DO</span><span>9 min</span></div>
         <div class="phase-body"><ul>
           <li>Direct instruction (5 min): Walk through the social determinants explanation for the 95% male statistic. Use the masculinity norms framework from Section 3. The argument students need to be able to make: <em>this is not biology, it is a social construction that can be changed.</em></li>
           <li>Introduce the concept of false confidence as a structural problem, not an individual attitude. Reference the Bawley Beach sandbank formation — the person did everything they had learned was safe. The information environment failed them.</li>
         </ul></div>
       </div>
+      <div class="phase ph-explore">
+        <div class="phase-head"><span>🤝 GUIDED PRACTICE — WE DO</span><span>15 min</span></div>
+        <div class="phase-body"><ul>
+          <li>Students read the three Australian case studies (Terrigal Wharf NSW 2025, Torquay Front Beach Vic 2025, Bawley Beach NSW 2024) individually — 5 minutes.</li>
+          <li>Pair discussion (4 min): <em>"What single factor appears in all three cases? Why is that factor particularly dangerous?"</em> Students now apply the explanation just taught: ask them to name where false confidence and depth variation appear in each case, not to rediscover the idea. A response of &ldquo;they dived into shallow water&rdquo; means the structural account has not transferred — point them back to the board.</li>
+          <li>Class discussion (4 min): Draw out the cervical spine mechanism. If you have a foam spine model or skeleton, this is the ideal time to use it. The key physiological point: C4–C6 compression → instant permanent quadriplegia.</li>
+          <li>Introduce inland waterway risk factors using the five-factor framework. Students add notes to their workbook.</li>
+        </ul></div>
+      </div>
       <div class="phase ph-elaborate">
-        <div class="phase-head"><span>⚡ ELABORATE</span><span>12 min</span></div>
+        <div class="phase-head"><span>✏️ INDEPENDENT APPLICATION — YOU DO</span><span>12 min</span></div>
         <div class="phase-body"><ul>
           <li>Students complete Activities 6.1 and 6.2 (case study analysis and myth vs evidence) in the workbook. Circulate and prompt deeper reasoning — push students away from surface-level "they should have been more careful" responses.</li>
           <li>Activity 6.3 (prevention strategy design) can begin in class or be set as homework preparation for Lesson 6.</li>
@@ -631,11 +842,12 @@
         </ul></div>
       </div>
       <div class="phase ph-evaluate">
-        <div class="phase-head"><span>✅ EVALUATE</span><span>5 min</span></div>
+        <div class="phase-head"><span>📝 MONITOR PROGRESS</span><span>5 min</span></div>
         <div class="phase-body"><ul>
           <li>Exit ticket: <em>"What is one specific way the water depth at Bawley Beach could have changed between the last safe visit and the injury — and what should have been done differently?"</em></li>
           <li>Correct answer involves sandbank formation and the need to check depth physically every time, regardless of prior experience.</li>
-        </ul></div>
+        </ul>
+          <div class="screv"><strong>Review the success criteria.</strong> Criterion two is the one to check hardest. If students land on &ldquo;boys take more risks&rdquo;, the structural explanation has not transferred &mdash; re-teach it rather than accepting the answer.</div></div>
       </div>
       <div class="teacher-note" style="background:#fff0f0;border-left:4px solid #dc2626;padding:12px 16px;margin-top:12px;border-radius:0 8px 8px 0;">
         <p style="font-weight:700;color:#dc2626;margin-bottom:6px;">⚠ Sensitivity Note</p>
@@ -656,14 +868,30 @@
       </div>
     </div>
     <div class="lesson-body">
-      <div class="phase ph-engage">
-        <div class="phase-head"><span>🔥 ENGAGE</span><span>8 min</span></div>
+      <div class="phase ph-review">
+        <div class="phase-head"><span>🔁 REVIEW — RETRIEVAL PRACTICE</span><span>8 min</span></div>
         <div class="phase-body"><ul>
-          <li>Rapid revision Kahoot covering Lessons 1–4 content (use Question Bank resource for Y9–10 equivalent questions). Focus on: rate calculations, physiological terms, social determinants, prevention strategy hierarchy.</li>
+          <li>Rapid revision Kahoot covering Lessons 1–5 content (use Question Bank resource for Y9–10 equivalent questions). Focus on: rate calculations, physiological terms, social determinants, prevention strategy hierarchy.</li>
+        </ul>
+          <div class="retr"><strong>Why this is here.</strong> Retrieving prior learning from memory, rather than re-reading it, is what moves it into long-term memory. Low-stakes and ungraded &mdash; the act of recall is the point, not the score. VTLM 2.0: <em>Retention and recall</em>, <em>Revisit and review</em>.</div></div>
+      </div>
+      <div class="phase ph-engage">
+        <div class="phase-head"><span>🎯 FOCUS THE LEARNING</span><span>4 min</span></div>
+        <div class="phase-body">
+          <div class="losc">
+            <p class="lo"><b>Learning objective</b>Communicate an evidence-based water safety argument to a specific audience, and justify the choices made.</p>
+            <div class="scw"><b>Success criteria &mdash; share these with students</b>
+            <ul>
+            <li>I can select evidence that supports my argument and cite it with a source and URL.</li>
+            <li>I can shape my message for one named audience rather than for a general reader.</li>
+            <li>I can check my own work against the assessment criteria before I hand it in.</li>
+            </ul></div>
+          </div><ul>
+          <li>Brief the assessment task and the criteria it will be marked against before students begin drafting. Point them at the Assessment Checklist in Section 6 and the rubric in Section 5.</li>
         </ul></div>
       </div>
-      <div class="phase ph-explore">
-        <div class="phase-head"><span>🔍 ELABORATE</span><span>32 min</span></div>
+      <div class="phase ph-elaborate">
+        <div class="phase-head"><span>✏️ INDEPENDENT APPLICATION — YOU DO</span><span>28 min</span></div>
         <div class="phase-body"><ul>
           <li><strong>Option A — Policy Brief:</strong> 600–800 words to Victorian Minister for Sport. Must cite ≥3 sources with URLs, use Victorian data, address a social determinant, and propose measurable outcomes. Scaffold: Situation → Evidence → Recommendations (×2) → Success Metrics.</li>
           <li><strong>Option B — Multimodal Campaign:</strong> Target ONE high-risk group from Victorian data. Must include: campaign name, key message (evidence-based), visual concept description, target platform, and 100-word justification of design decisions.</li>
@@ -671,11 +899,12 @@
         </ul></div>
       </div>
       <div class="phase ph-evaluate">
-        <div class="phase-head"><span>📝 EVALUATE</span><span>10 min</span></div>
+        <div class="phase-head"><span>📝 MONITOR PROGRESS</span><span>10 min</span></div>
         <div class="phase-body"><ul>
           <li>Peer review using the Assessment Checklist (Section 6 of this guide). Partners check: evidence present? Audience clear? Call to action specific? Sources cited with URLs?</li>
           <li>Collect completed workbooks. Return with teacher feedback before report writing is finalised.</li>
-        </ul></div>
+        </ul>
+          <div class="screv"><strong>Review the success criteria.</strong> Students rate themselves against the three criteria before submitting, then name the one their draft evidences most weakly. That self-judgement is the self-regulation step.</div></div>
       </div>
     </div>
   </div>
@@ -876,7 +1105,57 @@
   </div>
 
   <!-- ═══════════════ SECTION 7: DIFFERENTIATION ═══════════════ -->
-  <div id="diff" class="sec-banner"><div class="sn">7</div><h2>Differentiation &amp; Inclusion</h2></div>
+  <div id="diff" class="sec-banner"><div class="sn">7</div>
+  <p style="font-size:.88rem;line-height:1.6;color:#3f4a5c;margin:14px 0 4px;">Before teaching this unit, read the <a href="water_safety_cultural_considerations.html">cultural safety protocol</a> &mdash; advance notice, opt-outs, First Nations protocols around deceased persons, and what to do if a student discloses.</p><h2>Differentiation &amp; Inclusion</h2></div>
+
+    <div class="iep">
+      <h4>Where this sits in your planning &mdash; reasonable adjustments and IEPs</h4>
+      <p>Everything in this section is provision you can record as a <strong>reasonable adjustment</strong>.
+      It is written here as teaching advice, but it maps directly onto the language of an Individual Education
+      Plan or student profile, so it can be lifted into planning you are already doing rather than sitting
+      alongside it as a separate thing.</p>
+      <table>
+        <tr><th style="width:27%">Adjustment type</th><th style="width:40%">What this unit already supplies</th>
+        <th style="width:33%">Record it as</th></tr>
+        <tr><td><strong>Presentation of content</strong></td>
+        <td>Simplified and scaffolded workbook versions; visual guides and posters; the glossary;
+        multilingual parent information.</td>
+        <td>Modified text complexity; visual and first-language support.</td></tr>
+        <tr><td><strong>Student response</strong></td>
+        <td>Sentence starters and word banks; oral alternatives to written responses; three assessment task
+        options; choice of campaign format.</td>
+        <td>Alternative response mode; scaffolded written output.</td></tr>
+        <tr><td><strong>Participation</strong></td>
+        <td>The non-swimmer pathway and the dry-land delivery of the whole unit; buddy pairing in practical
+        sessions; the option to step out of content that touches personal loss.</td>
+        <td>Adjusted participation with equivalent learning outcomes.</td></tr>
+        <tr><td><strong>Time and pacing</strong></td>
+        <td>Stated phase timings you can extend; activities that can be split across lessons; Activity 6.3 able
+        to run as homework.</td>
+        <td>Extended time; reduced task volume at the same standard.</td></tr>
+        <tr><td><strong>Extension</strong></td>
+        <td>Extension workbook versions; primary-source tasks; the evidence-hierarchy and transfer questions in
+        the interleaved retrieval set.</td>
+        <td>Extension against the same content descriptions.</td></tr>
+      </table>
+      <p style="margin-top:12px"><strong>Two things worth saying plainly.</strong> First, an adjustment is
+      about access, not about lowering the standard &mdash; a student using a scaffolded workbook is working
+      towards the same content descriptions as everyone else, and should be assessed against them. Second,
+      adjust per task and per student, not per label: the same student may need the scaffolded version for the
+      data activities and the standard version for the rescue content, in the same lesson.</p>
+      <p>For a student working towards the Foundation achievement standard, the Victorian Curriculum
+      <strong>Levels A&ndash;D</strong> are the planning reference rather than the Levels 7&ndash;10 content
+      descriptions &mdash; the water safety content still applies, sequenced differently.</p>
+      <p>Pair high expectations with the support that makes them reachable. The department&rsquo;s framing is
+      worth saying out loud to students: <em>&ldquo;I know you can do this&rdquo;</em> together with
+      <em>&ldquo;I&rsquo;ll help you learn how.&rdquo;</em> Water safety is an area where low expectations do
+      measurable harm &mdash; a student written off as a non-swimmer is a student who leaves school without the
+      content most likely to save their life.</p>
+      <p class="fine">VTLM 2.0: <em>Inclusive learning</em>, Practice 1 &mdash; maintain high expectations,
+      enable full participation. Departmental supports: the Diverse Learners Hub, Disability Inclusion funding,
+      and your school&rsquo;s wellbeing team for IEP processes.</p>
+    </div>
+
 
   <div class="diff-grid">
     <div class="diff-card">
@@ -920,6 +1199,42 @@
   </div>
 
   <!-- ═══════════════ SECTION 8: BACKGROUND ═══════════════ -->
+  
+    <div class="ps4">
+      <h4>A named process for analysis tasks &mdash; Read, Risk, Respond, Review</h4>
+      <p>This unit asks students to analyse scenarios, case studies and hazard maps repeatedly, and until now
+      it never told them <em>how</em>. &ldquo;Analyse this scenario&rdquo; is an instruction to produce an
+      output, not a method for producing it, and students without a method default to narrating what happened.
+      Four steps, taught once and then named every time:</p>
+      <table>
+        <tr><th style="width:15%">Step</th><th style="width:38%">The question students ask themselves</th>
+        <th style="width:47%">What it stops them doing</th></tr>
+        <tr><td><strong>Read</strong></td>
+        <td>What is actually happening here, and what do I already know that fits?</td>
+        <td>Answering a scenario they have half-invented. Most wrong answers are a correct response to a
+        different situation.</td></tr>
+        <tr><td><strong>Risk</strong></td>
+        <td>What is the hazard, who is exposed to it, and what makes it dangerous?</td>
+        <td>Jumping to a response before naming what the danger actually is.</td></tr>
+        <tr><td><strong>Respond</strong></td>
+        <td>What are my options, and which is safest for me <em>and</em> for them?</td>
+        <td>Offering the first idea. &ldquo;Safest for me as well&rdquo; is the clause that rules out the swim
+        rescue.</td></tr>
+        <tr><td><strong>Review</strong></td>
+        <td>Would that have worked? What would I change?</td>
+        <td>Treating the first answer as the final one.</td></tr>
+      </table>
+      <div class="warn"><strong>Say this out loud, or it will cause confusion.</strong> This unit now contains
+      two four-part frameworks and students will conflate them. <strong>DRS ABCD is what you do in the water,
+      in an emergency, in that order.</strong> <strong>Read&ndash;Risk&ndash;Respond&ndash;Review is how you
+      think about a situation on paper</strong>, in class, when there is time. One is an action sequence; the
+      other is an analysis method. Teach the distinction explicitly the first time you use the second one, and
+      do not introduce them in the same lesson.</div>
+      <p style="margin-top:11px">Model it on one scenario card with a think-aloud, then name the steps each
+      time students use it. The point is that they can say which step they are on &mdash; a process students
+      cannot name is not a process they can transfer.</p>
+    </div>
+
   <div id="bg" class="sec-banner"><div class="sn">8</div><h2>Teacher Background Notes</h2></div>
 
   <div class="card">
@@ -952,7 +1267,16 @@
   </div>
 
   <!-- ═══════════════ SECTION 9: RESOURCES ═══════════════ -->
-  <div id="resources" class="sec-banner"><div class="sn">9</div><h2>Resources &amp; Sources</h2></div>
+  <div id="resources" class="sec-banner"><div class="sn">9</div>
+  <p style="font-size:.88rem;line-height:1.62;color:#3f4a5c;margin:16px 0 6px;">
+  <strong>Companion references for this unit:</strong>
+  <a href="water_safety_vtlm_alignment.html">VTLM 2.0 Alignment Guide</a> (how these lessons map to the model,
+  and what they do not evidence) &middot;
+  <a href="water_safety_curriculum_coverage.html">Curriculum Coverage Map</a> (which codes this unit teaches)
+  &middot; <a href="water_safety_revision_guide.html">How to Revise Water Safety</a> (student handout) &middot;
+  <a href="advanced_water_safety_year910_community_project.html">Community Action Project Guide</a>
+  (now carries the six-step research scaffold).</p>
+<h2>Resources &amp; Sources</h2></div>
 
   <div class="res-row"><strong>Life Saving Victoria — Drowning Reports</strong><br><a href="https://lsv.com.au/what-we-do/research-advocacy">https://lsv.com.au/what-we-do/research-advocacy</a> · Primary data source for all Victorian statistics</div>
   <div class="res-row"><strong>LSV Classroom Toolkit</strong><br><a href="https://lsv.com.au/toolkit">https://lsv.com.au/toolkit</a> · Free lessons aligned to Victorian Curriculum 2.0</div>

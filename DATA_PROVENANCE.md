@@ -29,16 +29,16 @@ These change every year. This is the core update list.
 
 | ID | Figure | Current value | Source | Files | 
 |---|---|---|---|---|
-| VIC-01 | Victorian fatal drownings | **52** | LSV 2024–25, p.8 | 20 — `advanced_water_safety_year910_extension.html`<br>`advanced_water_safety_year910_quiz_bank.html`<br>`advanced_water_safety_year910_scaffolded.html`<br>`advanced_water_safety_year910_teacher.html`<br>`advanced_water_safety_year910_workbook.html`<br>`copyright_licensing.html`<br>`index.html`<br>`swim_safety_lesson_outline_year7.html`<br>`swim_safety_student_workbook.html`<br>`swim_safety_student_workbook_PRINT.html`<br>`swim_safety_teacher_workbook.html`<br>`swim_safety_workbook_extension.html`<br>`swim_safety_workbook_simplified.html`<br>`water_safety_debate_framework.html`<br>`water_safety_glossary.html`<br>`water_safety_interactive_quiz.html`<br>`water_safety_parent_info_multilingual.html`<br>`water_safety_parent_info_sheet.html`<br>`water_safety_quiz_question_bank.html`<br>`water_safety_resource_directory.html` |
+| VIC-01 | Victorian fatal drownings | **52** | LSV 2024–25, p.8 | 21 — `advanced_water_safety_year910_extension.html`<br>`advanced_water_safety_year910_quiz_bank.html`<br>`advanced_water_safety_year910_scaffolded.html`<br>`advanced_water_safety_year910_teacher.html`<br>`advanced_water_safety_year910_workbook.html`<br>`copyright_licensing.html`<br>`index.html`<br>`swim_safety_lesson_outline_year7.html`<br>`swim_safety_student_workbook.html`<br>`swim_safety_student_workbook_PRINT.html`<br>`swim_safety_teacher_workbook.html`<br>`swim_safety_workbook_extension.html`<br>`swim_safety_workbook_simplified.html`<br>`water_safety_debate_framework.html`<br>`water_safety_glossary.html`<br>`water_safety_interactive_quiz.html`<br>`water_safety_parent_info_multilingual.html`<br>`water_safety_parent_info_sheet.html`<br>`water_safety_quiz_question_bank.html`<br>`water_safety_resource_directory.html`<br>`water_safety_revision_guide.html` |
 | VIC-02 | Victorian fatal drowning rate | **0.75 per 100,000** | LSV 2024–25, p.8 | 8 — `advanced_water_safety_year910_data_pack.html`<br>`advanced_water_safety_year910_extension.html`<br>`advanced_water_safety_year910_quiz_bank.html`<br>`advanced_water_safety_year910_scaffolded.html`<br>`advanced_water_safety_year910_teacher.html`<br>`swim_safety_workbook_extension.html`<br>`water_safety_glossary.html`<br>`water_safety_interactive_quiz.html` |
 | VIC-03 | Ten-year average (fatal) | **48** | LSV 2024–25, p.6 | 10 — `advanced_water_safety_year910_scaffolded.html`<br>`advanced_water_safety_year910_workbook.html`<br>`index.html`<br>`swim_safety_teacher_workbook.html`<br>`swim_safety_workbook_extension.html`<br>`water_safety_debate_framework.html`<br>`water_safety_parent_info_multilingual.html`<br>`water_safety_parent_info_sheet.html`<br>`water_safety_quiz_question_bank.html`<br>`water_safety_resource_directory.html` |
 | VIC-04 | Variance on ten-year average | **+9%** | LSV 2024–25, p.6 | 11 — `advanced_water_safety_year910_scaffolded.html`<br>`advanced_water_safety_year910_workbook.html`<br>`index.html`<br>`swim_safety_student_workbook_PRINT.html`<br>`swim_safety_teacher_workbook.html`<br>`swim_safety_workbook_extension.html`<br>`water_safety_debate_framework.html`<br>`water_safety_parent_info_multilingual.html`<br>`water_safety_parent_info_sheet.html`<br>`water_safety_quiz_question_bank.html`<br>`water_safety_resource_directory.html` |
 | VIC-05 | Male / female split | **38 / 14 (73% male)** | LSV 2024–25, p.8 | 11 — `advanced_water_safety_year910_extension.html`<br>`advanced_water_safety_year910_quiz_bank.html`<br>`advanced_water_safety_year910_scaffolded.html`<br>`advanced_water_safety_year910_teacher.html`<br>`swim_safety_student_workbook.html`<br>`swim_safety_student_workbook_PRINT.html`<br>`swim_safety_teacher_workbook.html`<br>`swim_safety_workbook_extension.html`<br>`water_safety_debate_framework.html`<br>`water_safety_glossary.html`<br>`water_safety_interactive_quiz.html` |
-| VIC-06 | Aged 15–24 | **7 deaths (~1 in 8); rate +21%** | LSV 2024–25, p.16 | 8 — `swim_safety_lesson_outline_year7.html`<br>`swim_safety_student_workbook.html`<br>`swim_safety_student_workbook_PRINT.html`<br>`swim_safety_teacher_workbook.html`<br>`water_safety_parent_info_multilingual.html`<br>`water_safety_parent_info_sheet.html`<br>`water_safety_quiz_question_bank.html`<br>`water_safety_resource_directory.html` |
+| VIC-06 | Aged 15–24 | **7 deaths (~1 in 8); rate +21%** | LSV 2024–25, p.16 | 9 — `swim_safety_lesson_outline_year7.html`<br>`swim_safety_student_workbook.html`<br>`swim_safety_student_workbook_PRINT.html`<br>`swim_safety_teacher_workbook.html`<br>`water_safety_parent_info_multilingual.html`<br>`water_safety_parent_info_sheet.html`<br>`water_safety_quiz_question_bank.html`<br>`water_safety_resource_directory.html`<br>`water_safety_revision_guide.html` |
 | VIC-07 | Non-fatal drownings | **123 (+37%)** | LSV 2024–25, p.10 | 1 — `index.html` |
-| VIC-08 | Public pool deaths | **0 — first since 2019–20** | LSV 2024–25, p.7 | 18 — `advanced_water_safety_year910_guest_speaker.html`<br>`advanced_water_safety_year910_quiz_bank.html`<br>`advanced_water_safety_year910_scaffolded.html`<br>`advanced_water_safety_year910_teacher.html`<br>`advanced_water_safety_year910_workbook.html`<br>`index.html`<br>`swim_safety_lesson_outline_year7.html`<br>`swim_safety_student_workbook.html`<br>`swim_safety_student_workbook_PRINT.html`<br>`swim_safety_teacher_workbook.html`<br>`swim_safety_workbook_extension.html`<br>`swim_safety_workbook_simplified.html`<br>`water_safety_cultural_considerations.html`<br>`water_safety_glossary.html`<br>`water_safety_interactive_quiz.html`<br>`water_safety_parent_info_multilingual.html`<br>`water_safety_parent_info_sheet.html`<br>`water_safety_quiz_question_bank.html` |
-| VIC-09 | Home environment share | **25%** | LSV 2024–25, p.8 | 8 — `advanced_water_safety_year910_scaffolded.html`<br>`advanced_water_safety_year910_workbook.html`<br>`index.html`<br>`swim_safety_student_workbook.html`<br>`swim_safety_student_workbook_PRINT.html`<br>`swim_safety_workbook_extension.html`<br>`water_safety_glossary.html`<br>`water_safety_quiz_question_bank.html` |
-| VIC-10 | Location split | **Coastal 38% / Inland 29% / Home 25%** | LSV 2024–25, p.8 | 2 — `swim_safety_teacher_workbook.html`<br>`swim_safety_workbook_extension.html` |
+| VIC-08 | Public pool deaths | **0 — first since 2019–20** | LSV 2024–25, p.7 | 19 — `advanced_water_safety_year910_guest_speaker.html`<br>`advanced_water_safety_year910_quiz_bank.html`<br>`advanced_water_safety_year910_scaffolded.html`<br>`advanced_water_safety_year910_teacher.html`<br>`advanced_water_safety_year910_workbook.html`<br>`index.html`<br>`swim_safety_lesson_outline_year7.html`<br>`swim_safety_student_workbook.html`<br>`swim_safety_student_workbook_PRINT.html`<br>`swim_safety_teacher_workbook.html`<br>`swim_safety_workbook_extension.html`<br>`swim_safety_workbook_simplified.html`<br>`water_safety_cultural_considerations.html`<br>`water_safety_glossary.html`<br>`water_safety_interactive_quiz.html`<br>`water_safety_parent_info_multilingual.html`<br>`water_safety_parent_info_sheet.html`<br>`water_safety_quiz_question_bank.html`<br>`water_safety_revision_guide.html` |
+| VIC-09 | Home environment share | **25%** | LSV 2024–25, p.8 | 9 — `advanced_water_safety_year910_scaffolded.html`<br>`advanced_water_safety_year910_workbook.html`<br>`index.html`<br>`swim_safety_student_workbook.html`<br>`swim_safety_student_workbook_PRINT.html`<br>`swim_safety_workbook_extension.html`<br>`water_safety_glossary.html`<br>`water_safety_quiz_question_bank.html`<br>`water_safety_revision_guide.html` |
+| VIC-10 | Location split | **Coastal 38% / Inland 29% / Home 25%** | LSV 2024–25, p.8 | 3 — `swim_safety_teacher_workbook.html`<br>`swim_safety_workbook_extension.html`<br>`water_safety_revision_guide.html` |
 
 ---
 
@@ -48,7 +48,7 @@ Updated October 2026 to the National Drowning Report 2026 (covering 1 July 2025 
 
 | ID | Figure | Current value | Source | Files |
 |---|---|---|---|---|
-| NAT-01 | Australian fatal drowning rate | **1.13 per 100,000** (2025/26); ten-year average **1.12** (a 0.9% increase) | RLSSA National Drowning Report 2026, p.6 | 10 |
+| NAT-01 | Australian fatal drowning rate | **1.13 per 100,000** (2025/26); ten-year average **1.12** (a 0.9% increase) | RLSSA National Drowning Report 2026, p.6 | 11 |
 | NAT-02 | National drowning deaths | **313** (2025/26), 10% above the ten-year average of **284** | RLSSA NDR 2026, p.6 | 3 |
 | NAT-03 | Born overseas, nationally | **39%** of those who drowned, from the **61%** of cases where country of birth was known | RLSSA NDR 2026, p.6 | 1 |
 | NAT-04 | National location split | Coastal **151 (48%)**, up 16% on the ten-year average of 130; inland waterways **90 (29%)**, down 8% on 98; swimming pools **41 (13%)**, up 24% on 33 | RLSSA NDR 2026, p.34–35 | 3 |
@@ -58,7 +58,7 @@ Updated October 2026 to the National Drowning Report 2026 (covering 1 July 2025 
 | NAT-08 | Older adults | 65+ account for **30%** of deaths; the 65–74 cohort has the highest rate of any group at **2.33 per 100,000**, 54% above its ten-year average | RLSSA NDR 2026, p.4–6 | reference |
 | NAT-09 | National summer toll | **81 deaths** (1 Dec 2025 – 28 Feb 2026), down 22% on the previous summer; 91% male; 57% aged over 55 | RLSSA NDR 2026, p.105 | reference |
 | GLOB-01 | Global drowning deaths | **~300,000** a year; **92%** in low- and middle-income countries; global rate 3.8 per 100,000, down 38% since 2000 | WHO drowning fact sheet (Dec 2024) | 9 |
-| VIC-11 | Multicultural communities, Victoria | **185 deaths since 2015–16 = 37%** of all drowning deaths; country of birth unknown in 22% of cases; 12 deaths in 2024–25 | LSV 2024–25, p.20 | 14 |
+| VIC-11 | Multicultural communities, Victoria | **185 deaths since 2015–16 = 37%** of all drowning deaths; country of birth unknown in 22% of cases; 12 deaths in 2024–25 | LSV 2024–25, p.20 | 16 |
 | VIC-12 | Fishing-related deaths, multicultural | **58%** since 2015–16 | LSV 2024–25, p.20 | 4 |
 | VIC-13 | Male / female rate | **1.11** vs **0.40** per 100,000 | LSV 2024–25, p.6 | 2 |
 | VIC-14 | Victoria cross-check (national source) | **53 deaths** in 2025/26 at **0.75 per 100,000** — no change against Victoria’s own ten-year average of 0.75; 83% male; ocean–harbour 28%, rivers–creeks 23%, pools 21% | RLSSA NDR 2026, p.88 | 2 |
@@ -112,6 +112,12 @@ One further correction, made in September 2026: a Year 9–10 extension task ask
 
 ---
 
+> **New in October 2026.** `water_safety_revision_guide.html` carries Victorian figures in its self-quiz answers (questions 1–4). It is a student handout, so a stale figure there is read by students without a teacher mediating it — update it in the same pass as the workbooks.
+
+> **Interleaved retrieval sets, October 2026.** Both question banks now carry a 12-question interleaved set at the end (`IL1`–`IL12`). The Year 9–10 set quotes the Victorian and national rates, the 37% multicultural figure and its 22% unknown caveat; the Year 7–8 set quotes the home-environment share. Update these with the rest — a question bank is the easiest place for a stale figure to survive, because nobody re-reads it.
+
+> The Year 9–10 community project guide now carries the 22%-unknown caveat inside its research scaffold (step 4). Update it with VIC-11.
+
 ## 4. Annual update procedure
 
 1. **Get the report.** lsv.com.au/what-we-do/research-advocacy
@@ -149,12 +155,31 @@ html = [f for f in glob.glob('*.html') if not f.startswith(('google','yandex'))]
 OLD = r'54 fatal|54 drowning|0\.78 per|46 of 54|1\.31 per 100,000'   # update each year
 checks = {
   'stale figures': OLD,
-  'false unpatrolled claim': r'[Aa]ll \d+ (?:Victorian )?(?:drowning )?deaths.{0,95}unpatrolled',
+  'false unpatrolled claim': r'[Aa]ll \d+ (?:Victorian )?(?:drowning )?deaths.{0,95}unpatrolled'
+                             r'|(?:zero|no) deaths at patrolled.{0,60}unpatrolled'
+                             r'|versus \d+ at unpatrolled',
   'dead LSV url': r'research/victorian-drowning-reports|toolkit/[a-z_]+\.php',
   'wrong parks domain': r'www\.park\.vic\.gov\.au',
 }
 for label, pat in checks.items():
     print(label, sum(1 for f in html if re.search(pat, open(f, encoding='utf-8').read())))
+
+# quiz options vs answer text: a figure corrected in the answer but left in the option
+import html as _h
+mism = 0
+for f in html:
+    src = open(f, encoding='utf-8').read()
+    for c in re.findall(r'<div class="q-card.*?(?=<div class="q-card|<h2|</section|</body>)', src, re.S):
+        co = re.search(r'<div class="option correct">(.*?)</div>', c, re.S)
+        an = re.search(r'<div class="answer-reveal">(.*?)(?:<br>|</div>)', c, re.S)
+        if not (co and an):
+            continue
+        cn = set(re.findall(r'\d+', _h.unescape(re.sub(r'<[^>]+>', '', co.group(1)))))
+        an_ = set(re.findall(r'\d+', _h.unescape(re.sub(r'<[^>]+>', '', an.group(1)))))
+        if cn and an_ and not (cn & an_):
+            mism += 1
+            print('  OPTION/ANSWER MISMATCH in', f, '->', co.group(1)[:40])
+print('quiz option/answer mismatches', mism)
 
 # citations and licence present in every page
 for tag in ['Data sources cited', '"license"']:
@@ -167,6 +192,11 @@ print('PDFs stale:', sum(1 for f in pdfs if re.search(OLD, txt(f))))
 print('PDFs missing licence:', sum(1 for f in pdfs if 'CC BY 4.0' not in txt(f)))
 print('PDFs missing citation:', sum(1 for f in pdfs if 'Victorian Drowning Report' not in txt(f)))
 ```
+
+---
+
+
+> **Added October 2026, after three live faults got past this script.** A question-bank option still read `B. 54` while its own answer line read `52`; the interactive quiz claimed "zero deaths at patrolled locations versus 54 at unpatrolled", which is both the discredited unpatrolled claim in a new wording and a stale figure; and a quiz question asked for deaths at *patrolled locations* while its feedback answered for *public swimming pools*. The option/answer check and the two extra `false unpatrolled claim` alternatives above exist because of those three. When a figure changes, grep the option text as well as the prose.
 
 ---
 
