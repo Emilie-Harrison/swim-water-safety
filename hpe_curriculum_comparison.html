@@ -93,6 +93,59 @@ a{color:var(--blue)}
 footer{margin-top:52px;padding:22px 0;border-top:1px solid var(--border);font-size:.8rem;color:var(--muted)}
 @media(max-width:640px){table{font-size:.78rem}td,thead th{padding:8px 9px}}
 @media print{body{background:#fff}.cover{background:var(--navy)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.card{break-inside:avoid}tr{break-inside:avoid}}
+/* print-hardening v2 */
+@media print {
+  /* ---- tables: the main fault ---------------------------------------- */
+  /* A long table may span pages; a row may not split, and every continuation
+     page repeats the header so the columns stay readable. */
+  table { break-inside: auto; page-break-inside: auto; }
+  thead { display: table-header-group; }
+  tfoot { display: table-footer-group; }
+  tr    { break-inside: avoid; page-break-inside: avoid; }
+  th, td { break-inside: avoid; page-break-inside: avoid; }
+  /* Long URLs otherwise claim column width and squeeze the prose columns to
+     three or four characters per line. A 92-character policy URL in the
+     teacher workbook was taking 55% of the table. break-all is what collapses
+     the min-content width; overflow-wrap alone does not, so auto table layout
+     keeps sizing the column to the longest URL. */
+  td, th { overflow-wrap: break-word; }
+  /* anywhere, not break-all: break-all overrides the <wbr> break points
+     inserted after path separators and chops the domain mid-word. anywhere
+     still collapses the min-content width, which is what frees the column. */
+  td[style*="monospace"], th[style*="monospace"], td[style*="Mono"],
+  td code, th code, td a[href], .url, .link
+    { overflow-wrap: anywhere; }
+  td code, th code { font-size: .82em; }
+
+  /* ---- headings must not end a page -------------------------------- */
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; page-break-after: avoid;
+                           break-inside: avoid; page-break-inside: avoid; }
+  h2 + *, h3 + *, h4 + * { break-before: avoid; page-break-before: avoid; }
+
+  /* ---- paragraphs and lists ----------------------------------------- */
+  p  { orphans: 3; widows: 3; }
+  li { break-inside: avoid; page-break-inside: avoid; orphans: 2; widows: 2; }
+  dt { break-after: avoid; page-break-after: avoid; }
+  dd { break-before: avoid; page-break-before: avoid; }
+
+  /* ---- blocks that read as one unit --------------------------------- */
+  /* Deliberately not .card: several cards run longer than a page, and forcing
+     avoid on those pushes them to a fresh page and then breaks them anyway,
+     costing a page of whitespace for nothing. */
+  figure, .note-box, .callout, .alert, .tip, .warning, .chip, .q-block,
+  .term-card, .scenario-card, .phase-card, .q-card, .stat-box, .stat,
+  .success-criteria, .sc-check, .il-sec, .rubric-row, .step-box, .drs-cell,
+  .flag-card, .rule-card, .quiz-q, .activity, .station
+    { break-inside: avoid; page-break-inside: avoid; }
+
+  /* ---- colour fidelity ---------------------------------------------- */
+  /* Header bands and coloured cells are how several tables are read; without
+     this they print as white-on-white in some engines. */
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* ---- keep images whole ------------------------------------------- */
+  img, svg { break-inside: avoid; page-break-inside: avoid; max-width: 100%; }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -195,7 +248,7 @@ footer{margin-top:52px;padding:22px 0;border-top:1px solid var(--border);font-si
 <td><span class="code">AC9HP8P10</span><br><span class="note">plan and implement strategies, using health resources, to enhance their own and others’ health, safety, relationships and wellbeing</span></td>
 <td><span class="flag ok">identical</span></td></tr>
 <tr>
-<td><span class="code vic">VC2HP8M01</span><br><span class="note">AC9HP8M01&quot;, &quot;VC2HP8M02&quot;: &quot;AC9HP8M02&quot;, &quot;VC2HP8M03&quot;: &quot;AC9HP8M03</span></td>
+<td><span class="code vic">VC2HP8M01</span><br><span class="note">refine and transfer movement skills in a variety of movement situations, including indoor, outdoor and aquatic settings</span></td>
 <td><span class="code">AC9HP8M01</span><br><span class="note">analyse, refine and transfer movement skills in a variety of movement situations</span></td>
 <td><div class="note">Victoria names “indoor, outdoor and aquatic settings”. The AC wording does not specify aquatic. Victoria also drops “analyse” from the verb group.</div></td></tr>
 <tr>
@@ -207,7 +260,7 @@ footer{margin-top:52px;padding:22px 0;border-top:1px solid var(--border);font-si
 <td><span class="code">AC9HP8M03</span><br><span class="note">demonstrate and explain how movement concepts related to effort, space, time, objects and people can be manipulated to improve movement outcomes</span></td>
 <td><span class="flag ok">identical</span></td></tr>
 <tr>
-<td><span class="code vic">VC2HP8M04</span><br><span class="note">(no AC equivalent)&quot;, &quot;VC2HP8M05&quot;: &quot;AC9HP8M04&quot;, &quot;VC2HP8M06&quot;: &quot;AC9HP8M05</span></td>
+<td><span class="code vic">VC2HP8M04</span><br><span class="note">adapt and perform movement sequences in a variety of contexts, demonstrating how the movement elements of time, effort, space, people and objects can enhance performance</span></td>
 <td><span class="none">No equivalent</span><br><span class="note">—</span></td>
 <td><div class="note">VICTORIAN ONLY. Requires students to adapt and perform movement sequences using the movement elements. There is no AC v9.0 equivalent. All subsequent Victorian M codes are offset by one because of it.</div></td></tr>
 <tr>
@@ -219,7 +272,7 @@ footer{margin-top:52px;padding:22px 0;border-top:1px solid var(--border);font-si
 <td><span class="code">AC9HP8M05</span><br><span class="note">participate in physical activities that utilise community spaces and outdoor settings, and evaluate strategies to support increased use of these spaces</span></td>
 <td><div class="note">Offset by one. Victoria adds “aquatic settings” and the word “safely”.</div></td></tr>
 <tr>
-<td><span class="code vic">VC2HP8M07</span><br><span class="note">AC9HP8M06&quot;, &quot;VC2HP8M08&quot;: &quot;AC9HP8M07&quot;, &quot;VC2HP8M09&quot;: &quot;AC9HP8M08</span></td>
+<td><span class="code vic">VC2HP8M07</span><br><span class="note">design and justify a physical activity plan that incorporates strategies to increase physical activity levels to achieve health and wellbeing outcomes</span></td>
 <td><span class="code">AC9HP8M06</span><br><span class="note">design and justify strategies to increase physical activity levels to achieve health and wellbeing outcomes</span></td>
 <td><div class="note">Offset by one. Victoria requires a written, justified physical activity plan rather than strategies in general.</div></td></tr>
 <tr>
@@ -281,7 +334,7 @@ footer{margin-top:52px;padding:22px 0;border-top:1px solid var(--border);font-si
 <td><span class="code">AC9HP10P10</span><br><span class="note">plan, justify and critique strategies to enhance their own and others’ health, safety, relationships and wellbeing</span></td>
 <td><div class="note">Victoria adds the community dimension to the AC’s self-and-others framing.</div></td></tr>
 <tr>
-<td><span class="code vic">VC2HP10M01</span><br><span class="note">AC9HP10M01&quot;, &quot;VC2HP10M02&quot;: &quot;AC9HP10M02&quot;, &quot;VC2HP10M03&quot;: &quot;AC9HP10M03</span></td>
+<td><span class="code vic">VC2HP10M01</span><br><span class="note">analyse, apply and adapt their own and others’ movement skills in a range of challenging movement situations to enhance performance in indoor, outdoor and aquatic settings</span></td>
 <td><span class="code">AC9HP10M01</span><br><span class="note">analyse, adapt and refine their own and others’ movement skills in a range of challenging movement situations to enhance performance</span></td>
 <td><div class="note">Victoria names “indoor, outdoor and aquatic settings”. The AC wording does not.</div></td></tr>
 <tr>
@@ -293,7 +346,7 @@ footer{margin-top:52px;padding:22px 0;border-top:1px solid var(--border);font-si
 <td><span class="code">AC9HP10M03</span><br><span class="note">apply movement concepts in new or challenging movement situations and analyse the impact each concept has on movement outcomes</span></td>
 <td><span class="flag ok">identical</span></td></tr>
 <tr>
-<td><span class="code vic">VC2HP10M04</span><br><span class="note">(no AC equivalent)&quot;, &quot;VC2HP10M05&quot;: &quot;AC9HP10M04&quot;, &quot;VC2HP10M06&quot;: &quot;AC9HP10M05</span></td>
+<td><span class="code vic">VC2HP10M04</span><br><span class="note">evaluate their own and others’ movement compositions and provide and apply feedback to enhance performance, including the impact of the movement elements of time, effort, space, people and objects</span></td>
 <td><span class="none">No equivalent</span><br><span class="note">—</span></td>
 <td><div class="note">VICTORIAN ONLY. Requires students to evaluate movement compositions and apply feedback. No AC v9.0 equivalent. Creates the one-position offset for everything below.</div></td></tr>
 <tr>
@@ -305,7 +358,7 @@ footer{margin-top:52px;padding:22px 0;border-top:1px solid var(--border);font-si
 <td><span class="code">AC9HP10M05</span><br><span class="note">participate in physical activities that promote health and social outcomes to design and evaluate participation strategies for themselves and others</span></td>
 <td><div class="note">Offset by one. Victoria specifies outdoor environments and aquatic settings and adds safety outcomes.</div></td></tr>
 <tr>
-<td><span class="code vic">VC2HP10M07</span><br><span class="note">AC9HP10M06&quot;, &quot;VC2HP10M08&quot;: &quot;AC9HP10M07&quot;, &quot;VC2HP10M09&quot;: &quot;AC9HP10M08</span></td>
+<td><span class="code vic">VC2HP10M07</span><br><span class="note">design, implement and evaluate personalised plans for improving or maintaining their own or others’ physical activity levels to achieve health-related fitness, health and wellbeing outcomes</span></td>
 <td><span class="code">AC9HP10M06</span><br><span class="note">design, implement and evaluate personalised plans for improving or maintaining their own or others’ physical activity levels to achieve fitness, health and wellbeing outcomes</span></td>
 <td><div class="note">Offset by one. Victoria specifies health-related fitness.</div></td></tr>
 <tr>

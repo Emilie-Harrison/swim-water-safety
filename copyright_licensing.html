@@ -93,6 +93,59 @@ a{color:var(--blue)}
 footer{margin-top:52px;padding:22px 0;border-top:1px solid var(--border);font-size:.8rem;color:var(--muted)}
 @media(max-width:640px){table{font-size:.78rem}td,thead th{padding:8px 9px}}
 @media print{body{background:#fff}.cover{background:var(--navy)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.card{break-inside:avoid}tr{break-inside:avoid}}
+/* print-hardening v2 */
+@media print {
+  /* ---- tables: the main fault ---------------------------------------- */
+  /* A long table may span pages; a row may not split, and every continuation
+     page repeats the header so the columns stay readable. */
+  table { break-inside: auto; page-break-inside: auto; }
+  thead { display: table-header-group; }
+  tfoot { display: table-footer-group; }
+  tr    { break-inside: avoid; page-break-inside: avoid; }
+  th, td { break-inside: avoid; page-break-inside: avoid; }
+  /* Long URLs otherwise claim column width and squeeze the prose columns to
+     three or four characters per line. A 92-character policy URL in the
+     teacher workbook was taking 55% of the table. break-all is what collapses
+     the min-content width; overflow-wrap alone does not, so auto table layout
+     keeps sizing the column to the longest URL. */
+  td, th { overflow-wrap: break-word; }
+  /* anywhere, not break-all: break-all overrides the <wbr> break points
+     inserted after path separators and chops the domain mid-word. anywhere
+     still collapses the min-content width, which is what frees the column. */
+  td[style*="monospace"], th[style*="monospace"], td[style*="Mono"],
+  td code, th code, td a[href], .url, .link
+    { overflow-wrap: anywhere; }
+  td code, th code { font-size: .82em; }
+
+  /* ---- headings must not end a page -------------------------------- */
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; page-break-after: avoid;
+                           break-inside: avoid; page-break-inside: avoid; }
+  h2 + *, h3 + *, h4 + * { break-before: avoid; page-break-before: avoid; }
+
+  /* ---- paragraphs and lists ----------------------------------------- */
+  p  { orphans: 3; widows: 3; }
+  li { break-inside: avoid; page-break-inside: avoid; orphans: 2; widows: 2; }
+  dt { break-after: avoid; page-break-after: avoid; }
+  dd { break-before: avoid; page-break-before: avoid; }
+
+  /* ---- blocks that read as one unit --------------------------------- */
+  /* Deliberately not .card: several cards run longer than a page, and forcing
+     avoid on those pushes them to a fresh page and then breaks them anyway,
+     costing a page of whitespace for nothing. */
+  figure, .note-box, .callout, .alert, .tip, .warning, .chip, .q-block,
+  .term-card, .scenario-card, .phase-card, .q-card, .stat-box, .stat,
+  .success-criteria, .sc-check, .il-sec, .rubric-row, .step-box, .drs-cell,
+  .flag-card, .rule-card, .quiz-q, .activity, .station
+    { break-inside: avoid; page-break-inside: avoid; }
+
+  /* ---- colour fidelity ---------------------------------------------- */
+  /* Header bands and coloured cells are how several tables are read; without
+     this they print as white-on-white in some engines. */
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* ---- keep images whole ------------------------------------------- */
+  img, svg { break-inside: avoid; page-break-inside: avoid; max-width: 100%; }
+}
 </style>
 <script type="application/ld+json">
 {
