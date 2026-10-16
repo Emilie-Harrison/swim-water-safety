@@ -118,6 +118,8 @@ One further correction, made in September 2026: a Year 9–10 extension task ask
 
 > The Year 9–10 community project guide now carries the 22%-unknown caveat inside its research scaffold (step 4). Update it with VIC-11.
 
+> **The PowerPoint decks are covered from October 2026.** Both decks were found still carrying Victorian Curriculum **v1.0** codes (`VCHPE…`), the banned "worst in over a decade" claim, a non-fatal figure of +60% against the correct +37%, the patrolled-sites framing, and a 1-in-5 / 20% figure for the 15–24 share against the correct 1-in-8 / 13%. They had been missed by every earlier pass because the audit script only reads `*.html` for claim patterns and `*.pdf` for stale figures. **When figures change, check `*.pptx` too** — unzip and grep `ppt/slides/slide*.xml`. The two deck PDFs are exports of these decks and inherit whatever the decks carry.
+
 ## 4. Annual update procedure
 
 1. **Get the report.** lsv.com.au/what-we-do/research-advocacy
@@ -180,6 +182,22 @@ for f in html:
             mism += 1
             print('  OPTION/ANSWER MISMATCH in', f, '->', co.group(1)[:40])
 print('quiz option/answer mismatches', mism)
+
+# the slide decks: same claim checks, against the packed slide XML
+import zipfile as _zf
+for deck in glob.glob('*.pptx'):
+    _t = ''
+    with _zf.ZipFile(deck) as _z:
+        for _n in _z.namelist():
+            if re.match(r'ppt/slides/slide\d+\.xml$', _n):
+                _t += _z.read(_n).decode('utf8')
+    for _lab, _pat in [('v1.0 codes', r'VCHPE'),
+                       ('banned decade claim', r'(worst|highest).{0,40}(decade|ten years)'),
+                       ('patrolled-sites framing', r'[Aa][Tt] PATROLLED SITES|at patrolled sites')]:
+        _n2 = len(re.findall(_pat, _t))
+        if _n2:
+            print(f'  DECK {deck}: {_lab} x{_n2}')
+print('decks checked:', len(glob.glob('*.pptx')))
 
 # citations and licence present in every page
 for tag in ['Data sources cited', '"license"']:
